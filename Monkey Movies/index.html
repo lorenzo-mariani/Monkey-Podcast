@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Monkey Movies</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    <body>
+        <div id="header-content">
+            <input type="button" class="log-button" value="Sign In">    <!-- Remember to add EventListener -->
+            <input type="button" class="log-button" value="Sign Up">    <!-- Remember to add EventListener -->
+            <div class="modal">
+                <form class="modal-content animate" action="#" method="post"> <!-- Remember to fill in the action field -->
+                    <div class="container">
+                        <label for="usr"><b>Username</b></label>
+                        <input type="text" placeholder="Enter Username" name="usr" required>
+                        <label for="pwd"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="pwd" required>
+                        <input type="submit" class="log-button" value="Sign In">
+                        <br>
+                        <input type="button" class="cancel" value="Cancel"> <!-- Remember to add EventListener -->
+                        <span class="forgot-pwd">
+                            <a href="#">Forgot password?</a> <!-- Remember to fill in the href field -->
+                        </span>
+                    </div>
+                </form>
+                <form class="modal-content animate" action="#" method="post"> <!-- Remember to fill in the action field -->
+                    <div class="container">
+                        <label for="usr"><b>Username</b></label>
+                        <input type="text" placeholder="Enter Username" name="usr" required>
+                        <label for="pwd"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="pwd" required>
+                        <label for="psw-repeat"><b>Repeat Password</b></label>
+                        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+                        <input type="submit" class="log-button" value="Sign Up">
+                        <br>
+                        <input type="button" class="cancel" value="Cancel"> <!-- Remember to add EventListener -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
