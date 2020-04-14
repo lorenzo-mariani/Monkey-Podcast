@@ -28,27 +28,34 @@ input[type=text], input[type=password] {
     display: inline-block;
     border: 1px solid darkgrey;
     box-sizing: border-box;
+    text-align: center;
 }
 		
 .cancel {
-    color: #FFFFFF;
+    color: white;
 	background-color: #9E0002;
 	width: auto;
-    padding: 10px 18px;
+    padding: 7px 10px;
+    cursor: pointer;
 }
 
 .log-button {
-    color: #FFFFFF;
+    color: white;
     background-color: #FC4204;
-	padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
+	padding: 7px 10px;
+    margin: 8px 8px;
+    border: 1.5px solid white;
     cursor: pointer;
-    width: 100%;
+    width: auto;
 }
 
 input[type=button]:hover, input[type=submit]:hover {
     opacity: 0.8;
+}
+
+label {
+    display: block;
+    text-align: center;
 }
 
 .forgot-pwd {

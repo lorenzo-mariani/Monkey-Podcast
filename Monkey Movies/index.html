@@ -8,37 +8,61 @@
     </head>
     <body>
         <div id="header-content">
-            <input type="button" class="log-button" value="Sign In">    <!-- Remember to add EventListener -->
-            <input type="button" class="log-button" value="Sign Up">    <!-- Remember to add EventListener -->
-            <div class="modal">
-                <form class="modal-content animate" action="#" method="post"> <!-- Remember to fill in the action field -->
-                    <div class="container">
+            <input id="header-signin" type="button" class="log-button" value="Sign In">
+            <input id="header-signup" type="button" class="log-button" value="Sign Up">
+            <div id="mod1" class="modal">
+                <form id="form1" class="modal-content animate" action="#" method="post"> <!-- Remember to fill in the action field -->
+                    <div id="signin-container" class="container">
                         <label for="usr"><b>Username</b></label>
                         <input type="text" placeholder="Enter Username" name="usr" required>
+                        <br><br>
                         <label for="pwd"><b>Password</b></label>
                         <input type="password" placeholder="Enter Password" name="pwd" required>
+                        <input id="canc1" type="button" class="cancel" value="Cancel">
                         <input type="submit" class="log-button" value="Sign In">
-                        <br>
-                        <input type="button" class="cancel" value="Cancel"> <!-- Remember to add EventListener -->
                         <span class="forgot-pwd">
                             <a href="#">Forgot password?</a> <!-- Remember to fill in the href field -->
                         </span>
                     </div>
                 </form>
-                <form class="modal-content animate" action="#" method="post"> <!-- Remember to fill in the action field -->
-                    <div class="container">
-                        <label for="usr"><b>Username</b></label>
+            </div>
+            <div id="mod2" class="modal">
+                <form id="form2" class="modal-content animate" action="#" method="post"> <!-- Remember to fill in the action field -->
+                    <div id="signup-container" class="container">
+                        <label for="usr"><b>Username:</b></label>
                         <input type="text" placeholder="Enter Username" name="usr" required>
-                        <label for="pwd"><b>Password</b></label>
+                        <br><br>
+                        <label for="pwd"><b>Password:</b></label>
                         <input type="password" placeholder="Enter Password" name="pwd" required>
-                        <label for="psw-repeat"><b>Repeat Password</b></label>
+                        <br><br>
+                        <label for="psw-repeat"><b>Repeat Password:</b></label>
                         <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+                        <input id="canc2" type="button" class="cancel" value="Cancel">
                         <input type="submit" class="log-button" value="Sign Up">
-                        <br>
-                        <input type="button" class="cancel" value="Cancel"> <!-- Remember to add EventListener -->
                     </div>
                 </form>
             </div>
         </div>
+        <script>
+            document.getElementById("header-signin").addEventListener("click", function()
+                                                             {
+                document.getElementById("mod1").style.display="block";
+            })
+            
+            document.getElementById("header-signup").addEventListener("click", function()
+                                                             {
+                document.getElementById("mod2").style.display="block";
+            })
+            
+            document.getElementById("canc1").addEventListener("click", function()
+                                                             {
+                document.getElementById("mod1").style.display="none";
+            })
+            
+            document.getElementById("canc2").addEventListener("click", function()
+                                                             {
+                document.getElementById("mod2").style.display="none";
+            })
+        </script>
     </body>
 </html>
