@@ -16,37 +16,49 @@ body {
     background-repeat: no-repeat;
 }
 
-#header-content {
+#header-buttons {
     float: right;
     margin: 20px;
 }
-		
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.btn {
+    color: white;
+	padding: 7px 10px;
+    margin: 8px 8px;
+    border: 1.5px solid darkred;
+    cursor: pointer;
+    width: auto;
+    border-radius: 4px;
+    background-color: transparent;
+}
+
+.cancel {
+    color: white;
+	background-color: darkred;
+	width: auto;
+    padding: 7px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
 input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid darkgrey;
+    border: 1.5px solid white;
     box-sizing: border-box;
     text-align: center;
-}
-		
-.cancel {
-    color: white;
-	background-color: #9E0002;
-	width: auto;
-    padding: 7px 10px;
-    cursor: pointer;
-}
-
-.log-button {
-    color: white;
-    background-color: #FC4204;
-	padding: 7px 10px;
-    margin: 8px 8px;
-    border: 1.5px solid white;
-    cursor: pointer;
-    width: auto;
+    border-radius: 4px;
+    background-color: transparent;
 }
 
 input[type=button]:hover, input[type=submit]:hover {
@@ -56,11 +68,6 @@ input[type=button]:hover, input[type=submit]:hover {
 label {
     display: block;
     text-align: center;
-}
-
-.forgot-pwd {
-    float: right;
-    padding-top: 16px;
 }
 
 .container {
@@ -81,10 +88,11 @@ label {
 }
 
 .modal-content {
-    background-color: white;
+    background-color: transparent;
     margin: 5% auto 15% auto;
-    border: 1px solid #888;
+    border: 1.5px solid darkred;
     width: 30%;
+    border-radius: 5px;
 }
 
 .animate {
