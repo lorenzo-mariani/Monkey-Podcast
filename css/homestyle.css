@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(img/background/background-home.jpg);
+    width: 100%;
+}
+
+.content {
+    overflow-y: hidden;
+}
+
+@font-face {
+    font-family: 'robotothin';
+    src: url('fonts/roboto-thin-webfont.woff2') format('woff2'),
+         url('fonts/roboto-thin-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+#logo {
+    width: 340px;
+    margin-top: 2vh;
+    margin-left: 2vw;
+}
+
+#logo:hover {
+    cursor: pointer;
+}
+
+.header {
+    width: 100%;
+    height: 15vh;
+    text-align: left;
+    position: fixed;
+}
+
+#search-bar {
+    margin-left: 20vh;
+    position: absolute;
+    margin-top: 40px;
+    width: 40vw;
+    height: 40px;
+    background-color: rgba(43, 43, 43, 0.5);
+    color: whitesmoke;
+    padding-left: 2vh;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+    box-shadow: inset 0 0 10px #14141496;
+}
+
+#user-button {
+    color: whitesmoke;
+    background-color: transparent;
+    border: none;
+    padding: 7px 10px;
+    border-radius: 4px;
+    margin-top: 5vh;
+    margin-right: 12vw;
+    float: right;
+    font-family: robotothin;
+    font-size: 17px
+}
+
+#user-button:hover {
+    cursor: pointer;
+}
+
+#profile-icon {
+    position: absolute;
+    top: 4.7vh;
+    right: 9vw;
+    height: 40px;
+}
+
+#profile-icon:hover {
+    cursor: pointer;
+}
+
+.thumbnail {
+    height: 21vh;
+    margin: 6vh 0vh;
+}
+
+.thumbnail:hover {
+    cursor: pointer;
+}
+
+#recent {
+    color: white;
+    position: fixed;
+    top: 130px;
+    margin-left: 60px;
+    font-size: 18px;
+    font-family: robotothin;
+    font-weight: bold;
+}
+
+.scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    margin-top: 14vh;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.scrolling-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.card {
+    display: inline-block;
+    padding: 20px;
+    text-align: center;
+    height: 34vh;
+    margin-top: 7vh;
+}
+
+#thumbnail {
+    width: 300px;
+}
+
+#thumbnail:hover {
+    cursor: pointer;
+}
+
+#podcast-title {
+    color: whitesmoke;
+    text-align: center;
+    padding-top: 10px;
+    font-family: robotothin;
+    font-weight: bold;
+}
+
+#podcast-title:hover {
+    cursor: pointer;
+}
+
+#logout-button {
+    color: whitesmoke;
+    position: absolute;
+    right: 2vw;
+    top: 5vh;
+    background-color: transparent;
+    border: none;
+    padding: 7px 10px;
+    border-radius: 4px;
+    font-family: robotothin;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.paragraph {
+    color: whitesmoke;
+    cursor: pointer;
+}

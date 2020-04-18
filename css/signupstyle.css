@@ -1,0 +1,66 @@
+@font-face {
+    font-family: 'robotothin';
+    src: url('fonts/roboto-thin-webfont.woff2') format('woff2'),
+         url('fonts/roboto-thin-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+#form-logo {
+    height: 100px;
+}
+
+.modal-content {
+    width: 500px;
+    height: 450px;
+    text-align: center;
+    padding: 20px;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+
+input {
+    width: 100%;
+    color: white;
+    background-color: black;
+    box-shadow: inset 0 0 3px rgb(39, 39, 39);
+    font-family: robotothin;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px 0;
+    border: none;
+    display: block;
+    margin: 60px auto;
+    height: 45px;
+    text-align: center;
+}
+
+#signup-submit {
+    color: whitesmoke;
+    background-color: rgb(151, 0, 0);
+    box-shadow: inset 0 0 10px rgba(56, 2, 2, 0.719);
+    border: none;
+    width: 100px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-family: robotothin;
+    font-weight: bolder;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+#back {
+    color: whitesmoke;
+    background-color: transparent;
+    border: none;
+    width: 100px;
+    padding: 10px 20px;
+    margin-right: 40px;
+    border-radius: 4px;
+    font-family: robotothin;
+    font-weight: bolder;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}

@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("img/background/background_image.jpg");
+    background-size: cover;
+    background-color: black;
+    background-repeat: no-repeat;
+}
+
+@font-face {
+    font-family: 'robotothin';
+    src: url('fonts/roboto-thin-webfont.woff2') format('woff2'),
+         url('fonts/roboto-thin-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+#logo {
+    width: 300px;
+    margin-top: 7vh;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+
+#login-button {
+    color: whitesmoke;
+    background-color: rgb(151, 0, 0);
+    box-shadow: inset 0 0 10px rgba(56, 2, 2, 0.719);
+    border: none;
+    width: 300px;
+    padding: 10px 35px;
+    border-radius: 4px;
+    margin-left: 50%;
+    margin-top: 100px;
+    transform: translate(-50%);
+    font-family: robotothin;
+    font-weight: bolder;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.main-content h1{
+    color: whitesmoke;
+    text-align: center;
+    font-size: 1.5vw;
+    margin-top: 100px;
+    font-family: robotothin;
+    letter-spacing: 10px;
+}
+
+.bg-modal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+#form-logo {
+    height: 100px;
+}
+
+.modal-content {
+    width: 500px;
+    height: 450px;
+    background-color: rgb(20, 20, 20);
+    box-shadow: inset 0 0 30px rgba(14, 14, 14, 0.76);
+    border-radius: 4px;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+input {
+    width: 60%;
+    color: white;
+    background-color: black;
+    box-shadow: inset 0 0 3px rgb(39, 39, 39);
+    font-family: robotothin;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 5px 0;
+    border: none;
+    display: block;
+    margin: 60px auto;
+    height: 40px;
+    text-align: center;
+}
+
+#login-submit {
+    color: whitesmoke;
+    background-color: rgb(151, 0, 0);
+    box-shadow: inset 0 0 10px rgba(56, 2, 2, 0.719);
+    border: none;
+    width: 100px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-family: robotothin;
+    font-weight: bolder;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.close {
+    color: whitesmoke;
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    font-size: 40px;
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+
+#signup {
+    color: whitesmoke;
+    background-color: transparent;
+    border: none;
+    width: 100px;
+    padding: 10px 20px;
+    margin-right: 40px;
+    border-radius: 4px;
+    font-family: robotothin;
+    font-weight: bolder;
+    font-size: 17px;
+    cursor: pointer;
+    text-decoration: none;
+}

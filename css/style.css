@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("../img/background/background_image.jpg");
+    background-size: cover;
+    background-color: black;
+    background-repeat: no-repeat;
+}
+
+@font-face {
+    font-family: 'robotothin';
+    src: url('../fonts/roboto-thin-webfont.woff2') format('woff2'),
+         url('../fonts/roboto-thin-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.footer {
+    position: fixed;
+    height: 10vh;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(14, 14, 14, 0.76);
+    color: white;
+    text-align: center;
+}
+.footer p {
+    margin-top: 25px;
+    width: 100%;
+    font-family: robotothin;
+    text-align: center;
+}
+
+#bottom-logo {
+    width: 200px;
+    float: left;
+    margin-left: 40px;
+    margin-top: 10px;
+}
