@@ -15,6 +15,7 @@ Client side:
   -[] Dark/bright theme
 -[] Profile/channel page
   -[] Collect user data for reserved area from database backend
+  -[] Channel followed
   -[] Bio
   -[] Channel intro
   -[] Upload podcast
