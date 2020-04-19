@@ -21,9 +21,6 @@
         <div class="header">
             <img src="img/logo/MonkeyPodcastLogo_dark.png" id="logo" alt="Monkey Podcast">
             <input id="search-bar" type="text" placeholder="Search..">
-            <?php
-                echo '<input id="user-button" type="button" value="'.strtoupper($_SESSION['userUid']).'">';
-            ?>
             <form action="includes/logout.inc.php" method="post">
                 <button id="logout-button" type="submit" name="logout-submit">LOGOUT</button>
             </form>
