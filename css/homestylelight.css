@@ -9,6 +9,7 @@ body {
 }
 
 .content {
+    margin-top: 100px;
     background-color: whitesmoke;
 }
 
@@ -52,8 +53,8 @@ body {
 .header {
     width: 100%;
     background-color: white;
+    height: 100px;
     top: 0;
-    height: 15vh;
     text-align: left;
     position: fixed;
     z-index: 1000;
@@ -122,12 +123,13 @@ body {
 }
 
 .scrollchannel {
-    margin-top: 140px;
+    margin-top: 50px;
     width: 100%;
     height: 260px;
     overflow: auto;
     white-space: nowrap;
     scrollbar-width: none;
+    border-top: 1px solid rgb(230, 230, 230)
 }
   
 .grid-element {
@@ -159,7 +161,7 @@ body {
 
 .left-scroll-arrow {
     color: white;
-    background-color: rgb(163, 0, 0);
+    background-color: rgba(163, 0, 0, 0.7);
     left: 5px;
     margin-top: 70px;
     border-radius: 50%;
@@ -172,7 +174,7 @@ body {
 
 .right-scroll-arrow {
     color: white;
-    background-color: rgb(163, 0, 0);
+    background-color: rgba(163, 0, 0, 0.7);
     transform: rotate(180deg);
     right: 10px;
     margin-top: 70px;

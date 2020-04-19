@@ -9,6 +9,7 @@ body {
 }
 
 .content {
+    margin-top: 100px;
     background-color: rgb(19, 19, 19);
 }
 
@@ -51,11 +52,12 @@ body {
 
 .header {
     width: 100%;
-    height: 15vh;
+    height: 100px;
     background-color: rgb(0, 0, 0);
     top: 0;
     text-align: left;
     position: fixed;
+    z-index: 1000;
 }
 
 #search-bar {
@@ -121,19 +123,20 @@ body {
 }
 
 .scrollchannel {
-    margin-top: 150px;
+    margin-top: 50px;
     width: 100%;
-    height: 260px;
+    height: 300px;
     overflow: auto;
     white-space: nowrap;
     scrollbar-width: none;
+    border-top: 1px solid rgba(53, 0, 0, 0.74)
 }
   
 .grid-element {
     display: inline-grid;
     color: white;
     text-align: center;
-    padding-top: 14px;
+    padding-top: 80px;
     padding-left: 17px;
     padding-right: 17px;
     text-decoration: none;
@@ -157,9 +160,9 @@ body {
 
 .left-scroll-arrow {
     color: white;
-    background-color: rgb(163, 0, 0);
+    background-color: rgba(163, 0, 0, 0.7);
     left: 5px;
-    margin-top: 70px;
+    margin-top: 140px;
     border-radius: 50%;
     padding: 10px;
     height: 30px;
@@ -170,14 +173,25 @@ body {
 
 .right-scroll-arrow {
     color: white;
-    background-color: rgb(163, 0, 0);
+    background-color: rgba(163, 0, 0, 0.7);
     transform: rotate(180deg);
     right: 10px;
-    margin-top: 70px;
+    margin-top: 140px;
     border-radius: 50%;
     padding: 10px;
     height: 30px;
     font-family: caviar_dreamsbold;
     position: absolute;
+    cursor: pointer;
+}
+
+#channel-name {
+    color: whitesmoke;
+    font-family: caviar_dreamsbold;
+    font-size: 30px;
+    position: absolute;
+    margin-top: 25px;
+    margin-left: 50%;
+    transform: translate(-50%);
     cursor: pointer;
 }

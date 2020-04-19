@@ -6,7 +6,7 @@
 ?>
 
 <style>
-<?php include 'css/homestylelight.css'; ?>
+<?php include 'css/homestyledark.css'; ?>
 </style>
 
 <!DOCTYPE html>
@@ -19,7 +19,7 @@
 <body>
     <header>
         <div class="header">
-            <img src="img/logo/MonkeyPodcastLogo_light.png" id="logo" alt="Monkey Podcast">
+            <img src="img/logo/MonkeyPodcastLogo_dark.png" id="logo" alt="Monkey Podcast">
             <input id="search-bar" type="text" placeholder="Search..">
             <?php
                 echo '<input id="user-button" type="button" value="'.strtoupper($_SESSION['userUid']).'">';
@@ -34,6 +34,7 @@
         <div class="scrollchannel">
             <img class="left-scroll-arrow" src="icon/left-arrow.png" alt="Left Arrow">
             <img class="right-scroll-arrow" src="icon/left-arrow.png" alt="Right Arrow">
+            <h2 id="channel-name">CHANNEL NAME</h2>
             <div class="grid-element">
                 <img src="img/thumbnails/Sample1.jpg" alt="Sample1">
                 <h4>PODCAST TITLE</h4>
@@ -65,6 +66,7 @@
         <div class="scrollchannel">
         <img class="left-scroll-arrow" src="icon/left-arrow.png" alt="Left Arrow">
         <img class="right-scroll-arrow" src="icon/left-arrow.png" alt="Right Arrow">
+        <h2 id="channel-name">CHANNEL NAME</h2>
         <div class="grid-element">
                 <img src="img/thumbnails/Sample1.jpg" alt="Sample1">
                 <h4>PODCAST TITLE</h4>
@@ -96,6 +98,7 @@
         <div class="scrollchannel">
         <img class="left-scroll-arrow" src="icon/left-arrow.png" alt="Left Arrow">
         <img class="right-scroll-arrow" src="icon/left-arrow.png" alt="Right Arrow">
+        <h2 id="channel-name">CHANNEL NAME</h2>
         <div class="grid-element">
                 <img src="img/thumbnails/Sample1.jpg" alt="Sample1">
                 <h4>PODCAST TITLE</h4>
@@ -127,6 +130,7 @@
         <div class="scrollchannel">
         <img class="left-scroll-arrow" src="icon/left-arrow.png" alt="Left Arrow">
         <img class="right-scroll-arrow" src="icon/left-arrow.png" alt="Right Arrow">
+        <h2 id="channel-name">CHANNEL NAME</h2>
             <div class="grid-element">
                 <img src="img/thumbnails/Sample1.jpg" alt="Sample1">
                 <h4>PODCAST TITLE</h4>
