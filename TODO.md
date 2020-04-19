@@ -26,6 +26,7 @@ Client side:
 Server side:
 
 -[x] Users db
+-[] Implement more tables inside users db
 -[x] Users db connection
 These following two only for static content:
   -[] Home content db (?)
