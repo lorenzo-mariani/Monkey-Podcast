@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: white;
+    width: 100%;
+}
+
+.content {
+    background-color: whitesmoke;
+}
+
+@font-face {
+    font-family: 'robotothin';
+    src: url('fonts/roboto-thin-webfont.woff2') format('woff2'),
+         url('fonts/roboto-thin-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'caviar_dreamsregular';
+    src: url('fonts/caviardreams-webfont.woff2') format('woff2'),
+         url('fonts/caviardreams-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'caviar_dreamsbold';
+    src: url('fonts/caviardreams_bold-webfont.woff2') format('woff2'),
+         url('fonts/caviardreams_bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+#logo {
+    width: 340px;
+    margin-top: 2vh;
+    margin-left: 2vw;
+}
+
+#logo:hover {
+    cursor: pointer;
+}
+
+.header {
+    width: 100%;
+    background-color: white;
+    top: 0;
+    height: 15vh;
+    text-align: left;
+    position: fixed;
+    z-index: 1000;
+}
+
+#search-bar {
+    margin-left: 100px;
+    position: absolute;
+    margin-top: 35px;
+    width: 40vw;
+    height: 40px;
+    background-color: #ffffff;
+    color: black;
+    padding-left: 2vh;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 2px solid rgb(104, 0, 0);
+    box-shadow: inset 0 0 4px #b4b4b496;
+}
+
+#user-button {
+    color: black;
+    background-color: transparent;
+    border: none;
+    padding: 7px 10px;
+    border-radius: 4px;
+    margin-top: 5vh;
+    margin-right: 12vw;
+    float: right;
+    font-family: caviar_dreamsbold;
+    font-size: 17px
+}
+
+#user-button:hover {
+    cursor: pointer;
+}
+
+#profile-icon {
+    position: absolute;
+    top: 4.7vh;
+    right: 9vw;
+    height: 40px;
+}
+
+#profile-icon:hover {
+    cursor: pointer;
+}
+
+#logout-button {
+    color: black;
+    position: absolute;
+    right: 2vw;
+    top: 5.5vh;
+    background-color: transparent;
+    border: none;
+    padding: 7px 10px;
+    border-radius: 4px;
+    font-family: caviar_dreamsbold;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.paragraph {
+    color: black;
+    cursor: pointer;
+}
+
+.scrollchannel {
+    margin-top: 140px;
+    width: 100%;
+    height: 260px;
+    overflow: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+}
+  
+.grid-element {
+    display: inline-grid;
+    color: white;
+    text-align: center;
+    padding-top: 14px;
+    padding-left: 17px;
+    padding-right: 17px;
+    text-decoration: none;
+}
+
+.grid-element img {
+    padding-top: 10px;
+    height: 150px;
+}
+
+.grid-element h4 {
+    color: black;
+    font-family: caviar_dreamsregular;
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+.grid-element p {
+    color: black;
+    font-family: caviar_dreamsregular;
+}
+
+.left-scroll-arrow {
+    color: white;
+    background-color: rgb(163, 0, 0);
+    left: 5px;
+    margin-top: 70px;
+    border-radius: 50%;
+    padding: 10px;
+    height: 30px;
+    font-family: caviar_dreamsbold;
+    position: absolute;
+    cursor: pointer;
+}
+
+.right-scroll-arrow {
+    color: white;
+    background-color: rgb(163, 0, 0);
+    transform: rotate(180deg);
+    right: 10px;
+    margin-top: 70px;
+    border-radius: 50%;
+    padding: 10px;
+    height: 30px;
+    font-family: caviar_dreamsbold;
+    position: absolute;
+    cursor: pointer;
+}
+
