@@ -1,5 +1,7 @@
 TODO LIST:
 
+-[] Responsive windows
+
 Client side:
  
 -[x] Login and signup system
