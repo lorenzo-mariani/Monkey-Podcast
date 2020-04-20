@@ -7,6 +7,11 @@
 
 }
 
+body {
+    background: url("img/background/background_image.jpg") no-repeat  center fixed;
+    background-size: cover;
+}
+
 #form-logo {
     height: 100px;
 }
