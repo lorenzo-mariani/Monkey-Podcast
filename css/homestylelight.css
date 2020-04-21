@@ -5,8 +5,8 @@
 
 @font-face {
     font-family: 'robotothin';
-    src: url('fonts/roboto-thin-webfont.woff2') format('woff2'),
-         url('fonts/roboto-thin-webfont.woff') format('woff');
+    src: url('/fonts/roboto-thin-webfont.woff2') format('woff2'),
+         url('/fonts/roboto-thin-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -14,8 +14,8 @@
 
 @font-face {
     font-family: 'caviar_dreamsregular';
-    src: url('fonts/caviardreams-webfont.woff2') format('woff2'),
-         url('fonts/caviardreams-webfont.woff') format('woff');
+    src: url('/fonts/caviardreams-webfont.woff2') format('woff2'),
+         url('/fonts/caviardreams-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -23,20 +23,20 @@
 
 @font-face {
     font-family: 'caviar_dreamsbold';
-    src: url('fonts/caviardreams_bold-webfont.woff2') format('woff2'),
-         url('fonts/caviardreams_bold-webfont.woff') format('woff');
+    src: url('/fonts/caviardreams_bold-webfont.woff2') format('woff2'),
+         url('/fonts/caviardreams_bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
 }
 
 body {
-    background-color: whitesmoke;
+    background-color: white;
     width: 100%;
 }
 
-.content {
-    background-color: whitesmoke;
+.content, html{
+    background-color: rgb(233, 233, 233);
 }
 
 .header {
@@ -44,7 +44,15 @@ body {
     flex-wrap: nowrap;
     width: 100%;
     height: 90px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.97);
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 999;
+}
+
+.content {
+    margin-top: 90px;
 }
 
 .logo-container,
@@ -76,7 +84,6 @@ body {
     background-color: whitesmoke;
     border: 1px solid rgb(68, 0, 0);
     width:  60%;
-    height: 39px;
     color: black;
     padding-left: 10px;
     padding-top: 10px;
@@ -87,11 +94,20 @@ body {
 
 .icons-container {
     flex: 1;
-    justify-content: flex-end;
+    justify-content: center;
+}
+
+#mode-text {
+    color: black;
+    font-family: caviar_dreamsregular;
+    font-size: 14px;
+    width: 120px;
+    margin-left: 70px;
+    text-align: center;
 }
 
 #search-icon {
-    height: 30px;
+    height: 28px;
     cursor: pointer;
     background-color: rgb(175, 175, 175);
     border: 1px solid rgb(68, 0, 0);
@@ -100,16 +116,17 @@ body {
 
 #profile-icon {
     height: 30px;
-    margin-right: 50px;
+    margin-right: 60px;
     margin-left: 30px;
     cursor: pointer;
 }
 
 #upload-icon {
     height: 30px;
-    margin-left: 70px;
+    margin-left: 30px;
     cursor: pointer;
 }
+
 .scrollchannel {
     margin-bottom: 30px;
     width: 100%;
@@ -122,6 +139,7 @@ body {
   
 .grid-element {
     display: inline-grid;
+    color: black;
     text-align: center;
     padding-top: 80px;
     padding-left: 17px;
@@ -183,18 +201,17 @@ body {
 
 #profile-menu {
     position: absolute;
-    right: 8vw;
-    top: 90px;
+    right: 50px;
+    top: 80px;
     width: 200px;
-    height: 260px;
-    background-color: rgb(29, 29, 29);
-    box-shadow: inset 0 0 10px #14141496;
+    height: 86px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 1px black;
     display: none;
 }
 
 #profile-menu button {
     display: grid;
-    margin-top: 20px;
     width: 100%;
 }
 
@@ -203,18 +220,18 @@ body {
 }
 
 #logout-button {
-    color: whitesmoke;
+    color: black;
     background-color: transparent;
     padding: 10px 10px;
     font-family: caviar_dreamsregular;
-    background-color: rgb(29, 29, 29);
+    background-color: whitesmoke;
     font-size: 14px;
     cursor: pointer;
     border: 1px solid rgb(61, 61, 61);
 }
 
 #profile-button {
-    color: whitesmoke;
+    color: black;
     background-color: transparent;
     border: none;
     padding-left: 40px;
@@ -226,33 +243,84 @@ body {
     text-align: left;
 }
 
-#podcasts-button {
-    color: whitesmoke;
-    background-color: transparent;
-    border: none;
-    padding-left: 40px;
-    padding-bottom: 15px;
-    padding-top: 15px;
-    font-family: caviar_dreamsbold;
-    font-size: 14px;
+ #mode-switch {
+    position: relative;
+    display: inline-block;
+    margin-left: 20px;
+    width: 55px;
+    height: 28px;
+  }
+  
+  #mode-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
     cursor: pointer;
-    text-align: left;
-}
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #f6f6f6;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: rgb(68, 0, 0);
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px rgb(68, 0, 0);
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
 
-#channel-button {
-    color: whitesmoke;
-    background-color: transparent;
-    border: none;
-    padding-left: 40px;
-    padding-bottom: 15px;
-    padding-top: 15px;
-    font-family: caviar_dreamsbold;
-    font-size: 14px;
-    cursor: pointer;
-    text-align: left;
-}
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
 
 @media screen and (max-width: 1250px) {
+
+    #mode-switch {
+        width: 50px;
+        height: 25px;
+      }
+
+    .slider:before {
+        height: 18px;
+        width: 18px;
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(23px);
+        -ms-transform: translateX(23px);
+        transform: translateX(23px);
+    }
+
     .header {
         height: 80px;
     }
@@ -271,14 +339,6 @@ body {
 
     #profile-icon {
         height: 25px
-    }
-
-    #search-icon {
-        height: 25px
-    }
-
-    #search-bar {
-        height: 35px
     }
 
     .grid-element img {

@@ -5,36 +5,36 @@
     }
 ?>
 
-<style>
-<?php include 'css/homestyledark.css'; ?>
-</style>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="style" rel="stylesheet" href="/css/homestylelight.css"> 
     <title>Home</title>
 </head>
 <body>
     <header>
         <div class="header">
             <div class="logo-container">
-                <img src="img/logo/MonkeyPodcastLogo_dark.png" id="logo" alt="Monkey Podcast">
+                <img src='img/logo/MonkeyPodcastLogo_light.png' id='logo' alt='Monkey Podcast'>
             </div>
             <div class="search-container">
                 <input id="search-bar" type="text" placeholder="Search..">
                 <img src="icon/search.png" alt="Search Button" id="search-icon">
             </div>
             <div class="icons-container">
+                <h4 id="mode-text">DARK MODE OFF</h4>
+                <label id="mode-switch">
+                    <input id="checkbox" type="checkbox" name="toggled-mode" value="light">
+                    <span class="slider round"></span>
+                </label>
                 <img src="icon/microphone.png" alt="Upload Podcast" id="upload-icon">
                 <img src="icon/user.png" alt="User Profile" id="profile-icon">
             </div>
             <div id="profile-menu">
                 <form action="includes/logout.inc.php" method="post">
                     <button class="active" id="profile-button" type="submit" name="profile-submit">Profile</button>
-                    <button id="channel-button" type="submit" name="channel-submit">Channel</button>
-                    <button id="podcasts-button" type="submit" name="podcasts-submit">My podcasts</button>
                     <button id="logout-button" type="submit" name="logout-submit">LOGOUT</button>
                 </form>
             </div>
