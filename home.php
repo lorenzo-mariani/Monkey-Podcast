@@ -10,7 +10,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link id="style" rel="stylesheet" href="/css/homestylelight.css"> 
+    <link rel="stylesheet" href="css/homestyle.css" type="text/css">
+    <link id="style" rel="stylesheet" href="css/homestylelight.css" type="text/css">
     <title>Home</title>
 </head>
 <body>
