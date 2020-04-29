@@ -1,0 +1,159 @@
+@font-face {
+    font-family: 'caviar_dreamsregular';
+    src: url('../fonts/caviardreams-webfont.woff2') format('woff2'),
+         url('../fonts/caviardreams-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'caviar_dreamsbold';
+    src: url('../fonts/caviardreams_bold-webfont.woff2') format('woff2'),
+         url('../fonts/caviardreams_bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+#player {
+    display: flex;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 90px;
+}
+
+#center-container,
+#left-container,
+#right-container {
+    display: flex;
+}
+
+#center-container {
+    flex: 2;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#left-container {
+    flex: 1;
+}
+
+#right-container {
+    flex: 1;
+    justify-content: end;
+}
+
+#details-container {
+    align-self: center;
+    margin-left: 20px;
+}
+
+#thumbnail {
+    height: 50px;
+    margin-left: 20px;
+    align-self: center;
+}
+
+#podcast-name {
+    font-family: caviar_dreamsbold;
+    font-size: 15px;
+    margin-bottom: 7px;
+    cursor: pointer;
+}
+
+#podcast-channel {
+    font-family: caviar_dreamsregular;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#podcast-name:hover {
+    text-decoration: underline;
+}
+
+#podcast-channel:hover {
+    text-decoration: underline;
+}
+
+#play-icon {
+    height: 35px;
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
+#next-icon {
+    height: 15px;
+    margin-top: 10px;
+}
+
+#previous-icon {
+    height: 15px;
+    margin-top: 10px;
+    transform: rotate(180deg);
+}
+
+#slider {
+   -webkit-appearance: none;
+   appearance: none;
+   width: 120px;
+   height: 7px;
+   border-radius: 5px;
+   outline: none;
+   opacity: 0.7;
+   -webkit-transition: .2s;
+   transition: opacity .2s;
+   align-self: center;
+   margin-right: 70px;
+}
+
+#slider:hover {
+    opacity: 1;
+}
+
+#slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+  
+#slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+#center-icons-container,
+#seek-container {
+    display: flex;
+    justify-content: center;
+}
+
+#center-icons-container {
+    margin-bottom: 10px;
+    height: 40px;
+}
+
+#seek-slider {
+    width: 100%;
+    height: 7px;
+    border-radius: 4px;
+}
+  
+#myBar {
+    width: 0%;
+    height: 7px;
+    border-radius: 4px;
+}
+
+#speaker-icon {
+    height: 20px;
+    align-self: center;
+    margin-right: 10px;
+}

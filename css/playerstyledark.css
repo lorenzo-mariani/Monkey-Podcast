@@ -1,0 +1,46 @@
+#player {
+    background-color: rgb(27, 27, 27);
+    border-top: 1px solid rgba(17, 17, 17, 0.74)
+}
+
+#podcast-name {
+    color: whitesmoke;
+}
+
+#podcast-channel {
+    color: rgb(216, 216, 216);
+}
+
+#slider {
+    color: rgb(65, 0, 0);
+    background-color: rgb(65, 0, 0);
+}
+
+#slider::-webkit-slider-thumb {
+    background: rgb(179, 0, 0);
+}
+
+#slider::-moz-range-thumb {
+    background: rgb(179, 0, 0);
+}
+
+#seek-slider {
+    background-color: rgba(65, 0, 0, 0.644);
+}
+
+#seek-slider::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    background-color: rgb(179, 0, 0);
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+}
+
+#seek-slider::-moz-range-thumb {
+    -moz-appearance: none !important;
+    background-color: rgb(179, 0, 0);
+    border: none;
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+}
