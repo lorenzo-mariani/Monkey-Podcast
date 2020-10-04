@@ -75,6 +75,15 @@ body {
     align-self: center;
 }
 
+#logo-button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+
 .search-container {
     flex: 3;
     justify-content: center;
@@ -125,6 +134,15 @@ body {
     height: 30px;
     margin-left: 30px;
     cursor: pointer;
+}
+
+.upload-button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
 }
 
 #profile-menu {

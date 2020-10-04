@@ -51,6 +51,25 @@ if (isset($_POST['signup-submit'])){
 
                     mysqli_stmt_bind_param($stmt, "sss", $username, $mail, $hashedPwd);
                     mysqli_stmt_execute($stmt);
+                    $basedirname = '../content/users/'.$username;
+                    mkdir($basedirname);
+                    $podcastsdirname = '../content/users/'.$username.'/'.'podcasts/';
+                    mkdir($podcastsdirname);
+                    $file = '../templates/profile.php';            
+                    $newfile = '../content/users/'.$username.'/'.$username.'.php';
+                    if (!copy($file, $newfile)) {
+                        echo "failed to copy $file...\n";
+                    }
+                    $file = '../templates/profile.js';            
+                    $newfile = '../content/users/'.$username.'/'.$username.'.js';
+                    if (!copy($file, $newfile)) {
+                        echo "failed to copy $file...\n";
+                    }
+                    $file = '../templates/upload.php';            
+                    $newfile = '../content/users/'.$username.'/upload.php';
+                    if (!copy($file, $newfile)) {
+                        echo "failed to copy $file...\n";
+                    }
                     header("Location: ../home.php?signup=success");
                     exit();
                 }
