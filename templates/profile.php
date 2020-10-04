@@ -28,7 +28,7 @@
                 <img src="../../../icon/search.png" alt="Search Button" id="search-icon">
             </div>
             <div class="icons-container">
-                <h4 id="mode-text">DARK MODE OFF</h4>
+                <h4 id="mode-text">DARK MODE ON</h4>
                 <label id="mode-switch">
                     <input id="checkbox" type="checkbox" name="toggled-mode" value="light" checked>
                     <span class="slider round"></span>
