@@ -66,7 +66,7 @@ if (isset($_POST['signup-submit'])){
                         echo "failed to copy $file...\n";
                     }
                     $file = '../templates/upload.php';            
-                    $newfile = '../content/users/'.$username.'/upload.php';
+                    $newfile = '../content/users/'.$username.'/podcasts/upload.php';
                     if (!copy($file, $newfile)) {
                         echo "failed to copy $file...\n";
                     }
