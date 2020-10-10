@@ -100,7 +100,9 @@
                                 $stmt->bind_result($subs);
                                 $result_check = mysqli_stmt_num_rows($stmt);
                                 if($result_check > 0) {
-                                    echo $subs;
+                                    while($stmt->fetch()){
+                                        echo $subs;
+                                    }
                                 } else {
                                     echo $result_check;
                                 }
@@ -149,11 +151,32 @@
             <h3>123.456.789 views</h3>
         </div>
         <div class="podcasts-container">
-            <div class="grid-element">
-                <img src="../../../img/thumbnails/Sample1.jpg" alt="Sample1">
-                <h4>PODCAST TITLE</h4>
-                <p>1000 streams</p>
-            </div>
+            <?php
+
+                $query = "SELECT podcastTitle, podcastImg, podcastViews FROM podcasts WHERE userUID=?";
+                $stmt = mysqli_stmt_init($conn);
+                if (!mysqli_stmt_prepare($stmt, $query)) {
+                    header("Location: ./prova.php?error=sqerror");
+                    exit();
+                } else {
+                    mysqli_stmt_bind_param($stmt, "s", $_SESSION['channelName']);
+                    mysqli_stmt_execute($stmt);
+                    mysqli_stmt_store_result($stmt);
+                    $stmt->bind_result($title, $img, $streams);
+                    while($stmt->fetch()){
+                        $tmp = str_replace("../content/users/".$_SESSION['channelName'], ".", $img);
+                        echo
+                        "<div class=\"grid-element\">
+                            <a href=\"?name=true\">
+                                <img src=".$tmp." alt=\"Sample1\">
+                            </a>
+                            <h4>".strtoupper(str_replace('_', ' ', $title))."</h4>
+                            <p>".$streams."</p>
+                        </div>";
+                    }
+                }
+                mysqli_stmt_close($stmt);
+            ?>
         </div>
         <div class="channels-container">
         <?php
@@ -181,11 +204,15 @@
                             echo
                             "
                             <div class=\"channel\">
-                                <img src=\"../../../icon/user.png\" alt=\"User Profile\" id=\"channel-img\">
-                                <ul class=\"channel-info\">
-                                    <li id=\"channel-name\">".$channel_name."</li>
-                                    <li id=\"channel-subs\">".$subs."</li>
-                                </ul>
+                                <form action=\"../".$channel_name."/".$channel_name.".php\" method=\"post\">
+                                    <button class=\"channel-button\" type=\"submit\" name=\"channel-submit\">
+                                        <img src=\"../../../icon/user.png\" alt=\"User Profile\" id=\"channel-img\">
+                                    </button>
+                                    <ul class=\"channel-info\">
+                                        <li id=\"channel-name\">".$channel_name."</li>
+                                        <li id=\"channel-subs\">".$subs."</li>
+                                    </ul>
+                                </form>
                             </div>
                             ";
                         }
@@ -202,4 +229,8 @@
                 echo basename(__FILE__, '.php').".js";
             ?>></script>
 </body>
-</html>    
+</html>
+
+<?php
+    require "../../../player.php";
+?>

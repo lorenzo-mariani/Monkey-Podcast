@@ -181,11 +181,15 @@
                             echo
                             "
                             <div class=\"channel\">
-                                <img src=\"../../../icon/user.png\" alt=\"User Profile\" id=\"channel-img\">
-                                <ul class=\"channel-info\">
-                                    <li id=\"channel-name\">".$channel_name."</li>
-                                    <li id=\"channel-subs\">".$subs."</li>
-                                </ul>
+                                <form action=\"../".$channel_name."/".$channel_name.".php\" method=\"post\">
+                                    <button class=\"channel-button\" type=\"submit\" name=\"channel-submit\">
+                                        <img src=\"../../../icon/user.png\" alt=\"User Profile\" id=\"channel-img\">
+                                    </button>
+                                    <ul class=\"channel-info\">
+                                        <li id=\"channel-name\">".$channel_name."</li>
+                                        <li id=\"channel-subs\">".$subs."</li>
+                                    </ul>
+                                </form>
                             </div>
                             ";
                         }
