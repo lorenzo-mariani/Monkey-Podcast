@@ -86,7 +86,28 @@
                         ?>
                     </li>
                     <br>
-                    <li id="subs"># SUBS</li>
+                    <li id="subs">
+                        <?php
+                            $query = "SELECT  subs FROM users WHERE uidUsers=?";
+                            $stmt = mysqli_stmt_init($conn);
+                            if (!mysqli_stmt_prepare($stmt, $query)) {
+                                header("Location: ./feffo.php?error=sqerror");
+                                exit();
+                            } else {
+                                mysqli_stmt_bind_param($stmt, "s", $_SESSION['channelName']);
+                                mysqli_stmt_execute($stmt);
+                                mysqli_stmt_store_result($stmt);
+                                $stmt->bind_result($subs);
+                                $result_check = mysqli_stmt_num_rows($stmt);
+                                if($result_check > 0) {
+                                    echo $subs;
+                                } else {
+                                    echo $result_check;
+                                }
+                            }
+                            mysqli_stmt_close($stmt);
+                        ?>
+                    </li>
                 </ul>
             </div>
             <div class="right-column">
@@ -136,13 +157,21 @@
         </div>
         <div class="channels-container">
         <?php
-                $query = "SELECT channelName, subs FROM subscriptions INNER JOIN users ON subUid=uidUsers  WHERE subUid=?";
+                $query = "SELECT channelName, subs
+                FROM (SELECT channelName, subUid FROM subscriptions as sub
+                INNER JOIN 
+                users as u1
+                ON sub.subUid = u1.uidUsers) as t1
+                INNER JOIN
+                users as u2
+                ON t1.channelName = u2.uidUsers
+                WHERE subUid=?";
                 $stmt = mysqli_stmt_init($conn);
                 if (!mysqli_stmt_prepare($stmt, $query)) {
                     header("Location: ./prova.php?error=sqerror");
                     exit();
                 } else {
-                    mysqli_stmt_bind_param($stmt, "s", $_SESSION['userUid']);
+                    mysqli_stmt_bind_param($stmt, "s", $_SESSION['channelName']);
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_store_result($stmt);
                     $stmt->bind_result($channel_name, $subs);
