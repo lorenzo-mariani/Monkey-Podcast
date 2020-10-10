@@ -34,6 +34,7 @@ checkbox.onchange = function () {
     document.getElementById('speaker-icon').src = "icon/speaker-dark.png";
     document.getElementById('logo').src = "img/logo/MonkeyPodcastLogo_dark.png";
     document.getElementById('mode-text').innerHTML = "DARK MODE ON";
+    checkbox.value = "dark";
     if(!audio.paused){
       document.getElementById('play-icon').src = "icon/pause-icon-dark.png";
     }
@@ -46,6 +47,7 @@ checkbox.onchange = function () {
     document.getElementById('speaker-icon').src = "icon/speaker-light.png";
     document.getElementById('logo').src = "img/logo/MonkeyPodcastLogo_light.png";
     document.getElementById('mode-text').innerHTML = "DARK MODE OFF";
+    checkbox.value = "light";
     if(!audio.paused){
       document.getElementById('play-icon').src = "icon/pause-icon-light.png";
     }

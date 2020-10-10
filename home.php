@@ -3,6 +3,13 @@
     if(!isset($_SESSION['userId'])){
         header("Location: ./index.php");
     }
+
+    if(!isset($_SESSION['channelName'])){
+        $_SESSION['channelName'] = basename(__FILE__, '.php');
+    } else if($_SESSION['channelName'] != basename(__FILE__, '.php')){
+        $_SESSION['channelName'] = basename(__FILE__, '.php');
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +38,7 @@
             <div class="icons-container">
                 <h4 id="mode-text">DARK MODE ON</h4>
                 <label id="mode-switch">
-                    <input id="checkbox" type="checkbox" name="toggled-mode" value="light" checked>
+                    <input id="checkbox" type="checkbox" name="toggled-mode-home" value="dark" checked>
                     <span class="slider round"></span>
                 </label>
                 <form action=<?php 
@@ -64,7 +71,7 @@
         </div>
     </header>
     <div class="content">
-         <div id="channel-name-container1">
+         <div id="channel-name-container">
             <h1 id="channel-name">SLIPKNOT</h1>
         </div>
         <div class="scrollchannel">
@@ -75,78 +82,6 @@
                 <img src="audio/Slipknot-All Hope Is Gone/Front cover.jpg" alt="Sample1">
                 <h4>.Execute</h4>
                 <p>156542 streams</p>
-            </div>
-            <div class="grid-element">
-                <img src="audio/Slipknot-All Hope Is Gone/Front cover.jpg" alt="Sample2">
-                <h4>Gematria (The Killing Name)</h4>
-                <p>954612 streams</p>
-            </div>    <div class="grid-element">
-                <img src="audio/Slipknot-All Hope Is Gone/Front cover.jpg" alt="Sample3">
-                <h4>Sulfur</h4>
-                <p>516545 streams</p>
-            </div>    <div class="grid-element">
-                <img src="audio/Slipknot-All Hope Is Gone/Front cover.jpg" alt="Sample4">
-                <h4>Psychosocial</h4>
-                <p>5989519 streams</p>
-            </div>    <div class="grid-element">
-                <img src="audio/Slipknot-All Hope Is Gone/Front cover.jpg" alt="Sample5">
-                <h4>Dead Memories</h4>
-                <p>515198 streams</p>
-            </div>
-            <div class="grid-element">
-                <img src="audio/Slipknot-All Hope Is Gone/Front cover.jpg" alt="Sample6">
-                <h4>Vendetta</h4>
-                <p>984651 streams</p>
-            </div>
-            <div class="grid-element">
-                <img src="audio/Slipknot-All Hope Is Gone/Front cover.jpg" alt="Sample6">
-                <h4>Butcher's Hook</h4>
-                <p>9119515 streams</p>
-            </div>
-            <div class="grid-element">
-                <img src="audio/Slipknot-All Hope Is Gone/Front cover.jpg" alt="Sample6">
-                <h4>Gehenna</h4>
-                <p>5135168 streams</p>
-            </div>
-            <div class="grid-element">
-                <img src="audio/Slipknot-All Hope Is Gone/Front cover.jpg" alt="Sample6">
-                <h4>This Cold Black</h4>
-                <p>651632 streams</p>
-            </div>
-            <div class="grid-element">
-                <img src="audio/Slipknot-All Hope Is Gone/Front cover.jpg" alt="Sample6">
-                <h4>Wherein Lies Continue</h4>
-                <p>418494 streams</p>
-            </div>
-            <div class="grid-element">
-                <img src="audio/Slipknot-All Hope Is Gone/Front cover.jpg" alt="Sample6">
-                <h4>Snuff</h4>
-                <p>416549 streams</p>
-            </div>
-            <div class="grid-element">
-                <img src="audio/Slipknot-All Hope Is Gone/Front cover.jpg" alt="Sample6">
-                <h4>All Hope Is Gone</h4>
-                <p>135465 streams</p>
-            </div>
-            <div class="grid-element">
-                <img src="audio/Slipknot-All Hope Is Gone/Front cover.jpg" alt="Sample6">
-                <h4>Child Of Burning Time</h4>
-                <p>513546 streams</p>
-            </div>
-            <div class="grid-element">
-                <img src="audio/Slipknot-All Hope Is Gone/Front cover.jpg" alt="Sample6">
-                <h4>Vermillion Pt.2 (Bloodstone Mix)</h4>
-                <p>832165 streams</p>
-            </div>
-            <div class="grid-element">
-                <img src="audio/Slipknot-All Hope Is Gone/Front cover.jpg" alt="Sample6">
-                <h4>'Till We Die</h4>
-                <p>651321 streams</p>
-            </div>
-            <div class="grid-element">
-                <img src="audio/Slipknot-All Hope Is Gone/Front cover.jpg" alt="Sample6">
-                <h4>Psychosocial [Live]</h4>
-                <p>8912138 streams</p>
             </div>
         </div>
     

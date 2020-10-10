@@ -14,7 +14,7 @@
         <div id="center-icons-container">
             <img id="previous-icon" src="icon/next-icon-dark.png" alt="previous-icon">
             <img id="play-icon" src="icon/play-icon-dark.png" alt="play-icon">
-            <img id="next-icon" src="icon/next-icon-dark.png" alt="next-icon">
+            <img id="next-icon" src="icon/next-icon-dark.png"alt="next-icon">
             <audio id="audio" src="audio\Slipknot-All Hope Is Gone\Gehenna.mp3" type="audio/mp3"></audio>
         </div>
         <div id="seek-container">
@@ -22,7 +22,7 @@
         </div>
     </div>
     <div id="right-container">
-        <img src="icon/speaker-dark.png" alt="speaker-icon" id="speaker-icon">
+        <img src="icon/speaker-light.png" alt="speaker-icon" id="speaker-icon">
         <input type="range" min="1" max="100" value="100" step="1" id="slider">
     </div>
 </div>

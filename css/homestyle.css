@@ -201,13 +201,7 @@ body {
     width: 100%;
 }
 
-#channel-name-container1 {
-    height: 200px;
-    color: whitesmoke;
-    background-image: url("../img/thumbnails/Slipknot.jpg");
-}
-
-#channel-name-container2 {
+#channel-name-container {
     height: 200px;
     color: whitesmoke;
     background-image: url("../img/thumbnails/Slipknot.jpg");

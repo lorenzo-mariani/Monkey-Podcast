@@ -7,6 +7,7 @@ if (isset($_POST['signup-submit'])){
     $mail = $_POST['mail'];
     $password = $_POST['pwd'];
     $passwordRepeat = $_POST['pwd-repeat'];
+    $subs = 0;
 
     if (empty($username) || empty($mail) || empty($password) || empty($passwordRepeat)) {
         header("Location: ../signup.php?error=emptyfields&uid".$username."&mail=".$mail);
@@ -41,7 +42,7 @@ if (isset($_POST['signup-submit'])){
             }
             else {
 
-                $sql = "INSERT INTO users (uidUsers, emailUsers, pwdUsers) VALUES (?, ?, ?)";
+                $sql = "INSERT INTO users (uidUsers, emailUsers, pwdUsers, subs) VALUES (?, ?, ?, ?)";
                 $stmt = mysqli_stmt_init($conn);
                 if (!mysqli_stmt_prepare($stmt, $sql)) {
                     header("Location: ../signup.php?error=sqerror");
@@ -49,7 +50,7 @@ if (isset($_POST['signup-submit'])){
                 } else {
                     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 
-                    mysqli_stmt_bind_param($stmt, "sss", $username, $mail, $hashedPwd);
+                    mysqli_stmt_bind_param($stmt, "ssss", $username, $mail, $hashedPwd, $subs);
                     mysqli_stmt_execute($stmt);
                     $basedirname = '../content/users/'.$username;
                     mkdir($basedirname);
