@@ -4,6 +4,8 @@ const profileButton = document.getElementById('profile-icon');
 const profileMenu = document.getElementById('profile-menu');
 const checkbox = document.getElementById('checkbox');
 
+var myWin = null;
+
 for (var i = 0; i < buttonRight.length; i++) {
   
   buttonRight.item(i).onclick = function () {
@@ -52,4 +54,12 @@ checkbox.onchange = function () {
       document.getElementById('play-icon').src = "icon/pause-icon-light.png";
     }
   }
+}
+
+function openWin () {
+  myWin = window.open("www.google.com", "_blank");
+}
+
+function closeWin () {
+  myWin.close();
 }

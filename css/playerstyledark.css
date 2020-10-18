@@ -12,8 +12,8 @@
 }
 
 #slider {
-    color: rgb(65, 0, 0);
-    background-color: rgb(65, 0, 0);
+    color:  rgb(240, 240, 240);
+    background-color: rgb(240, 240, 240);
 }
 
 #slider::-webkit-slider-thumb {
@@ -25,7 +25,7 @@
 }
 
 #seek-slider {
-    background-color: rgba(65, 0, 0, 0.644);
+    background-color: rgba(240, 240, 240, 0.644);
 }
 
 #seek-slider::-webkit-slider-thumb {
@@ -43,4 +43,8 @@
     height: 13px;
     width: 13px;
     border-radius: 50%;
+}
+
+#mode-text {
+    color: whitesmoke;
 }

@@ -8,6 +8,7 @@ if (isset($_POST['signup-submit'])){
     $password = $_POST['pwd'];
     $passwordRepeat = $_POST['pwd-repeat'];
     $subs = 0;
+    $views = 0;
 
     if (empty($username) || empty($mail) || empty($password) || empty($passwordRepeat)) {
         header("Location: ../signup.php?error=emptyfields&uid".$username."&mail=".$mail);
@@ -42,6 +43,8 @@ if (isset($_POST['signup-submit'])){
             }
             else {
 
+                mysqli_stmt_close($stmt);
+
                 $sql = "INSERT INTO users (uidUsers, emailUsers, pwdUsers, subs) VALUES (?, ?, ?, ?)";
                 $stmt = mysqli_stmt_init($conn);
                 if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -71,14 +74,27 @@ if (isset($_POST['signup-submit'])){
                     if (!copy($file, $newfile)) {
                         echo "failed to copy $file...\n";
                     }
-                    header("Location: ../home.php?signup=success");
-                    exit();
                 }
+
+                mysqli_stmt_close($stmt);
+
+                $sql = "INSERT INTO channels (channelName, channelViews) VALUES (?, ?)";
+                $stmt = mysqli_stmt_init($conn);
+                if (!mysqli_stmt_prepare($stmt, $sql)) {
+                    header("Location: ../signup.php?error=sqerror");
+                    exit();
+                } else {
+                    mysqli_stmt_bind_param($stmt, "si", $username, $views);
+                    mysqli_stmt_execute($stmt);
+                }
+                mysqli_stmt_close($stmt);
             }
         }
     }
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
+    header("Location: ../home.php?signup=success");
+    exit();
 
 } else {
     header("Location: ../signup.php");

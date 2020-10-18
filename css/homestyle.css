@@ -27,11 +27,18 @@
          url('../fonts/caviardreams_bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 body {
     width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover{
+    cursor: pointer;
 }
 
 .header {
@@ -47,6 +54,7 @@ body {
 
 .content {
     margin-top: 90px;
+    margin-bottom: 120px;
 }
 
 .logo-container,
@@ -133,7 +141,7 @@ body {
 }
 
 .scrollchannel {
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     width: 100%;
     overflow: auto;
     white-space: nowrap;
@@ -203,16 +211,24 @@ body {
 
 #channel-name-container {
     height: 200px;
-    color: whitesmoke;
-    background-image: url("../img/thumbnails/Slipknot.jpg");
+    background-color: black;
 }
 
 #channel-name {
+    position: relative;
     font-family: caviar_dreamsbold;
+    color: whitesmoke;
     font-size: 80px;
     text-align: center;
-    align-self: center;
-    padding-top: 60px;
+}
+
+#channel-name-button {
+    position: relative;
+    cursor: pointer;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    background-color: transparent;
+    border: transparent;
 }
 
 #profile-menu {

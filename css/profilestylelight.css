@@ -35,6 +35,14 @@ body {
     width: 100%;
 }
 
+a {
+    text-decoration: none;
+}
+
+a:hover{
+    cursor: pointer;
+}
+
 .content, html{
     background-color: rgb(233, 233, 233);
 }

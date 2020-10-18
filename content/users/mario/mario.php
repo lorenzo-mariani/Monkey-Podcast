@@ -76,7 +76,24 @@
                 <li id="channels">CHANNELS</li>
             </ul>
         </div>
-        <div class="info-container">
+        <div class="info-container"
+        <?php
+        $query = "SELECT channelImg FROM channels WHERE channelName=?";
+        $stmt = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt, $query)) {
+            header("Location: ./feffo.php?error=sqerror");
+            exit();
+        } else {
+            mysqli_stmt_bind_param($stmt, "s", $_SESSION['channelName']);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_store_result($stmt);
+            $stmt->bind_result($podcast_img);
+            while($stmt->fetch()){
+                echo "style=\"background-image:url('".str_replace("../content/users/".$_SESSION['channelName']."/", "./",$podcast_img)."')\"";
+            }
+            mysqli_stmt_close($stmt);
+        }
+        ?>>
             <div class="left-column">
                 <img src="../../../icon/user.png" alt="User Profile" id="profile-img">
                 <ul class="info">
@@ -133,13 +150,13 @@
                             if($resultCheck == 0) {
                                 echo
                                 "<form action=\"../../../includes/subscribe.inc.php\" method=\"post\">
-                                    <button class=\"subscribe-button\" type=\"submit\" name=\"logo-submit\">
+                                    <button id=\"subscribe-button\" type=\"submit\" name=\"logo-submit\">
                                         SUBSCRIBE
                                     </button>
                                 </form>";
                             } else if($resultCheck == 1){
                                 echo
-                                "<h3>SUBSCRIBED</h3>";
+                                "<h3 id=\"subscribed\">SUBSCRIBED</h3>";
                             }
                         }
                         mysqli_stmt_close($stmt);
@@ -153,7 +170,7 @@
         <div class="podcasts-container">
             <?php
 
-                $query = "SELECT podcastTitle, podcastImg, podcastViews FROM podcasts WHERE userUID=?";
+                $query = "SELECT podcastTitle, podcastImg, podcastViews, podcastFile FROM podcasts WHERE userUID=?";
                 $stmt = mysqli_stmt_init($conn);
                 if (!mysqli_stmt_prepare($stmt, $query)) {
                     header("Location: ./prova.php?error=sqerror");
@@ -162,15 +179,17 @@
                     mysqli_stmt_bind_param($stmt, "s", $_SESSION['channelName']);
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_store_result($stmt);
-                    $stmt->bind_result($title, $img, $streams);
+                    $stmt->bind_result($title, $podcast_img, $streams, $podcast_file);
+                    $channel_name = $_SESSION['channelName'];
                     while($stmt->fetch()){
-                        $tmp = str_replace("../content/users/".$_SESSION['channelName'], ".", $img);
                         echo
                         "<div class=\"grid-element\">
-                            <a href=\"?name=true\">
-                                <img src=".$tmp." alt=\"Sample1\">
+                            <a href=../../../player.php?file=".str_replace("../", "/Monkey-Podcast/",$podcast_file)."&title=".$title."&img=".str_replace("../", "/Monkey-Podcast/",$podcast_img)."&channel-name=".$channel_name." target=\"_blank\">
+                                <img src=".str_replace("../", "/Monkey-Podcast/", $podcast_img)." alt=\"Sample1\">
                             </a>
-                            <h4>".strtoupper(str_replace('_', ' ', $title))."</h4>
+                            <a href=../../../player.php?file=".str_replace("../", "/Monkey-Podcast/",$podcast_file)."&title=".$title."&img=".str_replace("../", "/Monkey-Podcast/",$podcast_img)."&channel-name=".$channel_name." target=\"_blank\">
+                                <h4>".strtoupper(str_replace('_', ' ', $title))."</h4>
+                            </a>
                             <p>".$streams."</p>
                         </div>";
                     }
@@ -205,7 +224,7 @@
                             "
                             <div class=\"channel\">
                                 <form action=\"../".$channel_name."/".$channel_name.".php\" method=\"post\">
-                                    <button class=\"channel-button\" type=\"submit\" name=\"channel-submit\">
+                                    <button id=\"channel-button\" type=\"submit\" name=\"channel-submit\">
                                         <img src=\"../../../icon/user.png\" alt=\"User Profile\" id=\"channel-img\">
                                     </button>
                                     <ul class=\"channel-info\">
@@ -230,7 +249,3 @@
             ?>></script>
 </body>
 </html>
-
-<?php
-    require "../../../player.php";
-?>

@@ -19,17 +19,17 @@ playButton.onmouseout = function() {
 playButton.onclick = function() {
     if(audio.paused){
         audio.play();
-        if(document.getElementById('checkbox').checked){
-            this.src = "icon/pause-icon-dark.png";
+        if(checkbox.checked){
+            this.src = "/Monkey-Podcast/icon/pause-icon-dark.png";
         } else {
-            this.src = "icon/pause-icon-light.png";
+            this.src = "/Monkey-Podcast/icon/pause-icon-light.png";
         }
     } else {
         audio.pause();
-        if(document.getElementById('checkbox').checked){
-            this.src = "icon/play-icon-dark.png";
+        if(checkbox.checked){
+            this.src = "./icon/play-icon-dark.png";
         } else {
-            this.src = "icon/play-icon-light.png";
+            this.src = "./icon/play-icon-light.png";
         }
     }
 };

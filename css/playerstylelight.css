@@ -12,8 +12,8 @@
 }
 
 #slider {
-    color: rgb(65, 0, 0);
-    background-color: rgba(65, 0, 0, 0.644);
+    color: rgb(80, 80, 80);
+    background-color: rgba(80, 80, 80, 0.644);
 }
 
 #slider::-webkit-slider-thumb {
@@ -25,7 +25,7 @@
 }
 
 input[type=range] {
-    background-color: rgba(65, 0, 0, 0.644);
+    background-color: rgba(78, 78, 78, 0.644);
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -43,4 +43,8 @@ input[type=range]::-moz-range-thumb {
     height: 13px;
     width: 13px;
     border-radius: 50%;
+}
+
+#mode-text {
+    color: black;
 }

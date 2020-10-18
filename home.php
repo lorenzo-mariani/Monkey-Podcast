@@ -1,96 +1,71 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['userId'])){
-        header("Location: ./index.php");
-    }
-
-    if(!isset($_SESSION['channelName'])){
-        $_SESSION['channelName'] = basename(__FILE__, '.php');
-    } else if($_SESSION['channelName'] != basename(__FILE__, '.php')){
-        $_SESSION['channelName'] = basename(__FILE__, '.php');
-    }
-
+    require "./header.php";
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/homestyle.css" type="text/css">
-    <link id="style" rel="stylesheet" href="css/homestyledark.css" type="text/css">
-    <title>Home</title>
-</head>
-<body>
-    <header>
-        <div class="header">
-            <div class="logo-container">
-            <form action= "home.php" method="post">
-                <button class="logo-button" type="submit" name="logo-submit">
-                    <img src='img/logo/MonkeyPodcastLogo_dark.png' id='logo' alt='Monkey Podcast'>
-                </button>
-            </form>
-            </div>
-            <div class="search-container">
-                <input id="search-bar" type="text" placeholder="Search..">
-                <img src="icon/search.png" alt="Search Button" id="search-icon">
-            </div>
-            <div class="icons-container">
-                <h4 id="mode-text">DARK MODE ON</h4>
-                <label id="mode-switch">
-                    <input id="checkbox" type="checkbox" name="toggled-mode-home" value="dark" checked>
-                    <span class="slider round"></span>
-                </label>
-                <form action=<?php 
-                    $str = "content/users/".$_SESSION["userUid"]."/podcasts/upload.php";
-                    echo $str;
-                ?> method="post">
-                    <button class="upload-button" type="submit" name="logo-submit">
-                        <img src="icon/microphone.png" alt="Upload Podcast" id="upload-icon">
-                    </button>
-                </form>
-                <img src="icon/user.png" alt="User Profile" id="profile-icon">
-            </div>
-            <div id="profile-menu">
-                <form action= <?php 
-                $str = "content/users/".$_SESSION["userUid"]."/".$_SESSION["userUid"].".php";
-                echo $str;
-                ?>  method="post"> 
-                    <button class="active" id="profile-button" type="submit" name="profile-submit">
-                    <?php
-                        $string = $_SESSION["userUid"];
-                        $uid = strtoupper($string);
-                        echo $uid;
-                    ?>
-                    </button>
-                </form>
-                <form action="includes/logout.inc.php" method="post">
-                    <button id="logout-button" type="submit" name="logout-submit">LOGOUT</button>
-                </form>
-            </div>
-        </div>
-    </header>
-    <div class="content">
-         <div id="channel-name-container">
-            <h1 id="channel-name">SLIPKNOT</h1>
-        </div>
-        <div class="scrollchannel">
-            <img class="left-scroll-arrow" src="icon/arrow.png" alt="Left Arrow">
-            <img class="right-scroll-arrow" src="icon/arrow.png" alt="Right Arrow">
-            <h2 id="album-name">ALL HOPE IS GONE</h2>
-            <div class="grid-element">
-                <img src="audio/Slipknot-All Hope Is Gone/Front cover.jpg" alt="Sample1">
-                <h4>.Execute</h4>
-                <p>156542 streams</p>
-            </div>
-        </div>
-    
-    </div>
+<div class="content" id="home">
+    <div class="home-content">
+        <?php
 
+            $query = "SELECT userUID, podcastViews, podcastTitle, podcastImg, channelImg, podcastFile FROM
+            (SELECT userUID, podcastViews, podcastTitle, podcastImg, podcastFile FROM
+            (SELECT channelName FROM
+            subscriptions
+            WHERE subUid = ?) as t1
+            INNER JOIN
+            podcasts
+            ON t1.channelName = podcasts.userUID) as t2
+            INNER JOIN
+            channels
+            ON t2.userUid = channels.channelName
+            ORDER BY userUID ASC";
+            $stmt = mysqli_stmt_init($conn);
+            if (!mysqli_stmt_prepare($stmt, $query)) {
+                header("Location: ./prova.php?error=sqerror");
+                exit();
+            } else {
+                mysqli_stmt_bind_param($stmt, "s", $_SESSION['userUid']);
+                mysqli_stmt_execute($stmt);
+                mysqli_stmt_store_result($stmt);
+                $stmt->bind_result($channel_name, $streams, $title, $podcast_img, $channel_img, $podcast_file);
+                $name_tmp = NULL;
+                while($stmt->fetch()){
+                    if($name_tmp != $channel_name  || $name_tmp = NULL){
+                        if($name_tmp != NULL){
+                            echo "</div>";
+                        }
+                        $file = str_replace("../", "./",$podcast_file);
+                        $ch_img = str_replace("../", "./", $channel_img);
+                        $pod_img = str_replace("../", "./", $podcast_img);
+                        echo
+                        "<div id=\"channel-name-container\" style=\"background-image: url('".$ch_img."');\">
+                            <button id=\"channel-name-button\" id=\"channel-name-button\" type=\"submit\" name=\"channel-name-submit\">
+                                <h1 id=\"channel-name\">".strtoupper($channel_name)."</h1>
+                            </button>
+                        </div>
+                        <div class=\"scrollchannel\">
+                            <img class=\"left-scroll-arrow\" src=\"icon/arrow.png\" alt=\"Left Arrow\">
+                            <img class=\"right-scroll-arrow\" src=\"icon/arrow.png\" alt=\"Right Arrow\">
+                        ";
+                    }
+                    echo 
+                    "   <div class=\"grid-element\" id=".$file.">
+                            <img src=".$pod_img." alt=\"Sample1\">
+                            <h4 id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
+                            <p>".$streams."</p></div>";
+                    $name_tmp = $channel_name;
+                }
+                echo "</div>";
+            }
+        
+        ?> 
+    </div>
+    <div class="profile-content">
+    </div>
+</div>
     <script src="home.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./load_audio.js"></script>
+    <script src="./change_content.js"></script>
+    <?php require "./player.php"; ?>
 </body>
 </html>
-
-<?php
-    require "player.php";
-?>
