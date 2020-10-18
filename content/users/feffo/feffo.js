@@ -11,3 +11,16 @@ document.getElementById('home').addEventListener('click', function() {
   document.querySelector('.podcasts-container').style.display = 'inline-grid';
   document.querySelector('.channels-container').style.display = 'none';
 });
+
+$(".channel").click(function(){
+  $(".home-content").hide();
+  $.ajax({
+      url : "./content/users/"+$(this).children()[1].id+"/"+$(this).children()[1].id+".php",
+      dataType: "html",
+      success : function (data) {
+          $(".profile-content").html(data);
+          $(".profile-content").show();
+      }
+  });
+  $(".content").attr("id", "profile");
+});

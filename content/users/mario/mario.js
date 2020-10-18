@@ -12,29 +12,15 @@ document.getElementById('home').addEventListener('click', function() {
   document.querySelector('.channels-container').style.display = 'none';
 });
 
-const checkbox = document.getElementById('checkbox');
-
-checkbox.onchange = function () {
-if (checkbox.checked == true) {
-  document.getElementById('style').href = "../../../css/profilestyledark.css";
-  document.getElementById('logo').src = "../../../img/logo/MonkeyPodcastLogo_dark.png";
-  document.getElementById('mode-text').innerHTML = "DARK MODE ON";
-  checkbox.value = "dark";
-} else {
-  document.getElementById('style').href = "../../../css/profilestylelight.css";
-  document.getElementById('logo').src = "../../../img/logo/MonkeyPodcastLogo_light.png";
-  document.getElementById('mode-text').innerHTML = "DARK MODE OFF";
-  checkbox.value = "light";
-}
-};
-
-const profileButton = document.getElementById('profile-icon');
-const profileMenu = document.getElementById('profile-menu');
-  
-profileButton.onclick = function () {
-if (profileMenu.style.display == "none") {
-  profileMenu.style.display = "grid"
-} else {
-  profileMenu.style.display = "none";
-}
-};
+$(".channel").click(function(){
+  $(".home-content").hide();
+  $.ajax({
+      url : "./content/users/"+$(this).children()[1].id+"/"+$(this).children()[1].id+".php",
+      dataType: "html",
+      success : function (data) {
+          $(".profile-content").html(data);
+          $(".profile-content").show();
+      }
+  });
+  $(".content").attr("id", "profile");
+});

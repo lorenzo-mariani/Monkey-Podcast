@@ -41,24 +41,19 @@
                         <img src="icon/microphone.png" alt="Upload Podcast" id="upload-icon">
                     </button>
                 </form>
-                <img src="icon/user.png" alt="User Profile" id="profile-icon">
+                <img src="./icon/user.png" alt="User Profile" id="profile-icon">
             </div>
             <div id="profile-menu">
-                <form action= <?php
-                $str = "content/users/".$_SESSION["userUid"]."/".$_SESSION["userUid"].".php";
-                echo $str;
-                ?>  method="post"> 
-                    <button class="active" id="profile-button" type="submit" name="profile-submit">
-                    <?php
-                        $string = $_SESSION["userUid"];
-                        $uid = strtoupper($string);
-                        echo $uid;
-                    ?>
-                    </button>
-                </form>
+                <h4 id="profile-button"><?php
+                    $string = $_SESSION["userUid"];
+                    $uid = strtoupper($string);
+                    echo $uid;
+                ?></h4>
                 <form action="includes/logout.inc.php" method="post">
                     <button id="logout-button" type="submit" name="logout-submit">LOGOUT</button>
                 </form>
             </div>
         </div>
     </header>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./change_content.js"></script>

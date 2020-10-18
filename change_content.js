@@ -1,8 +1,14 @@
 $(document).ready(function(){
+    $(".logo-container").click(function(){
+        $(".profile-content").hide();
+        $(".home-content").show();
+        $(".content").attr("id", "home");
+    });
+
     $("#channel-name").click(function(){
         $(".home-content").hide();
         $.ajax({
-            url : "./content/users/"+$(this)[0].innerHTML+"/"+$(this)[0].innerHTML+".php",
+            url : "./content/users/"+$(this)[0].innerHTML.toLowerCase()+"/"+$(this)[0].innerHTML.toLowerCase()+".php",
             dataType: "html",
             success : function (data) {
                 $(".profile-content").html(data);
@@ -11,10 +17,17 @@ $(document).ready(function(){
         });
         $(".content").attr("id", "profile");
     });
-
-    $(".logo-container").click(function(){
-        $(".profile-content").hide();
-        $(".home-content").show();
-        $(".content").attr("id", "home");
+    
+    $("#profile-button").click(function(){
+        $(".home-content").hide();
+        $.ajax({
+            url : "./content/users/"+$(this).text().toLowerCase()+"/"+$(this).text().toLowerCase()+".php",
+            dataType: "html",
+            success : function (data) {
+                $(".profile-content").html(data);
+                $(".profile-content").show();
+            }
+        });
+        $(".content").attr("id", "profile");
     });
 });

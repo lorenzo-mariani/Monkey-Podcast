@@ -43,11 +43,6 @@ a:hover{
     cursor: pointer;
 }
 
-#channel-btn {
-    background-color: transparent;
-    border: transparent;
-}
-
 button:hover {
     cursor: pointer;
 }
@@ -345,7 +340,6 @@ input:checked + .slider:before {
     flex: 3;
     text-align: center;
     background-color: #00000050;
-    margin-right: 30px;
 }
 
 #profile-img {

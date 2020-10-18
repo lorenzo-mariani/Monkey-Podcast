@@ -41,7 +41,7 @@
             mysqli_stmt_store_result($stmt);
             $stmt->bind_result($podcast_img);
             while($stmt->fetch()){
-                echo "style=\"background-image:url('".str_replace("../content/users/".$_SESSION['channelName']."/", "./",$podcast_img)."')\"";
+                echo "style=\"background-image:url('".str_replace("../", "./",$podcast_img)."')\"";
             }
             mysqli_stmt_close($stmt);
         }
@@ -135,7 +135,7 @@
                     $channel_name = $_SESSION['channelName'];
                     while($stmt->fetch()){
                         echo
-                        "<div class=\"grid-element\">
+                        "<div class=\"grid-element\"  id=".str_replace("../", "./", $podcast_file).">
                             <img src=".str_replace("../", "./",$podcast_img)." alt=\"Sample1\">
                             <h4>".strtoupper(str_replace('_', ' ', $title))."</h4>
                             <p>".$streams."</p>
@@ -171,14 +171,11 @@
                             echo
                             "
                             <div class=\"channel\">
-                                <form action=\"../".$channel_name."/".$channel_name.".php\" method=\"post\">
-                                    <button id=\"channel-btn\" type=\"submit\" name=\"channel-submit\">
-                                        <img src=\"./icon/user.png\" alt=\"User Profile\" id=\"channel-img\">
-                                    </button>
-                                    <ul class=\"channel-info\">
-                                        <li id=\"name\">".$channel_name."</li>
-                                        <li id=\"channel-subs\">".$subs."</li>
-                                    </ul>
+                            <img src=\"./icon/user.png\" alt=\"User Profile\" id=\"channel-img\">
+                                <ul class=\"channel-info\" id=".$channel_name.">
+                                    <li id=\"name\">".$channel_name."</li>
+                                    <li id=\"channel-subs\">".$subs."</li>
+                                </ul>
                                 </form>
                             </div>
                             ";
@@ -198,3 +195,5 @@
     </script>
 </body>
 </html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="./load_audio.js"></script>

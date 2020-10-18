@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(!isset($_SESSION['userId'])){
-        header("Location: ../../../index.php");
+        header("Location: ./index.php");
     }
     if(!isset($_SESSION['channelName'])){
         $_SESSION['channelName'] = basename(__FILE__, '.php');
@@ -17,58 +17,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link id="style" rel="stylesheet" href="../../../css/profilestyledark.css"> 
+    <link id="style" rel="stylesheet" href="./css/profilestyledark.css"> 
     <title>Profile</title>
 </head>
 <body>
-    <header>
-        <div class="header">
-            <div class="logo-container">
-            <form action= "../../../home.php" method="post">
-                <button id="logo-button" type="submit" name="logo-submit">
-                    <img src='../../../img/logo/MonkeyPodcastLogo_dark.png' id='logo' alt='Monkey Podcast'>
-                </button>
-            </form>
-            </div>
-            <div class="search-container">
-                <input id="search-bar" type="text" placeholder="Search..">
-                <img src="../../../icon/search.png" alt="Search Button" id="search-icon">
-            </div>
-            <div class="icons-container">
-                <h4 id="mode-text">DARK MODE ON</h4>
-                <label id="mode-switch">
-                    <input id="checkbox" type="checkbox" name="toggled-mode" value="dark" checked>
-                    <span class="slider round"></span>
-                </label>
-                <form action=
-                    <?php
-                     echo "../../../content/users/".$_SESSION["userUid"]."/podcasts/upload.php" 
-                    ?>
-                    method="post">
-                    <button class="upload-button" type="submit" name="logo-submit">
-                        <img src="../../../icon/microphone.png" alt="Upload Podcast" id="upload-icon">
-                    </button>
-                </form>
-                <img src="../../../icon/user.png" alt="User Profile" id="profile-icon">
-            </div>
-            <div id="profile-menu">
-            <form action=<?php 
-                echo "../../../content/users/".$_SESSION["userUid"]."/".$_SESSION["userUid"].".php";
-            ?> method="post"> 
-                    <button class="active" id="profile-button" type="submit" name="profile-submit">
-                    <?php
-                        $string = $_SESSION["userUid"];
-                        $uid = strtoupper($string);
-                        echo $uid;
-                    ?>
-                    </button>
-                </form>
-                <form action="../../../includes/logout.inc.php" method="post">
-                    <button id="logout-button" type="submit" name="logout-submit">LOGOUT</button>
-                </form>
-            </div>
-        </div>
-    </header>
     <div class="content">
         <div class="tabs-container">
             <ul class="tabs-menu">
@@ -89,13 +41,13 @@
             mysqli_stmt_store_result($stmt);
             $stmt->bind_result($podcast_img);
             while($stmt->fetch()){
-                echo "style=\"background-image:url('".str_replace("../content/users/".$_SESSION['channelName']."/", "./",$podcast_img)."')\"";
+                echo "style=\"background-image:url('".str_replace("../", "./",$podcast_img)."')\"";
             }
             mysqli_stmt_close($stmt);
         }
         ?>>
             <div class="left-column">
-                <img src="../../../icon/user.png" alt="User Profile" id="profile-img">
+                <img src="./icon/user.png" alt="User Profile" id="profile-img">
                 <ul class="info">
                     <li id="username">
                         <?php
@@ -149,7 +101,7 @@
                             $resultCheck = mysqli_stmt_num_rows($stmt);
                             if($resultCheck == 0) {
                                 echo
-                                "<form action=\"../../../includes/subscribe.inc.php\" method=\"post\">
+                                "<form action=\"./includes/subscribe.inc.php\" method=\"post\">
                                     <button id=\"subscribe-button\" type=\"submit\" name=\"logo-submit\">
                                         SUBSCRIBE
                                     </button>
@@ -183,13 +135,9 @@
                     $channel_name = $_SESSION['channelName'];
                     while($stmt->fetch()){
                         echo
-                        "<div class=\"grid-element\">
-                            <a href=../../../player.php?file=".str_replace("../", "/Monkey-Podcast/",$podcast_file)."&title=".$title."&img=".str_replace("../", "/Monkey-Podcast/",$podcast_img)."&channel-name=".$channel_name." target=\"_blank\">
-                                <img src=".str_replace("../", "/Monkey-Podcast/", $podcast_img)." alt=\"Sample1\">
-                            </a>
-                            <a href=../../../player.php?file=".str_replace("../", "/Monkey-Podcast/",$podcast_file)."&title=".$title."&img=".str_replace("../", "/Monkey-Podcast/",$podcast_img)."&channel-name=".$channel_name." target=\"_blank\">
-                                <h4>".strtoupper(str_replace('_', ' ', $title))."</h4>
-                            </a>
+                        "<div class=\"grid-element\"  id=".str_replace("../", "./", $podcast_file).">
+                            <img src=".str_replace("../", "./",$podcast_img)." alt=\"Sample1\">
+                            <h4>".strtoupper(str_replace('_', ' ', $title))."</h4>
                             <p>".$streams."</p>
                         </div>";
                     }
@@ -223,14 +171,11 @@
                             echo
                             "
                             <div class=\"channel\">
-                                <form action=\"../".$channel_name."/".$channel_name.".php\" method=\"post\">
-                                    <button id=\"channel-button\" type=\"submit\" name=\"channel-submit\">
-                                        <img src=\"../../../icon/user.png\" alt=\"User Profile\" id=\"channel-img\">
-                                    </button>
-                                    <ul class=\"channel-info\">
-                                        <li id=\"channel-name\">".$channel_name."</li>
-                                        <li id=\"channel-subs\">".$subs."</li>
-                                    </ul>
+                            <img src=\"./icon/user.png\" alt=\"User Profile\" id=\"channel-img\">
+                                <ul class=\"channel-info\" id=".$channel_name.">
+                                    <li id=\"name\">".$channel_name."</li>
+                                    <li id=\"channel-subs\">".$subs."</li>
+                                </ul>
                                 </form>
                             </div>
                             ";
@@ -245,7 +190,10 @@
         </div>
     </div>
     <script src=<?php 
-                echo basename(__FILE__, '.php').".js";
-            ?>></script>
+                echo "./content/users/".basename(__FILE__, '.php')."/".basename(__FILE__, '.php').".js";
+            ?>>
+    </script>
 </body>
 </html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="./load_audio.js"></script>

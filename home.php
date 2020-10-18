@@ -63,9 +63,7 @@
     </div>
 </div>
     <script src="home.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="./load_audio.js"></script>
-    <script src="./change_content.js"></script>
     <?php require "./player.php"; ?>
 </body>
 </html>
+<script src="./load_audio.js"></script>

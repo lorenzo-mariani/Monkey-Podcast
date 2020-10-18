@@ -1,10 +1,9 @@
 const buttonRight = document.getElementsByClassName('right-scroll-arrow');
 const buttonLeft = document.getElementsByClassName('left-scroll-arrow');
-const profileButton = document.getElementById('profile-icon');
+const profileIcon = document.getElementById('profile-icon');
 const profileMenu = document.getElementById('profile-menu');
 const checkbox = document.getElementById('checkbox');
-
-var myWin = null;
+const profileButton = document.getElementById('profile-button');
 
 for (var i = 0; i < buttonRight.length; i++) {
   
@@ -18,13 +17,17 @@ for (var i = 0; i < buttonRight.length; i++) {
 
 }
 
-profileButton.onclick = function () {
+profileIcon.onclick = function () {
   if (profileMenu.style.display == "none") {
     profileMenu.style.display = "grid"
   } else {
     profileMenu.style.display = "none";
   }
 };
+
+profileButton.onclick = function () {
+  profileMenu.style.display = "none";
+}
 
 checkbox.onchange = function () {
   if (checkbox.checked == true) {
@@ -54,12 +57,4 @@ checkbox.onchange = function () {
       document.getElementById('play-icon').src = "icon/pause-icon-light.png";
     }
   }
-}
-
-function openWin () {
-  myWin = window.open("www.google.com", "_blank");
-}
-
-function closeWin () {
-  myWin.close();
 }
