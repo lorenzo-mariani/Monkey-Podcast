@@ -7,3 +7,8 @@ $(document).ready(function(){
       $( "#play-icon" ).trigger( "click" );
     });
 });
+
+var audio = document.getElementById('audio');
+audio.oncanplaythrough = function() {
+  $("#duration").html(Math.floor(audio.duration/60)+":"+Math.floor(audio.duration%60));
+}

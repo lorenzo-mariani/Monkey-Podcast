@@ -3,6 +3,7 @@ const previousButton = document.getElementById('previous-icon');
 const nextButton = document.getElementById('next-icon');
 const slider = document.getElementById('slider');
 const seekSlider = document.getElementById('seek-slider');
+const timeupdate = document.getElementById('current-time');
 
 var audio = document.getElementById('audio');
 
@@ -38,6 +39,19 @@ audio.addEventListener('timeupdate', function() {
     var time = (this.currentTime*100)/this.duration;
     if(!isSeeking){
         seekSlider.value = time.toString();
+        if(this.currentTime < 60){
+            if(this.currentTime < 10){
+                timeupdate.innerHTML = "0:0"+Math.floor(this.currentTime.toString());
+            } else {
+                timeupdate.innerHTML = "0:"+Math.floor(this.currentTime.toString());
+            }
+        } else {
+            if(this.currentTime%60 < 10) {
+                timeupdate.innerHTML = Math.floor(this.currentTime/60)+":0"+Math.floor(this.currentTime%60);
+            } else {
+                timeupdate.innerHTML = Math.floor(this.currentTime/60)+":"+Math.floor(this.currentTime%60);
+            }
+        }
     }
 });
 

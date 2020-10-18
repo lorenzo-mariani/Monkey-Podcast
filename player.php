@@ -12,10 +12,14 @@
     </div>
     <div id="center-container">
         <div id="center-icons-container">
-            <img id="previous-icon" src="/Monkey-Podcast/icon/next-icon-dark.png" alt="previous-icon">
-            <img id="play-icon" src="/Monkey-Podcast/icon/play-icon-dark.png" alt="play-icon">
-            <img id="next-icon" src="/Monkey-Podcast/icon/next-icon-dark.png"alt="next-icon">
+            <h4 id="current-time"></h4>
+            <div id="center-icons">
+                <img id="previous-icon" src="/Monkey-Podcast/icon/next-icon-dark.png" alt="previous-icon">
+                <img id="play-icon" src="/Monkey-Podcast/icon/play-icon-dark.png" alt="play-icon">
+                <img id="next-icon" src="/Monkey-Podcast/icon/next-icon-dark.png"alt="next-icon">
+            </div>
             <audio id="audio" src="" type="audio/mp3"></audio>
+            <h4 id="duration"></h4>
         </div>
         <div id="seek-container">
             <input type="range" min="1" max="100" value="0" step="0.001" id="seek-slider">

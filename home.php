@@ -62,7 +62,6 @@
     <div class="profile-content">
     </div>
 </div>
-    <script src="home.js"></script>
     <?php require "./player.php"; ?>
 </body>
 </html>

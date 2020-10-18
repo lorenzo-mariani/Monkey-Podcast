@@ -11,17 +11,8 @@
     
     require "../../../includes/dbh.inc.php";
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link id="style" rel="stylesheet" href="./css/profilestyledark.css"> 
-    <title>Profile</title>
-</head>
 <body>
-    <div class="content">
+    <div class="profile-content">
         <div class="tabs-container">
             <ul class="tabs-menu">
                 <li id="home">HOME</li>
@@ -137,7 +128,7 @@
                         echo
                         "<div class=\"grid-element\"  id=".str_replace("../", "./", $podcast_file).">
                             <img src=".str_replace("../", "./",$podcast_img)." alt=\"Sample1\">
-                            <h4>".strtoupper(str_replace('_', ' ', $title))."</h4>
+                            <h4 id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
                             <p>".$streams."</p>
                         </div>";
                     }

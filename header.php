@@ -14,7 +14,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/homestyle.css" type="text/css">
-    <link id="style" rel="stylesheet" href="css/homestyledark.css" type="text/css">
+    <link id="home-style" rel="stylesheet" href="css/homestyledark.css" type="text/css">
+    <link id="profile-style" rel="stylesheet" href="css/profilestyledark.css" type="text/css">
     <title>Home</title>
 </head>
 <body>
@@ -57,3 +58,4 @@
     </header>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./change_content.js"></script>
+    <script src="./home.js"></script>

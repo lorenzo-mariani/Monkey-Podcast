@@ -47,20 +47,8 @@ button:hover {
     cursor: pointer;
 }
 
-.content, html{
+.profile-content, html{
     background-color: rgb(17, 17, 17);
-}
-
-.header {
-    display: flex;
-    flex-wrap: nowrap;
-    width: 100%;
-    height: 90px;
-    background-color: rgba(27, 27, 27, 0.97);
-    position: fixed;
-    top:0;
-    left: 0;
-    z-index: 999;
 }
 
 .content {
@@ -116,15 +104,6 @@ button:hover {
 .icons-container {
     flex: 1;
     justify-content: center;
-}
-
-#mode-text {
-    color: whitesmoke;
-    font-family: caviar_dreamsregular;
-    font-size: 14px;
-    width: 120px;
-    margin-left: 70px;
-    text-align: center;
 }
 
 #search-icon {
@@ -199,66 +178,6 @@ button:hover {
     font-size: 14px;
     cursor: pointer;
     text-align: left;
-}
-
-#mode-switch {
-    position: relative;
-    display: inline-block;
-    margin-left: 20px;
-    width: 55px;
-    height: 28px;
-}
- 
-#mode-switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-  
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-  
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 20px;
-    width: 20px;
-    left: 4px;
-    bottom: 4px;
-    background-color: #f6f6f6;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-  
-input:checked + .slider {
-    background-color: rgb(68, 0, 0);
-}
-  
-input:focus + .slider {
-    box-shadow: 0 0 1px rgb(68, 0, 0);
-}
-  
-input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-}
-
-.slider.round {
-    border-radius: 34px;
-}
-  
-.slider.round:before {
-    border-radius: 50%;
 }
 
 .tabs-container {
@@ -360,7 +279,6 @@ input:checked + .slider:before {
 }
 
 .views-container {
-    margin-top: 30px;
     height: 17px;
     padding: 17px;
     border-top: 1px solid rgba(53, 0, 0, 0.74);

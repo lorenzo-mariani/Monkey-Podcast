@@ -31,7 +31,8 @@ profileButton.onclick = function () {
 
 checkbox.onchange = function () {
   if (checkbox.checked == true) {
-    document.getElementById('style').href = "css/homestyledark.css";
+    document.getElementById('home-style').href = "css/homestyledark.css";
+    document.getElementById('profile-style').href = "css/profilestyledark.css";
     document.getElementById('player-style').href = "css/playerstyledark.css";
     document.getElementById('play-icon').src = "icon/play-icon-dark.png";
     document.getElementById('next-icon').src = "icon/next-icon-dark.png";
@@ -44,7 +45,8 @@ checkbox.onchange = function () {
       document.getElementById('play-icon').src = "icon/pause-icon-dark.png";
     }
   } else {
-    document.getElementById('style').href = "css/homestylelight.css";
+    document.getElementById('home-style').href = "css/homestylelight.css";
+    document.getElementById('profile-style').href = "css/profilestylelight.css";
     document.getElementById('player-style').href = "css/playerstylelight.css";
     document.getElementById('play-icon').src = "icon/play-icon-light.png";
     document.getElementById('next-icon').src = "icon/next-icon-light.png";

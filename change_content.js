@@ -30,4 +30,17 @@ $(document).ready(function(){
         });
         $(".content").attr("id", "profile");
     });
+
+    $("#podcast-channel").click(function() {
+        $(".home-content").hide();
+        $.ajax({
+            url : "./content/users/"+$(this).text().toLowerCase()+"/"+$(this).text().toLowerCase()+".php",
+            dataType: "html",
+            success : function (data) {
+                $(".profile-content").html(data);
+                $(".profile-content").show();
+            }
+        });
+        $(".content").attr("id", "profile");
+    });
 });

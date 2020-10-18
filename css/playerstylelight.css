@@ -48,3 +48,11 @@ input[type=range]::-moz-range-thumb {
 #mode-text {
     color: black;
 }
+
+#current-time {
+    color: black;
+}
+
+#duration {
+    color: black;
+}

@@ -43,6 +43,31 @@
     flex-direction: column;
 }
 
+#current-time {
+    flex: 1;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-family: caviar_dreamsbold;
+    margin-left: 10px;
+}
+
+#center-icons {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#duration {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-family: caviar_dreamsbold;
+    margin-right: 10px;
+}
+
 #left-container {
     flex: 1;
 }
@@ -67,7 +92,10 @@
     font-family: caviar_dreamsbold;
     font-size: 15px;
     margin-bottom: 7px;
-    cursor: pointer;
+}
+
+#podcast-name:hover {
+    text-decoration: none;
 }
 
 #podcast-channel {
@@ -92,12 +120,10 @@
 
 #next-icon {
     height: 15px;
-    margin-top: 10px;
 }
 
 #previous-icon {
     height: 15px;
-    margin-top: 10px;
     transform: rotate(180deg);
 }
 
