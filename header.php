@@ -5,7 +5,6 @@
     }
 
     require "./includes/dbh.inc.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -13,12 +12,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/homestyle.css" type="text/css">
-    <link id="home-style" rel="stylesheet" href="css/homestyledark.css" type="text/css">
-    <link id="profile-style" rel="stylesheet" href="css/profilestyledark.css" type="text/css">
+    <link rel="stylesheet" href="./css/homestyle.css" type="text/css">
+    <link id="home-style" rel="stylesheet" href="./css/homestyledark.css" type="text/css">
+    <link rel="stylesheet" href="./css/profilestyle.css" type="text/css">
+    <link id="profile-style" rel="stylesheet" href="./css/profilestyledark.css" type="text/css">
     <title>Home</title>
 </head>
-<body>
+<body onload="if(Array.isArray(document.cookie.split(';'))){getCookie('memaudio');}">
     <header>
         <div class="header">
             <div class="logo-container">

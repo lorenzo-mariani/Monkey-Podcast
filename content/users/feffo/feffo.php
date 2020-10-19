@@ -12,7 +12,7 @@
     require "../../../includes/dbh.inc.php";
 ?>
 <body>
-    <div class="profile-content">
+    <div class="profile-cnt">
         <div class="tabs-container">
             <ul class="tabs-menu">
                 <li id="home">HOME</li>
@@ -32,7 +32,8 @@
             mysqli_stmt_store_result($stmt);
             $stmt->bind_result($podcast_img);
             while($stmt->fetch()){
-                echo "style=\"background-image:url('".str_replace("../", "./",$podcast_img)."')\"";
+                echo "style=\"background:url('".str_replace("../", "./",$podcast_img)."') no-repeat center;
+                background-size: cover;\"";
             }
             mysqli_stmt_close($stmt);
         }
@@ -70,14 +71,19 @@
                             mysqli_stmt_close($stmt);
                         ?>
                     </li>
-                </ul>
-            </div>
-            <div class="right-column">
-                <br>
-                <h3>DESCRIPTION</h3>
-                <br>
-                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <?php
+                    <?php
+                        if($_SESSION['channelName'] == $_SESSION['userUid']) {
+                            echo "<div id=\"upload-img-container\">
+                            <form action=\"./upload-channel-img.php\" method=\"post\">        
+                                <button id=\"upload-img-btn\" type=\"submit\" name=\"upload-img-btn\">
+                                    <h4 id=\"upload-img-label\">UPLOAD CHANNEL IMAGE</h4>
+                                    <img id=\"upload-img-icon\" src=\"./icon/upload-img.png\">
+                                </button>
+                            </form>
+                            </div>";
+                        }
+                    ?>
+                    <?php
                     if($_SESSION['userUid'] != basename(__FILE__, '.php')){
 
                         $query = "SELECT channelName FROM subscriptions WHERE subUid=? && channelName=?";
@@ -93,18 +99,29 @@
                             if($resultCheck == 0) {
                                 echo
                                 "<form action=\"./includes/subscribe.inc.php\" method=\"post\">
-                                    <button id=\"subscribe-button\" type=\"submit\" name=\"logo-submit\">
+                                    <button id=\"subscribe-button\" name=\"subscribe-btn\">
                                         SUBSCRIBE
                                     </button>
                                 </form>";
                             } else if($resultCheck == 1){
                                 echo
-                                "<h3 id=\"subscribed\">SUBSCRIBED</h3>";
+                                "<form action=\"./includes/unsubscribe.inc.php\" method=\"post\">
+                                    <button id=\"unsubscribe-button\" name=\"unsubscribe-btn\">
+                                        UNSUBSCRIBE
+                                    </button>
+                                </form>";
                             }
                         }
                         mysqli_stmt_close($stmt);
                     }
                 ?>
+                </ul>
+            </div>
+            <div class="right-column">
+                <br>
+                <h3>DESCRIPTION</h3>
+                <br>
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
         </div>
         <div class="views-container">
@@ -181,7 +198,7 @@
         </div>
     </div>
     <script src=<?php 
-                echo "./content/users/".basename(__FILE__, '.php')."/".basename(__FILE__, '.php').".js";
+                echo "'./content/users/".basename(__FILE__, '.php')."/".basename(__FILE__, '.php').".js'";
             ?>>
     </script>
 </body>

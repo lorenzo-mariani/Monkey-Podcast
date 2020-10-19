@@ -60,3 +60,42 @@ checkbox.onchange = function () {
     }
   }
 }
+
+var channels = document.getElementsByClassName('channel-name');
+
+for(var i = 0; i < channels.length; i++) {
+  channels[i].addEventListener('click', function() {
+    document.getElementById('channels').addEventListener('click', function() {
+      document.querySelector('.info-container').style.display = 'none';
+      document.querySelector('.views-container').style.display = 'none';
+      document.querySelector('.podcasts-container').style.display = 'none';
+      document.querySelector('.channels-container').style.display = 'inline-grid';
+    });
+  
+    document.getElementById('home').addEventListener('click', function() {
+      document.querySelector('.info-container').style.display = 'flex';
+      document.querySelector('.views-container').style.display = 'block';
+      document.querySelector('.podcasts-container').style.display = 'inline-grid';
+      document.querySelector('.channels-container').style.display = 'none';
+    });
+  
+    $(".channel").click(function(){
+      $(".home-content").hide();
+      $.ajax({
+          url : "./content/users/"+$(this).children()[1].id+"/"+$(this).children()[1].id+".php",
+          dataType: "html",
+          success : function (data) {
+              $(".profile-content").html(data);
+              $(".profile-content").show();
+          }
+      });
+      $(".content").attr("id", "profile");
+    });
+  });
+}
+
+$('body').click(function(event) {
+  if (profileMenu.style.display == "grid" && event.target.id != "profile-icon") {
+    profileMenu.style.display = "none"
+  }
+})

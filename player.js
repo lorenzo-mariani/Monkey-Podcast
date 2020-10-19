@@ -18,14 +18,14 @@ playButton.onmouseout = function() {
 };
 
 playButton.onclick = function() {
-    if(audio.paused){
+    if(audio.paused && audio.src != ''){
         audio.play();
         if(checkbox.checked){
-            this.src = "/Monkey-Podcast/icon/pause-icon-dark.png";
+            this.src = "./icon/pause-icon-dark.png";
         } else {
-            this.src = "/Monkey-Podcast/icon/pause-icon-light.png";
+            this.src = "./icon/pause-icon-light.png";
         }
-    } else {
+    } else if(!(audio.paused) && audio.src != ''){
         audio.pause();
         if(checkbox.checked){
             this.src = "./icon/play-icon-dark.png";

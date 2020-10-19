@@ -5,42 +5,34 @@ $(document).ready(function(){
         $(".content").attr("id", "home");
     });
 
-    $("#channel-name").click(function(){
+    $(".channel-name").click(function(){
         $(".home-content").hide();
-        $.ajax({
-            url : "./content/users/"+$(this)[0].innerHTML.toLowerCase()+"/"+$(this)[0].innerHTML.toLowerCase()+".php",
-            dataType: "html",
-            success : function (data) {
-                $(".profile-content").html(data);
-                $(".profile-content").show();
-            }
-        });
+        getProfileContent($(this).text().toLowerCase());
         $(".content").attr("id", "profile");
+        $(".profile-content").show();
     });
     
     $("#profile-button").click(function(){
         $(".home-content").hide();
-        $.ajax({
-            url : "./content/users/"+$(this).text().toLowerCase()+"/"+$(this).text().toLowerCase()+".php",
-            dataType: "html",
-            success : function (data) {
-                $(".profile-content").html(data);
-                $(".profile-content").show();
-            }
-        });
+        getProfileContent($(this).text().toLowerCase());
         $(".content").attr("id", "profile");
+        $(".profile-content").show();
     });
 
     $("#podcast-channel").click(function() {
         $(".home-content").hide();
-        $.ajax({
-            url : "./content/users/"+$(this).text().toLowerCase()+"/"+$(this).text().toLowerCase()+".php",
-            dataType: "html",
-            success : function (data) {
-                $(".profile-content").html(data);
-                $(".profile-content").show();
-            }
-        });
+        getProfileContent($(this).text().toLowerCase());
         $(".content").attr("id", "profile");
+        $(".profile-content").show();
     });
 });
+
+function getProfileContent(name) {
+    $.ajax({
+        url : "./content/users/"+name+"/"+name+".php",
+        dataType: "html",
+        success : function (data) {
+            $(".profile-content").html(data);
+        }
+    });
+}

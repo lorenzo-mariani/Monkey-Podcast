@@ -157,6 +157,10 @@ a:hover{
     text-decoration: none;
 }
 
+.grid-element:hover {
+    cursor: pointer;
+}
+
 .grid-element img {
     padding-top: 50px;
     height: 140px;
@@ -211,24 +215,22 @@ a:hover{
 
 #channel-name-container {
     height: 200px;
-    background-color: black;
+    background: black;
 }
 
-#channel-name {
+.channel-name {
     position: relative;
     font-family: caviar_dreamsbold;
     color: whitesmoke;
     font-size: 80px;
     text-align: center;
+    top: 50%;
+    transform: translate(0, -50%);
+    background: rgba(0, 0, 0, 0.521);
 }
 
-#channel-name-button {
-    position: relative;
+.channel-name:hover {
     cursor: pointer;
-    left: 50%;
-    transform: translate(-50%, 50%);
-    background-color: transparent;
-    border: transparent;
 }
 
 #profile-menu {
@@ -356,7 +358,7 @@ a:hover{
         height: 40px;
     }
 
-    #channel-name {
+    .channel-name {
         font-size: 24px;
     }
 

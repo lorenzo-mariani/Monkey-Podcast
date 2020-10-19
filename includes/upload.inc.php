@@ -7,7 +7,7 @@ session_start();
 
 $genre = strtolower($_POST["genre-value"]);
 $title = str_replace(' ', '_', strtolower($_POST["podcast-title"]));
-$views = 10;
+$views = 0;
 
 $target_dir = "../content/users/".$_SESSION['userUid']."/"."podcasts/".$title."/";
 $target_file_audio = $target_dir . str_replace(' ','_',basename($_FILES["audio-file"]["name"]));
@@ -82,7 +82,7 @@ if(isset($_POST["upload-submit"])) {
 
     //Code that operates MySQL querys
 
-    if (empty($title) || empty($genre) || empty($views) || empty($target_dir)) {
+    if (empty($title) || empty($genre) || empty($target_dir)) {
         header("Location: ../content/users/".$_SESSION["userUid"]."/podcasts/upload.php?error=emptyfields&title".$title."&genre=".$genre);
         exit();
     } else {
@@ -98,5 +98,5 @@ if(isset($_POST["upload-submit"])) {
     }
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
-    header("Location: ../content/users/".$_SESSION["userUid"]."/".$_SESSION["userUid"].".php");
+    header("Location: ../home.php");
 ?>

@@ -2,8 +2,29 @@
     require "./header.php";
 ?>
 
-<div class="content" id="home">
-    <div class="home-content">
+
+
+<div class="content" <?php
+    if(isset($_GET['view'])) {
+        if($_GET['view'] == "home"){
+            echo "id='home'";
+        } else if($_GET['view'] == "profile"){
+            echo "id='profile'";
+        }
+    }  else {
+        echo "id='home'";
+    }
+?>>
+    <div class="home-content" <?php
+    if(isset($_GET['view'])) {
+        if($_GET['view'] == "home"){
+            echo "style= 'display: block;'";
+        } else if($_GET['view'] == "profile"){
+            echo "style= 'display: none;'";
+
+        }
+    }
+?>>
         <?php
 
             $query = "SELECT userUID, podcastViews, podcastTitle, podcastImg, channelImg, podcastFile FROM
@@ -37,14 +58,12 @@
                         $ch_img = str_replace("../", "./", $channel_img);
                         $pod_img = str_replace("../", "./", $podcast_img);
                         echo
-                        "<div id=\"channel-name-container\" style=\"background-image: url('".$ch_img."');\">
-                            <button id=\"channel-name-button\" id=\"channel-name-button\" type=\"submit\" name=\"channel-name-submit\">
-                                <h1 id=\"channel-name\">".strtoupper($channel_name)."</h1>
-                            </button>
+                        "<div id=\"channel-name-container\" style=\"background: url('".$ch_img."') no-repeat center; background-size:cover\">
+                            <h1 class=\"channel-name\">".strtoupper($channel_name)."</h1>
                         </div>
                         <div class=\"scrollchannel\">
-                            <img class=\"left-scroll-arrow\" src=\"icon/arrow.png\" alt=\"Left Arrow\">
-                            <img class=\"right-scroll-arrow\" src=\"icon/arrow.png\" alt=\"Right Arrow\">
+                            <img class=\"left-scroll-arrow\" src=\"./icon/arrow.png\" alt=\"Left Arrow\">
+                            <img class=\"right-scroll-arrow\" src=\"./icon/arrow.png\" alt=\"Right Arrow\">
                         ";
                     }
                     echo 
@@ -59,7 +78,18 @@
         
         ?> 
     </div>
-    <div class="profile-content">
+    <div class="profile-content" <?php
+    if(isset($_GET['view'])) {
+        if($_GET['view'] == "profile"){
+            echo "style= 'display: block;'";
+        } else if($_GET['view'] == "home"){
+            echo "style= 'display: none;'";
+
+        }
+    } else {
+        echo "style= 'display: none;'";
+    }
+?>>
     </div>
 </div>
     <?php require "./player.php"; ?>
