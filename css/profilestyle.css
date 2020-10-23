@@ -273,10 +273,8 @@ button:hover {
 }
 
 .podcasts-container {
-    display: inline-grid;
+    width: 100%;
     grid-template-columns: auto auto auto auto auto;
-    margin-left: 40px;
-    margin-right: 30px;
 }
 
 .grid-element {
@@ -351,4 +349,20 @@ button:hover {
     font-size: 10px;
     display: inline;
     vertical-align: middle;
+}
+
+#playlist {
+    font-family: caviar_dreamsregular;
+    font-size: 40px;
+    margin-top: 20px;
+    background-color: black;
+    padding: 15px 50px;
+}
+
+#some-podcasts {
+    font-family: caviar_dreamsregular;
+    font-size: 30px;
+    margin-top: 20px;
+    padding: 15px 50px;
+    text-align: center;
 }

@@ -69,11 +69,6 @@ if (isset($_POST['signup-submit'])){
                     if (!copy($file, $newfile)) {
                         echo "failed to copy $file...\n";
                     }
-                    $file = '../templates/upload.php';            
-                    $newfile = '../content/users/'.$username.'/podcasts/upload.php';
-                    if (!copy($file, $newfile)) {
-                        echo "failed to copy $file...\n";
-                    }
                 }
 
                 mysqli_stmt_close($stmt);

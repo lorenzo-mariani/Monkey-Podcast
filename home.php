@@ -24,7 +24,7 @@
 
         }
     }
-?>>
+    ?>>
         <?php
 
             $query = "SELECT userUID, podcastViews, podcastTitle, podcastImg, channelImg, podcastFile FROM
@@ -50,7 +50,7 @@
                 $stmt->bind_result($channel_name, $streams, $title, $podcast_img, $channel_img, $podcast_file);
                 $name_tmp = NULL;
                 while($stmt->fetch()){
-                    if($name_tmp != $channel_name  || $name_tmp = NULL){
+                    if($name_tmp != $channel_name  || $name_tmp == NULL){
                         if($name_tmp != NULL){
                             echo "</div>";
                         }
@@ -74,9 +74,11 @@
                     $name_tmp = $channel_name;
                 }
                 echo "</div>";
+                mysqli_stmt_close($stmt);
+                mysqli_close($conn);
             }
         
-        ?> 
+        ?>
     </div>
     <div class="profile-content" <?php
     if(isset($_GET['view'])) {
@@ -89,7 +91,11 @@
     } else {
         echo "style= 'display: none;'";
     }
-?>>
+    ?>>
+    </div>
+
+    <div class="search-content">
+
     </div>
 </div>
     <?php require "./player.php"; ?>

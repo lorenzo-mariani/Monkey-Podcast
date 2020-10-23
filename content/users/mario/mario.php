@@ -130,7 +130,7 @@
         <div class="podcasts-container">
             <?php
 
-                $query = "SELECT podcastTitle, podcastImg, podcastViews, podcastFile FROM podcasts WHERE userUID=?";
+                $query = "SELECT genre, podcastTitle, podcastImg, podcastViews, podcastFile, playlist FROM podcasts WHERE userUID=? ORDER BY playlist ASC";
                 $stmt = mysqli_stmt_init($conn);
                 if (!mysqli_stmt_prepare($stmt, $query)) {
                     header("Location: ./prova.php?error=sqerror");
@@ -139,16 +139,29 @@
                     mysqli_stmt_bind_param($stmt, "s", $_SESSION['channelName']);
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_store_result($stmt);
-                    $stmt->bind_result($title, $podcast_img, $streams, $podcast_file);
+                    $stmt->bind_result($genre, $title, $podcast_img, $streams, $podcast_file, $playlist);
                     $channel_name = $_SESSION['channelName'];
+                    $playlist_tmp = NULL;
+                    $check = 0;
                     while($stmt->fetch()){
+                        if($playlist != "none" && $playlist_tmp != $playlist) {
+                            echo "</div>";
+                            echo "<div class=\"playlist-container\">
+                            <h4 id=\"playlist\">".strtoupper(str_replace('_', ' ', $playlist))."</h4>";
+                        } else if($playlist == "none" && $check != 1){
+                            $check = 1;
+                            echo "<div class=\"playlist-container\">
+                            <h4 id=\"some-podcasts\">SOME PODCASTS</h4>";
+                        }
                         echo
                         "<div class=\"grid-element\"  id=".str_replace("../", "./", $podcast_file).">
                             <img src=".str_replace("../", "./",$podcast_img)." alt=\"Sample1\">
                             <h4 id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
                             <p>".$streams."</p>
                         </div>";
+                        $playlist_tmp = $playlist;
                     }
+                    echo "</div>";
                 }
                 mysqli_stmt_close($stmt);
             ?>

@@ -33,7 +33,7 @@
                     }
                     mysqli_stmt_close($stmt);
                     mysqli_close($conn);
-                    header("Location: ../home.php?subscribe=success&view=hoem");
+                    header("Location: ../home.php?subscribe=success&view=home");
                 }
             }
     }

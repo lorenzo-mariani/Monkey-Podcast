@@ -5,6 +5,7 @@ $(document).ready(function(){
       $("#podcast-name").html($(this).children()[1].innerHTML);
       $("#podcast-channel").html($(this).children()[1].id.toUpperCase());
       $( "#play-icon" ).trigger( "click" );
+      updatePodcastStreams($(this).children()[1].innerHTML.toLowerCase().replace(/ /g , "_"), $(this).children()[1].id);
       setCookie("memaudio","audio="+$(this)[0].id+"&img="+$(this).children()[0].src+"&name="+$(this).children()[1].innerHTML+"&channel="+$(this).children()[1].id.toUpperCase(), "2");
     });
 });
@@ -12,14 +13,14 @@ $(document).ready(function(){
 var audio = document.getElementById('audio');
 audio.oncanplaythrough = function() {
   $("#duration").html(Math.floor(audio.duration/60)+":"+Math.floor(audio.duration%60));
-}
+};
 
 function setCookie(cname, cvalue, exdays) {
   var d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
   var expires = "expires="+ d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
+};
 
 function getCookie(cname) {
   var name = cname + "=";
@@ -35,4 +36,10 @@ function getCookie(cname) {
   $("#podcast-name").html(title);
   $("#podcast-channel").html(channel);
   $("#current-time").html("0:00");
-}
+};
+
+function updatePodcastStreams(title, channel) {
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET","./includes/update-streams.inc.php?title="+title+"&channel="+channel,true);
+  xmlhttp.send();
+};

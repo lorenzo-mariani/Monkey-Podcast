@@ -7,6 +7,7 @@ session_start();
 
 $genre = strtolower($_POST["genre-value"]);
 $title = str_replace(' ', '_', strtolower($_POST["podcast-title"]));
+$playlist = str_replace(' ', '_', strtolower($_POST["podcast-playlist"]));
 $views = 0;
 
 $target_dir = "../content/users/".$_SESSION['userUid']."/"."podcasts/".$title."/";
@@ -86,13 +87,13 @@ if(isset($_POST["upload-submit"])) {
         header("Location: ../content/users/".$_SESSION["userUid"]."/podcasts/upload.php?error=emptyfields&title".$title."&genre=".$genre);
         exit();
     } else {
-            $sql = "INSERT INTO podcasts (genre, podcastTitle, podcastImg, userUID, podcastViews, podcastFile) VALUES (?, ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO podcasts (genre, podcastTitle, podcastImg, userUID, podcastViews, podcastFile, playlist) VALUES (?, ?, ?, ?, ?, ?, ?)";
             $stmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($stmt, $sql)) {
                 header("Location: ../content/users/".$_SESSION["userUid"]."/podcasts/upload.php?error=sqerror");
                    exit();
             } else {
-                mysqli_stmt_bind_param($stmt, "ssssis", $genre, $title, $target_file_img, $_SESSION["userUid"], $views, $target_file_audio);
+                mysqli_stmt_bind_param($stmt, "ssssiss", $genre, $title, $target_file_img, $_SESSION["userUid"], $views, $target_file_audio, $playlist);
                 mysqli_stmt_execute($stmt);
             }
     }

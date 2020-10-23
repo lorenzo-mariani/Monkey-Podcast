@@ -18,7 +18,7 @@
     <link id="profile-style" rel="stylesheet" href="./css/profilestyledark.css" type="text/css">
     <title>Home</title>
 </head>
-<body onload="if(Array.isArray(document.cookie.split(';'))){getCookie('memaudio');}">
+<body onload="if(Array.isArray(document.cookie.split(';')) && document.cookie.split(';').length > 1){getCookie('memaudio');}">
     <header>
         <div class="header">
             <div class="logo-container">
@@ -35,7 +35,7 @@
                     <span class="slider round"></span>
                 </label>
                 <form action=<?php 
-                    $str = "content/users/".$_SESSION["userUid"]."/podcasts/upload.php";
+                    $str = "./upload.php";
                     echo $str;
                 ?> method="post">
                     <button class="upload-button" type="submit" name="logo-submit">

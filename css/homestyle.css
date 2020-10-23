@@ -97,6 +97,8 @@ a:hover{
     padding-top: 10px;
     padding-bottom: 10px;
     margin-left: 30px;
+    color: whitesmoke;
+    font-family: caviar_dreamsregular;
 }
 
 .icons-container {
@@ -331,6 +333,53 @@ a:hover{
   .slider.round:before {
     border-radius: 50%;
   }
+
+#podcasts{
+    position: relative;
+    font-family: caviar_dreamsbold;
+    color: whitesmoke;
+    font-size: 80px;
+    text-align: center;
+    top: 50%;
+    transform: translate(0, -50%);
+    background: rgba(0, 0, 0, 0.521);
+}
+
+#users{
+    position: relative;
+    font-family: caviar_dreamsbold;
+    color: whitesmoke;
+    font-size: 80px;
+    text-align: center;
+    top: 50%;
+    transform: translate(0, -50%);
+    background: rgba(0, 0, 0, 0.521);
+}
+
+.grid-element-users {
+    display: inline-grid;
+    text-align: center;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-decoration: none;
+}
+
+.grid-element-users:hover {
+    cursor: pointer;
+}
+
+.grid-element-users img {
+    padding-top: 50px;
+    height: 140px;
+    justify-self: center;
+}
+
+.grid-element-users h4 {
+    font-family: caviar_dreamsregular;
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
 
 @media screen and (max-width: 1250px) {
 
