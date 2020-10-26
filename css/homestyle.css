@@ -52,8 +52,12 @@ a:hover{
     z-index: 999;
 }
 
-.content {
+.home-content {
     margin-top: 90px;
+    margin-bottom: 120px;
+}
+
+.profile-content {
     margin-bottom: 120px;
 }
 
@@ -131,6 +135,10 @@ a:hover{
     height: 30px;
     margin-left: 30px;
     cursor: pointer;
+}
+
+.search-content {
+    background-color: rgb(17, 17, 17);
 }
 
 .upload-button {
@@ -216,7 +224,7 @@ a:hover{
 }
 
 #channel-name-container {
-    height: 200px;
+    height: 100px;
     background: black;
 }
 
@@ -224,7 +232,7 @@ a:hover{
     position: relative;
     font-family: caviar_dreamsbold;
     color: whitesmoke;
-    font-size: 80px;
+    font-size: 55px;
     text-align: center;
     top: 50%;
     transform: translate(0, -50%);

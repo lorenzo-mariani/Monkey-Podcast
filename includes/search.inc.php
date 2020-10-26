@@ -41,41 +41,40 @@
                         <p>".$streams."</p></div>";
                 }
                 echo "</div>";
-
-                if (!mysqli_stmt_prepare($stmt, $query_users)) {
-                    header("Location: ./home.php?error=sqlerror");
-                    exit();
-                } else {
-                    mysqli_stmt_bind_param($stmt, "s", $search_text);
-                    mysqli_stmt_execute($stmt);
-                    mysqli_stmt_store_result($stmt);
-                    $stmt->bind_result($name, $views, $ch_img);
-                    if($stmt->num_rows > 0){
-                        echo "
-                        <div id=\"users-container\" style=\"height: 200px;\">
-                            <h4 id=\"users\" style=\"position: relative;
-                            font-family: caviar_dreamsbold;
-                            color: whitesmoke;
-                            font-size: 80px;
-                            text-align: center;
-                            top: 50%;
-                            transform: translate(0, -50%);
-                            background: rgba(0, 0, 0, 0.521);\">USERS</h4>
-                        </div>
-                            <div class=\"scrollchannel\">
-                                <img class=\"left-scroll-arrow\" src=\"./icon/arrow.png\" alt=\"Left Arrow\">
-                                <img class=\"right-scroll-arrow\" src=\"./icon/arrow.png\" alt=\"Right Arrow\">
-                            ";
-                        while($stmt->fetch()){
-                            echo 
-                            "   <div class=\"grid-element-users\">
-                                <img src=".$ch_img." alt=\"Sample1\">
-                                <h4 id=\"name\">".strtoupper($name)."</h4>
-                                <p>".$views."</p>
-                                </div>";
-                        }
-                        echo "</div>";
+            }
+            if (!mysqli_stmt_prepare($stmt, $query_users)) {
+                header("Location: ./home.php?error=sqlerror");
+                exit();
+            } else {
+                mysqli_stmt_bind_param($stmt, "s", $search_text);
+                mysqli_stmt_execute($stmt);
+                mysqli_stmt_store_result($stmt);
+                $stmt->bind_result($name, $views, $ch_img);
+                if($stmt->num_rows > 0){
+                    echo "
+                    <div id=\"users-container\" style=\"height: 100px;\">
+                        <h4 id=\"users\" style=\"position: relative;
+                        font-family: caviar_dreamsbold;
+                        color: whitesmoke;
+                        font-size: 50px;
+                        text-align: center;
+                        top: 50%;
+                        transform: translate(0, -50%);
+                        background: rgba(0, 0, 0, 0.521);\">USERS</h4>
+                    </div>
+                        <div class=\"scrollchannel\">
+                            <img class=\"left-scroll-arrow\" src=\"./icon/arrow.png\" alt=\"Left Arrow\">
+                            <img class=\"right-scroll-arrow\" src=\"./icon/arrow.png\" alt=\"Right Arrow\">
+                        ";
+                    while($stmt->fetch()){
+                        echo 
+                        "   <div class=\"grid-element-users\">
+                            <img src=".$ch_img." alt=\"Sample1\">
+                            <h4 id=\"name\">".strtoupper($name)."</h4>
+                            <p>".$views."</p>
+                            </div>";
                     }
+                    echo "</div>";
                 }
             }
         }

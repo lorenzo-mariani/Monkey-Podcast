@@ -8,7 +8,7 @@ if (isset($_POST['signup-submit'])){
     $password = $_POST['pwd'];
     $passwordRepeat = $_POST['pwd-repeat'];
     $subs = 0;
-    $views = 0;
+    $streams = 0;
 
     if (empty($username) || empty($mail) || empty($password) || empty($passwordRepeat)) {
         header("Location: ../signup.php?error=emptyfields&uid".$username."&mail=".$mail);
@@ -30,7 +30,7 @@ if (isset($_POST['signup-submit'])){
         $sql = "SELECT uidUsers FROM users WHERE uidUsers=?";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
-            header("Location: ../signup.php?error=sqerror");
+            header("Location: ../signup.php?error=sqlerror");
             exit();
         } else {
             mysqli_stmt_bind_param($stmt, "s", $username);
@@ -48,7 +48,7 @@ if (isset($_POST['signup-submit'])){
                 $sql = "INSERT INTO users (uidUsers, emailUsers, pwdUsers, subs) VALUES (?, ?, ?, ?)";
                 $stmt = mysqli_stmt_init($conn);
                 if (!mysqli_stmt_prepare($stmt, $sql)) {
-                    header("Location: ../signup.php?error=sqerror");
+                    header("Location: ../signup.php?error=sqlerror");
                     exit();
                 } else {
                     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
@@ -73,13 +73,13 @@ if (isset($_POST['signup-submit'])){
 
                 mysqli_stmt_close($stmt);
 
-                $sql = "INSERT INTO channels (channelName, channelViews) VALUES (?, ?)";
+                $sql = "INSERT INTO channels (channelName, channelStreams) VALUES (?, ?)";
                 $stmt = mysqli_stmt_init($conn);
                 if (!mysqli_stmt_prepare($stmt, $sql)) {
-                    header("Location: ../signup.php?error=sqerror");
+                    header("Location: ../signup.php?error=sqlerror");
                     exit();
                 } else {
-                    mysqli_stmt_bind_param($stmt, "si", $username, $views);
+                    mysqli_stmt_bind_param($stmt, "si", $username, $streams);
                     mysqli_stmt_execute($stmt);
                 }
                 mysqli_stmt_close($stmt);

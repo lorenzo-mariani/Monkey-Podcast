@@ -27,8 +27,8 @@
     ?>>
         <?php
 
-            $query = "SELECT userUID, podcastViews, podcastTitle, podcastImg, channelImg, podcastFile FROM
-            (SELECT userUID, podcastViews, podcastTitle, podcastImg, podcastFile FROM
+            $query = "SELECT userUID, podcastStreams, podcastTitle, podcastImg, channelImg, podcastFile FROM
+            (SELECT userUID, podcastStreams, podcastTitle, podcastImg, podcastFile FROM
             (SELECT channelName FROM
             subscriptions
             WHERE subUid = ?) as t1
@@ -41,7 +41,7 @@
             ORDER BY userUID ASC";
             $stmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($stmt, $query)) {
-                header("Location: ./prova.php?error=sqerror");
+                header("Location: ./home.php?error=sqlerror");
                 exit();
             } else {
                 mysqli_stmt_bind_param($stmt, "s", $_SESSION['userUid']);

@@ -1,34 +1,34 @@
 TODO LIST:
 
--[] Responsive windows
+-[x] Responsive windows
 
 Client side:
  
 -[x] Login and signup system
 -[] Error messages generated from signup or login
 -[] Home page:
-  -[] Collect data for home page from database backend
+  -[x] Collect data for home page from database backend
   -[] Suggested
   -[] Trending
   -[] Random selection
   -[] Favourites
-  -[] Dark/bright theme
+  -[x] Dark/bright theme
 -[] Profile/channel page
-  -[] Collect user data for reserved area from database backend
-  -[] Channel followed
-  -[] Bio
+  -[x] Collect user data for reserved area from database backend
+  -[x] Channel followed
+  -[x] Bio
   -[] Channel intro
-  -[] Upload podcast
-  -[] Podcasts uploaded
+  -[x] Upload podcast
+  -[x] Podcasts uploaded
 
 
 
 Server side:
 
 -[x] Users db
--[] Implement more tables inside users db
+-[x] Implement more tables inside users db
 -[x] Users db connection
 These following two only for static content:
-  -[] Home content db (?)
-  -[] Home content db connection (?)
--[] DB error handling
+  -[x] Home content db (?)
+  -[x] Home content db connection (?)
+-[x] DB error handling
