@@ -48,7 +48,18 @@
                 mysqli_stmt_execute($stmt);
                 mysqli_stmt_store_result($stmt);
                 $stmt->bind_result($channel_name, $streams, $title, $podcast_img, $channel_img, $podcast_file);
-                $name_tmp = NULL;
+                $name_tmp = NULL;;
+                if($stmt->num_rows == 0){
+                    echo "<div id=\"default-content\">
+                        <h1 id=\"welcome-to\">WELCOME TO</h1>
+                        <h1 id=\"monkey-podcast\">MONKEY PODCASTS!</h1>
+                        <div id=\"welcome-text\">
+                            <h3 id=\"get-started\">To get started listening to the best podcasts on the internet type something in the search box above!</h3>
+                            <p id=\"text\">We give you unlimited access to all the podcasts that you want to listen!</p>
+                            <p id=\"text\">Have a passion for cars? Cats? Business? Computers? We have it all! You only have to search for it!</p>
+                        </div>
+                    </div>";
+                }
                 while($stmt->fetch()){
                     if($name_tmp != $channel_name  || $name_tmp == NULL){
                         if($name_tmp != NULL){

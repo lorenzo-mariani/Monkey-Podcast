@@ -12,6 +12,7 @@ $(document).ready(function(){
 
 var audio = document.getElementById('audio');
 audio.oncanplaythrough = function() {
+  console.log("audio is loaded");
   $("#duration").html(Math.floor(audio.duration/60)+":"+Math.floor(audio.duration%60));
 };
 

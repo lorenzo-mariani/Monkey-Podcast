@@ -4,6 +4,7 @@ const profileIcon = document.getElementById('profile-icon');
 const profileMenu = document.getElementById('profile-menu');
 const checkbox = document.getElementById('checkbox');
 const profileButton = document.getElementById('profile-button');
+const searchbar = document.getElementById('search-bar');
 
 for (var i = 0; i < buttonRight.length; i++) {
   
@@ -99,3 +100,9 @@ $('body').click(function(event) {
     profileMenu.style.display = "none"
   }
 })
+
+searchbar.addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+    document.getElementById('search-icon').click();
+  }
+});

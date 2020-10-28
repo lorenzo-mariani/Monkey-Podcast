@@ -6,8 +6,29 @@ body {
     background-color: rgb(17, 17, 17);
 }
 
-.header {
-    background-color: rgba(27, 27, 27, 0.97);
+#welcome-to {
+    color: whitesmoke;
+}
+
+#monkey-podcast {
+    color: whitesmoke;
+}
+
+#welcome-text {
+    background-color: whitesmoke;
+}
+
+#get-started {
+    color: whitesmoke;
+    background-color: rgb(68, 0, 0);
+}
+
+#text {
+    color: black;
+}
+
+#header {
+    background-color: rgba(32, 32, 32, 0.97);
 }
 
 #search-bar {
@@ -44,7 +65,8 @@ body {
 
 #profile-menu {
     background-color: rgba(27, 27, 27, 0.97);
-    box-shadow: 0 0 1px rgb(0, 0, 0);
+    border-left: 1px solid rgb(61, 61, 61);
+    border-right: 1px solid rgb(61, 61, 61);
 }
 
 #logout-button {

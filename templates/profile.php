@@ -13,13 +13,7 @@
 ?>
 <body>
     <div class="profile-cnt">
-        <div class="tabs-container">
-            <ul class="tabs-menu">
-                <li id="home">HOME</li>
-                <li id="channels">CHANNELS</li>
-            </ul>
-        </div>
-        <div class="info-container"
+        <div id="chimg-container"
         <?php
         $query = "SELECT channelImg FROM channels WHERE channelName=?";
         $stmt = mysqli_stmt_init($conn);
@@ -33,21 +27,32 @@
             $stmt->bind_result($podcast_img);
             while($stmt->fetch()){
                 echo "style=\"background:url('".str_replace("../", "./",$podcast_img)."') no-repeat center;
-                background-size: cover;\"";
+                background-size: cover;
+                display: flex;
+                flex-wrap: nowrap;
+                width: 100%;
+                background-color: black;
+                height: 150px;\"";
             }
             mysqli_stmt_close($stmt);
         }
         ?>>
-            <div class="left-column">
+        </div>
+        <div class="tabs-container">
+            <ul class="tabs-menu">
+                <li id="home">HOME</li>
+                <li id="channels">CHANNELS</li>
+            </ul>
+        </div>
+        <div id="info-container">
+            <div id="profile-container">
                 <img src="./icon/user.png" alt="User Profile" id="profile-img">
-                <ul class="info">
-                    <li id="username">
+                    <h4 id="username">
                         <?php
                             echo strtoupper(basename(__FILE__, '.php'));
                         ?>
-                    </li>
-                    <br>
-                    <li id="subs">
+                    </h4>
+                    <h4 id="subs">
                         <?php
                             $query = "SELECT  subs FROM users WHERE uidUsers=?";
                             $stmt = mysqli_stmt_init($conn);
@@ -70,19 +75,10 @@
                             }
                             mysqli_stmt_close($stmt);
                         ?>
-                    </li>
-                    <?php
-                        if($_SESSION['channelName'] == $_SESSION['userUid']) {
-                            echo "<div id=\"upload-img-container\">
-                            <form action=\"./upload-channel-img.php\" method=\"post\">        
-                                <button id=\"upload-img-btn\" type=\"submit\" name=\"upload-img-btn\">
-                                    <h4 id=\"upload-img-label\">UPLOAD CHANNEL IMAGE</h4>
-                                    <img id=\"upload-img-icon\" src=\"./icon/upload-img.png\">
-                                </button>
-                            </form>
-                            </div>";
-                        }
-                    ?>
+                        SUBS
+                    </h4>
+            </div>
+            <div id="subscribe-container">
                     <?php
                     if($_SESSION['userUid'] != basename(__FILE__, '.php')){
 
@@ -98,14 +94,14 @@
                             $resultCheck = mysqli_stmt_num_rows($stmt);
                             if($resultCheck == 0) {
                                 echo
-                                "<form action=\"./includes/subscribe.inc.php\" method=\"post\">
+                                "<form id=\"sub\" action=\"./includes/subscribe.inc.php\" method=\"post\">
                                     <button id=\"subscribe-button\" name=\"subscribe-btn\">
                                         SUBSCRIBE
                                     </button>
                                 </form>";
                             } else if($resultCheck == 1){
                                 echo
-                                "<form action=\"./includes/unsubscribe.inc.php\" method=\"post\">
+                                "<form id=\"sub\" action=\"./includes/unsubscribe.inc.php\" method=\"post\">
                                     <button id=\"unsubscribe-button\" name=\"unsubscribe-btn\">
                                         UNSUBSCRIBE
                                     </button>
@@ -115,19 +111,48 @@
                         mysqli_stmt_close($stmt);
                     }
                 ?>
+                <?php
+                    if($_SESSION['channelName'] == $_SESSION['userUid']) {
+                        echo "<div id=\"upload-img-container\">
+                        <form action=\"./upload-channel-img.php\" method=\"post\">        
+                            <button id=\"upload-img-btn\" type=\"submit\" name=\"upload-img-btn\">
+                                <h4 id=\"upload-img-label\">UPLOAD CHANNEL IMAGE</h4>
+                                <img id=\"upload-img-icon\" src=\"./icon/upload-img.png\">
+                            </button>
+                        </form>
+                        </div>";
+                    }
+                ?>
                 </ul>
             </div>
-            <div class="right-column">
-                <br>
-                <h3>DESCRIPTION</h3>
-                <br>
-                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
         </div>
-        <div class="views-container">
-            <h3>123.456.789 views</h3>
+        <div id="streams-container">
+            <h3>
+                <?php
+                    $query = "SELECT channelStreams FROM channels WHERE channelName=?";
+                    $stmt = mysqli_stmt_init($conn);
+                    if (!mysqli_stmt_prepare($stmt, $query)) {
+                        header("Location: ./home.php?error=profilesqlerror");
+                        exit();
+                    } else {
+                        mysqli_stmt_bind_param($stmt, "s", $_SESSION['channelName']);
+                        mysqli_stmt_execute($stmt);
+                        mysqli_stmt_store_result($stmt);
+                        $stmt->bind_result($ch_streams);
+                        $result_check = mysqli_stmt_num_rows($stmt);
+                        if($result_check > 0) {
+                            while($stmt->fetch()){
+                                echo $ch_streams." STREAMS";
+                            }
+                        } else {
+                            echo $result_check;
+                        }
+                    }
+                    mysqli_stmt_close($stmt);
+                ?>
+            </h3>
         </div>
-        <div class="podcasts-container">
+        <div id="podcasts-container">
             <?php
 
                 $query = "SELECT genre, podcastTitle, podcastImg, podcastStreams, podcastFile, playlist FROM podcasts WHERE userUID=? ORDER BY playlist ASC";
@@ -154,7 +179,7 @@
                             <h4 id=\"some-podcasts\">SOME PODCASTS</h4>";
                         }
                         echo
-                        "<div class=\"grid-element\"  id=".str_replace("../", "./", $podcast_file).">
+                        "<div class=\"grid-element-profile\"  id=".str_replace("../", "./", $podcast_file).">
                             <img src=".str_replace("../", "./",$podcast_img)." alt=\"Sample1\">
                             <h4 id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
                             <p>".$streams."</p>
@@ -166,7 +191,7 @@
                 mysqli_stmt_close($stmt);
             ?>
         </div>
-        <div class="channels-container">
+        <div id="channels-container">
         <?php
                 $query = "SELECT channelName, subs
                 FROM (SELECT channelName, subUid FROM subscriptions as sub
@@ -194,8 +219,8 @@
                             <div class=\"channel\">
                             <img src=\"./icon/user.png\" alt=\"User Profile\" id=\"channel-img\">
                                 <ul class=\"channel-info\" id=".$channel_name.">
-                                    <li id=\"name\">".$channel_name."</li>
-                                    <li id=\"channel-subs\">".$subs."</li>
+                                    <li id=\"name\">".strtoupper($channel_name)."</li>
+                                    <li id=\"channel-subs\">".$subs." SUBS</li>
                                 </ul>
                                 </form>
                             </div>

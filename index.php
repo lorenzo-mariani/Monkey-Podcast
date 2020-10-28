@@ -18,7 +18,32 @@
          <h1>
              LISTEN TO THE BEST PODCASTS ON THE INTERNET.
         </h1>
-        <button id="login-button" type="button">Log In</button>
+        <div id="error-msg" <?php
+        if(isset($_GET['error'])){
+            echo "style=\"display: grid;\"";
+        } else {
+            echo "style=\"display: none\"";
+        }
+        ?>>
+        <div id="error-text-container">
+            <h4 id="error-text">
+            <?php
+                if(isset($_GET['error'])){
+                    if($_GET['error'] == "emptyfields"){
+                        echo "Please, insert username and password and retry.";
+                    } else if($_GET['error'] == "wrong"){
+                        echo "Wrong combination of username and password.";
+                    }
+                }
+            ?>
+            </h4>
+            <button id="ok-button" type="button" onclick="document.getElementById('error-msg').style.display = 'none'">OK</button>
+        </div>
+        </div>
+        <div id="center-buttons">
+            <a id="signup" href="signup.php">SIGN UP</a>
+            <button id="login-button" type="button">LOGIN</button>
+        </div>
     </div>
 
     <div class="bg-modal">
@@ -28,14 +53,13 @@
             <form action="includes/login.inc.php" method="post">
                 <input id="mailuid" type="text" name="mailuid" placeholder="Username/E-mail">
                 <input id="pwd" type="password" name="pwd" placeholder="Password">
-                <a id="signup" href="signup.php">Sign Up</a>
-                <button id="login-submit" type="submit" name="login-submit">Login</button>
+                <button id="login-submit" type="submit" name="login-submit">LOGIN</button>
             </form>
         </div>
     </div>
     <script src="index.js"></script>
     </main>
-
+</div>
 <?php
     require "footer.php";
 ?>

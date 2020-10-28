@@ -16,6 +16,7 @@ body {
 .tabs-container {
     border-top: 1px solid rgba(53, 0, 0, 0.74);
     border-bottom: 1px solid rgba(53, 0, 0, 0.74);
+    background-color: white;
 }
 
 .tabs-menu li:hover {
@@ -54,19 +55,33 @@ body {
     color: whitesmoke;
 }
 
-.views-container {
+#streams-container {
     border-top: 1px solid rgba(53, 0, 0, 0.74);
     border-bottom: 1px solid rgba(53, 0, 0, 0.74);
+    background-color: white;
 }
 
-.grid-element {
+.grid-element-profile {
     color: black;
 }
 
-.grid-element h4 {
+.grid-element-profile h4 {
     color: black;
 }
 
-.grid-element p {
+.grid-element-profile p {
+    color: black;
+}
+
+#username {
+    color: black;
+}
+
+#subs {
+    background-color: rgb(35,35,35);
+    color: white;
+}
+
+#playlist {
     color: black;
 }

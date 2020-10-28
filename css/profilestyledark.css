@@ -45,41 +45,29 @@ body {
     border: 1px solid rgb(97, 97, 97);
 }
 
-.right-column {
-    background-color: #00000050;
-}
-
-.info li {
-    color: whitesmoke;
-}
-
-.right-column h3, p {
-    color: whitesmoke;
-}
-
-.views-container {
+#streams-container {
     border-top: 1px solid rgba(53, 0, 0, 0.74);
     border-bottom: 1px solid rgba(53, 0, 0, 0.74);
     background-color: rgba(27, 27, 27, 0.97);
 }
 
-.views-container h3 {
+#streams-container h3 {
     color: whitesmoke;
 }
 
-.grid-element {
+.grid-element-profile {
     color: black;
-}}
+}
 
-.grid-element h4 {
+.grid-element-profile h4 {
     color: whitesmoke;
 }
 
-.grid-element p {
+.grid-element-profile p {
     color: whitesmoke;
 }
 
-.channel-info li {
+#channel-info li {
     color: whitesmoke;
 }
 
@@ -89,4 +77,13 @@ body {
 
 #some-podcasts {
     color: whitesmoke;
+}
+
+#username {
+    color: whitesmoke;
+}
+
+#subs {
+    background-color: rgb(35,35,35);
+    color: white;
 }

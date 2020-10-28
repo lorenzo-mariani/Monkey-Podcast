@@ -20,15 +20,15 @@
 </head>
 <body onload="if(Array.isArray(document.cookie.split(';')) && document.cookie.split(';').length > 1){getCookie('memaudio');}">
     <header>
-        <div class="header">
-            <div class="logo-container">
+        <div id="header">
+            <div id="logo-container">
                 <img src='img/logo/MonkeyPodcastLogo_dark.png' id='logo' alt='Monkey Podcast'>
             </div>
-            <div class="search-container">
+            <div id="search-container">
                 <input id="search-bar" type="text" placeholder="Search..">
                 <img src="icon/search.png" alt="Search Button" id="search-icon">
             </div>
-            <div class="icons-container">
+            <div id="icons-container">
                 <h4 id="mode-text">DARK MODE ON</h4>
                 <label id="mode-switch">
                     <input id="checkbox" type="checkbox" name="toggled-mode-home" value="dark" checked>

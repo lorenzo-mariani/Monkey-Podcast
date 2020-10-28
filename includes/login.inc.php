@@ -14,7 +14,7 @@ if (isset($_POST['login-submit'])) {
         $sql = "SELECT * FROM users WHERE uidUsers=? OR emailUsers=?;";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
-            header("Location: ../index.php?error=sqlerror");
+            header("Location: ../index.php?sqlerror=sqlerror");
             exit();
         } else {
 
@@ -35,7 +35,7 @@ if (isset($_POST['login-submit'])) {
                     exit();
                 }
             } else {
-                header("Location: ../index.php?error=nouser");
+                header("Location: ../index.php?error=wrong");
                 exit();
             }
 

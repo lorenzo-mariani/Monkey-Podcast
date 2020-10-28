@@ -10,8 +10,8 @@
                 <input id="email" type="text" name="mail" placeholder="E-mail">
                 <input id="pwd" type="password" name="pwd" placeholder="Password">
                 <input id="pwd" type="password" name="pwd-repeat" placeholder="Repeat password">
-                <a id="back" href="index.php">Back</a>
-                <button id="signup-submit" type="submit" name="signup-submit">Sign Up</button>
+                <a id="back" href="index.php">BACK</a>
+                <button id="signup-submit" type="submit" name="signup-submit">SIGN UP</button>
             </form>
         </div>
 </main>

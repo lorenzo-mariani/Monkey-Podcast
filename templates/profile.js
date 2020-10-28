@@ -1,15 +1,25 @@
+var playlists = document.getElementsByClassName('playlist-container');
+
 document.getElementById('channels').addEventListener('click', function() {
-  document.querySelector('.info-container').style.display = 'none';
-  document.querySelector('.views-container').style.display = 'none';
-  document.querySelector('.podcasts-container').style.display = 'none';
-  document.querySelector('.channels-container').style.display = 'inline-grid';
+  document.getElementById('chimg-container').style.display = 'none';
+  document.getElementById('info-container').style.display = 'none';
+  document.getElementById('streams-container').style.display = 'none';
+  document.getElementById('podcasts-container').style.display = 'none';
+  for(var i = 0; i < playlists.length; i++){
+    playlists[i].style.display = 'none';
+  }
+  document.getElementById('channels-container').style.display = 'inline-grid';
 });
 
 document.getElementById('home').addEventListener('click', function() {
-  document.querySelector('.info-container').style.display = 'flex';
-  document.querySelector('.views-container').style.display = 'block';
-  document.querySelector('.podcasts-container').style.display = 'inline-grid';
-  document.querySelector('.channels-container').style.display = 'none';
+  document.getElementById('chimg-container').style.display = 'flex';
+  document.getElementById('info-container').style.display = 'flex';
+  document.getElementById('streams-container').style.display = 'block';
+  document.getElementById('podcasts-container').style.display = 'block';
+  for(var i = 0; i < playlists.length; i++){
+    playlists[i].style.display = 'block';
+  }
+  document.getElementById('channels-container').style.display = 'none';
 });
 
 $(".channel").click(function(){

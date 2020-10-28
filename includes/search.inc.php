@@ -75,6 +75,10 @@
                             </div>";
                     }
                     echo "</div>";
+                } else {
+                    echo "<div id=\"default-search\">
+                        <h1 id=\"empty-search\">Sorry, no results found.</h1>
+                    </div>";
                 }
             }
         }
