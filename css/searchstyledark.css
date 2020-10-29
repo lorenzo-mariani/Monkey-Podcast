@@ -1,0 +1,32 @@
+#podcast-search {
+    background-color: rgb(24, 24, 24);
+}
+
+#podcast-left-container-search {
+    border: 4px solid rgba(48, 48, 48, 0.57);
+}
+
+#podcast-right-container-search {
+    border: 4px solid rgba(48, 48, 48, 0.57);
+}
+
+#podcasts-container {
+    background: rgba(36, 0, 0);
+}
+
+#users-container {
+    background: rgba(36, 0, 0);
+}
+
+#show-more {
+    background-color: rgb(24, 24, 24);
+    color: rgb(0, 127, 201);
+}
+
+.scrollchannel {
+    background-color: rgb(24, 24, 24);
+}
+
+.grid-element-users p {
+    color: gray;
+}

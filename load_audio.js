@@ -8,11 +8,19 @@ $(document).ready(function(){
       updatePodcastStreams($(this).children()[1].innerHTML.toLowerCase().replace(/ /g , "_"), $(this).children()[1].id);
       setCookie("memaudio","audio="+$(this)[0].id+"&img="+$(this).children()[0].src+"&name="+$(this).children()[1].innerHTML+"&channel="+$(this).children()[1].id.toUpperCase(), "2");
     });
+    $(".grid-element-profile").click(function(){
+      $("#audio").attr("src", $(this)[0].id);
+      $("#thumbnail").attr("src", $(this).children()[0].src);
+      $("#podcast-name").html($(this).children()[1].innerHTML);
+      $("#podcast-channel").html($(this).children()[1].id.toUpperCase());
+      $( "#play-icon" ).trigger( "click" );
+      updatePodcastStreams($(this).children()[1].innerHTML.toLowerCase().replace(/ /g , "_"), $(this).children()[1].id);
+      setCookie("memaudio","audio="+$(this)[0].id+"&img="+$(this).children()[0].src+"&name="+$(this).children()[1].innerHTML+"&channel="+$(this).children()[1].id.toUpperCase(), "2");
+    });
 });
 
 var audio = document.getElementById('audio');
 audio.oncanplaythrough = function() {
-  console.log("audio is loaded");
   $("#duration").html(Math.floor(audio.duration/60)+":"+Math.floor(audio.duration%60));
 };
 

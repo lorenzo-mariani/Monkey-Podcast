@@ -32,14 +32,15 @@ profileButton.onclick = function () {
 
 checkbox.onchange = function () {
   if (checkbox.checked == true) {
-    document.getElementById('home-style').href = "css/homestyledark.css";
-    document.getElementById('profile-style').href = "css/profilestyledark.css";
-    document.getElementById('player-style').href = "css/playerstyledark.css";
-    document.getElementById('play-icon').src = "icon/play-icon-dark.png";
-    document.getElementById('next-icon').src = "icon/next-icon-dark.png";
-    document.getElementById('previous-icon').src = "icon/next-icon-dark.png";
-    document.getElementById('speaker-icon').src = "icon/speaker-dark.png";
-    document.getElementById('logo').src = "img/logo/MonkeyPodcastLogo_dark.png";
+    document.getElementById('home-style').href = "./css/homestyledark.css";
+    document.getElementById('search-style').href = "./css/searchstyledark.css";
+    document.getElementById('profile-style').href = "./css/profilestyledark.css";
+    document.getElementById('player-style').href = "./css/playerstyledark.css";
+    document.getElementById('play-icon').src = "./icon/play-icon-dark.png";
+    document.getElementById('next-icon').src = "./icon/next-icon-dark.png";
+    document.getElementById('previous-icon').src = "./icon/next-icon-dark.png";
+    document.getElementById('speaker-icon').src = "./icon/speaker-dark.png";
+    document.getElementById('logo').src = "./img/logo/MonkeyPodcastLogo_dark.png";
     document.getElementById('mode-text').innerHTML = "DARK MODE ON";
     checkbox.value = "dark";
     if(!audio.paused){
@@ -47,6 +48,7 @@ checkbox.onchange = function () {
     }
   } else {
     document.getElementById('home-style').href = "css/homestylelight.css";
+    document.getElementById('search-style').href = "./css/searchstylelight.css";
     document.getElementById('profile-style').href = "css/profilestylelight.css";
     document.getElementById('player-style').href = "css/playerstylelight.css";
     document.getElementById('play-icon').src = "icon/play-icon-light.png";

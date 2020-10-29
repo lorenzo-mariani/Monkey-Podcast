@@ -77,6 +77,12 @@
                         ?>
                         SUBS
                     </h4>
+                    <?php
+                        if($_SESSION['userUid'] == $_SESSION['channelName']){
+                            echo "<img id=\"settings\" src=\"./icon/settings-dark.png\" alt=\"settings\">
+                            <h4 id=\"channel-settings\">CHANNEL SETTINGS</h4>";
+                        }
+                    ?>
             </div>
             <div id="subscribe-container">
                     <?php
@@ -152,7 +158,7 @@
                 ?>
             </h3>
         </div>
-        <div id="podcasts-container">
+        <div id="noplaylist-container">
             <?php
 
                 $query = "SELECT genre, podcastTitle, podcastImg, podcastStreams, podcastFile, playlist FROM podcasts WHERE userUID=? ORDER BY playlist ASC";
@@ -172,7 +178,14 @@
                         if($playlist != "none" && $playlist_tmp != $playlist) {
                             echo "</div>";
                             echo "<div class=\"playlist-container\">
-                            <h4 id=\"playlist\">".strtoupper(str_replace('_', ' ', $playlist))."</h4>";
+                            <div class=\"playlist-title-container\">
+                                <h4 id=\"playlist\">".strtoupper(str_replace('_', ' ', $playlist))."</h4>";
+                            if($_SESSION['userUid'] == $_SESSION['channelName']){
+                                echo "<img id=\"settings\" src=\"./icon/settings-dark.png\" alt=\"settings\">
+                                </div>";
+                            } else {
+                                echo "</div>";
+                            }
                         } else if($playlist == "none" && $check != 1){
                             $check = 1;
                             echo "<div class=\"playlist-container\">
@@ -182,7 +195,7 @@
                         "<div class=\"grid-element-profile\"  id=".str_replace("../", "./", $podcast_file).">
                             <img src=".str_replace("../", "./",$podcast_img)." alt=\"Sample1\">
                             <h4 id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
-                            <p>".$streams."</p>
+                            <p>".$streams." STREAMS</p>
                         </div>";
                         $playlist_tmp = $playlist;
                     }

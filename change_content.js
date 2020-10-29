@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $(".logo-container").click(function(){
+    $("#logo-container").click(function(){
         $(".profile-content").hide();
         $(".search-content").hide();
         $(".home-content").show();
@@ -44,6 +44,14 @@ $(document).ready(function(){
         $(".search-content").hide();
         $(".home-content").hide();
         getProfileContent($(this).children()[1].innerHTML.toLowerCase());
+        $(".content").attr("id", "profile");
+        $(".profile-content").show();
+    });
+
+    $(".show-more").click(function() {
+        $(".search-content").hide();
+        $(".home-content").hide();
+        getProfileContent($(this).attr("id"));
         $(".content").attr("id", "profile");
         $(".profile-content").show();
     });

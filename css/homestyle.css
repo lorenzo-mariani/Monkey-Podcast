@@ -98,12 +98,17 @@ a:hover{
 }
 
 .home-content {
-    margin-top: 90px;
-    margin-bottom: 120px;
+    margin-bottom: 90px;
+    height: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .profile-content {
-    margin-bottom: 120px;
+    margin-bottom: 90px;
+    height: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 #logo-container,
@@ -140,14 +145,19 @@ a:hover{
     justify-content: center;
 }
 
+.channel-content {
+    display: flex;
+}
+
 #search-bar {
-    width:  60%;
+    width:  70%;
     padding-left: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 7px;
+    padding-bottom: 7px;
     margin-left: 30px;
     color: whitesmoke;
-    font-family: caviar_dreamsregular;
+    font-family: caviar_dreamsbold;
+    font-size: 15px;
 }
 
 .icons-container {
@@ -164,26 +174,28 @@ a:hover{
 }
 
 #search-icon {
-    height: 28px;
+    height: 25px;
     cursor: pointer;
     padding: 4px 40px;
 }
 
 #profile-icon {
     height: 30px;
-    margin-right: 60px;
-    margin-left: 30px;
+    margin-right: 27px;
+    margin-left: 27px;
     cursor: pointer;
 }
 
 #upload-icon {
     height: 27px;
-    margin-left: 30px;
     cursor: pointer;
 }
 
 .search-content {
-    background-color: rgb(17, 17, 17);
+    margin-bottom: 90px;
+    height: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .upload-button {
@@ -194,66 +206,89 @@ a:hover{
     overflow: hidden;
     outline:none;
 }
-
-.scrollchannel {
-    margin-bottom: 50px;
-    width: 100%;
-    overflow: auto;
-    white-space: nowrap;
-    scrollbar-width: none;
-}
   
 .grid-element {
-    display: inline-grid;
+    display: flex;
     text-align: center;
     padding-top: 10px;
+    padding-bottom: 10px;
     padding-left: 20px;
     padding-right: 20px;
     text-decoration: none;
+    justify-content: center;
+    align-items: center;
 }
 
 .grid-element:hover {
     cursor: pointer;
+    background-color: rgba(73, 73, 73, 0.575);
 }
 
 .grid-element img {
-    padding-top: 50px;
-    height: 140px;
+    height: 30px;
+    width: 60px;
+    object-fit: cover;
     justify-self: center;
+    border-radius: 4px;
 }
 
 .grid-element h4 {
     font-family: caviar_dreamsregular;
-    padding-top: 15px;
-    padding-bottom: 5px;
+    margin-left: 30px;
+    font-size: 13px;
 }
 
 .grid-element p {
     font-family: caviar_dreamsregular;
+    margin-left: 30px;
+    font-size: 11px;
+}
+
+#playlist-home {
+    font-family: 'caviar_dreamsbold';
+    font-size: 19px;
+    text-align: center;
+    padding: 15px 15px;
+}
+
+.playlist-container-home {
+    border: 1px solid rgb(48 48 48);
+    width: 350px;
+    margin: 25px 10px;
+}
+
+.show-more {
+    color: rgb(0, 127, 201);
+    font-size: 10px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .left-scroll-arrow {
     background-color: rgba(17, 17, 17, 0.7);
     transform: rotate(90deg);
     left: 5px;
-    margin-top: 140px;
     padding: 10px;
     height: 20px;
     font-family: caviar_dreamsbold;
     position: absolute;
     cursor: pointer;
+    align-self: center;
 }
 
 .right-scroll-arrow {
     background-color: rgba(17, 17, 17, 0.7);
     transform: rotate(-90deg);
     right: 10px;
-    margin-top: 140px;
     padding: 10px;
     height: 20px;
     font-family: caviar_dreamsbold;
     position: absolute;
     cursor: pointer;
+    align-self: center;
 }
 
 #album-name {
@@ -269,15 +304,16 @@ a:hover{
 }
 
 #channel-name-container {
-    height: 100px;
+    height: 71px;
     background: black;
+    margin-top: 20px;
 }
 
 .channel-name {
     position: relative;
     font-family: caviar_dreamsbold;
     color: whitesmoke;
-    font-size: 55px;
+    font-size: 40px;
     text-align: center;
     top: 50%;
     transform: translate(0, -50%);
@@ -290,9 +326,9 @@ a:hover{
 
 #profile-menu {
     position: absolute;
-    right: 50px;
+    right: 24px;
     top: 50px;
-    width: 200px;
+    width: 211px;
     height: 86px;
     display: none;
 }
@@ -302,7 +338,7 @@ a:hover{
     width: 100%;
 }
 
-#profile-menu button:hover {
+#logout-button:hover {
     background-color: rgba(73, 73, 73, 0.575);
 }
 
@@ -318,13 +354,15 @@ a:hover{
 #profile-button {
     background-color: transparent;
     border: none;
-    padding-left: 40px;
-    padding-bottom: 15px;
-    padding-top: 15px;
+    padding: 15px 0px;
     font-family: caviar_dreamsbold;
     font-size: 14px;
     cursor: pointer;
-    text-align: left;
+    text-align: center;
+}
+
+#profile-button:hover {
+    background-color: rgba(73, 73, 73, 0.575);
 }
 
  #mode-switch {
@@ -385,53 +423,6 @@ a:hover{
   .slider.round:before {
     border-radius: 50%;
   }
-
-#podcasts{
-    position: relative;
-    font-family: caviar_dreamsbold;
-    color: whitesmoke;
-    font-size: 80px;
-    text-align: center;
-    top: 50%;
-    transform: translate(0, -50%);
-    background: rgba(0, 0, 0, 0.521);
-}
-
-#users{
-    position: relative;
-    font-family: caviar_dreamsbold;
-    color: whitesmoke;
-    font-size: 80px;
-    text-align: center;
-    top: 50%;
-    transform: translate(0, -50%);
-    background: rgba(0, 0, 0, 0.521);
-}
-
-.grid-element-users {
-    display: inline-grid;
-    text-align: center;
-    padding-top: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    text-decoration: none;
-}
-
-.grid-element-users:hover {
-    cursor: pointer;
-}
-
-.grid-element-users img {
-    padding-top: 50px;
-    height: 140px;
-    justify-self: center;
-}
-
-.grid-element-users h4 {
-    font-family: caviar_dreamsregular;
-    padding-top: 15px;
-    padding-bottom: 5px;
-}
 
 @media screen and (max-width: 1250px) {
 

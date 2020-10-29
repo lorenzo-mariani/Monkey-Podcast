@@ -77,6 +77,11 @@
                         ?>
                         SUBS
                     </h4>
+                    <?php
+                        if($_SESSION['userUid'] == $_SESSION['channelName']){
+                            echo "<img id=\"settings\" src=\"./icon/settings-dark.png\" alt=\"settings\">";
+                        }
+                    ?>
             </div>
             <div id="subscribe-container">
                     <?php
@@ -152,7 +157,7 @@
                 ?>
             </h3>
         </div>
-        <div id="podcasts-container">
+        <div id="noplaylist-container">
             <?php
 
                 $query = "SELECT genre, podcastTitle, podcastImg, podcastStreams, podcastFile, playlist FROM podcasts WHERE userUID=? ORDER BY playlist ASC";
@@ -182,7 +187,7 @@
                         "<div class=\"grid-element-profile\"  id=".str_replace("../", "./", $podcast_file).">
                             <img src=".str_replace("../", "./",$podcast_img)." alt=\"Sample1\">
                             <h4 id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
-                            <p>".$streams."</p>
+                            <p>".$streams." STREAMS</p>
                         </div>";
                         $playlist_tmp = $playlist;
                     }

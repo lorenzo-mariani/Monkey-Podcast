@@ -12,6 +12,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/searchstyle.css" type="text/css">
+    <link id="search-style" rel="stylesheet" href="./css/searchstyledark.css" type="text/css">
     <link rel="stylesheet" href="./css/homestyle.css" type="text/css">
     <link id="home-style" rel="stylesheet" href="./css/homestyledark.css" type="text/css">
     <link rel="stylesheet" href="./css/profilestyle.css" type="text/css">
@@ -44,7 +46,7 @@
                 </form>
                 <img src="./icon/user.png" alt="User Profile" id="profile-icon">
             </div>
-            <div id="profile-menu">
+            <div id="profile-menu" style="display: none;">
                 <h4 id="profile-button"><?php
                     $string = $_SESSION["userUid"];
                     $uid = strtoupper($string);

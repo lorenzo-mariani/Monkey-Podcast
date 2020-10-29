@@ -27,8 +27,8 @@
     ?>>
         <?php
 
-            $query = "SELECT userUID, podcastStreams, podcastTitle, podcastImg, channelImg, podcastFile FROM
-            (SELECT userUID, podcastStreams, podcastTitle, podcastImg, podcastFile FROM
+            $query = "SELECT userUID, podcastStreams, podcastTitle, podcastImg, channelImg, podcastFile, playlist FROM
+            (SELECT userUID, podcastStreams, podcastTitle, podcastImg, podcastFile, playlist FROM
             (SELECT channelName FROM
             subscriptions
             WHERE subUid = ?) as t1
@@ -38,7 +38,7 @@
             INNER JOIN
             channels
             ON t2.userUid = channels.channelName
-            ORDER BY userUID ASC";
+            ORDER BY userUID ASC, podcastTitle ASC";
             $stmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($stmt, $query)) {
                 header("Location: ./home.php?error=sqlerror");
@@ -47,8 +47,7 @@
                 mysqli_stmt_bind_param($stmt, "s", $_SESSION['userUid']);
                 mysqli_stmt_execute($stmt);
                 mysqli_stmt_store_result($stmt);
-                $stmt->bind_result($channel_name, $streams, $title, $podcast_img, $channel_img, $podcast_file);
-                $name_tmp = NULL;;
+                $stmt->bind_result($channel_name, $streams, $title, $podcast_img, $channel_img, $podcast_file, $playlist);
                 if($stmt->num_rows == 0){
                     echo "<div id=\"default-content\">
                         <h1 id=\"welcome-to\">WELCOME TO</h1>
@@ -59,32 +58,58 @@
                             <p id=\"text\">Have a passion for cars? Cats? Business? Computers? We have it all! You only have to search for it!</p>
                         </div>
                     </div>";
-                }
-                while($stmt->fetch()){
-                    if($name_tmp != $channel_name  || $name_tmp == NULL){
-                        if($name_tmp != NULL){
-                            echo "</div>";
-                        }
+                } else {
+                    $name_tmp = NULL;
+                    $playlist_tmp = NULL;
+                    $check_plst = 0;
+                    $count = 0;
+                    while($stmt->fetch()){
                         $file = str_replace("../", "./",$podcast_file);
                         $ch_img = str_replace("../", "./", $channel_img);
                         $pod_img = str_replace("../", "./", $podcast_img);
-                        echo
-                        "<div id=\"channel-name-container\" style=\"background: url('".$ch_img."') no-repeat center; background-size:cover\">
-                            <h1 class=\"channel-name\">".strtoupper($channel_name)."</h1>
-                        </div>
-                        <div class=\"scrollchannel\">
-                            <img class=\"left-scroll-arrow\" src=\"./icon/arrow.png\" alt=\"Left Arrow\">
-                            <img class=\"right-scroll-arrow\" src=\"./icon/arrow.png\" alt=\"Right Arrow\">
-                        ";
+                        if($name_tmp != $channel_name){
+                            if($name_tmp != NULL){
+                                echo "</div>
+                                </div>";
+                                $playlist_tmp = NULL;
+                            }
+                            echo
+                            "<div id=\"channel-name-container\" style=\"background: url('".$ch_img."') no-repeat center; background-size:cover\">
+                                <h1 class=\"channel-name\">".strtoupper($channel_name)."</h1>
+                            </div>
+                            <div class=\"channel-content\">";
+                        }
+                        if($playlist != "none") {
+                            if($playlist_tmp != $playlist){
+                                $count = 0;
+                                if($playlist_tmp != NULL){
+                                    echo "</div>";
+                                }
+                                echo "<div class=\"playlist-container-home\">
+                                <h4 id=\"playlist-home\">".strtoupper(str_replace('_', ' ', $playlist))."</h4>";
+                            }
+                        } else if($playlist == "none" && $check_plst != 1){
+                            $check_plst = 1;
+                            echo "<div class=\"playlist-container-home\">
+                            <h4 id=\"some-podcasts-home\">SOME PODCASTS</h4>";
+                        }
+                        if($count < 3){
+                            echo
+                            "<div class=\"grid-element\"  id=".str_replace("../", "./", $podcast_file).">
+                                <img src=".$pod_img." alt=\"Sample1\">
+                                <h4 id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
+                                <p>".$streams." STREAMS</p>
+                            </div>";
+                        } else if ($count == 3) {
+                            echo "<p class=\"show-more\" id=".$channel_name.">SHOW MORE...";
+                        }
+                        $count = $count + 1;
+                        $playlist_tmp = $playlist;
+                        $name_tmp = $channel_name;
                     }
-                    echo 
-                    "   <div class=\"grid-element\" id=".$file.">
-                            <img src=".$pod_img." alt=\"Sample1\">
-                            <h4 id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
-                            <p>".$streams."</p></div>";
-                    $name_tmp = $channel_name;
                 }
-                echo "</div>";
+                echo "</div>
+                </div>";
                 mysqli_stmt_close($stmt);
                 mysqli_close($conn);
             }
@@ -105,7 +130,7 @@
     ?>>
     </div>
 
-    <div class="search-content">
+    <div class="search-content" style="display: none;">
 
     </div>
 </div>
