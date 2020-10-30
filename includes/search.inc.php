@@ -112,5 +112,5 @@
 
 ?>
 
-<script src="../load_audio.js"></script>
-<script src="../change_content.js"></script>
+<script src="./load_audio.js"></script>
+<script src="./change_content.js"></script>
