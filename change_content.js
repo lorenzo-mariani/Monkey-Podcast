@@ -1,6 +1,7 @@
 $(document).ready(function(){
     $("#logo-container").click(function(){
         $(".profile-content").hide();
+        $(".playlist-content").hide();
         $(".search-content").hide();
         $(".home-content").show();
         $(".content").attr("id", "home");
@@ -8,6 +9,7 @@ $(document).ready(function(){
 
     $(".channel-name").click(function(){
         $(".home-content").hide();
+        $(".playlist-content").hide();
         $(".search-content").hide();
         getProfileContent($(this).text().toLowerCase());
         $(".content").attr("id", "profile");
@@ -16,6 +18,7 @@ $(document).ready(function(){
     
     $("#profile-button").click(function(){
         $(".home-content").hide();
+        $(".playlist-content").hide();
         $(".search-content").hide();
         getProfileContent($(this).text().toLowerCase());
         $(".content").attr("id", "profile");
@@ -24,6 +27,7 @@ $(document).ready(function(){
 
     $("#podcast-channel").click(function() {
         $(".search-content").hide();
+        $(".playlist-content").hide();
         $(".home-content").hide();
         getProfileContent($(this).text().toLowerCase());
         $(".content").attr("id", "profile");
@@ -33,6 +37,7 @@ $(document).ready(function(){
     $("#search-icon").click(function() {
         if($("#search-bar").val() != ""){
             $("#search-content").html("");
+            $(".playlist-content").hide();
             $(".home-content").hide();
             $(".profile-content").hide();
             getSearchContent($("#search-bar").val());
@@ -42,6 +47,7 @@ $(document).ready(function(){
 
     $(".grid-element-users").click(function() {
         $(".search-content").hide();
+        $(".playlist-content").hide();
         $(".home-content").hide();
         getProfileContent($(this).children()[1].innerHTML.toLowerCase());
         $(".content").attr("id", "profile");
@@ -50,10 +56,20 @@ $(document).ready(function(){
 
     $(".show-more").click(function() {
         $(".search-content").hide();
+        $(".playlist-content").hide();
         $(".home-content").hide();
         getProfileContent($(this).attr("id"));
         $(".content").attr("id", "profile");
         $(".profile-content").show();
+    });
+
+    $(".settings-playlist").click(function() {
+        console.log("ok");
+        $(".search-content").hide();
+        $(".home-content").hide();
+        $(".profile-content").hide();
+        getPlaylistContent($(this).parent()[0].children[0].innerHTML);
+        $(".playlist-content").show();
     });
 });
 
@@ -73,6 +89,16 @@ function getSearchContent(string){
         dataType: "html",
         success : function (data) {
             $(".search-content").html(data);
+        }
+    });
+}
+
+function getPlaylistContent(playlist){
+    $.ajax({
+        url : "./playlist_settings.php?playlist="+playlist,
+        dataType: "html",
+        success : function (data) {
+            $(".playlist-content").html(data);
         }
     });
 }

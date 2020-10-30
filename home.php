@@ -131,7 +131,9 @@
     </div>
 
     <div class="search-content" style="display: none;">
+    </div>
 
+    <div class="playlist-content" style="display: none;">
     </div>
 </div>
     <?php require "./player.php"; ?>

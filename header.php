@@ -21,13 +21,14 @@
     <link id="home-style" rel="stylesheet" href="./css/homestyledark.css" type="text/css">
     <link rel="stylesheet" href="./css/profilestyle.css" type="text/css">
     <link id="profile-style" rel="stylesheet" href="./css/profilestyledark.css" type="text/css">
+    <link rel="stylesheet" href="./css/playliststyle.css" type="text/css">
+    <link id="playlist-style" rel="stylesheet" href="./css/playliststyledark.css" type="text/css">
     <title>Home</title>
 </head>
 <body onload="if(Array.isArray(document.cookie.split(';')) && document.cookie.split(';').length > 1){
     setAudio('memaudio');
     } 
     if(getCookie('mode') == 'light'){
-        console.log('light');
         document.getElementById('checkbox').click();
     }">
     <header>
@@ -42,7 +43,13 @@
             <div id="icons-container">
                 <h4 id="mode-text">DARK MODE ON</h4>
                 <label id="mode-switch">
-                    <input id="checkbox" type="checkbox" name="toggled-mode-home" value="dark" checked>
+                    <input id="checkbox" type="checkbox" name="toggled-mode-home" value="dark"
+                    onclick="if(this.getAttribute('value') == 'dark'){
+                            setCookie('mode', 'light', 2);
+                        } else if(this.getAttribute('value') == 'light'){
+                            setCookie('mode', 'dark', 2);
+                        }"
+                        checked>
                     <span class="slider round"></span>
                 </label>
                 <form action="./upload.php" method="post">

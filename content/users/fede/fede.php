@@ -178,7 +178,13 @@
                         if($playlist != "none" && $playlist_tmp != $playlist) {
                             echo "</div>";
                             echo "<div class=\"playlist-container\">
-                            <h4 id=\"playlist\">".strtoupper(str_replace('_', ' ', $playlist))."</h4>";
+                            <div class=\"title-settings-container\">
+                                <h4 id=\"playlist\">".strtoupper(str_replace('_', ' ', $playlist))."</h4>";
+                                if($_SESSION['userUid'] == $_SESSION['channelName']){
+                                    echo "<img class=\"settings-playlist\" src=\"./icon/settings-dark.png\" alt=\"settings\">";
+                                }
+                                echo "</div>";
+                                
                         } else if($playlist == "none" && $check != 1){
                             $check = 1;
                             echo "<div class=\"playlist-container\">

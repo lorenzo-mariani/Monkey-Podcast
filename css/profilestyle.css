@@ -204,6 +204,12 @@ button:hover {
     cursor: pointer;
 }
 
+.settings-playlist {
+    height: 30px;
+    margin-left: 30px;
+    cursor: pointer;
+}
+
 .grid-element-profile {
     display: inline-grid;
     text-align: center;
@@ -268,10 +274,15 @@ button:hover {
     vertical-align: middle;
 }
 
+.title-settings-container {
+    display: flex;
+    align-items: center;
+}
+
 #playlist {
     font-family: 'caviar_dreamsbold';
     font-size: 27px;
-    padding-top: 25px;
+    padding-top: 20px;
     padding-bottom: 15px;
     padding-left: 5px;
 }

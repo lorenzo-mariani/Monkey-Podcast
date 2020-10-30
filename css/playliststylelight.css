@@ -1,0 +1,24 @@
+#podcasts-container {
+    background: rgb(78, 78, 78);
+}
+
+#users-container {
+    background: rgb(78, 78, 78);
+}
+
+#show-more {
+    background-color: #dfdfdf;
+    color: rgb(103, 188, 236);
+}
+
+.scrollchannel {
+    background-color: #dfdfdf;
+}
+
+.grid-element-users h4 {
+    color: black;
+}
+
+.grid-element-users p {
+    color: black;
+}
