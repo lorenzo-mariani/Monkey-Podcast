@@ -38,7 +38,7 @@
                     if($count != 4 && $count < 7){
                         echo 
                         "<div class=\"grid-element\" id=".$file.">
-                            <img src=".$img.">
+                            <img src=".str_replace('../', './', $img).">
                             <h4 id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
                             <p>".$streams." STREAMS</p>
                             <h3 id=\"channel-name-search\">".strtoupper($channel_name)."</h3>
@@ -47,7 +47,7 @@
                         echo "</div>
                         <div id=\"podcast-right-container-search\">
                         <div class=\"grid-element\" id=".$file.">
-                            <img src=".$img.">
+                            <img src=".str_replace('../', './', $img).">
                             <h4 id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
                             <p>".$streams." STREAMS</p>
                             <h3 id=\"channel-name-search\">".strtoupper($channel_name)."</h3>
@@ -80,7 +80,7 @@
                         if($ch_img != ''){
                             echo 
                             "   <div class=\"grid-element-users\">
-                                <img src=".$ch_img.">
+                                <img src=".str_replace('../', './', $ch_img).">
                                 <h4>".strtoupper($name)."</h4>
                                 <p>".$views." STREAMS</p>
                                 </div>";
