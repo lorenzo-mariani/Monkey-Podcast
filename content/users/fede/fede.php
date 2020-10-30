@@ -13,7 +13,6 @@
 ?>
 <body>
     <div class="profile-cnt">
-        <div id="chimg-container"
         <?php
         $query = "SELECT channelImg FROM channels WHERE channelName=?";
         $stmt = mysqli_stmt_init($conn);
@@ -26,18 +25,20 @@
             mysqli_stmt_store_result($stmt);
             $stmt->bind_result($podcast_img);
             while($stmt->fetch()){
-                echo "style=\"background:url('".str_replace("../", "./",$podcast_img)."') no-repeat center;
-                background-size: cover;
-                display: flex;
-                flex-wrap: nowrap;
-                width: 100%;
-                background-color: black;
-                height: 150px;\"";
+                if($podcast_img != '') {
+                    echo "<div id=\"chimg-container\" style=\"background:url('".str_replace("../", "./",$podcast_img)."') no-repeat center;
+                    background-size: cover;
+                    display: flex;
+                    flex-wrap: nowrap;
+                    width: 100%;
+                    background-color: black;
+                    height: 150px;\">
+                    </div>";
+                }
             }
             mysqli_stmt_close($stmt);
         }
-        ?>>
-        </div>
+        ?>
         <div class="tabs-container">
             <ul class="tabs-menu">
                 <li id="home">HOME</li>
@@ -79,8 +80,7 @@
                     </h4>
                     <?php
                         if($_SESSION['userUid'] == $_SESSION['channelName']){
-                            echo "<img id=\"settings\" src=\"./icon/settings-dark.png\" alt=\"settings\">
-                            <h4 id=\"channel-settings\">CHANNEL SETTINGS</h4>";
+                            echo "<img id=\"settings\" src=\"./icon/settings-dark.png\" alt=\"settings\">";
                         }
                     ?>
             </div>
@@ -178,14 +178,7 @@
                         if($playlist != "none" && $playlist_tmp != $playlist) {
                             echo "</div>";
                             echo "<div class=\"playlist-container\">
-                            <div class=\"playlist-title-container\">
-                                <h4 id=\"playlist\">".strtoupper(str_replace('_', ' ', $playlist))."</h4>";
-                            if($_SESSION['userUid'] == $_SESSION['channelName']){
-                                echo "<img id=\"settings\" src=\"./icon/settings-dark.png\" alt=\"settings\">
-                                </div>";
-                            } else {
-                                echo "</div>";
-                            }
+                            <h4 id=\"playlist\">".strtoupper(str_replace('_', ' ', $playlist))."</h4>";
                         } else if($playlist == "none" && $check != 1){
                             $check = 1;
                             echo "<div class=\"playlist-container\">
@@ -193,7 +186,7 @@
                         }
                         echo
                         "<div class=\"grid-element-profile\"  id=".str_replace("../", "./", $podcast_file).">
-                            <img src=".str_replace("../", "./",$podcast_img)." alt=\"Sample1\">
+                            <img src=".str_replace("../", "./",$podcast_img).">
                             <h4 id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
                             <p>".$streams." STREAMS</p>
                         </div>";

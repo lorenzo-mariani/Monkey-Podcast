@@ -19,6 +19,10 @@
     background-color: #dfdfdf;
 }
 
+.grid-element-users h4 {
+    color: black;
+}
+
 .grid-element-users p {
-    color: white;
+    color: black;
 }

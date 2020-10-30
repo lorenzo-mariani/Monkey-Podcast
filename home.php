@@ -96,7 +96,7 @@
                         if($count < 3){
                             echo
                             "<div class=\"grid-element\"  id=".str_replace("../", "./", $podcast_file).">
-                                <img src=".$pod_img." alt=\"Sample1\">
+                                <img src=".$pod_img.">
                                 <h4 id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
                                 <p>".$streams." STREAMS</p>
                             </div>";

@@ -5,6 +5,7 @@
     font-size: 30px;
     text-align: center;
     padding: 7px 0px;
+    margin-top: 70px;
 }
 
 #users-container{
@@ -19,7 +20,8 @@
 
 #podcast-search {
     display: flex;
-    padding: 20px 0px;
+    padding-top: 10px;
+    padding-bottom: 7px;
 }
 
 #podcast-left-container-search {
@@ -39,6 +41,7 @@
     text-decoration: underline;
     cursor: pointer;
     padding: 10px 0px;
+    margin: 0px 20px;
 }
 
 #channel-name-search {
@@ -66,8 +69,12 @@
 .grid-element-users img {
     margin-top: 20px;
     height: 140px;
+    width: 200px;
     justify-self: center;
     border: 2px solid gray;
+    background-color: black;
+    object-fit: cover;
+    justify-self: center;
 }
 
 .grid-element-users h4 {
@@ -75,7 +82,6 @@
     padding-top: 15px;
     padding-bottom: 5px;
     font-size: 22px;
-    color: whitesmoke
 }
 
 .grid-element-users p {
@@ -86,4 +92,5 @@
 
 .scrollchannel {
     display: flex;
+    margin-top: 10px;
 }

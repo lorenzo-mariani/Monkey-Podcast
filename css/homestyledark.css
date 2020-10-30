@@ -2,8 +2,8 @@ body {
     background-color: black;
 }
 
-.content, html{
-    background-color: rgb(204 204 204);
+html{
+    background-color: black;
 }
 
 #welcome-to {
@@ -15,7 +15,7 @@ body {
 }
 
 #welcome-text {
-    background-color: whitesmoke;
+    background-color: rgba(26, 26, 26, 0.97);
 }
 
 #get-started {
@@ -24,7 +24,7 @@ body {
 }
 
 #text {
-    color: black;
+    color: whitesmoke;
 }
 
 #header {

@@ -1,9 +1,9 @@
-body {
-    background-color: white;
+html{
+    background-color: rgb(233 233 233);
 }
 
-.content, html{
-    background-color: rgb(56 56 56);
+.content {
+    background-color: rgb(233 233 233);
 }
 
 #header {
@@ -11,15 +11,15 @@ body {
 }
 
 #welcome-to {
-    color: black;
+    color: whitesmoke;
 }
 
 #monkey-podcast {
-    color: black;
+    color: whitesmoke;
 }
 
 #welcome-text {
-    background-color:black;
+    background-color: whitesmoke;
 }
 
 #get-started {
@@ -28,7 +28,7 @@ body {
 }
 
 #text {
-    color: whitesmoke;
+    color: black;
 }
 
 .header {
