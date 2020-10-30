@@ -13,10 +13,10 @@
         <title>Upload</title>
         <link rel="stylesheet" href="./css/uploadstyle.css" type="text/css">
         <?php
-            if(isset($_POST['logo-submit'])){
-                if($_POST['logo-submit'] == "dark"){
+            if(isset($_COOKIE['mode'])){
+                if($_COOKIE['mode'] == "dark"){
                     echo "<link rel=\"stylesheet\" href=\"./css/uploadstyledark.css\" type=\"text/css\">";
-                } else if($_POST['logo-submit'] == "light") {
+                } else if($_COOKIE['mode'] == "light") {
                     echo "<link rel=\"stylesheet\" href=\"./css/uploadstylelight.css\" type=\"text/css\">";
                 }
             } else {
@@ -28,13 +28,24 @@
         <div id="content">
             <div id="form-container">
                 <form action= "./home.php" method="post">
-                    <button id="logo-button" type="submit" name="logo-submit">
+                    <button id="logo-button" type="submit" name="logo-submit"
+                    <?php
+                        if(isset($_COOKIE['mode'])){
+                            if($_COOKIE['mode'] == "dark"){
+                                echo "value=\"dark\"";
+                            } else if($_COOKIE['mode'] == "light") {
+                                echo "value=\"light\"";
+                            }
+                        } else {
+                            echo "value=\"dark\"";
+                        }
+                    ?>>
                         <img 
                         <?php
-                            if(isset($_POST['logo-submit'])){
-                                if($_POST['logo-submit'] == "dark"){
+                            if(isset($_COOKIE['mode'])){
+                                if($_COOKIE['mode'] == "dark"){
                                     echo "src='./img/logo/MonkeyPodcastLogo_dark.png'";
-                                } else if($_POST['logo-submit'] == "light") {
+                                } else if($_COOKIE['mode'] == "light") {
                                     echo "src='./img/logo/MonkeyPodcastLogo_light.png'";
                                 }
                             } else {

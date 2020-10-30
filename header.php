@@ -4,6 +4,10 @@
         header("Location: ./index.php");
     }
     require "./includes/dbh.inc.php";
+
+    if(!isset($_COOKIE['mode'])) {
+        setcookie('mode', 'dark', time() + (86400 * 30), "/");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +23,13 @@
     <link id="profile-style" rel="stylesheet" href="./css/profilestyledark.css" type="text/css">
     <title>Home</title>
 </head>
-<body onload="if(Array.isArray(document.cookie.split(';')) && document.cookie.split(';').length > 1){getCookie('memaudio');}">
+<body onload="if(Array.isArray(document.cookie.split(';')) && document.cookie.split(';').length > 1){
+    setAudio('memaudio');
+    } 
+    if(getCookie('mode') == 'light'){
+        console.log('light');
+        document.getElementById('checkbox').click();
+    }">
     <header>
         <div id="header">
             <div id="logo-container">
@@ -36,7 +46,7 @@
                     <span class="slider round"></span>
                 </label>
                 <form action="./upload.php" method="post">
-                    <button id="upload-button" type="submit" name="logo-submit" value="dark">
+                    <button id="upload-button" type="submit" name="logo-submit">
                         <img src="./icon/microphone.png" alt="Upload Podcast" id="upload-icon">
                     </button>
                 </form>

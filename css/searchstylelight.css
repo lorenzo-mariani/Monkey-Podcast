@@ -1,7 +1,3 @@
-#podcast-search {
-    background-color: #dfdfdf;
-}
-
 #podcasts-container {
     background: rgb(78, 78, 78);
 }
@@ -11,6 +7,7 @@
 }
 
 #show-more {
+    background-color: #dfdfdf;
     color: rgb(103, 188, 236);
 }
 

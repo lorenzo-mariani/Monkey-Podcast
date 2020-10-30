@@ -33,6 +33,17 @@ profileButton.onclick = function () {
 checkbox.onchange = function () {
   if (checkbox.checked == true) {
     document.getElementById('home-style').href = "./css/homestyledark.css";
+    if(document.getElementsByClassName("content")[0].getAttribute("id") == "profile") {
+      if(document.getElementById('subscribe-button') != null){
+        document.getElementById('subscribe-button').setAttribute("value", "dark");
+      }
+      if(document.getElementById('unsubscribe-button') != null){
+        document.getElementById('unsubscribe-button').setAttribute("value", "dark");
+      }
+      if(document.getElementById('upload-img-btn') != null){
+        document.getElementById('upload-img-btn').setAttribute("value", "dark");
+      }
+    }
     document.getElementById('upload-button').setAttribute("value", "dark");
     document.getElementById('search-style').href = "./css/searchstyledark.css";
     document.getElementById('profile-style').href = "./css/profilestyledark.css";
@@ -50,6 +61,17 @@ checkbox.onchange = function () {
   } else {
     document.getElementById('home-style').href = "css/homestylelight.css";
     document.getElementById('upload-button').setAttribute("value", "light");
+    if(document.getElementsByClassName("content")[0].getAttribute("id") == "profile") {
+      if(document.getElementById('subscribe-button') != null){
+        document.getElementById('subscribe-button').setAttribute("value", "light");
+      }
+      if(document.getElementById('unsubscribe-button') != null){
+        document.getElementById('unsubscribe-button').setAttribute("value", "light");
+      }
+      if(document.getElementById('upload-img-btn') != null){
+        document.getElementById('upload-img-btn').setAttribute("value", "light");
+      }
+    }
     document.getElementById('search-style').href = "./css/searchstylelight.css";
     document.getElementById('profile-style').href = "css/profilestylelight.css";
     document.getElementById('player-style').href = "css/playerstylelight.css";
@@ -110,3 +132,5 @@ searchbar.addEventListener('keypress', function (e) {
     document.getElementById('search-icon').click();
   }
 });
+
+

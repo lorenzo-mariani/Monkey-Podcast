@@ -101,7 +101,7 @@
                             if($resultCheck == 0) {
                                 echo
                                 "<form id=\"sub\" action=\"./includes/subscribe.inc.php\" method=\"post\">
-                                    <button id=\"subscribe-button\" name=\"subscribe-btn\">
+                                    <button id=\"subscribe-button\" name=\"subscribe-btn\" value=\"dark\">
                                         SUBSCRIBE
                                     </button>
                                 </form>";
