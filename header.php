@@ -3,7 +3,6 @@
     if(!isset($_SESSION['userId'])){
         header("Location: ./index.php");
     }
-
     require "./includes/dbh.inc.php";
 ?>
 
@@ -36,12 +35,9 @@
                     <input id="checkbox" type="checkbox" name="toggled-mode-home" value="dark" checked>
                     <span class="slider round"></span>
                 </label>
-                <form action=<?php 
-                    $str = "./upload.php";
-                    echo $str;
-                ?> method="post">
-                    <button class="upload-button" type="submit" name="logo-submit">
-                        <img src="icon/microphone.png" alt="Upload Podcast" id="upload-icon">
+                <form action="./upload.php" method="post">
+                    <button id="upload-button" type="submit" name="logo-submit" value="dark">
+                        <img src="./icon/microphone.png" alt="Upload Podcast" id="upload-icon">
                     </button>
                 </form>
                 <img src="./icon/user.png" alt="User Profile" id="profile-icon">

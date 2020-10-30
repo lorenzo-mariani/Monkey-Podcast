@@ -33,6 +33,7 @@ profileButton.onclick = function () {
 checkbox.onchange = function () {
   if (checkbox.checked == true) {
     document.getElementById('home-style').href = "./css/homestyledark.css";
+    document.getElementById('upload-button').setAttribute("value", "dark");
     document.getElementById('search-style').href = "./css/searchstyledark.css";
     document.getElementById('profile-style').href = "./css/profilestyledark.css";
     document.getElementById('player-style').href = "./css/playerstyledark.css";
@@ -48,6 +49,7 @@ checkbox.onchange = function () {
     }
   } else {
     document.getElementById('home-style').href = "css/homestylelight.css";
+    document.getElementById('upload-button').setAttribute("value", "light");
     document.getElementById('search-style').href = "./css/searchstylelight.css";
     document.getElementById('profile-style').href = "css/profilestylelight.css";
     document.getElementById('player-style').href = "css/playerstylelight.css";

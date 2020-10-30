@@ -1,0 +1,46 @@
+body{
+    background-color: rgb(20, 20, 20);
+}
+
+#form-container{
+    background-color: rgb(10, 10, 10);
+    border: 1px solid rgba(64, 0, 0);
+}
+
+label {
+    color: white;
+}
+
+input {
+    color: white;
+}
+
+#podcast-title {
+    color: white;
+    background-color: black;
+    box-shadow: inset 0 0 3px rgb(39, 39, 39);
+    border: 1px solid whitesmoke;
+}
+
+#podcast-playlist {
+    color: white;
+    background-color: black;
+    box-shadow: inset 0 0 3px rgb(39, 39, 39);
+    border: 1px solid whitesmoke;
+}
+
+#upload-submit {
+    color: whitesmoke;
+    background-color: rgb(151, 0, 0);
+}
+
+#upload-submit-ch {
+    color: whitesmoke;
+    background-color: rgb(151, 0, 0);
+}
+
+#genre-menu {
+    background-color:rgb(73, 73, 73);
+    border: 1px solid whitesmoke;
+    color: whitesmoke;
+}

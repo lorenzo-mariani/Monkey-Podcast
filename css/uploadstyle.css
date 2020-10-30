@@ -7,10 +7,6 @@
 
 }
 
-body{
-    background-color: rgb(20, 20, 20);
-}
-
 #form-logo {
     height: 100px;
 }
@@ -32,15 +28,12 @@ body{
 #form-container{
     width: 500px;
     left: 50%;
-    background-color: rgb(10, 10, 10);
-    border: 1px solid rgba(64, 0, 0);
     text-align: center;
     margin: 20px auto;
     padding: 20px 20px;
 }
 
 label {
-    color: white;
     font-family: robotothin;
     font-weight: bold;
     font-size: 18px;
@@ -51,7 +44,6 @@ label {
 }
 
 input {
-    color: white;
     font-family: robotothin;
     font-weight: bold;
     font-size: 18px;
@@ -62,14 +54,10 @@ input {
 
 #podcast-title {
     width: 60%;
-    color: white;
-    background-color: black;
-    box-shadow: inset 0 0 3px rgb(39, 39, 39);
     font-family: robotothin;
     font-weight: bold;
     font-size: 18px;
     padding: 5px 0;
-    border: 1px solid whitesmoke;
     display: block;
     margin: 40px auto;
     height: 40px;
@@ -78,14 +66,10 @@ input {
 
 #podcast-playlist {
     width: 60%;
-    color: white;
-    background-color: black;
-    box-shadow: inset 0 0 3px rgb(39, 39, 39);
     font-family: robotothin;
     font-weight: bold;
     font-size: 18px;
     padding: 5px 0;
-    border: 1px solid whitesmoke;
     display: block;
     margin: 40px auto;
     height: 40px;
@@ -93,9 +77,6 @@ input {
 }
 
 #upload-submit {
-    color: whitesmoke;
-    background-color: rgb(151, 0, 0);
-    box-shadow: inset 0 0 10px rgba(56, 2, 2, 0.719);
     border: none;
     width: 100px;
     padding: 10px 20px;
@@ -107,9 +88,6 @@ input {
 }
 
 #upload-submit-ch {
-    color: whitesmoke;
-    background-color: rgb(151, 0, 0);
-    box-shadow: inset 0 0 10px rgba(56, 2, 2, 0.719);
     border: none;
     width: 100px;
     padding: 10px 20px;
@@ -136,8 +114,5 @@ input {
     text-align: center;
     font-size: 15px;
     padding: 10px 10px;
-    background-color:rgb(73, 73, 73);
-    border: 1px solid whitesmoke;
-    color: whitesmoke;
     border-radius: 4px;
 }
