@@ -20,16 +20,16 @@ $(document).ready(function(){
       setCookie("memaudio","audio="+$(this)[0].id+"&timestamp="+00+"&img="+$(this).children()[0].src+"&name="+$(this).children()[1].innerHTML+"&channel="+$(this).children()[1].id.toUpperCase(), "2");
     });
     $(".upload-button").click(function() {
-      setCookie("memaudio","audio="+$("#audio").attr("src")+"&timestamp="+getCurrentTime()+"&img="+$("#thumbnail").attr("src")+"&name="+$("#podcast-name").innerHTML+"&channel="+$("#podcast-channel").innerHTML, "2");
+      setCookie("memaudio","audio="+$("#audio").attr("src")+"&timestamp="+getCurrentTime()+"&img="+$("#thumbnail").attr("src")+"&name="+$("#details-container").children()[0].innerHTML+"&channel="+$("#details-container").children()[1].innerHTML, "2");    
     })
     $("#unsubscribe-button").click(function() {
-      setCookie("memaudio","audio="+$("#audio").attr("src")+"&timestamp="+getCurrentTime()+"&img="+$("#thumbnail").attr("src")+"&name="+$("#podcast-name").innerHTML+"&channel="+$("#podcast-channel").innerHTML, "2");
+      setCookie("memaudio","audio="+$("#audio").attr("src")+"&timestamp="+getCurrentTime()+"&img="+$("#thumbnail").attr("src")+"&name="+$("#details-container").children()[0].innerHTML+"&channel="+$("#details-container").children()[1].innerHTML, "2");    
     })
     $("#subscribe-button").click(function() {
-      setCookie("memaudio","audio="+$("#audio").attr("src")+"&timestamp="+getCurrentTime()+"&img="+$("#thumbnail").attr("src")+"&name="+$("#podcast-name").innerHTML+"&channel="+$("#podcast-channel").innerHTML, "2");
+      setCookie("memaudio","audio="+$("#audio").attr("src")+"&timestamp="+getCurrentTime()+"&img="+$("#thumbnail").attr("src")+"&name="+$("#details-container").children()[0].innerHTML+"&channel="+$("#details-container").children()[1].innerHTML, "2");
     })
     $("#upload-img-btn").click(function() {
-      setCookie("memaudio","audio="+$("#audio").attr("src")+"&timestamp="+getCurrentTime()+"&img="+$("#thumbnail").attr("src")+"&name="+$("#podcast-name").innerHTML+"&channel="+$("#podcast-channel").innerHTML, "2");
+      setCookie("memaudio","audio="+$("#audio").attr("src")+"&timestamp="+getCurrentTime()+"&img="+$("#thumbnail").attr("src")+"&name="+$("#details-container").children()[0].innerHTML+"&channel="+$("#details-container").children()[1].innerHTML, "2");    
     })
 });
 
