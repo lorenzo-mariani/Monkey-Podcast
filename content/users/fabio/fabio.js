@@ -31,7 +31,7 @@ $(".channel").click(function(){
   $(".content").attr("id", "profile");
 });
 
-$(".settings-playlist").click(function() {
+$(".podcast-settings").click(function() {
   $(".search-content").hide();
   $(".home-content").hide();
   $(".profile-content").hide();
@@ -39,8 +39,8 @@ $(".settings-playlist").click(function() {
     url : "./podcast_settings.php?title="+$(this).parent()[0].children[0].innerHTML.toLowerCase().replace(/ /g, "_"),
     dataType: "html",
     success : function (data) {
-        $(".playlist-content").html(data);
+        $(".podcastmod-content").html(data);
     }
   });
-  $(".playlist-content").show();
+  $(".podcastmod-content").show();
 });

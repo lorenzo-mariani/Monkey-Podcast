@@ -108,8 +108,8 @@ function setAudio(cname) {
   var channel = c[4].substring("channel=".length, c[4].length);
   $("#audio").attr("src", audio);
   $("#thumbnail").attr("src", img);
-  $("#podcast-name").html(title);
-  $("#podcast-channel").html(channel);
+  $("#podcast-name").html(title.toUpperCase());
+  $("#podcast-channel").html(channel.toUpperCase());
   document.getElementById('audio').currentTime = timestamp;
   if(timestamp > 60){
     $("#current-time").html(Math.floor(audio.timestamp/60)+":"+Math.floor(audio.timestamp%60));

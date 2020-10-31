@@ -193,6 +193,13 @@ button:hover {
     text-align: center;
 }
 
+#settings-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 #podcasts-container {
     width: 100%;
     grid-template-columns: auto auto auto auto auto;
@@ -301,7 +308,7 @@ button:hover {
     padding-left: 67px;
     padding-right: 67px;
     border-bottom: 1px solid rgb(48 48 48);
-    padding-bottom: 15px;
+    margin-top: 10px;
 }
 
 .playlist-title-container {
@@ -324,6 +331,18 @@ button:hover {
     margin: 0px 50px;
 }
 
+#podcast-container {
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+    margin-left: 20px;
+    width: 100%;
+}
+
+#upload-btn-container {
+    text-align: center;
+}
+
 #pod-info-container {
     margin-bottom: 20px;
 }
@@ -335,10 +354,106 @@ button:hover {
 }
 
 .grid-element-mod {
-    margin: 10px 0px;
+    margin: auto 0px;
+    text-align: center;
+    padding: 20px;
+    margin-left: 20px;
+    flex: 1;
+}
+
+.grid-element-mod img {
+    max-height: 200px;
+    max-width: 300px;
+    object-fit: cover;
+    margin-bottom: 20px;
 }
 
 .grid-element-mod h4, p{
-    color: whitesmoke;
     font-family: 'caviar_dreamsregular';
+}
+
+#profile-home-container {
+    padding: 20px 20px;
+    background-color: rgb(15 15 15);
+}
+
+#form-settings-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+#form-settings-container form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-self: center;
+}
+
+form #label-settings {
+    font-family: robotothin;
+    font-weight: bold;
+    font-size: 18px;
+    display: inline-block;
+    text-align: left;
+}
+
+form #podcast-title-settings {
+    width: 60%;
+    font-family: robotothin;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 5px 0;
+    margin: 10px auto;
+    height: 30px;
+    text-align: center;
+}
+
+form #podcast-playlist-settings {
+    width: 60%;
+    font-family: robotothin;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 5px 0;
+    margin: 10px auto;
+    height: 30px;
+    text-align: center;
+}
+
+#upload-submit-settings {
+    border: none;
+    width: 100px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-family: robotothin;
+    font-weight: bolder;
+    font-size: 17px;
+    cursor: pointer;
+    margin: 10px 0px;
+}
+
+#img-file-settings {
+    font-family: robotothin;
+    font-weight: bolder;
+    font-size: 17px;
+    cursor: pointer;
+    margin-left: 30px;
+}
+
+#genre-menu-settings {
+    display: block;
+    width: 50%;
+    margin: 30px auto;
+    text-align: center;
+    font-size: 15px;
+    padding: 10px 10px;
+    border-radius: 4px;
+}
+
+#img-upload-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 20px 0px;
 }

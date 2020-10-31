@@ -21,8 +21,6 @@
     <link id="home-style" rel="stylesheet" href="./css/homestyledark.css" type="text/css">
     <link rel="stylesheet" href="./css/profilestyle.css" type="text/css">
     <link id="profile-style" rel="stylesheet" href="./css/profilestyledark.css" type="text/css">
-    <link rel="stylesheet" href="./css/podcastmodstyle.css" type="text/css">
-    <link id="podcastmod-style" rel="stylesheet" href="./css/podcastmodstyledark.css" type="text/css">
     <title>Home</title>
 </head>
 <body onload="if(getCookie('memaudio') != '' || getCookie('memaudio') != 'memaudio=audio=undefined&timestamp=0&img=undefined&name=&channel='){

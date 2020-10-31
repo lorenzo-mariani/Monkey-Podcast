@@ -66,6 +66,10 @@ html{
     background-color: rgb(15 15 15);
 }
 
+.podcastmod-content {
+    background-color: rgb(15 15 15);
+}
+
 .channel-info li {
     color: whitesmoke;
 }
