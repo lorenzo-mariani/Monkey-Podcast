@@ -4,8 +4,8 @@ $(document).ready(function(){
     $(".grid-element").click(function(){
       $("#audio").attr("src", $(this)[0].id);
       $("#thumbnail").attr("src", $(this).children()[0].src);
-      $("#podcast-name").html($(this).children()[1].find("h4").html());
-      $("#podcast-channel").html($(this).children()[1].find("h4").attr("id").toUpperCase());
+      $("#podcast-name").html($(this).children()[1].innerHTML);
+      $("#podcast-channel").html($(this).children()[1].id.toUpperCase());
       $( "#play-icon" ).trigger( "click" );
       updatePodcastStreams($(this).children()[1].innerHTML.toLowerCase().replace(/ /g , "_"), $(this).children()[1].id);
       setCookie("memaudio","audio="+$(this)[0].id+"&timestamp="+00+"&img="+$(this).children()[0].src+"&name="+$(this).children()[1].innerHTML+"&channel="+$(this).children()[1].id.toUpperCase(), 2);
