@@ -96,6 +96,10 @@ form #label-settings {
     color: white;
 }
 
+#img-file-settings {
+    color: whitesmoke;
+}
+
 form #podcast-title-settings {
     color: white;
     background-color: black;
