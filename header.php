@@ -25,7 +25,7 @@
     <link id="podcastmod-style" rel="stylesheet" href="./css/podcastmodstyledark.css" type="text/css">
     <title>Home</title>
 </head>
-<body onload="if(getCookie('memaudio') != ''){
+<body onload="if(getCookie('memaudio') != '' || getCookie('memaudio') != 'memaudio=audio=undefined&timestamp=0&img=undefined&name=&channel='){
     setAudio('memaudio');
     } 
     if(getCookie('mode') == 'light'){
