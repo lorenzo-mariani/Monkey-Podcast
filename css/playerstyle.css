@@ -116,15 +116,18 @@
     height: 35px;
     margin-right: 40px;
     margin-left: 40px;
+    cursor: pointer;
 }
 
 #next-icon {
     height: 15px;
+    cursor: pointer;
 }
 
 #previous-icon {
     height: 15px;
     transform: rotate(180deg);
+    cursor: pointer;
 }
 
 #slider {

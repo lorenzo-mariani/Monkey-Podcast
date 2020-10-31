@@ -10,7 +10,7 @@ $title = str_replace(' ', '_', strtolower($_POST["podcast-title"]));
 $playlist = str_replace(' ', '_', strtolower($_POST["podcast-playlist"]));
 $streams = 0;
 
-$target_dir = "../content/users/".$_SESSION['userUid']."/"."podcasts/".$title."/";
+$target_dir = "./content/users/".$_SESSION['userUid']."/"."podcasts/".$title."/";
 $target_file_audio = $target_dir . str_replace(' ','_',basename($_FILES["audio-file"]["name"]));
 $target_file_img = $target_dir . str_replace(' ','_',basename($_FILES["img-file"]["name"]));
 $checkAudio = 1;
@@ -32,7 +32,7 @@ if(!mysqli_stmt_prepare($stmt, $query)){
         } else {
             $checkAudio = 0;
             $checkImg = 0;
-        }        
+        }    
         if (file_exists($target_file_audio)) {
         echo "Sorry, audio file already exists.";
         $checkAudio = 0;
@@ -53,15 +53,8 @@ if(!mysqli_stmt_prepare($stmt, $query)){
             $checkImg = 0;
         }
     
-        if($checkAudio == 1 && $checkImg == 1){
-            if(!file_exists($target_dir)){
-                mkdir($target_dir);
-            }
-        } else {
-            echo "Sorry, something went wrong.";
-            exit();
-        }
-    
+        mkdir($_SERVER['DOCUMENT_ROOT'] . str_replace("./", "/", $target_dir), 0777, true);
+
         if (empty($title)) {
             header("Location: ../upload.php?error=emptytitle");
             exit();
@@ -79,10 +72,10 @@ if(!mysqli_stmt_prepare($stmt, $query)){
                     echo "Sorry, your audio file was not uploaded.";
                     exit();
                     } else {
-                    if (move_uploaded_file($_FILES["audio-file"]["tmp_name"], $target_file_audio)) {
+                    if (move_uploaded_file($_FILES["audio-file"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . str_replace("./", "/", $target_file_audio))) {
                         echo "The file ". htmlspecialchars(basename( $_FILES["audio-file"]["name"])). " has been uploaded.";
                     } else {
-                        header("Location: ../upload.php?error=uploaderror");
+                        header("Location: ../upload.php?error=audioerror");
                         exit();
                     }
                 }
@@ -90,17 +83,17 @@ if(!mysqli_stmt_prepare($stmt, $query)){
                     echo "Sorry, your img file was not uploaded.";
                     exit();
                 } else {
-                    if (move_uploaded_file($_FILES["img-file"]["tmp_name"], $target_file_img)) {
+                    if (move_uploaded_file($_FILES["img-file"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . str_replace("./", "/", $target_file_img))) {
                         echo "The file ". htmlspecialchars( basename( $_FILES["img-file"]["name"])). " has been uploaded.";
                     } else {
-                        echo "Sorry, there was an error uploading your image file.";
+                        header("Location: ../upload.php?error=imgerror");
                         exit();
                     }
                 }
                 $sql = "INSERT INTO podcasts (genre, podcastTitle, podcastImg, userUID, podcastStreams, podcastFile, playlist) VALUES (?, ?, ?, ?, ?, ?, ?)";
                 $stmt = mysqli_stmt_init($conn);
                 if (!mysqli_stmt_prepare($stmt, $sql)) {
-                    header("Location: ./upload.php?error=sqlerror");
+                    header("Location: ../upload.php?error=sqlerror");
                         exit();
                 } else {
                     mysqli_stmt_bind_param($stmt, "ssssiss", $genre, $title, $target_file_img, $_SESSION["userUid"], $streams, $target_file_audio, $playlist);

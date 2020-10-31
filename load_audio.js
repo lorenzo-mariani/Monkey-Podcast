@@ -46,6 +46,10 @@ $(document).ready(function(){
     $("#upload-img-btn").click(function() {
       setCookie("memaudio","audio="+$("#audio").attr("src")+"&timestamp="+getCurrentTime()+"&img="+$("#thumbnail").attr("src")+"&name="+$("#details-container").children()[0].innerHTML+"&channel="+$("#details-container").children()[1].innerHTML, 2);
     });
+    
+    $("#upload-submit-settings").click(function() {
+      setCookie("memaudio","audio="+$("#audio").attr("src")+"&timestamp="+getCurrentTime()+"&img="+$("#thumbnail").attr("src")+"&name="+$("#details-container").children()[0].innerHTML+"&channel="+$("#details-container").children()[1].innerHTML, 2);
+    });
 }); 
 
 function getCurrentTime() {
@@ -62,6 +66,19 @@ function setCookie(cname, cvalue, exdays) {
   var expires = "expires="+ d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 };
+
+function setCookieSubstring(name, str, value, exdays) {
+  var cookie = getCookie(name);
+  var c = cookie.split('&');
+  for(i = 0; i < c.length; i++){
+    if(c[i].substring(0, str.length) == str){
+      var string = c[i];
+      c[i] = string.replace(c[i].substring(str.length, c[i].length), value);
+    }
+  }
+  var res = (name+"=").concat(c.join('&'));
+  document.cookie = res + ";" + exdays + ";path=/";
+}
 
 function getCookie(cname) {
   var name = cname + "=";

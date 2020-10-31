@@ -353,6 +353,8 @@ button:hover {
     height: 30px;
     width: 30px;
     margin: 0px;
+    margin-top: 10px;
+    padding: 0px 7px;
 }
 
 .grid-element-mod {
@@ -376,7 +378,6 @@ button:hover {
 
 #profile-home-container {
     padding: 20px 20px;
-    background-color: rgb(15 15 15);
 }
 
 #form-settings-container {

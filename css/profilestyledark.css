@@ -124,3 +124,7 @@ form #genre-menu-settings {
     border: 1px solid whitesmoke;
     color: whitesmoke;
 }
+
+#profile-home-container {
+    background-color: rgb(15 15 15);
+}

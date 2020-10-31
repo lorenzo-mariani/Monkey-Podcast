@@ -44,3 +44,17 @@ $(".podcast-settings").click(function() {
   });
   $(".podcastmod-content").show();
 });
+
+$(".podcast-settings").click(function() {
+  $(".search-content").hide();
+  $(".home-content").hide();
+  $(".profile-content").hide();
+  $.ajax({
+    url : "./podcast_settings.php?title="+$(this).parent()[0].children[0].innerHTML.toLowerCase().replace(/ /g, "_"),
+    dataType: "html",
+    success : function (data) {
+        $(".podcastmod-content").html(data);
+    }
+  });
+  $(".podcastmod-content").show();
+});

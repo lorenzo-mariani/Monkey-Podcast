@@ -26,7 +26,7 @@
             $stmt->bind_result($podcast_img);
             while($stmt->fetch()){
                 if($podcast_img != '') {
-                    echo "<div id=\"chimg-container\" style=\"background:url('".str_replace("../", "./",$podcast_img)."') no-repeat center;
+                    echo "<div id=\"chimg-container\" style=\"background:url('"."../", "./",$podcast_img."') no-repeat center;
                     background-size: cover;
                     display: flex;
                     flex-wrap: nowrap;
@@ -189,12 +189,13 @@
                             }
                             echo
                             "<div class=\"grid-element-profile\">
-                                <img id=".str_replace("../", "./", $podcast_file)." class=\"podcast-thumbnail\" src=".str_replace("../", "./",$podcast_img).">
+                                <img id=".$podcast_file." class=\"podcast-thumbnail\" src=".$podcast_img.">
                                 <div id=\"pod-info-container\">
                                     <h4 class=\"podcast-title\" id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
                                     <p>".$streams." STREAMS</p>";
                                     if($_SESSION['userUid'] == $_SESSION['channelName']){
-                                        echo "<img class=\"podcast-settings\" src=\"./icon/settings-dark.png\" alt=\"settings\">";
+                                        echo "<img class=\"delete-podcast\" src=\"./icon/trash.png\" alt=\"delete\">
+                                        <img class=\"podcast-settings\" src=\"./icon/settings-dark.png\" alt=\"settings\">";
                                     }
                                 echo "</div>
                                 </div>";
@@ -240,8 +241,6 @@
                             </div>
                             ";
                         }
-                    } else {
-                        echo $result_check;
                     }
                 }
                 mysqli_stmt_close($stmt);

@@ -88,6 +88,8 @@ a:hover{
     font-size: 24px;
     text-align: center;
     margin-top: 130px;
+    background-color: #323232;
+    padding: 10px 0px;
 }
 
 #header {

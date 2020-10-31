@@ -44,3 +44,12 @@ $(".podcast-settings").click(function() {
   });
   $(".podcastmod-content").show();
 });
+
+$(".delete-podcast").click(function() {
+  if(window.confirm("Are you shure about deleting this podcast?")){
+    $.ajax({
+      url : "./includes/deletepod.inc.php?title="+$(this).parent()[0].children[0].innerHTML.toLowerCase().replace(/ /g, "_"),
+    });
+    location.reload();
+  }
+});

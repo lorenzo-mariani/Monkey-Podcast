@@ -64,9 +64,6 @@
                     $check_plst = 0;
                     $count = 0;
                     while($stmt->fetch()){
-                        $file = str_replace("../", "./",$podcast_file);
-                        $ch_img = str_replace("../", "./", $channel_img);
-                        $pod_img = str_replace("../", "./", $podcast_img);
                         if($name_tmp != $channel_name){
                             if($name_tmp != NULL){
                                 echo "</div>
@@ -74,7 +71,7 @@
                                 $playlist_tmp = NULL;
                             }
                             echo
-                            "<div id=\"channel-name-container\" style=\"background: url('".$ch_img."') no-repeat center; background-size:cover\">
+                            "<div id=\"channel-name-container\" style=\"background: url('".$channel_img."') no-repeat center; background-size:cover\">
                                 <h1 class=\"channel-name\">".strtoupper($channel_name)."</h1>
                             </div>
                             <div class=\"channel-content\">";
@@ -95,8 +92,8 @@
                         }
                         if($count < 3){
                             echo
-                            "<div class=\"grid-element\"  id=".str_replace("../", "./", $podcast_file).">
-                                <img src=".$pod_img.">
+                            "<div class=\"grid-element\"  id=".$podcast_file.">
+                                <img src=".$podcast_img.">
                                 <h4 id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
                                 <p>".$streams." STREAMS</p>
                             </div>";
