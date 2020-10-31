@@ -1,5 +1,7 @@
 document.getElementById('channels').addEventListener('click', function() {
-  document.getElementById('chimg-container').style.display = 'none';
+  if(document.getElementById('chimg-container') != null){
+    document.getElementById('chimg-container').style.display = 'none';
+  }
   document.getElementById('info-container').style.display = 'none';
   document.getElementById('streams-container').style.display = 'none';
   document.getElementById('profile-home-container').style.display = 'none';
@@ -7,7 +9,9 @@ document.getElementById('channels').addEventListener('click', function() {
 });
 
 document.getElementById('home').addEventListener('click', function() {
-  document.getElementById('chimg-container').style.display = 'flex';
+  if(document.getElementById('chimg-container') != null){
+    document.getElementById('chimg-container').style.display = 'flex';
+  }
   document.getElementById('info-container').style.display = 'flex';
   document.getElementById('streams-container').style.display = 'block';
   document.getElementById('profile-home-container').style.display = 'block';
