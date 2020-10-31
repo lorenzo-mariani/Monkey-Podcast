@@ -43,7 +43,7 @@ if(!mysqli_stmt_prepare($stmt, $query_check)){
                 $update_genre = "UPDATE podcasts SET genre = ? WHERE podcastTitle = ? AND userUID = ?";
                 $stmt = mysqli_stmt_init($conn);
     
-                if(!empty($playlist)) {
+                if(!empty($playlist) && $playlist != str_repeat("_", strlen($playlist))) {
                     if (!mysqli_stmt_prepare($stmt, $update_playlist)) {
                         header("Location: ./podcast_settings?error=sqlerror");
                             exit();
@@ -71,7 +71,7 @@ if(!mysqli_stmt_prepare($stmt, $query_check)){
                     }
                 }
     
-                if (!empty($new_title)) {
+                if (!empty($new_title) && $new_title != str_repeat("_", strlen($new_title))) {
                     if($_FILES["img-file-mod"]["error"] != 4) {
                         if(file_exists($old_img)){
                             unlink($old_img);
@@ -98,7 +98,7 @@ if(!mysqli_stmt_prepare($stmt, $query_check)){
                         mysqli_stmt_bind_param($stmt, "sss", $new_title, $old_title, $_SESSION['userUid']);
                         mysqli_stmt_execute($stmt);
                     }
-                } else {
+                } else if($new_title != str_repeat("_", strlen($new_title))) {
                     if($_FILES["img-file-mod"]["error"] != 4) {
                         if(file_exists($old_img)){
                             unlink($old_img);
