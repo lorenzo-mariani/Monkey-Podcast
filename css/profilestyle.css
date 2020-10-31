@@ -214,7 +214,6 @@ button:hover {
     display: inline-grid;
     text-align: center;
     text-decoration: none;
-    cursor: pointer;
     margin: 0px 10px;
 }
 
@@ -223,12 +222,14 @@ button:hover {
     height: 140px;
     width: 140px;
     object-fit: cover;
+    cursor: pointer;
 }
 
 .grid-element-profile h4 {
     font-family: caviar_dreamsregular;
     padding-top: 15px;
     padding-bottom: 5px;
+    cursor: pointer;
 }
 
 .grid-element-profile p {
@@ -313,4 +314,31 @@ button:hover {
     font-family: 'caviar_dreamsregular';
     font-size: 12px;
     padding: 10px 10px;
+}
+
+#podcast-playlist {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-bottom: 7px;
+    margin: 0px 50px;
+}
+
+#pod-info-container {
+    margin-bottom: 20px;
+}
+
+#pod-info-container img {
+    height: 30px;
+    width: 30px;
+    margin: 0px;
+}
+
+.grid-element-mod {
+    margin: 10px 0px;
+}
+
+.grid-element-mod h4, p{
+    color: whitesmoke;
+    font-family: 'caviar_dreamsregular';
 }

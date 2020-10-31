@@ -4,33 +4,48 @@ $(document).ready(function(){
     $(".grid-element").click(function(){
       $("#audio").attr("src", $(this)[0].id);
       $("#thumbnail").attr("src", $(this).children()[0].src);
-      $("#podcast-name").html($(this).children()[1].innerHTML);
-      $("#podcast-channel").html($(this).children()[1].id.toUpperCase());
+      $("#podcast-name").html($(this).children()[1].find("h4").html());
+      $("#podcast-channel").html($(this).children()[1].find("h4").attr("id").toUpperCase());
       $( "#play-icon" ).trigger( "click" );
       updatePodcastStreams($(this).children()[1].innerHTML.toLowerCase().replace(/ /g , "_"), $(this).children()[1].id);
       setCookie("memaudio","audio="+$(this)[0].id+"&timestamp="+00+"&img="+$(this).children()[0].src+"&name="+$(this).children()[1].innerHTML+"&channel="+$(this).children()[1].id.toUpperCase(), 2);
     });
-    $(".grid-element-profile").click(function(){
-      $("#audio").attr("src", $(this)[0].id);
-      $("#thumbnail").attr("src", $(this).children()[0].src);
-      $("#podcast-name").html($(this).children()[1].innerHTML);
-      $("#podcast-channel").html($(this).children()[1].id.toUpperCase());
+
+    $(".podcast-thumbnail").click(function(){
+      $("#audio").attr("src", $(this).attr("id"));
+      $("#thumbnail").attr("src", $(this).attr("src"));
+      $("#podcast-name").html($(this).parent().find("h4").html());
+      $("#podcast-channel").html($(this).parent().find("h4").attr("id").toUpperCase());
       $( "#play-icon" ).trigger( "click" );
-      updatePodcastStreams($(this).children()[1].innerHTML.toLowerCase().replace(/ /g , "_"), $(this).children()[1].id);
-      setCookie("memaudio","audio="+$(this)[0].id+"&timestamp="+00+"&img="+$(this).children()[0].src+"&name="+$(this).children()[1].innerHTML+"&channel="+$(this).children()[1].id.toUpperCase(), 2);
+      updatePodcastStreams($(this).parent().find("h4").html().toLowerCase().replace(/ /g , "_"), $(this).parent().find("h4").attr("id"));
+      setCookie("memaudio","audio="+$(this).attr("id")+"&timestamp="+00+"&img="+ $(this).attr("src")+"&name="+$(this).parent().find("h4").html()+"&channel="+$(this).parent().find("h4").attr("id"), 2);
     });
+
+    $(".podcast-title").click(function(){
+      $("#audio").attr("src", $(this).parent().parent().children()[0].id);
+      $("#thumbnail").attr("src", $(this).parent().parent().children()[0].src);
+      $("#podcast-name").html($(this).html());
+      $("#podcast-channel").html($(this).attr("id").toUpperCase());
+      $( "#play-icon" ).trigger( "click" );
+      updatePodcastStreams($(this).html().toLowerCase().replace(/ /g , "_"), $(this).attr("id"));
+      setCookie("memaudio","audio="+$(this).parent().parent().children()[0].id+"&timestamp="+00+"&img="+ $(this).parent().parent().children()[0].src+"&name="+$(this).html()+"&channel="+$(this).attr("id"), 2);
+    });
+
     $("#upload-button").click(function() {
       setCookie("memaudio","audio="+$("#audio").attr("src")+"&timestamp="+getCurrentTime()+"&img="+$("#thumbnail").attr("src")+"&name="+$("#details-container").children()[0].innerHTML+"&channel="+$("#details-container").children()[1].innerHTML, 2); 
-    })
+    });
+
     $("#unsubscribe-button").click(function() {
       setCookie("memaudio","audio="+$("#audio").attr("src")+"&timestamp="+getCurrentTime()+"&img="+$("#thumbnail").attr("src")+"&name="+$("#details-container").children()[0].innerHTML+"&channel="+$("#details-container").children()[1].innerHTML, 2);     
-    })
+    });
+
     $("#subscribe-button").click(function() {
       setCookie("memaudio","audio="+$("#audio").attr("src")+"&timestamp="+getCurrentTime()+"&img="+$("#thumbnail").attr("src")+"&name="+$("#details-container").children()[0].innerHTML+"&channel="+$("#details-container").children()[1].innerHTML, 2);
-    })
+    });
+
     $("#upload-img-btn").click(function() {
       setCookie("memaudio","audio="+$("#audio").attr("src")+"&timestamp="+getCurrentTime()+"&img="+$("#thumbnail").attr("src")+"&name="+$("#details-container").children()[0].innerHTML+"&channel="+$("#details-container").children()[1].innerHTML, 2);
-    })
+    });
 }); 
 
 function getCurrentTime() {

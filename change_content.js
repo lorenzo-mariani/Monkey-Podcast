@@ -62,15 +62,6 @@ $(document).ready(function(){
         $(".content").attr("id", "profile");
         $(".profile-content").show();
     });
-
-    $(".settings-playlist").click(function() {
-        console.log("ok");
-        $(".search-content").hide();
-        $(".home-content").hide();
-        $(".profile-content").hide();
-        getPlaylistContent($(this).parent()[0].children[0].innerHTML);
-        $(".playlist-content").show();
-    });
 });
 
 function getProfileContent(name) {
@@ -89,16 +80,6 @@ function getSearchContent(string){
         dataType: "html",
         success : function (data) {
             $(".search-content").html(data);
-        }
-    });
-}
-
-function getPlaylistContent(playlist){
-    $.ajax({
-        url : "./playlist_settings.php?playlist="+playlist,
-        dataType: "html",
-        success : function (data) {
-            $(".playlist-content").html(data);
         }
     });
 }
