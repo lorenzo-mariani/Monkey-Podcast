@@ -20,6 +20,14 @@ document.getElementById('home').addEventListener('click', function() {
 
 $(".channel").click(function(){
   $(".home-content").hide();
+  $.ajax({
+      url : "./content/users/"+$(this).children()[1].id+"/"+$(this).children()[1].id+".php",
+      dataType: "html",
+      success : function (data) {
+          $(".profile-content").html(data);
+          $(".profile-content").show();
+      }
+  });
   $(".content").attr("id", "profile");
 });
 
