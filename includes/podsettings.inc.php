@@ -148,6 +148,9 @@ if(empty($new_title) && empty($playlist) && $genre == "select genre" && $_FILES[
                             mysqli_stmt_bind_param($stmt_audio, "sss", $new_audiopath, $old_title, $_SESSION['userUid']);
                             mysqli_stmt_execute($stmt_audio);
                             mysqli_stmt_close($stmt_audio);
+                            echo "<script type=\"text/javascript\">
+                                    setCookieSubstring(\"memaudio\", \"audio=\", \"".$new_audiopath."\" , 2)
+                                    </script>";
                         }
                         $stmt_title = mysqli_stmt_init($conn);
                         if (!mysqli_stmt_prepare($stmt_title, $update_title)) {
