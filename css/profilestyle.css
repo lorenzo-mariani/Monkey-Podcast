@@ -349,12 +349,24 @@ button:hover {
     margin-bottom: 20px;
 }
 
+.mod-btns-container {
+    display: flex;
+    justify-content: center;
+}
+
+.mod-btns-container form{
+    margin-right: 15px;
+}
+
+.podcast-delete-btn {
+    background: transparent;
+    border: none;
+}
+
 #pod-info-container img {
     height: 30px;
     width: 30px;
     margin: 0px;
-    margin-top: 10px;
-    padding: 0px 7px;
 }
 
 .grid-element-mod {

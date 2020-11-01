@@ -23,7 +23,7 @@
     <link id="profile-style" rel="stylesheet" href="./css/profilestyledark.css" type="text/css">
     <title>Home</title>
 </head>
-<body onload="if(getCookie('memaudio') != '' || getCookie('memaudio') != 'memaudio=audio=undefined&timestamp=0&img=undefined&name=&channel='){
+<body onload="if(getCookie('memaudio') != '' && getCookie('memaudio') != 'audio=undefined&timestamp=0&img=undefined&name=&channel='){
     setAudio('memaudio');
     } 
     if(getCookie('mode') == 'light'){
