@@ -12,15 +12,15 @@
             INNER JOIN
             podcasts
             ON t1.playlist = podcasts.playlist
-            WHERE userUid = ?;
+            WHERE userUid = ?
             ORDER BY podcastTitle ASC";
         } else if($button == "previous"){
             $query_retrieve = "SELECT podcastTitle, podcastImg, userUid, podcastFile FROM 
             (SELECT playlist FROM podcasts WHERE podcastTitle = ? AND userUID = ?) AS t1
             INNER JOIN
             podcasts
-            WHERE userUid = ?;
             ON t1.playlist = podcasts.playlist
+            WHERE userUid = ?
             ORDER BY podcastTitle DESC";
         }
         $stmt_retrieve = mysqli_stmt_init($conn);

@@ -2,77 +2,13 @@ var audio = document.getElementById('audio');
 
 $(document).ready(function(){
     $(".grid-element").click(function(){
-      $("#audio").attr("src", $(this)[0].id);
+      $("#audio").attr("src", $(this)[0].getAttribute("id"));
       $("#thumbnail").attr("src", $(this).children()[0].getAttribute('src'));
       $("#podcast-name").html($(this).children()[1].innerHTML);
-      $("#podcast-channel").html($(this).children()[1].id.toUpperCase());
+      $("#podcast-channel").html($(this).children()[1].getAttribute("id").toUpperCase());
       $( "#play-icon" ).trigger( "click" );
-      updatePodcastStreams($(this).children()[1].innerHTML.toLowerCase().replace(/ /g , "_"), $(this).children()[1].id);
-      setCookie("memaudio","audio="+$(this)[0].id+"&timestamp="+00+"&img="+$(this).children()[0].getAttribute('src')+"&name="+$(this).children()[1].innerHTML.toLowerCase().replace(/ /g , "_")+"&channel="+$(this).children()[1].id.toLowerCase(), 2);
-    });
-
-    $(".podcast-thumbnail").click(function(){
-      $("#audio").attr("src", $(this).attr("id"));
-      $("#thumbnail").attr("src", $(this).attr("src"));
-      $("#podcast-name").html($(this).parent().find("h4").html());
-      $("#podcast-channel").html($(this).parent().find("h4").attr("id").toUpperCase());
-      $( "#play-icon" ).trigger( "click" );
-      updatePodcastStreams($(this).parent().find("h4").html().toLowerCase().replace(/ /g , "_"), $(this).parent().find("h4").attr("id"));
-      setCookie("memaudio","audio="+$(this).attr("id")+"&timestamp="+00+"&img="+ $(this).attr("src")+"&name="+$(this).parent().find("h4").html().toLowerCase().replace(/ /g , "_")+"&channel="+$(this).parent().find("h4").attr("id").toLowerCase(), 2);
-    });
-
-    $(".podcast-title").click(function(){
-      $("#audio").attr("src", $(this).parent().parent().children()[0].id);
-      $("#thumbnail").attr("src", $(this).parent().parent().children()[0].src);
-      $("#podcast-name").html($(this).html());
-      $("#podcast-channel").html($(this).attr("id").toUpperCase());
-      $( "#play-icon" ).trigger( "click" );
-      updatePodcastStreams($(this).html().toLowerCase().replace(/ /g , "_"), $(this).attr("id"));
-      setCookie("memaudio","audio="+$(this).parent().parent().children()[0].id+"&timestamp="+00+"&img="+ $(this).parent().parent().children()[0].src+"&name="+$(this).html().toLowerCase().replace(/ /g , "_")+"&channel="+$(this).attr("id").toLowerCase(), 2);
-    });
-
-    $("#next-icon").click(function() {
-      var btn = "next";
-      var podcast_title = $(this).parents()[3].children[0].children[1].children[0].innerHTML.replace(/ /g, "_").toLowerCase();
-      var podcast_channel = $(this).parents()[3].children[0].children[1].children[1].innerHTML.replace(/ /g, "_").toLowerCase();
-      $.ajax({
-        url : "./includes/retrievepodcast.inc.php?title="+podcast_title+"&button="+btn+"&channel="+podcast_channel,
-        dataType: "html",
-        success : function (data) {
-          if(data != ""){
-            var res = data.split(";");
-            $("#audio").attr("src", res[3]);
-            $("#thumbnail").attr("src", res[1]);
-            $("#podcast-name").html(res[0].replace(/_/g, " ").toUpperCase());
-            $("#podcast-channel").html(res[2].toUpperCase());
-            $( "#play-icon" ).trigger( "click" );
-            updatePodcastStreams(res[0], res[2]);
-            setCookie("memaudio","audio="+res[3]+"&timestamp="+00+"&img="+res[1]+"&name="+res[0]+"&channel="+res[2]);
-          }
-        }
-      });
-    });
-
-    $("#previous-icon").click(function() {
-      var btn = "previous";
-      var podcast_title = $(this).parents()[3].children[0].children[1].children[0].innerHTML.replace(/ /g, "_").toLowerCase();
-      var podcast_channel = $(this).parents()[3].children[0].children[1].children[1].innerHTML.replace(/ /g, "_").toLowerCase();
-      $.ajax({
-        url : "./includes/retrievepodcast.inc.php?title="+podcast_title+"&button="+btn+"&channel="+podcast_channel,
-        dataType: "html",
-        success : function (data) {
-          if(data != ""){
-            var res = data.split(";");
-            $("#audio").attr("src", res[3]);
-            $("#thumbnail").attr("src", res[1]);
-            $("#podcast-name").html(res[0].replace(/_/g, " ").toUpperCase());
-            $("#podcast-channel").html(res[2].toUpperCase());
-            $( "#play-icon" ).trigger( "click" );
-            updatePodcastStreams(res[0], res[2]);
-            setCookie("memaudio","audio="+res[3]+"&timestamp="+00+"&img="+res[1]+"&name="+res[0]+"&channel="+res[2]);
-          }
-        }
-      });
+      updatePodcastStreams($(this).children()[1].innerHTML.toLowerCase().replace(/ /g , "_"), $(this).children()[1].getAttribute("id"));
+      setCookie("memaudio","audio="+$(this)[0].getAttribute("id")+"&timestamp="+00+"&img="+$(this).children()[0].getAttribute('src')+"&name="+$(this).children()[1].innerHTML.toLowerCase().replace(/ /g , "_")+"&channel="+$(this).children()[1].getAttribute("id").toLowerCase(), 2);
     });
 
     $("#upload-button").click(function() {
