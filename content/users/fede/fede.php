@@ -14,17 +14,17 @@
 <body>
     <div class="profile-cnt">
         <?php
-        $query = "SELECT channelImg FROM channels WHERE channelName=?";
-        $stmt = mysqli_stmt_init($conn);
-        if (!mysqli_stmt_prepare($stmt, $query)) {
+        $query_img = "SELECT channelImg FROM channels WHERE channelName=?";
+        $stmt_img = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt_img, $query_img)) {
             header("Location: ./home.php?error=profilesqlerror");
             exit();
         } else {
-            mysqli_stmt_bind_param($stmt, "s", $_SESSION['channelName']);
-            mysqli_stmt_execute($stmt);
-            mysqli_stmt_store_result($stmt);
-            $stmt->bind_result($podcast_img);
-            while($stmt->fetch()){
+            mysqli_stmt_bind_param($stmt_img, "s", $_SESSION['channelName']);
+            mysqli_stmt_execute($stmt_img);
+            mysqli_stmt_store_result($stmt_img);
+            $stmt_img->bind_result($podcast_img);
+            while($stmt_img->fetch()){
                 if($podcast_img != '') {
                     echo "<div id=\"chimg-container\" style=\"background:url('"."../", "./",$podcast_img."') no-repeat center;
                     background-size: cover;
@@ -36,7 +36,7 @@
                     </div>";
                 }
             }
-            mysqli_stmt_close($stmt);
+            mysqli_stmt_close($stmt_img);
         }
         ?>
         <div class="tabs-container">
@@ -55,26 +55,26 @@
                     </h4>
                     <h4 id="subs">
                         <?php
-                            $query = "SELECT  subs FROM users WHERE uidUsers=?";
-                            $stmt = mysqli_stmt_init($conn);
-                            if (!mysqli_stmt_prepare($stmt, $query)) {
+                            $query_subs = "SELECT  subs FROM users WHERE uidUsers=?";
+                            $stmt_subs = mysqli_stmt_init($conn);
+                            if (!mysqli_stmt_prepare($stmt_subs, $query_subs)) {
                                 header("Location: ./home.php?error=profilesqlerror");
                                 exit();
                             } else {
-                                mysqli_stmt_bind_param($stmt, "s", $_SESSION['channelName']);
-                                mysqli_stmt_execute($stmt);
-                                mysqli_stmt_store_result($stmt);
-                                $stmt->bind_result($subs);
-                                $result_check = mysqli_stmt_num_rows($stmt);
+                                mysqli_stmt_bind_param($stmt_subs, "s", $_SESSION['channelName']);
+                                mysqli_stmt_execute($stmt_subs);
+                                mysqli_stmt_store_result($stmt_subs);
+                                $stmt_subs->bind_result($subs);
+                                $result_check = mysqli_stmt_num_rows($stmt_subs);
                                 if($result_check > 0) {
-                                    while($stmt->fetch()){
+                                    while($stmt_subs->fetch()){
                                         echo $subs;
                                     }
                                 } else {
                                     echo $result_check;
                                 }
                             }
-                            mysqli_stmt_close($stmt);
+                            mysqli_stmt_close($stmt_subs);
                         ?>
                         SUBS
                     </h4>
@@ -88,16 +88,16 @@
                     <?php
                     if($_SESSION['userUid'] != basename(__FILE__, '.php')){
 
-                        $query = "SELECT channelName FROM subscriptions WHERE subUid=? && channelName=?";
-                        $stmt = mysqli_stmt_init($conn);
-                        if (!mysqli_stmt_prepare($stmt, $query)) {
+                        $query_name = "SELECT channelName FROM subscriptions WHERE subUid=? && channelName=?";
+                        $stmt_name = mysqli_stmt_init($conn);
+                        if (!mysqli_stmt_prepare($stmt_name, $query_name)) {
                             header("Location: ./home.php?error=profilesqlerror");
                             exit();
                         } else {
-                            mysqli_stmt_bind_param($stmt, "ss", $_SESSION['userUid'], $_SESSION['channelName']);
-                            mysqli_stmt_execute($stmt);
-                            mysqli_stmt_store_result($stmt);
-                            $resultCheck = mysqli_stmt_num_rows($stmt);
+                            mysqli_stmt_bind_param($stmt_name, "ss", $_SESSION['userUid'], $_SESSION['channelName']);
+                            mysqli_stmt_execute($stmt_name);
+                            mysqli_stmt_store_result($stmt_name);
+                            $resultCheck = mysqli_stmt_num_rows($stmt_name);
                             if($resultCheck == 0) {
                                 echo
                                 "<form id=\"sub\" action=\"./includes/subscribe.inc.php\" method=\"post\">
@@ -114,7 +114,7 @@
                                 </form>";
                             }
                         }
-                        mysqli_stmt_close($stmt);
+                        mysqli_stmt_close($stmt_name);
                     }
                 ?>
                 <?php
@@ -135,26 +135,26 @@
         <div id="streams-container">
             <h3>
                 <?php
-                    $query = "SELECT channelStreams FROM channels WHERE channelName=?";
-                    $stmt = mysqli_stmt_init($conn);
-                    if (!mysqli_stmt_prepare($stmt, $query)) {
+                    $query_streams = "SELECT channelStreams FROM channels WHERE channelName=?";
+                    $stmt_streams = mysqli_stmt_init($conn);
+                    if (!mysqli_stmt_prepare($stmt_streams, $query_streams)) {
                         header("Location: ./home.php?error=profilesqlerror");
                         exit();
                     } else {
-                        mysqli_stmt_bind_param($stmt, "s", $_SESSION['channelName']);
-                        mysqli_stmt_execute($stmt);
-                        mysqli_stmt_store_result($stmt);
-                        $stmt->bind_result($ch_streams);
-                        $result_check = mysqli_stmt_num_rows($stmt);
+                        mysqli_stmt_bind_param($stmt_streams, "s", $_SESSION['channelName']);
+                        mysqli_stmt_execute($stmt_streams);
+                        mysqli_stmt_store_result($stmt_streams);
+                        $stmt_streams->bind_result($ch_streams);
+                        $result_check = mysqli_stmt_num_rows($stmt_streams);
                         if($result_check > 0) {
-                            while($stmt->fetch()){
+                            while($stmt_streams->fetch()){
                                 echo $ch_streams." STREAMS";
                             }
                         } else {
                             echo $result_check;
                         }
                     }
-                    mysqli_stmt_close($stmt);
+                    mysqli_stmt_close($stmt_streams);
                 ?>
             </h3>
         </div>
@@ -162,20 +162,20 @@
             <div id="noplaylist-container">
                 <?php
 
-                    $query = "SELECT genre, podcastTitle, podcastImg, podcastStreams, podcastFile, playlist FROM podcasts WHERE userUID=? ORDER BY playlist ASC";
-                    $stmt = mysqli_stmt_init($conn);
-                    if (!mysqli_stmt_prepare($stmt, $query)) {
+                    $query_pod = "SELECT genre, podcastTitle, podcastImg, podcastStreams, podcastFile, playlist FROM podcasts WHERE userUID=? ORDER BY playlist ASC";
+                    $stmt_pod = mysqli_stmt_init($conn);
+                    if (!mysqli_stmt_prepare($stmt_pod, $query_pod)) {
                         header("Location: ./home.php?error=profilesqlerror");
                         exit();
                     } else {
-                        mysqli_stmt_bind_param($stmt, "s", $_SESSION['channelName']);
-                        mysqli_stmt_execute($stmt);
-                        mysqli_stmt_store_result($stmt);
-                        $stmt->bind_result($genre, $title, $podcast_img, $streams, $podcast_file, $playlist);
+                        mysqli_stmt_bind_param($stmt_pod, "s", $_SESSION['channelName']);
+                        mysqli_stmt_execute($stmt_pod);
+                        mysqli_stmt_store_result($stmt_pod);
+                        $stmt_pod->bind_result($genre, $title, $podcast_img, $streams, $podcast_file, $playlist);
                         $channel_name = $_SESSION['channelName'];
                         $playlist_tmp = NULL;
                         $check = 0;
-                        while($stmt->fetch()){
+                        while($stmt_pod->fetch()){
                             if($playlist_tmp != $playlist) {
                                 
                                 echo "<div class=\"playlist-container\">
@@ -208,13 +208,13 @@
                             $playlist_tmp = $playlist;
                         }
                     }
-                    mysqli_stmt_close($stmt);
+                    mysqli_stmt_close($stmt_pod);
                 ?>
             </div>
         </div>
         <div id="channels-container">
         <?php
-                $query = "SELECT channelName, subs
+                $query_chann = "SELECT channelName, subs
                 FROM (SELECT channelName, subUid FROM subscriptions as sub
                 INNER JOIN 
                 users as u1
@@ -223,18 +223,18 @@
                 users as u2
                 ON t1.channelName = u2.uidUsers
                 WHERE subUid=?";
-                $stmt = mysqli_stmt_init($conn);
-                if (!mysqli_stmt_prepare($stmt, $query)) {
+                $stmt_chann = mysqli_stmt_init($conn);
+                if (!mysqli_stmt_prepare($stmt_chann, $query_chann)) {
                     header("Location: ./home.php?error=profilesqlerror");
                     exit();
                 } else {
-                    mysqli_stmt_bind_param($stmt, "s", $_SESSION['channelName']);
-                    mysqli_stmt_execute($stmt);
-                    mysqli_stmt_store_result($stmt);
-                    $stmt->bind_result($channel_name, $subs);
-                    $result_check = mysqli_stmt_num_rows($stmt);
+                    mysqli_stmt_bind_param($stmt_chann, "s", $_SESSION['channelName']);
+                    mysqli_stmt_execute($stmt_chann);
+                    mysqli_stmt_store_result($stmt_chann);
+                    $stmt_chann->bind_result($channel_name, $subs);
+                    $result_check = mysqli_stmt_num_rows($stmt_chann);
                     if($result_check > 0) {
-                        while($stmt->fetch()){
+                        while($stmt_chann->fetch()){
                             echo
                             "
                             <div class=\"channel\">
@@ -249,7 +249,7 @@
                         }
                     }
                 }
-                mysqli_stmt_close($stmt);
+                mysqli_stmt_close($stmt_chann);
                 mysqli_close($conn);
             ?>
         </div>
