@@ -5,7 +5,7 @@ require 'dbh.inc.php';
 
 session_start();
 
-$target_dir = "../content/users/".$_SESSION['userUid']."/channel-img/";
+$target_dir = "./content/users/".$_SESSION['userUid']."/channel-img/";
 $target_file_img = $target_dir . str_replace(' ','_',basename($_FILES["img-file"]["name"]));
 $checkImg = 1;
 
@@ -26,8 +26,8 @@ if(isset($_POST["channel-img-submit"])) {
     }
 
     if($checkImg == 1 || $checkImg == 2){
-        if(!file_exists($target_dir)){
-            mkdir($target_dir);
+        if(!file_exists($_SERVER['DOCUMENT_ROOT'] . str_replace("./", "/", $target_dir))){
+            mkdir($_SERVER['DOCUMENT_ROOT'] . str_replace("./", "/", $target_dir));
         }
     } else {
         echo "Sorry, something went wrong.";
@@ -39,7 +39,7 @@ if(isset($_POST["channel-img-submit"])) {
         exit();
     } else {
         if($checkImg != 2){
-            if (move_uploaded_file($_FILES["img-file"]["tmp_name"], $target_file_img)) {
+            if (move_uploaded_file($_FILES["img-file"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . str_replace("./", "/", $target_file_img))) {
                 echo "The file ". htmlspecialchars( basename( $_FILES["img-file"]["name"])). " has been uploaded.";
             } else {
                 echo "Sorry, there was an error uploading your image file.";
