@@ -1,5 +1,33 @@
 
-<script src="../load_audio.js">
+<script type="text/javascript">
+    function setCookieSubstring(name, str, value, exdays) {
+    var cookie = getCookie(name);
+    var c = cookie.split('&');
+    for(i = 0; i < c.length; i++){
+        if(c[i].substring(0, str.length) == str){
+        var string = c[i];
+        c[i] = string.replace(c[i].substring(str.length, c[i].length), value);
+        }
+    }
+    var res = (name+"=").concat(c.join('&'));
+    document.cookie = res + ";" + exdays + ";path=/";
+    }
+
+    function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+    }
 </script>
 
 <?php
@@ -103,7 +131,6 @@ if(empty($new_title) && empty($playlist) && $genre == "select genre" && $_FILES[
                                     exit();
                             } else {
                                 $newpath_img = $target_dir . substr($old_img, strlen($old_dir), strlen($old_img));
-                                echo $newpath_img;
                                 mysqli_stmt_bind_param($stmt_img, "sss", $newpath_img, $old_title, $_SESSION['userUid']);
                                 mysqli_stmt_execute($stmt_img);
                                 mysqli_stmt_close($stmt_img);
