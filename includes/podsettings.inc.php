@@ -164,7 +164,6 @@ if(empty($new_title) && empty($playlist) && $genre == "select genre" && $_FILES[
                     } else if($new_title != str_repeat("_", strlen($new_title)) || empty($new_title)) {
                         if($_FILES["img-file-mod"]["error"] != 4) {
                             if(file_exists(str_replace("./", $_SERVER['DOCUMENT_ROOT'].'/', $old_img))){
-                                echo "file exists\n";
                                 unlink(str_replace("./", $_SERVER['DOCUMENT_ROOT'].'/', $old_img));
                                 $newimage_path = $old_dir . str_replace(' ','_',basename($_FILES["img-file-mod"]["name"]));
                                 if (move_uploaded_file($_FILES["img-file-mod"]["tmp_name"], str_replace("./", $_SERVER['DOCUMENT_ROOT'].'/', $newimage_path))) {
