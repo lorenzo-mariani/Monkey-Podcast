@@ -35,8 +35,9 @@ $(".podcast-settings").click(function() {
   $(".search-content").hide();
   $(".home-content").hide();
   $(".profile-content").hide();
+  var title = $(this).parent().parent()[0].children[0].innerHTML.toLowerCase().replace(/ /g, "_");
   $.ajax({
-    url : "./podcast_settings.php?title="+$(this).parent()[0].children[0].innerHTML.toLowerCase().replace(/ /g, "_"),
+    url : "./podcast_settings.php?title="+title,
     dataType: "html",
     success : function (data) {
         $(".podcastmod-content").html(data);
