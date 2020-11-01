@@ -162,7 +162,7 @@
             <div id="noplaylist-container">
                 <?php
 
-                    $query_pod = "SELECT genre, podcastTitle, podcastImg, podcastStreams, podcastFile, playlist FROM podcasts WHERE userUID=? ORDER BY playlist ASC";
+                    $query_pod = "SELECT genre, podcastTitle, podcastImg, podcastStreams, podcastFile, playlist FROM podcasts WHERE userUID=? ORDER BY playlist ASC, podcastTitle ASC";
                     $stmt_pod = mysqli_stmt_init($conn);
                     if (!mysqli_stmt_prepare($stmt_pod, $query_pod)) {
                         header("Location: ./home.php?error=profilesqlerror");
