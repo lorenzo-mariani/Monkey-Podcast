@@ -194,8 +194,14 @@
                                     <h4 class=\"podcast-title\" id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
                                     <p>".$streams." STREAMS</p>";
                                     if($_SESSION['userUid'] == $_SESSION['channelName']){
-                                        echo "<img class=\"delete-podcast\" src=\"./icon/trash.png\" alt=\"delete\">
-                                        <img class=\"podcast-settings\" src=\"./icon/settings-dark.png\" alt=\"settings\">";
+                                        echo "<div class=\"mod-btns-container\">
+                                        <form action=\"./includes/deletepod.inc.php\" method=\"post\">
+                                                <button class=\"podcast-delete-btn\" type=\"submit\" name=\"pod-delete-submit\" value=\"".$title."\">
+                                                    <img class=\"delete-podcast\" src=\"./icon/trash.png\" alt=\"delete\">
+                                                </button>
+                                            </form>
+                                            <img class=\"podcast-settings\" src=\"./icon/settings-dark.png\" alt=\"settings\">
+                                            </div>";
                                     }
                                 echo "</div>
                                 </div>";
