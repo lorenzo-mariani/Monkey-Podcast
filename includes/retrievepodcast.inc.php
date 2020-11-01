@@ -12,12 +12,14 @@
             INNER JOIN
             podcasts
             ON t1.playlist = podcasts.playlist
+            WHERE userUid = ?;
             ORDER BY podcastTitle ASC";
         } else if($button == "previous"){
             $query_retrieve = "SELECT podcastTitle, podcastImg, userUid, podcastFile FROM 
             (SELECT playlist FROM podcasts WHERE podcastTitle = ? AND userUID = ?) AS t1
             INNER JOIN
             podcasts
+            WHERE userUid = ?;
             ON t1.playlist = podcasts.playlist
             ORDER BY podcastTitle DESC";
         }
@@ -26,7 +28,7 @@
             header("Location: ../home.php?error=sqlerror");
             exit();
         } else {
-            mysqli_stmt_bind_param($stmt_retrieve, "ss", $current_title , $current_channel);
+            mysqli_stmt_bind_param($stmt_retrieve, "sss", $current_title , $current_channel, $current_channel);
             mysqli_stmt_execute($stmt_retrieve);
             mysqli_stmt_store_result($stmt_retrieve);
             $stmt_retrieve->bind_result($title, $img, $user, $file);

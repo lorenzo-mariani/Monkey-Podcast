@@ -8,7 +8,7 @@ $(document).ready(function(){
       $("#podcast-channel").html($(this).children()[1].id.toUpperCase());
       $( "#play-icon" ).trigger( "click" );
       updatePodcastStreams($(this).children()[1].innerHTML.toLowerCase().replace(/ /g , "_"), $(this).children()[1].id);
-      setCookie("memaudio","audio="+$(this)[0].id+"&timestamp="+00+"&img="+$(this).children()[0].getAttribute('src')+"&name="+$(this).children()[1].innerHTML.toLowerCase().replace(/ /g , "_")+"&channel="+$(this).children()[1].idtoLowerCase(), 2);
+      setCookie("memaudio","audio="+$(this)[0].id+"&timestamp="+00+"&img="+$(this).children()[0].getAttribute('src')+"&name="+$(this).children()[1].innerHTML.toLowerCase().replace(/ /g , "_")+"&channel="+$(this).children()[1].id.toLowerCase(), 2);
     });
 
     $(".podcast-thumbnail").click(function(){
