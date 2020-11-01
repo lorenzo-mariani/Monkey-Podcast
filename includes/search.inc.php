@@ -72,9 +72,9 @@
                     echo "
                     <div id=\"users-container\">USERS</h4>
                     </div>
-                        <div class=\"scrollchannel\">
-                            <img class=\"left-scroll-arrow\" src=\"./icon/arrow.png\" alt=\"Left Arrow\">
-                            <img class=\"right-scroll-arrow\" src=\"./icon/arrow.png\" alt=\"Right Arrow\">
+                        <div id=\"scrollchannel\">
+                            <img id=\"left-scroll-arrow\" src=\"./icon/arrow.png\" alt=\"Left Arrow\">
+                            <img id=\"right-scroll-arrow\" src=\"./icon/arrow.png\" alt=\"Right Arrow\">
                         ";
                     while($stmt->fetch()){
                         if($ch_img != ''){
@@ -113,4 +113,5 @@
 ?>
 
 <script src="./load_audio.js"></script>
+<script src="./search.js"></script>
 <script src="./change_content.js"></script>

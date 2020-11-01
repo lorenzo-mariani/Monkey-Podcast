@@ -1,22 +1,8 @@
-const buttonRight = document.getElementsByClassName('right-scroll-arrow');
-const buttonLeft = document.getElementsByClassName('left-scroll-arrow');
 const profileIcon = document.getElementById('profile-icon');
 const profileMenu = document.getElementById('profile-menu');
 const checkbox = document.getElementById('checkbox');
 const profileButton = document.getElementById('profile-button');
 const searchbar = document.getElementById('search-bar');
-
-for (var i = 0; i < buttonRight.length; i++) {
-  
-  buttonRight.item(i).onclick = function () {
-    this.parentNode.scrollLeft += 310;
-  };
-  
-  buttonLeft.item(i).onclick = function () {
-    this.parentElement.scrollLeft -= 310;
-  };
-
-}
 
 profileIcon.onclick = function () {
   if (profileMenu.style.display == "none") {

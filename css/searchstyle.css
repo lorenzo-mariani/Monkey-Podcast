@@ -90,7 +90,34 @@
     font-size: 14px;
 }
 
-.scrollchannel {
+#scrollchannel {
     display: flex;
     margin-top: 10px;
+    overflow-x: hidden;
+}
+
+#left-scroll-arrow {
+    background-color: rgb(41, 41, 41);
+    transform: rotate(90deg);
+    left: 5px;
+    padding: 10px;
+    height: 20px;
+    font-family: caviar_dreamsbold;
+    position: absolute;
+    cursor: pointer;
+    align-self: center;
+    border-radius: 10px;
+}
+
+#right-scroll-arrow {
+    background-color: rgb(41, 41, 41);
+    transform: rotate(-90deg);
+    right: 10px;
+    padding: 10px;
+    height: 20px;
+    font-family: caviar_dreamsbold;
+    position: absolute;
+    cursor: pointer;
+    align-self: center;
+    border-radius: 10px;
 }

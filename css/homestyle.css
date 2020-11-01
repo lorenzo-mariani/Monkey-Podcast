@@ -29,6 +29,26 @@
     font-style: normal;
 }
 
+::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+}
+    
+::-webkit-scrollbar-track {
+    background-color: rgba(39, 39, 39, 0.493);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(82, 82, 82); 
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(143, 143, 143);
+    cursor: pointer; 
+}
+
 body {
     width: 100%;
 }
@@ -71,6 +91,14 @@ a:hover{
     font-family: caviar_dreamsregular;
     text-align: center;
     font-size: 22px;
+    padding: 10px 0px;
+    margin-bottom: 20px;
+}
+
+#get-started-or {
+    font-family: caviar_dreamsbold;
+    text-align: center;
+    font-size: 30px;
     padding: 10px 0px;
     margin-bottom: 20px;
 }
@@ -273,32 +301,6 @@ a:hover{
     cursor: pointer;
 }
 
-.left-scroll-arrow {
-    background-color: rgb(41, 41, 41);
-    transform: rotate(90deg);
-    left: 5px;
-    padding: 10px;
-    height: 20px;
-    font-family: caviar_dreamsbold;
-    position: absolute;
-    cursor: pointer;
-    align-self: center;
-    border-radius: 10px;
-}
-
-.right-scroll-arrow {
-    background-color: rgb(41, 41, 41);
-    transform: rotate(-90deg);
-    right: 10px;
-    padding: 10px;
-    height: 20px;
-    font-family: caviar_dreamsbold;
-    position: absolute;
-    cursor: pointer;
-    align-self: center;
-    border-radius: 10px;
-}
-
 #album-name {
     font-family: caviar_dreamsbold;
     font-size: 18px;
@@ -476,14 +478,6 @@ a:hover{
 
     .grid-element img {
         height: 100px;
-    }
-
-    .left-scroll-arrow {
-        margin-top: 120px;
-    }
-
-    .right-scroll-arrow {
-        margin-top: 120px;
     }
 }
 

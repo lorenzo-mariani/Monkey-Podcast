@@ -43,6 +43,14 @@
     flex-direction: column;
 }
 
+.playlist-podcasts-container {
+    width: 100%;
+    height: 330px;
+    /*overflow-x: hidden;*/
+    overflow-y: auto;
+    display: flex;
+}
+
 #current-time {
     flex: 1;
     display: flex;

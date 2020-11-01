@@ -54,6 +54,7 @@
                         <h1 id=\"monkey-podcast\">MONKEY PODCASTS!</h1>
                         <div id=\"welcome-text\">
                             <h3 id=\"get-started\">To get started listening to the best podcasts on the internet type something in the search box above!</h3>
+                            <h3 id=\"get-started-or\">OR... UPLOAD SOMETHING YOURS!</h3>
                             <p id=\"text\">We give you unlimited access to all the podcasts that you want to listen!</p>
                             <p id=\"text\">Have a passion for cars? Cats? Business? Computers? We have it all! You only have to search for it!</p>
                         </div>
