@@ -136,7 +136,7 @@ function setAudio(cname) {
 };
 
 function updatePodcastStreams(title, channel) {
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open("GET","./includes/update-streams.inc.php?title="+title+"&channel="+channel,true);
-  xmlhttp.send();
+  $.ajax({
+    url : "./includes/update-streams.inc.php?title="+title+"&channel="+channel,
+  });
 };
