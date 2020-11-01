@@ -26,7 +26,7 @@
             $stmt_img->bind_result($podcast_img);
             while($stmt_img->fetch()){
                 if($podcast_img != '') {
-                    echo "<div id=\"chimg-container\" style=\"background:url('"."../", "./",$podcast_img."') no-repeat center;
+                    echo "<div id=\"chimg-container\" style=\"background:url('".$podcast_img."') no-repeat center;
                     background-size: cover;
                     display: flex;
                     flex-wrap: nowrap;
