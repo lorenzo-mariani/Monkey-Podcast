@@ -68,7 +68,7 @@
         mysqli_close($conn);
     
         echo "<script type=\"text/javascript\">
-            if(getCookieSubstring('memaudio', 'name=').toLowerCase() == '".strtolower(str_replace("_", " ", $title))."' && getCookieSubstring('memaudio', 'channel=').toLowerCase() == '".strtolower($_SESSION['userUid'])."'){
+            if(getCookieSubstring('memaudio', 'name=').toLowerCase() == '".strtolower( $title)."' && getCookieSubstring('memaudio', 'channel=').toLowerCase() == '".strtolower($_SESSION['userUid'])."'){
                 setCookie('memaudio', '', -1);
             }
         </script>";

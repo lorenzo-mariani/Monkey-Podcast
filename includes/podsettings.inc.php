@@ -161,7 +161,7 @@ if(empty($new_title) && empty($playlist) && $genre == "select genre" && $_FILES[
                             mysqli_stmt_execute($stmt_title);
                             mysqli_stmt_close($stmt_title);
                             echo "<script type=\"text/javascript\">
-                                    setCookieSubstring(\"memaudio\", \"name=\", \"".str_replace("_", " ", $new_title)."\" , 2)
+                                    setCookieSubstring(\"memaudio\", \"name=\", \"".$new_title."\" , 2)
                                     </script>";
                         }
                     } else if($new_title != str_repeat("_", strlen($new_title)) || empty($new_title)) {
