@@ -191,7 +191,7 @@
                                 <p>".$streams." STREAMS</p>";
                                 if($_SESSION['userUid'] == $_SESSION['channelName']){
                                     echo "<div class=\"mod-btns-container\">
-                                    <form action=\"./includes/deletepod.inc.php\" method=\"post\">
+                                    <form action=\"./includes/deletepod.inc.php\" method=\"post\" onsubmit=\"return confirm('Are you shure you want to delete this podcast?');\">
                                             <button class=\"podcast-delete-btn\" type=\"submit\" name=\"pod-delete-submit\" value=\"".$title."\">
                                                 <img class=\"delete-podcast\" src=\"./icon/trash.png\" alt=\"delete\">
                                             </button>
@@ -205,6 +205,7 @@
                     }
                 }
                 mysqli_stmt_close($stmt_pod);
+                echo "</div>";
             ?>
         </div>
         <div id="channels-container">
@@ -249,9 +250,7 @@
             ?>
         </div>
     </div>
-    <script src=<?php 
-                echo "'./content/users/".basename(__FILE__, '.php')."/".basename(__FILE__, '.php').".js'";
-            ?>>
+    <script src=<?php echo "'./content/users/".basename(__FILE__, '.php')."/".basename(__FILE__, '.php').".js'";?>>
     </script>
 </body>
 </html>

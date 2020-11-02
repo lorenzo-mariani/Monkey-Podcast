@@ -60,6 +60,11 @@ html{
     border: 1px solid rgb(68, 0, 0);
 }
 
+#speech-icon {
+    background-color: rgb(175, 175, 175);
+    border: 1px solid rgb(68, 0, 0);
+}
+
 #playlist-home {
     color: white;
     background-color: rgb(64, 0, 0);
@@ -95,5 +100,9 @@ html{
 }
 
 #profile-button {
+    color: black;
+}
+
+#help-button {
     color: black;
 }

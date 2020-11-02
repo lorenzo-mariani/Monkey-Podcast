@@ -1,8 +1,8 @@
-const profileIcon = document.getElementById('profile-icon');
-const profileMenu = document.getElementById('profile-menu');
-const checkbox = document.getElementById('checkbox');
-const profileButton = document.getElementById('profile-button');
-const searchbar = document.getElementById('search-bar');
+var profileIcon = document.getElementById('profile-icon');
+var profileMenu = document.getElementById('profile-menu');
+var checkbox = document.getElementById('checkbox');
+var profileButton = document.getElementById('profile-button');
+var searchbar = document.getElementById('search-bar');
 
 profileIcon.onclick = function () {
   if (profileMenu.style.display == "none") {
@@ -116,6 +116,53 @@ $('body').click(function(event) {
 searchbar.addEventListener('keypress', function (e) {
   if (e.key === 'Enter') {
     document.getElementById('search-icon').click();
+  }
+});
+
+window.visualViewport.addEventListener("resize", viewportHandler);
+function viewportHandler(event) {
+  if (event.target.scale > 3) {
+    console.log("zoomed in"); 
+  } else {
+    console.log(event.target.scale);
+  }
+}
+
+var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+
+var grammar = '#JSGF V1.0;'
+
+var recognition = new SpeechRecognition();
+var speechRecognitionList = new SpeechGrammarList();
+speechRecognitionList.addFromString(grammar, 1);
+recognition.grammars = speechRecognitionList;
+recognition.lang = 'en-US';
+recognition.interimResults = false;
+
+recognition.onresult = function(event) {
+    var last = event.results.length - 1;
+    var command = event.results[last][0].transcript;
+    if(command.includes("search")){
+      searchbar.value = command.replace("search ", '');
+      document.getElementById('search-icon').click();
+    }
+};
+
+recognition.onspeechend = function() {
+    recognition.stop();
+    searchbar.placeholder = 'Search...';
+};
+
+recognition.onerror = function(event) {
+    console.log(event.error);
+}
+
+document.getElementById("speech-icon").addEventListener('click', function(){
+  if(confirm("Do you want to activate voice commands?")){
+    recognition.start();
+    searchbar.value = 'Listening...';
+    document.getElementById("speech-check").checked = true;
   }
 });
 

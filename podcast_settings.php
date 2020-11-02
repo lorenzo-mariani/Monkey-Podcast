@@ -41,7 +41,7 @@
     ?>
 
     <div id="form-settings-container">
-        <form action="./includes/podsettings.inc.php" method="post" enctype="multipart/form-data">
+        <form action="./includes/podsettings.inc.php" method="post" enctype="multipart/form-data" onsubmit="return confirm('Confirm your changes?')">
             <div id="img-upload-container">
                 <label id="label-settings">Image File:</label>
                 <input name="img-file-mod" id="img-file-settings" type="file" accept="image/*"/>

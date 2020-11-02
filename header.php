@@ -36,6 +36,10 @@
             </div>
             <div id="search-container">
                 <input id="search-bar" type="text" placeholder="Search..">
+                <div id="speech-container">
+                    <input id="speech-check" type="checkbox" name="speech-rec-check" style="display: none;">
+                    <img src="./icon/voice.png" alt="Voice Commands Button" id="speech-icon">
+                </div>
                 <img src="icon/search.png" alt="Search Button" id="search-icon">
             </div>
             <div id="icons-container">
@@ -63,7 +67,8 @@
                     $uid = strtoupper($string);
                     echo $uid;
                 ?></h4>
-                <form action="includes/logout.inc.php" method="post">
+                <h4 id="help-button">HELP</h4>
+                <form action="includes/logout.inc.php" method="post" onsubmit="return confirm('Are you shure you want to logout?');">
                     <button id="logout-button" type="submit" name="logout-submit">LOGOUT</button>
                 </form>
             </div>

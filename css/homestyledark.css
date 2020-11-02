@@ -6,6 +6,26 @@ html{
     background-color: black;
 }
 
+::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+}
+    
+::-webkit-scrollbar-track {
+    background-color: rgba(39, 39, 39, 0.493);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(82, 82, 82); 
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(143, 143, 143);
+    cursor: pointer; 
+}
+
 #welcome-to {
     color: whitesmoke;
 }
@@ -44,6 +64,11 @@ html{
 }
 
 #search-icon {
+    background-color: rgb(36, 36, 36);
+    border: 1px solid rgb(68, 0, 0);
+}
+
+#speech-icon {
     background-color: rgb(36, 36, 36);
     border: 1px solid rgb(68, 0, 0);
 }
@@ -107,4 +132,24 @@ html{
 
 #profile-button {
     color: whitesmoke;
+}
+
+#help-button {
+    color: whitesmoke;
+}
+
+#help-container {
+    background-color: rgb(15 15 15);
+}
+
+#help-container h1 {
+    color: whitesmoke;
+}
+
+#disability-container, h2, h3 {
+    color: whitesmoke;
+}
+
+#buttons-container button {
+    background-color: dimgray;
 }

@@ -4,7 +4,7 @@
 
         require 'dbh.inc.php';
         
-        $search_text = str_replace(" ", "_", $_GET['search']);
+        $search_text = strtolower(str_replace(" ", "_", $_GET['search']));
 
         if($search_text != ''){
             $query_users = "SELECT * FROM channels WHERE
@@ -73,8 +73,6 @@
                     <div id=\"users-container\">USERS</h4>
                     </div>
                         <div id=\"scrollchannel\">
-                            <img id=\"left-scroll-arrow\" src=\"./icon/arrow.png\" alt=\"Left Arrow\">
-                            <img id=\"right-scroll-arrow\" src=\"./icon/arrow.png\" alt=\"Right Arrow\">
                         ";
                     while($stmt->fetch()){
                         if($ch_img != ''){
@@ -113,5 +111,4 @@
 ?>
 
 <script src="./load_audio.js"></script>
-<script src="./search.js"></script>
 <script src="./change_content.js"></script>

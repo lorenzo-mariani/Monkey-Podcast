@@ -53,6 +53,9 @@ audio.addEventListener('timeupdate', function() {
             }
         }
     }
+    if(this.currentTime == this.duration){
+        nextButton.click();
+    }
 });
 
 seekSlider.addEventListener('mousedown', function() {

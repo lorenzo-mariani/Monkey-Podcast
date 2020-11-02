@@ -133,6 +133,9 @@
 
     <div class="podcastmod-content" style="display: none;">
     </div>
+
+    <div class="help-content" style="display: none;">
+    </div>
 </div>
     <?php require "./player.php"; ?>
 </body>
