@@ -205,6 +205,7 @@
                     }
                 }
                 mysqli_stmt_close($stmt_pod);
+                echo "</div>";
             ?>
         </div>
         <div id="channels-container">
@@ -249,9 +250,7 @@
             ?>
         </div>
     </div>
-    <script src=<?php 
-                echo "'./content/users/".basename(__FILE__, '.php')."/".basename(__FILE__, '.php').".js'";
-            ?>>
+    <script src=<?php echo "'./content/users/".basename(__FILE__, '.php')."/".basename(__FILE__, '.php').".js'";?>>
     </script>
 </body>
 </html>

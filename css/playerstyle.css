@@ -91,6 +91,8 @@
 }
 
 #thumbnail {
+    background-size: contain;
+    background-color: rgb(27 27 27);
     height: 50px;
     width: 60px;
     object-fit: cover;

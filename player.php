@@ -4,7 +4,7 @@
 </head>
 <div id="player">
     <div id="left-container">
-        <img id="thumbnail">
+        <img id="thumbnail" src="./img/logo/MonkeyPodcastLogo_vertical.png">
         <div id="details-container">
             <h3 id="podcast-name"></h3>
             <h4 id="podcast-channel"></h4>
