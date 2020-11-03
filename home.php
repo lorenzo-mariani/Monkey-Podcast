@@ -64,6 +64,7 @@
                     $playlist_tmp = NULL;
                     $check_plst = 0;
                     $count = 0;
+                    $index = 16;
                     while($stmt->fetch()){
                         if($name_tmp != $channel_name){
                             if($name_tmp != NULL){
@@ -73,10 +74,11 @@
                             }
                             echo
                             "<div id=\"channel-name-container\" style=\"background: url('".$channel_img."') no-repeat center; background-size:cover\">
-                                <h1 class=\"channel-name\">".strtoupper($channel_name)."</h1>
+                                <h1 class=\"channel-name\" tabindex=\"".$index."\">".strtoupper($channel_name)."</h1>
                             </div>
                             <div class=\"channel-content\">";
                         }
+                        $index += 1;
                         if($playlist != "none") {
                             if($playlist_tmp != $playlist){
                                 $count = 0;
@@ -94,14 +96,16 @@
                         if($count < 3){
                             echo
                             "<div class=\"grid-element\"  id=".$podcast_file.">
-                                <img src=".$podcast_img.">
+                                <img src=".$podcast_img." tabindex=\"".$index."\">
                                 <h4 id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
                                 <p>".$streams." STREAMS</p>
                             </div>";
                         } else if ($count == 3) {
-                            echo "<p class=\"show-more\" id=".$channel_name.">SHOW MORE...";
+                            $index += 1;
+                            echo "<p class=\"show-more\" id=".$channel_name." tabindex=\"".$index."\">SHOW MORE...";
                         }
-                        $count = $count + 1;
+                        $count += 1;
+                        $index += 1;
                         $playlist_tmp = $playlist;
                         $name_tmp = $channel_name;
                     }

@@ -78,6 +78,17 @@ seekSlider.addEventListener('mousemove', function() {
     }
 })
 
+seekSlider.addEventListener('keydown', function(event) {
+    if(event.key == "ArrowRight"){
+        audio.currentTime += 10;
+    } else if(event.key == "ArrowLeft"){
+        audio.currentTime -= 10;
+    }
+    else if(event.keyCode == 32){
+        playButton.click();
+    }
+})
+
 previousButton.onmouseover = function() {
     this.style.height = "17px";
 };

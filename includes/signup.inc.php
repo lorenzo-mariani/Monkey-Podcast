@@ -11,19 +11,19 @@ if (isset($_POST['signup-submit'])){
     $streams = 0;
 
     if (empty($username) || empty($mail) || empty($password) || empty($passwordRepeat)) {
-        header("Location: ../signup.php?error=emptyfields&uid".$username."&mail=".$mail);
+        header("Location: ../signup.php?error=emptyfields&uid=".$username."&mail=".$mail);
         exit();
     } else if (!filter_var($mail, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)) {
-        header("Location: ../signup.php?error=invalidmailuid");
+        header("Location: ../signup.php?error=invalidmailuid=");
         exit();
     } else if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-        header("Location: ../signup.php?error=invalidmail&uid".$username);
+        header("Location: ../signup.php?error=invalidmail&uid=".$username);
         exit();
     } else if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
-        header("Location: ../signup.php?error=invaliduid&mail".$mail);
+        header("Location: ../signup.php?error=invaliduid&mail=".$mail);
         exit();
     } else if ($password !== $passwordRepeat){
-        header("Location: ../signup.php?error=passwordcheck&uid".$username."&mail=".$mail);
+        header("Location: ../signup.php?error=passwordcheck&uid=".$username."&mail=".$mail);
         exit();
     } else {
 

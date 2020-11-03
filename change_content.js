@@ -58,6 +58,7 @@ $(document).ready(function(){
             getSearchContent($("#search-bar").val());
             $("#content").attr("class", "search");
             $("#search-content").show();
+            $("#search-bar").val("");
         }
     });
 

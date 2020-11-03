@@ -25,20 +25,20 @@
             echo "style=\"display: none\"";
         }
         ?>>
-        <div id="error-text-container">
-            <h4 id="error-text">
-            <?php
-                if(isset($_GET['error'])){
-                    if($_GET['error'] == "emptyfields"){
-                        echo "Please, insert username and password and retry.";
-                    } else if($_GET['error'] == "wrong"){
-                        echo "Wrong combination of username and password.";
+            <div id="error-text-container">
+                <h4 id="error-text">
+                <?php
+                    if(isset($_GET['error'])){
+                        if($_GET['error'] == "emptyfields"){
+                            echo "Please, insert username and password and retry.";
+                        } else if($_GET['error'] == "wrong"){
+                            echo "Wrong combination of username and password.";
+                        }
                     }
-                }
-            ?>
-            </h4>
-            <button id="ok-button" type="button" onclick="document.getElementById('error-msg').style.display = 'none'">OK</button>
-        </div>
+                ?>
+                </h4>
+                <button id="ok-button" type="button" onclick="document.getElementById('error-msg').style.display = 'none'">OK</button>
+            </div>
         </div>
         <div id="center-buttons">
             <a id="signup" href="signup.php">SIGN UP</a>

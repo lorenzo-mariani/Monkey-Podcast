@@ -7,6 +7,53 @@ var header = document.getElementById('header');
 var searchContainer = document.getElementById('search-container');
 var iconsContainer = document.getElementById('icons-container');
 
+var uploadIcon = document.getElementById('upload-icon');
+var logoIcon = document.getElementById('logo');
+var speechIcon = document.getElementById('speech-icon');
+var searchIcon = document.getElementById('search-icon');
+var modeSlider = document.getElementsByClassName('slider round');
+
+uploadIcon.addEventListener('keydown', function(event) {
+  if(event.keyCode == 32){
+    this.click();
+  }
+});
+profileIcon.addEventListener('keydown', function(event) {
+  if(event.keyCode == 32){
+    this.click();
+  }
+});
+logoIcon.addEventListener('keydown', function(event) {
+  if(event.keyCode == 32){
+    this.click();
+  }
+});
+speechIcon.addEventListener('keydown', function(event) {
+  if(event.keyCode == 32){
+    this.click();
+  }
+});
+searchIcon.addEventListener('keydown', function(event) {
+  if(event.keyCode == 32){
+    this.click();
+  }
+});
+modeSlider[0].addEventListener('keydown', function(event) {
+  if(event.keyCode == 32){
+    this.click();
+  }
+});
+uploadIcon.addEventListener('keydown', function(event) {
+  if(event.keyCode == 32){
+    this.click();
+  }
+});
+profileIcon.addEventListener('keydown', function(event) {
+  if(event.keyCode == 32){
+    this.click();
+  }
+});
+
 function displayContainers(){
   searchContainer.style.display = 'flex';
   iconsContainer.style.display = 'flex';

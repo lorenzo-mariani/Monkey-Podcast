@@ -43,7 +43,7 @@ input {
 
 #signup-submit {
     color: whitesmoke;
-    background-color: rgb(151, 0, 0);
+    background-color: rgb(91 15 15);
     box-shadow: inset 0 0 10px rgba(56, 2, 2, 0.719);
     border: 1px solid rgba(245, 245, 245, 0.5);
     width: 150px;
@@ -53,6 +53,10 @@ input {
     font-weight: bolder;
     font-size: 14px;
     cursor: pointer;
+}
+
+#signup-submit:hover {
+    background-color: rgb(140 30 30);
 }
 
 #back {
@@ -67,4 +71,53 @@ input {
     font-size: 14px;
     cursor: pointer;
     text-decoration: none;
+}
+
+#error-msg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(17, 17 ,17, 0.71);
+    z-index: 999;
+}
+
+#error-text {
+    font-family: robotothin;
+    color: whitesmoke;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#error-text-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100px;
+    width: 400px;
+    padding: 20px 20px;
+    background-color: rgb(15, 15, 15);
+    border: 1px solid rgba(56, 2, 2, 0.719);
+}
+
+#ok-button {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom: 20%;
+    width: 80px;
+    padding: 5px 5px;
+    color: whitesmoke;
+    background-color: rgb(91 15 15);
+    border: none;
+    transform: translate(-50%);
+    cursor: pointer;
+}
+
+#ok-button:hover {
+    background-color: rgb(140 30 30);
 }

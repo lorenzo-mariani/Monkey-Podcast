@@ -51,7 +51,7 @@
                             } else {
                                 echo "src='./img/logo/MonkeyPodcastLogo_dark.png'";
                             }
-                        ?> id='logo' alt='Monkey Podcast'>
+                        ?> id='logo' alt='Monkey Podcast' tabindex="1">
                     </button>
                 </form>
                 <form action="./includes/upload.inc.php" method="post" enctype="multipart/form-data">
