@@ -1,13 +1,73 @@
-html{
-    background-color: rgb(233 233 233);
+body{
+    background-color: #cecbcb;
 }
 
-.content {
-    background-color: rgb(141 141 141);
+html{
+    background-color: #cecbcb;
+}
+
+::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+}
+    
+::-webkit-scrollbar-track {
+    background-color: rgba(39, 39, 39, 0.493);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(82, 82, 82); 
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(54, 54, 54);
+    cursor: pointer; 
+}
+
+#content {
+    background-color: #cecbcb;
+}
+
+#logout-button {
+    color: whitesmoke;
+    background-color: rgb(68, 0, 0);
+}
+
+#title {
+    background-color: white;
+    color: black;
+}
+
+#help-content {
+    background-color: #f6f6f6;
+}
+
+#help-content-container {
+    background-color: #f6f6f6;
+}
+
+#home-content {
+    background-color: #f6f6f6;
+}
+
+#disability {
+    background-color: rgb(64 0 0);
+    color: whitesmoke;
+}
+
+#disability-subtitle {
+    background-color: white;
+}
+
+#buttons-container button {
+    background-color: white;
 }
 
 #header {
     background-color: white;
+    border-bottom: 1px solid black;
 }
 
 #welcome-to {
@@ -28,7 +88,7 @@ html{
 }
 
 #get-started-or {
-    color: whitesmoke;
+    color: black;
 }
 
 #text {
@@ -43,11 +103,11 @@ html{
     color: black;
 }
 
-.channel-content {
+#channel-content {
     background-color: #dfdfdf;
 }
 
-.podcastmod-content {
+#podcastmod-content {
     background-color: #dfdfdf;
 }
 
@@ -94,15 +154,12 @@ html{
     border-right: 1px solid rgb(61, 61, 61);
 }
 
-#logout-button {
-    color: black;
-    background-color: whitesmoke;
-}
-
 #profile-button {
     color: black;
+    border: 1px solid black;
 }
 
 #help-button {
     color: black;
+    border: 1px solid black;
 }

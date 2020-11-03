@@ -59,7 +59,15 @@
                 echo "</div>
                 </div>
                 <p id=\"show-more\">SHOW MORE";
+            } else {
+                echo "<div id=\"podcasts-container\">
+                    <h4>PODCASTS</h4>
+                    </div>
+                <div id=\"default-search\">
+                    <h1 id=\"empty-search\">Sorry, no results found.</h1>
+                </div>";
             }
+
             if (!mysqli_stmt_prepare($stmt, $query_users)) {
                 header("Location: ./home.php?error=sqlerror");
                 exit();
@@ -93,11 +101,14 @@
                     }
                     echo "</div>";
                 } else {
-                    echo "<div id=\"default-search\">
+                    echo "<div id=\"users-container\">
+                        <h4>USERS</h4>
+                        </div>
+                    <div id=\"default-search\">
                         <h1 id=\"empty-search\">Sorry, no results found.</h1>
                     </div>";
                 }
-                }
+            }
             }
             mysqli_stmt_close($stmt);
             mysqli_close($conn);

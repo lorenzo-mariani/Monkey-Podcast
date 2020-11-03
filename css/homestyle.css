@@ -45,6 +45,12 @@ a:hover{
     cursor: pointer;
 }
 
+#content {
+    padding-top: 50px;
+    padding-bottom: 90px;
+    margin: 0px 20px;
+}
+
 #default-content {
     height: 100%;
     background-color: rgb(39 0 0);
@@ -52,12 +58,8 @@ a:hover{
     flex-direction: column;
 }
 
-.help-content {
-    margin: 0px 20px;
-    margin-top: 50px;
-    margin-bottom: 90px;
-    padding-top: 50px;
-    padding-bottom: 90px;
+#default-content, #profile-content, #search-content, #podcastmod-content, #help-content {
+    padding-bottom: 30px;
 }
 
 #help-container h1 {
@@ -103,12 +105,13 @@ a:hover{
 #disability {
     font-family: caviar_dreamsbold;
     font-size: 29px;
-    margin-left: 40px;
+    padding: 10px 40px;
+    margin-top: 20px;
 }
 
 #disability-subtitle {
     font-family: caviar_dreamsregular;
-    margin-left: 40px;
+    padding: 5px 40px;
 }
 
 .question {
@@ -122,6 +125,7 @@ a:hover{
     display: flex;
     width: 80%;
     margin: auto;
+    margin-top: 20px;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -215,7 +219,7 @@ a:hover{
     font-family: caviar_dreamsbold;
     font-size: 24px;
     text-align: center;
-    margin-top: 130px;
+    margin: 60px 0px;
     background-color: #323232;
     padding: 10px 0px;
 }
@@ -229,20 +233,6 @@ a:hover{
     top:0;
     left: 0;
     z-index: 999;
-}
-
-.home-content {
-    margin-bottom: 90px;
-    height: 100%;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-.profile-content {
-    margin-bottom: 90px;
-    height: 100%;
-    margin-left: 20px;
-    margin-right: 20px;
 }
 
 #logo-container,
@@ -338,13 +328,6 @@ a:hover{
     cursor: pointer;
 }
 
-.search-content {
-    margin-bottom: 90px;
-    height: 100%;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
 #upload-button {
     background-color: Transparent;
     background-repeat:no-repeat;
@@ -429,7 +412,6 @@ a:hover{
 #channel-name-container {
     height: 71px;
     background: black;
-    margin-top: 20px;
 }
 
 .channel-name {
@@ -475,7 +457,6 @@ a:hover{
 
 #profile-button {
     background-color: transparent;
-    border: none;
     padding: 15px 0px;
     font-family: caviar_dreamsbold;
     font-size: 20px;
@@ -489,7 +470,6 @@ a:hover{
 
 #help-button {
     background-color: transparent;
-    border: none;
     padding: 15px 0px;
     font-family: caviar_dreamsbold;
     font-size: 15px;
@@ -564,7 +544,7 @@ a:hover{
 
     #header {
         display: block;
-        height: 130px;
+        height: auto;
         width: 100%;
         position: fixed;
         top: 0;
@@ -572,8 +552,8 @@ a:hover{
         z-index: 999;
     }
 
-    #default-content, .home-content, .search-content, .help-content, .channel-content, .profile-content {
-        padding-top: 130px;
+    .content {
+        padding-top: 30px;
     } 
 
     #logo-container, #search-container, #icons-container {
@@ -581,6 +561,11 @@ a:hover{
         align-items: center;
         justify-content: center;
         margin: 10px 0px
+    }
+
+    #search-container,
+    #icons-container {
+        display: none;
     }
 
     #mode-switch {

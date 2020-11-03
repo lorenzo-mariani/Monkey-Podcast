@@ -3,6 +3,45 @@ var profileMenu = document.getElementById('profile-menu');
 var checkbox = document.getElementById('checkbox');
 var profileButton = document.getElementById('profile-button');
 var searchbar = document.getElementById('search-bar');
+var header = document.getElementById('header');
+var searchContainer = document.getElementById('search-container');
+var iconsContainer = document.getElementById('icons-container');
+
+function displayContainers(){
+  searchContainer.style.display = 'flex';
+  iconsContainer.style.display = 'flex';
+}
+
+function hideContainers(){
+  searchContainer.style.display = 'none';
+  iconsContainer.style.display = 'none';
+}
+
+if(window.attachEvent) {
+  window.attachEvent('onresize', function() {
+    if(window.innerWidth <= 1250){
+      hideContainers();
+      header.addEventListener('mouseenter', displayContainers);
+      header.addEventListener('mouseleave', hideContainers);
+    } else {
+      header.removeEventListener('mouseenter', displayContainers);
+      header.removeEventListener('mouseleave', hideContainers);
+      displayContainers();
+    }
+  });
+} else if(window.addEventListener) {
+  window.addEventListener('resize', function() {
+    if(window.innerWidth <= 1250){
+      hideContainers();
+      header.addEventListener('mouseenter', displayContainers);
+      header.addEventListener('mouseleave', hideContainers);
+    } else {
+      header.removeEventListener('mouseenter', displayContainers);
+      header.removeEventListener('mouseleave', hideContainers);
+      displayContainers();
+    }
+  }, true);
+}
 
 profileIcon.onclick = function () {
   if (profileMenu.style.display == "none") {
@@ -19,7 +58,7 @@ profileButton.onclick = function () {
 checkbox.onchange = function () {
   if (checkbox.checked == true) {
     document.getElementById('home-style').href = "./css/homestyledark.css";
-    if(document.getElementsByClassName("content")[0].getAttribute("id") == "profile") {
+    if(document.getElementById("content").getAttribute("id") == "profile") {
       if(document.getElementById('subscribe-button') != null){
         document.getElementById('subscribe-button').setAttribute("value", "dark");
       }
@@ -47,7 +86,7 @@ checkbox.onchange = function () {
   } else {
     document.getElementById('home-style').href = "css/homestylelight.css";
     document.getElementById('upload-button').setAttribute("value", "light");
-    if(document.getElementsByClassName("content")[0].getAttribute("id") == "profile") {
+    if(document.getElementById("content").getAttribute("id") == "profile") {
       if(document.getElementById('subscribe-button') != null){
         document.getElementById('subscribe-button').setAttribute("value", "light");
       }
@@ -56,6 +95,13 @@ checkbox.onchange = function () {
       }
       if(document.getElementById('upload-img-btn') != null){
         document.getElementById('upload-img-btn').setAttribute("value", "light");
+      }
+      if(document.getElementsByClassName('podcast-settings') != null){
+        var i = 0;
+        var settings = document.getElementsByClassName('podcast-settings');
+        for(i = 0; i < settings.length; i++){
+          settings[i].src = './icon/settings-light.png';
+        }
       }
     }
     document.getElementById('search-style').href = "./css/searchstylelight.css";
@@ -119,15 +165,6 @@ searchbar.addEventListener('keypress', function (e) {
   }
 });
 
-window.visualViewport.addEventListener("resize", viewportHandler);
-function viewportHandler(event) {
-  if (event.target.scale > 3) {
-    console.log("zoomed in"); 
-  } else {
-    console.log(event.target.scale);
-  }
-}
-
 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
 
@@ -155,7 +192,7 @@ recognition.onspeechend = function() {
 };
 
 recognition.onerror = function(event) {
-    console.log(event.error);
+    console.log("Speach-recognition-error: " + event.error);
 }
 
 document.getElementById("speech-icon").addEventListener('click', function(){

@@ -91,11 +91,19 @@ html{
     background-color: rgb(39, 0, 0);
 }
 
-.channel-content {
+#channel-content {
     background-color: rgb(15 15 15);
 }
 
-.podcastmod-content {
+#search-content {
+    background-color: rgba(15, 15, 15, 0.97);
+}
+
+#home-content {
+    background-color: rgb(15 15 15);
+}
+
+#podcastmod-content {
     background-color: rgb(15 15 15);
 }
 
@@ -130,12 +138,32 @@ html{
     background-color: rgb(68, 0, 0);
 }
 
+#title {
+    background-color: rgb(36, 0, 0);
+    color: whitesmoke;
+}
+
+#disability {
+    background-color: rgb(64 0 0);
+    color: whitesmoke;
+}
+
+#disability-subtitle {
+    color: whitesmoke;
+}
+
+#buttons-container button {
+    background-color: white;
+}
+
 #profile-button {
     color: whitesmoke;
+    border: 1px solid rgb(61, 61, 61);
 }
 
 #help-button {
     color: whitesmoke;
+    border: 1px solid rgb(61, 61, 61);
 }
 
 #help-container {
@@ -150,6 +178,6 @@ html{
     color: whitesmoke;
 }
 
-#buttons-container button {
-    background-color: dimgray;
+.issue {
+    color: black;
 }

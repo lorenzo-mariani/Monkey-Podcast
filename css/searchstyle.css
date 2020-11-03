@@ -5,7 +5,6 @@
     font-size: 30px;
     text-align: center;
     padding: 7px 0px;
-    margin-top: 70px;
 }
 
 #users-container{
@@ -93,4 +92,5 @@
 #scrollchannel {
     display: flex;
     margin-top: 10px;
+    overflow: auto;
 }

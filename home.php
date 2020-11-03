@@ -4,7 +4,7 @@
 
 
 
-<div class="content" <?php
+<div id="content" <?php
     if(isset($_GET['view'])) {
         if($_GET['view'] == "home"){
             echo "id='home'";
@@ -15,7 +15,7 @@
         echo "id='home'";
     }
 ?>>
-    <div class="home-content" <?php
+    <div id="home-content" <?php
     if(isset($_GET['view'])) {
         if($_GET['view'] == "home"){
             echo "style= 'display: block;'";
@@ -105,16 +105,16 @@
                         $playlist_tmp = $playlist;
                         $name_tmp = $channel_name;
                     }
+                    echo "</div>
+                    </div>";
                 }
-                echo "</div>
-                </div>";
                 mysqli_stmt_close($stmt);
                 mysqli_close($conn);
             }
         
         ?>
     </div>
-    <div class="profile-content" <?php
+    <div id="profile-content" <?php
     if(isset($_GET['view'])) {
         if($_GET['view'] == "profile"){
             echo "style= 'display: block;'";
@@ -128,13 +128,13 @@
     ?>>
     </div>
 
-    <div class="search-content" style="display: none;">
+    <div id="search-content" style="display: none;">
     </div>
 
-    <div class="podcastmod-content" style="display: none;">
+    <div id="podcastmod-content" style="display: none;">
     </div>
 
-    <div class="help-content" style="display: none;">
+    <div id="help-content" style="display: none;">
     </div>
 </div>
     <?php require "./player.php"; ?>
