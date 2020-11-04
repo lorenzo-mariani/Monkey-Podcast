@@ -73,12 +73,16 @@
                 </button>
             </div>
             <div id="profile-menu" style="display: none;">
-                <h4 id="profile-button"><?php
-                    $string = $_SESSION["userUid"];
-                    $uid = strtoupper($string);
-                    echo $uid;
-                ?></h4>
-                <h4 id="help-button">HELP</h4>
+                <button id="profile-btn">
+                    <h4 id="profile-button"><?php
+                        $string = $_SESSION["userUid"];
+                        $uid = strtoupper($string);
+                        echo $uid;
+                    ?></h4>
+                </button>
+                <button id="help-btn">
+                    <h4 id="help-button">HELP</h4>
+                </button>
                 <form action="includes/logout.inc.php" method="post" onsubmit="return confirm('Are you shure you want to logout?');">
                     <button id="logout-button" type="submit" name="logout-submit">LOGOUT</button>
                 </form>

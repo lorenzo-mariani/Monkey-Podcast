@@ -475,7 +475,6 @@ a:hover{
 }
 
 #profile-menu button {
-    display: grid;
     width: 100%;
 }
 
@@ -499,6 +498,7 @@ a:hover{
     font-size: 20px;
     cursor: pointer;
     text-align: center;
+    width: 100%;
 }
 
 #profile-button:hover {
@@ -512,6 +512,7 @@ a:hover{
     font-size: 15px;
     cursor: pointer;
     text-align: center;
+    width: 100%;
 }
 
 #help-button:hover {

@@ -18,22 +18,22 @@ $(document).ready(function(){
         $("#profile-content").show();
     });
     
-    $("#profile-button").click(function(){
+    $("#profile-btn").click(function(){
         $("#home-content").hide();
         $("#help-content").hide();
         $("#podcastmod-content").hide();
         $("#search-content").hide();
-        getProfileContent($(this).text().toLowerCase());
+        getProfileContent($(this).children()[0].innerHTML.toLowerCase());
         $("#content").attr("class", "profile");
         $("#profile-content").show();
     });
 
-    $("#help-button").click(function(){
+    $("#help-btn").click(function(){
         $("#home-content").hide();
         $("#podcastmod-content").hide();
         $("#search-content").hide();
         $("#profile-content").hide();
-        getHelpContent($(this).text().toLowerCase());
+        getHelpContent($(this).children()[0].innerHTML.toLowerCase());
         $("#content").attr("class", "help");
         $("#help-content").show();
     });

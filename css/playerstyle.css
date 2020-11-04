@@ -108,6 +108,12 @@
     cursor: pointer;
 }
 
+#podcast-playlist-player {
+    font-family: caviar_dreamsregular;
+    font-size: 12px;
+    cursor: pointer;
+}
+
 #podcast-name:hover {
     text-decoration: underline;
 }
