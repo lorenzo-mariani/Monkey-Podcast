@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $("#logo-container").click(function(){
+    $("#logo-btn").click(function(){
         $("#profile-content").hide();
         $("#help-content").hide();
         $("#podcastmod-content").hide();
@@ -8,12 +8,12 @@ $(document).ready(function(){
         $("#content").attr("class", "home");
     });
 
-    $(".channel-name").click(function(){
+    $(".channel-name-btn").click(function(){
         $("#home-content").hide();
         $("#help-content").hide();
         $("#podcastmod-content").hide();
         $("#search-content").hide();
-        getProfileContent($(this).text().toLowerCase());
+        getProfileContent($(this).children()[0].innerHTML.toLowerCase());
         $("#content").attr("class", "profile");
         $("#profile-content").show();
     });
@@ -48,7 +48,7 @@ $(document).ready(function(){
         $("#profile-content").show();
     });
 
-    $("#search-icon").click(function() {
+    $("#search-icon-btn").click(function() {
         if($("#search-bar").val() != ""){
             $("#search-content").html("");
             $("#help-content").hide();
@@ -72,12 +72,12 @@ $(document).ready(function(){
         $("#profile-content").show();
     });
 
-    $(".show-more").click(function() {
+    $(".show-more-btn").click(function() {
         $("#search-content").hide();
         $("#help-content").hide();
         $("#podcastmod-content").hide();
         $("#home-content").hide();
-        getProfileContent($(this).attr("id"));
+        getProfileContent($(this).children()[0].getAttribute("id"));
         $("#content").attr("class", "profile");
         $("#profile-content").show();
     });

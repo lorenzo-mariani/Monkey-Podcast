@@ -13,11 +13,19 @@ body {
     background-color: rgba(27, 27, 27, 0.97);
 }
 
-.tabs-menu li {
+#home {
     color: whitesmoke;
 }
 
-.tabs-menu li:hover {
+#home:hover {
+    color: #991914;
+}
+
+#channels {
+    color: whitesmoke;
+}
+
+#channels:hover {
     color: #991914;
 }
 

@@ -32,15 +32,24 @@
     <header>
         <div id="header">
             <div id="logo-container">
-                <img src='img/logo/MonkeyPodcastLogo_dark.png' id='logo' alt='Monkey Podcast' tabindex="1">
+                <button id="logo-btn" tabindex="1">
+                    <img src='img/logo/MonkeyPodcastLogo_dark.png' id='logo' alt='Monkey Podcast'>
+                </button>
+                <button tabindex="1" id="display-more-btn">
+                    <img src='./icon/arrow.png' id="display-more">
+                </button>
             </div>
             <div id="search-container">
                 <input id="search-bar" type="text" placeholder="Search.." tabindex="2">
                 <div id="speech-container">
                     <input id="speech-check" type="checkbox" name="speech-rec-check" style="display: none;">
-                    <img src="./icon/voice.png" alt="Voice Commands Button" id="speech-icon" tabindex="3">
+                    <button tabindex="3" id="speech-icon-btn"> 
+                        <img src="./icon/voice.png" alt="Voice Commands Button" id="speech-icon">
+                    </button>
                 </div>
-                <img src="icon/search.png" alt="Search Button" id="search-icon" tabindex="4">
+                <button id="search-icon-btn">
+                    <img src="icon/search.png" alt="Search Button" id="search-icon" tabindex="4">
+                </button>
             </div>
             <div id="icons-container">
                 <h4 id="mode-text">DARK MODE ON</h4>
@@ -51,15 +60,17 @@
                         } else if(this.getAttribute('value') == 'light'){
                             setCookie('mode', 'dark', 2);
                         }"
-                        checked>
-                    <span class="slider round" tabindex="5"></span>
+                        checked tabindex="5">
+                    <span class="slider round" ></span>
                 </label>
                 <form action="./upload.php" method="post">
-                    <button id="upload-button" type="submit" name="logo-submit">
-                        <img src="./icon/microphone.png" alt="Upload Podcast" id="upload-icon" tabindex="6">
+                    <button id="upload-icon-btn" type="submit" name="logo-submit" tabindex="6">
+                        <img src="./icon/microphone.png" alt="Upload Podcast" id="upload-icon">
                     </button>
                 </form>
-                <img src="./icon/user.png" alt="User Profile" id="profile-icon" tabindex="7">
+                <button id="profile-icon-btn" tabindex="7">
+                    <img src="./icon/user.png" alt="User Profile" id="profile-icon">
+                </button>
             </div>
             <div id="profile-menu" style="display: none;">
                 <h4 id="profile-button" tabindex="7"><?php

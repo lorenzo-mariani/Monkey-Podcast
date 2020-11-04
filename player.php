@@ -14,9 +14,15 @@
         <div id="center-icons-container">
             <h4 id="current-time"></h4>
             <div id="center-icons">
-                <img id="previous-icon" src=".//icon/next-icon-dark.png" alt="previous-icon" tabindex="11">
-                <img id="play-icon" src="./icon/play-icon-dark.png" alt="play-icon" tabindex="12">
-                <img id="next-icon" src="./icon/next-icon-dark.png"alt="next-icon" tabindex="13">
+                <button id="previous-icon-btn" tabindex="11">
+                    <img id="previous-icon" src=".//icon/next-icon-dark.png" alt="previous-icon">
+                </button> 
+                <button id="play-icon-btn" tabindex="12">
+                    <img id="play-icon" src="./icon/play-icon-dark.png" alt="play-icon">
+                </button> 
+                <button id="next-icon-btn" tabindex="13">
+                    <img id="next-icon" src="./icon/next-icon-dark.png"alt="next-icon">
+                </button>
             </div>
             <audio id="audio" type="audio/mp3"></audio>
             <h4 id="duration"></h4>

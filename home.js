@@ -1,4 +1,4 @@
-var profileIcon = document.getElementById('profile-icon');
+var profileIcon = document.getElementById('profile-icon-btn');
 var profileMenu = document.getElementById('profile-menu');
 var checkbox = document.getElementById('checkbox');
 var profileButton = document.getElementById('profile-button');
@@ -6,53 +6,7 @@ var searchbar = document.getElementById('search-bar');
 var header = document.getElementById('header');
 var searchContainer = document.getElementById('search-container');
 var iconsContainer = document.getElementById('icons-container');
-
-var uploadIcon = document.getElementById('upload-icon');
-var logoIcon = document.getElementById('logo');
-var speechIcon = document.getElementById('speech-icon');
-var searchIcon = document.getElementById('search-icon');
-var modeSlider = document.getElementsByClassName('slider round');
-
-uploadIcon.addEventListener('keydown', function(event) {
-  if(event.keyCode == 32){
-    this.click();
-  }
-});
-profileIcon.addEventListener('keydown', function(event) {
-  if(event.keyCode == 32){
-    this.click();
-  }
-});
-logoIcon.addEventListener('keydown', function(event) {
-  if(event.keyCode == 32){
-    this.click();
-  }
-});
-speechIcon.addEventListener('keydown', function(event) {
-  if(event.keyCode == 32){
-    this.click();
-  }
-});
-searchIcon.addEventListener('keydown', function(event) {
-  if(event.keyCode == 32){
-    this.click();
-  }
-});
-modeSlider[0].addEventListener('keydown', function(event) {
-  if(event.keyCode == 32){
-    this.click();
-  }
-});
-uploadIcon.addEventListener('keydown', function(event) {
-  if(event.keyCode == 32){
-    this.click();
-  }
-});
-profileIcon.addEventListener('keydown', function(event) {
-  if(event.keyCode == 32){
-    this.click();
-  }
-});
+var displayMore = document.getElementById('display-more-btn');
 
 function displayContainers(){
   searchContainer.style.display = 'flex';
@@ -64,31 +18,23 @@ function hideContainers(){
   iconsContainer.style.display = 'none';
 }
 
-if(window.attachEvent) {
-  window.attachEvent('onresize', function() {
-    if(window.innerWidth <= 1250){
-      hideContainers();
-      header.addEventListener('mouseenter', displayContainers);
-      header.addEventListener('mouseleave', hideContainers);
-    } else {
-      header.removeEventListener('mouseenter', displayContainers);
-      header.removeEventListener('mouseleave', hideContainers);
-      displayContainers();
-    }
-  });
-} else if(window.addEventListener) {
-  window.addEventListener('resize', function() {
-    if(window.innerWidth <= 1250){
-      hideContainers();
-      header.addEventListener('mouseenter', displayContainers);
-      header.addEventListener('mouseleave', hideContainers);
-    } else {
-      header.removeEventListener('mouseenter', displayContainers);
-      header.removeEventListener('mouseleave', hideContainers);
-      displayContainers();
-    }
-  }, true);
-}
+displayMore.addEventListener('click', function() {
+  if((searchContainer.style.display == 'none' && iconsContainer.style.display == 'none') || (searchContainer.style.display == '' && iconsContainer.style.display == '')) {
+    displayContainers();
+  } else if(searchContainer.style.display == 'flex' && iconsContainer.style.display == 'flex') {
+    hideContainers();
+  }
+}, true);
+
+window.addEventListener('resize', function() {
+  if(window.innerWidth <= 1250){
+    hideContainers();
+    displayMore.style.display = 'block';
+  } else {
+    displayContainers();
+    displayMore.style.display = 'none';
+  }
+});
 
 profileIcon.onclick = function () {
   if (profileMenu.style.display == "none") {
@@ -116,7 +62,7 @@ checkbox.onchange = function () {
         document.getElementById('upload-img-btn').setAttribute("value", "dark");
       }
     }
-    document.getElementById('upload-button').setAttribute("value", "dark");
+    document.getElementById('upload-icon-btn').setAttribute("value", "dark");
     document.getElementById('search-style').href = "./css/searchstyledark.css";
     document.getElementById('profile-style').href = "./css/profilestyledark.css";
     document.getElementById('player-style').href = "./css/playerstyledark.css";
@@ -132,7 +78,7 @@ checkbox.onchange = function () {
     }
   } else {
     document.getElementById('home-style').href = "css/homestylelight.css";
-    document.getElementById('upload-button').setAttribute("value", "light");
+    document.getElementById('upload-icon-btn').setAttribute("value", "light");
     if(document.getElementById("content").getAttribute("id") == "profile") {
       if(document.getElementById('subscribe-button') != null){
         document.getElementById('subscribe-button').setAttribute("value", "light");
@@ -242,7 +188,7 @@ recognition.onerror = function(event) {
     console.log("Speach-recognition-error: " + event.error);
 }
 
-document.getElementById("speech-icon").addEventListener('click', function(){
+document.getElementById("speech-icon-btn").addEventListener('click', function(){
   if(confirm("Do you want to activate voice commands?")){
     recognition.start();
     searchbar.value = 'Listening...';

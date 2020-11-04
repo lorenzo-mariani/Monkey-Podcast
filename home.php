@@ -74,7 +74,9 @@
                             }
                             echo
                             "<div id=\"channel-name-container\" style=\"background: url('".$channel_img."') no-repeat center; background-size:cover\">
-                                <h1 class=\"channel-name\" tabindex=\"".$index."\">".strtoupper($channel_name)."</h1>
+                                <button class=\"channel-name-btn\" tabindex=\"".$index."\">
+                                <h1 class=\"channel-name\">".strtoupper($channel_name)."</h1>
+                                </button>
                             </div>
                             <div class=\"channel-content\">";
                         }
@@ -95,14 +97,18 @@
                         }
                         if($count < 3){
                             echo
-                            "<div class=\"grid-element\"  id=".$podcast_file.">
-                                <img src=".$podcast_img." tabindex=\"".$index."\">
+                            "<button class=\"grid-element-btn\" tabindex=\"".$index."\">
+                            <div class=\"grid-element\"  id=".$podcast_file.">
+                                <img src=".$podcast_img.">
                                 <h4 id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
                                 <p>".$streams." STREAMS</p>
-                            </div>";
+                            </div>
+                            </button>";
                         } else if ($count == 3) {
                             $index += 1;
-                            echo "<p class=\"show-more\" id=".$channel_name." tabindex=\"".$index."\">SHOW MORE...";
+                            echo "<button class=\"show-more-btn\" tabindex=\"".$index."\">
+                            <p class=\"show-more\" id=".$channel_name.">SHOW MORE...
+                            </button>";
                         }
                         $count += 1;
                         $index += 1;

@@ -40,10 +40,12 @@
         }
         ?>
         <div class="tabs-container">
-            <ul class="tabs-menu">
-                <li id="home" tabindex="16">HOME</li>
-                <li id="channels" tabindex="17">CHANNELS</li>
-            </ul>
+            <button id="home-btn" tabindex="16">
+                <p id="home">HOME
+            </button>
+            <button id="channels-btn" tabindex="17">
+                <p id="channels">CHANNELS
+            </button>
         </div>
         <div id="info-container">
             <div id="profile-container">
@@ -78,11 +80,6 @@
                         ?>
                         SUBS
                     </h4>
-                    <?php
-                        if($_SESSION['userUid'] == $_SESSION['channelName']){
-                            echo "<img id=\"settings\" src=\"./icon/settings-dark.png\" alt=\"settings\">";
-                        }
-                    ?>
             </div>
             <div id="subscribe-container">
                     <?php
@@ -186,20 +183,27 @@
                         }
                         echo
                         "<div class=\"grid-element-profile\">
-                            <img id=".$podcast_file." class=\"podcast-thumbnail\" src=".$podcast_img." tabindex=\"".$index."\">
-                            <div id=\"pod-info-container\">
-                                <h4 class=\"podcast-title\" id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
+                            <button class=\"podcast-thumbnail-btn\" tabindex=\"".$index."\">
+                                <img id=".$podcast_file." class=\"podcast-thumbnail\" src=".$podcast_img.">
+                            </button>
+                            <div id=\"pod-info-container\">";
+                                $index += 1;
+                                echo "<button class=\"podcast-title-btn\" tabindex=\"".$index."\">
+                                    <h4 class=\"podcast-title\" id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
+                                </button>
                                 <p>".$streams." STREAMS</p>";
                                 if($_SESSION['userUid'] == $_SESSION['channelName']){
                                     $index += 1;
                                     echo "<div class=\"mod-btns-container\">
                                     <form action=\"./includes/deletepod.inc.php\" method=\"post\" onsubmit=\"return confirm('Are you shure you want to delete this podcast?');\">
-                                            <button class=\"podcast-delete-btn\" type=\"submit\" name=\"pod-delete-submit\" value=\"".$title."\">
-                                                <img class=\"delete-podcast\" src=\"./icon/trash.png\" alt=\"delete\" tabindex=\"".$index."\">
+                                            <button class=\"podcast-delete-btn\" type=\"submit\" name=\"pod-delete-submit\" value=\"".$title."\" tabindex=\"".$index."\">
+                                                <img class=\"delete-podcast\" src=\"./icon/trash.png\" alt=\"delete\">
                                             </button>
                                         </form>";
                                         $index +=1;
-                                        echo "<img class=\"podcast-settings\" src=\"./icon/settings-dark.png\" alt=\"settings\"tabindex=\"".$index."\">
+                                        echo "<button class=\"podcast-settings-btn\" tabindex=\"".$index."\">
+                                            <img class=\"podcast-settings\" src=\"./icon/settings-dark.png\" alt=\"podcast-settings\">
+                                        </button>
                                         </div>";
                                 }
                             echo "</div>
@@ -238,14 +242,16 @@
                         while($stmt_chann->fetch()){
                             echo
                             "
+                            <button class=\"channel-btn\" tabindex=\"".$index."\">
                             <div class=\"channel\">
                             <img src=\"./icon/user.png\" alt=\"User Profile\" id=\"channel-img\">
                                 <ul class=\"channel-info\" id=".$channel_name.">
-                                    <li id=\"name\" tabindex=\"".$index."\">".strtoupper($channel_name)."</li>
+                                    <li id=\"name\">".strtoupper($channel_name)."</li>
                                     <li id=\"channel-subs\">".$subs." SUBS</li>
                                 </ul>
                                 </form>
                             </div>
+                            </button>
                             ";
                             $index += 1;
                         }

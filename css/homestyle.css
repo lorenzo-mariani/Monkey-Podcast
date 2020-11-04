@@ -3,6 +3,14 @@
     padding: 0;
 }
 
+button {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @font-face {
     font-family: 'robotothin';
     src: url('../fonts/roboto-thin-webfont.woff2') format('woff2'),
@@ -56,6 +64,18 @@ a:hover{
     background-color: rgb(39 0 0);
     display: flex;
     flex-direction: column;
+}
+
+#display-more {
+    height: 20px;
+}
+
+#display-more-btn {
+    background-color: rgb(44, 0, 0);
+    border-radius: 6px;
+    margin-left: 20px;
+    padding: 3px;
+    display: none;
 }
 
 #default-content, #profile-content, #search-content, #podcastmod-content, #help-content {
@@ -318,25 +338,19 @@ a:hover{
     transform: scaleX(-1);
 }
 
-#profile-icon {
-    height: 30px;
+#profile-icon-btn{
     margin-right: 27px;
     margin-left: 27px;
+}
+
+#profile-icon {
+    height: 30px;
     cursor: pointer;
 }
 
 #upload-icon {
     height: 27px;
     cursor: pointer;
-}
-
-#upload-button {
-    background-color: Transparent;
-    background-repeat:no-repeat;
-    border: none;
-    cursor:pointer;
-    overflow: hidden;
-    outline:none;
 }
   
 .grid-element {
@@ -389,12 +403,16 @@ a:hover{
     margin: 25px 10px;
 }
 
+.show-more-btn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;   
+}
+
 .show-more {
     color: rgb(0, 127, 201);
     font-size: 10px;
     text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
     text-decoration: underline;
     cursor: pointer;
 }
@@ -416,15 +434,19 @@ a:hover{
     background: black;
 }
 
+.channel-name-btn{
+    width: 100%;
+    height: 100%;
+}
+
 .channel-name {
     position: relative;
     font-family: caviar_dreamsbold;
     color: whitesmoke;
     font-size: 40px;
     text-align: center;
-    top: 50%;
-    transform: translate(0, -50%);
     background: rgba(0, 0, 0, 0.521);
+    width: 100%;
 }
 
 .channel-name:hover {
@@ -532,6 +554,7 @@ a:hover{
 
   .slider.round {
     border-radius: 34px;
+    height: auto;
   }
   
   .slider.round:before {
@@ -549,6 +572,11 @@ a:hover{
         left: 0;
         z-index: 999;
     }
+
+    #display-more-btn {
+        display: block;
+    }
+
 
     .content {
         padding-top: 30px;
@@ -573,6 +601,10 @@ a:hover{
 
     #mode-text {
         font-size: 9px;
+    }
+
+    .slider.round {
+        height: 22px;
     }
 
     .slider:before {
@@ -645,11 +677,20 @@ a:hover{
         z-index: 999;
     }
 
+    #display-more-btn {
+        display: block;
+    }
+
     #logo-container, #search-container, #icons-container {
         display: flex;
         align-items: center;
         justify-content: center;
         margin: 10px 0px
+    }
+
+    #search-container,
+    #icons-container {
+        display: none;
     }
 
     #logo {
@@ -663,6 +704,10 @@ a:hover{
 
     #mode-text {
         font-size: 9px;
+    }
+
+    .slider.round {
+        height: 22px
     }
 
     .slider:before {

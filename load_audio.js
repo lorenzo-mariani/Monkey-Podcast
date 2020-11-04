@@ -1,14 +1,14 @@
 var audio = document.getElementById('audio');
 
 $(document).ready(function(){
-    $(".grid-element").click(function(){
-      $("#audio").attr("src", $(this)[0].getAttribute("id"));
-      $("#thumbnail").attr("src", $(this).children()[0].getAttribute('src'));
-      $("#podcast-name").html($(this).children()[1].innerHTML);
-      $("#podcast-channel").html($(this).children()[1].getAttribute("id").toUpperCase());
-      $( "#play-icon" ).trigger( "click" );
-      updatePodcastStreams($(this).children()[1].innerHTML.toLowerCase().replace(/ /g , "_"), $(this).children()[1].getAttribute("id"));
-      setCookie("memaudio","audio="+$(this)[0].getAttribute("id")+"&timestamp="+00+"&img="+$(this).children()[0].getAttribute('src')+"&name="+$(this).children()[1].innerHTML.toLowerCase().replace(/ /g , "_")+"&channel="+$(this).children()[1].getAttribute("id").toLowerCase(), 2);
+    $(".grid-element-btn").click(function(){
+      $("#audio").attr("src", $(this).children()[0].getAttribute("id"));
+      $("#thumbnail").attr("src", $(this).children()[0].children[0].getAttribute('src'));
+      $("#podcast-name").html($(this).children()[0].children[1].innerHTML);
+      $("#podcast-channel").html($(this).children()[0].children[1].getAttribute("id").toUpperCase());
+      $( "#play-icon-btn" ).trigger( "click" );
+      updatePodcastStreams($(this).children()[0].children[1].innerHTML.toLowerCase().replace(/ /g , "_"), $(this).children()[0].children[1].getAttribute("id"));
+      setCookie("memaudio","audio="+$(this).children()[0].getAttribute("id")+"&timestamp="+00+"&img="+$(this).children()[0].children[0].getAttribute('src')+"&name="+$(this).children()[0].children[1].innerHTML.toLowerCase().replace(/ /g , "_")+"&channel="+$(this).children()[0].children[1].getAttribute("id").toLowerCase(), 2);
     });
 
     $("#upload-button").click(function() {
