@@ -95,7 +95,14 @@
 #podcast-name {
     font-family: caviar_dreamsbold;
     font-size: 15px;
+    width: 200px;
     margin-bottom: 7px;
+    -webkit-line-clamp: 2;
+    line-height: 16px;
+    overflow: hidden;
+    max-height: 30px;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
 }
 
 #podcast-name:hover {
@@ -106,12 +113,21 @@
     font-family: caviar_dreamsregular;
     font-size: 12px;
     cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 200px;
 }
 
 #podcast-playlist-player {
     font-family: caviar_dreamsregular;
     font-size: 12px;
     cursor: pointer;
+    margin-top: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 200px;
 }
 
 #podcast-name:hover {

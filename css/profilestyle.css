@@ -240,13 +240,20 @@ button:hover {
 
 .podcast-title-btn {
     width: 100%;
+    margin-top: 10px;
 }
 
 .grid-element-profile h4 {
-    font-family: caviar_dreamsbold;
-    padding-top: 15px;
-    padding-bottom: 5px;
-    cursor: pointer;
+    display: -webkit-box;
+    font-family: caviar_dreamsregular;
+    font-size: 18px;
+    -webkit-line-clamp: 2;
+    line-height: 24px;
+    overflow: hidden;
+    max-height: 83px;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    width: 100%;
 }
 
 .grid-element-profile p {
@@ -297,7 +304,7 @@ button:hover {
     align-items: center;
 }
 
-#playlist {
+#playlist-name {
     font-family: 'caviar_dreamsbold';
     font-size: 27px;
     padding-top: 20px;

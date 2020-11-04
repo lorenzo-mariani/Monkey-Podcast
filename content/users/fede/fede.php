@@ -176,17 +176,17 @@
                                 echo "</div>";
                             }
                             echo "<div class=\"playlist-container\">
-                                <h4 id=\"playlist\">".strtoupper(str_replace('_', ' ', $playlist))."</h4>
+                                <h4 id=\"playlist-name\">".strtoupper(str_replace('_', ' ', $playlist))."</h4>
                             </div>
                             <div class=\"playlist-podcasts-container\">";
                         }
                         echo
                         "<div class=\"grid-element-profile\">
-                            <button class=\"podcast-thumbnail-btn\">
+                            <button class=\"podcast-thumbnail-btn\" id=\"".$playlist."\">
                                 <img id=".$podcast_file." class=\"podcast-thumbnail\" src=".$podcast_img.">
                             </button>
                             <div id=\"pod-info-container\">";
-                                echo "<button class=\"podcast-title-btn\">
+                                echo "<button class=\"podcast-title-btn\" id=\"".$playlist."\">
                                     <h4 class=\"podcast-title\" id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
                                 </button>
                                 <p>".$streams." STREAMS</p>";

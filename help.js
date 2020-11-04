@@ -79,14 +79,14 @@ hear.addEventListener("click", function() {
 
 move.addEventListener("click", function() {
     if(explanationContainer.style.display == "none"){
-        description.innerHTML = "Our voice is the most powerful tool ever! If you find phsysically difficult to use your peripherals and computer, you can activate voice commands! When you first reach our website you will be prompted with this question: \"Do you want to activate speech recognition?\" if you say \"YES\", voice commands will be activated for the entire duration of your expirience. You can always deactivate (or activate) them with the button right next to the search bar. Example of commands are: \"search charles dickens\" or \"play amsterdam by nothing but thieves\"";
+        description.innerHTML = "Our voice is the most powerful tool ever! If you find phsysically difficult to use your peripherals and computer, you can activate voice commands! If you click on the little \"speech\" icon right next to the searchbar you can activate o deactivate them anytime you want. Example of command: \"search [podcast-name]\"";
         icon.setAttribute("src", "./icon/running.png");
         description.style.fontSize = "18px";
         explanationContainer.style.display = "flex"
         explanationContainer.scrollIntoView();
     } else {
         explanationContainer.style.display = "none";
-        description.innerHTML = "Our voice is the most powerful tool ever! If you find phsysically difficult to use your peripherals and computer, you can activate voice commands! When you first reach our website you will be prompted with this question: \"Do you want to activate speech recognition?\" if you say \"YES\", voice commands will be activated for the entire duration of your expirience. You can always deactivate (or activate) them with the button right next to the search bar. Example of commands are: \"search charles dickens\" or \"play amsterdam by nothing but thieves\"";
+        description.innerHTML = "Our voice is the most powerful tool ever! If you find phsysically difficult to use your peripherals and computer, you can activate voice commands! If you click on the little \"speech\" icon right next to the searchbar you can activate o deactivate them anytime you want. Example of command: \"search [podcast-name]\"";
         icon.setAttribute("src", "./icon/running.png");
         description.style.fontSize = "18px";
         explanationContainer.style.display = "flex"
@@ -96,14 +96,14 @@ move.addEventListener("click", function() {
 
 blind.addEventListener("click", function() {
     if(explanationContainer.style.display == "none"){
-        description.innerHTML = "If you use a Screen Reader and you are confortable with using your computer's keyboard, we have implemented full TAB and arrow keys support. If you want something 'cooler' instead, you can always activate voice commands! When you first reach our website you will be prompted with this question: \"Do you want to activate speech recognition?\" if you say \"YES\", voice commands will be activated for the entire duration of your expirience. You can always deactivate (or activate) them with the button right next to the search bar. Example of commands are: \"search charles dickens\" or \"play amsterdam by nothing but thieves\"";
+        description.innerHTML = "If you use a Screen Reader and you are confortable with using your computer's keyboard, we have implemented full TAB and arrow keys support. If you want something 'cooler' instead, you can always activate voice commands! If you click on the little \"speech\" icon right next to the searchbar you can activate o deactivate them anytime you want. Example of command: \"search [podcast-name]\"";
         icon.setAttribute("src", "./icon/eye.png");
         description.style.fontSize = "18px";
         explanationContainer.style.display = "flex"
         explanationContainer.scrollIntoView();
     } else {
         explanationContainer.style.display = "none";
-        description.innerHTML = "If you use a Screen Reader and you are confortable with using your computer's keyboard, we have implemented full TAB and arrow keys support. If you want something 'cooler' instead, you can always activate voice commands! When you first reach our website you will be prompted with this question: \"Do you want to activate speech recognition?\" if you say \"YES\", voice commands will be activated for the entire duration of your expirience. You can always deactivate (or activate) them with the button right next to the search bar. Example of commands are: \"search charles dickens\" or \"play amsterdam by nothing but thieves\"";
+        description.innerHTML = "If you use a Screen Reader and you are confortable with using your computer's keyboard, we have implemented full TAB and arrow keys support. If you want something 'cooler' instead, you can always activate voice commands! If you click on the little \"speech\" icon right next to the searchbar you can activate o deactivate them anytime you want. Example of command: \"search [podcast-name]\"";
         icon.setAttribute("src", "./icon/eye.png");
         description.style.fontSize = "18px";
         explanationContainer.style.display = "flex"

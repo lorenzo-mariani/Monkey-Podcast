@@ -51,9 +51,10 @@ $(".podcast-thumbnail-btn").click(function(){
   $("#thumbnail").attr("src", $(this).children()[0].getAttribute("src"));
   $("#podcast-name").html($(this).parent().find("h4").html());
   $("#podcast-channel").html($(this).parent().find("h4").attr("id").toUpperCase());
+  $("#podcast-playlist-player").html($(this)[0].id.replace(/_/g, " ").toUpperCase());
   $( "#play-icon-btn" ).trigger( "click" );
   updatePodcastStreams($(this).parent().find("h4").html().toLowerCase().replace(/ /g , "_"), $(this).parent().find("h4").attr("id"));
-  setCookie("memaudio","audio="+$(this).children()[0].getAttribute("id")+"&timestamp="+00+"&img="+ $(this).children()[0].getAttribute("src")+"&name="+$(this).parent().find("h4").html().toLowerCase().replace(/ /g , "_")+"&channel="+$(this).parent().find("h4").attr("id").toLowerCase(), 2);
+  setCookie("memaudio","audio="+$(this).children()[0].getAttribute("id")+"&timestamp="+00+"&img="+ $(this).children()[0].getAttribute("src")+"&name="+$(this).parent().find("h4").html().toLowerCase().replace(/ /g , "_")+"&channel="+$(this).parent().find("h4").attr("id").toLowerCase()+"&playlist="+$(this)[0].id, 2);
 });
 
 $(".podcast-title-btn").click(function(){
@@ -61,7 +62,8 @@ $(".podcast-title-btn").click(function(){
   $("#thumbnail").attr("src", $(this).parent().parent().children()[0].children[0].src);
   $("#podcast-name").html($(this).children()[0].innerHTML);
   $("#podcast-channel").html($(this).children()[0].getAttribute("id").toUpperCase());
+  $("#podcast-playlist-player").html($(this)[0].id.replace(/_/g, " ").toUpperCase());
   $( "#play-icon-btn" ).trigger( "click" );
   updatePodcastStreams($(this).children()[0].innerHTML.toLowerCase().replace(/ /g , "_"), $(this).children()[0].getAttribute("id"));
-  setCookie("memaudio","audio="+$(this).parent().parent().children()[0].children[0].id+"&timestamp="+00+"&img="+ $(this).parent().parent().children()[0].children[0].src+"&name="+$(this).children()[0].innerHTML.toLowerCase().replace(/ /g , "_")+"&channel="+$(this).children()[0].getAttribute("id").toLowerCase(), 2);
+  setCookie("memaudio","audio="+$(this).parent().parent().children()[0].children[0].id+"&timestamp="+00+"&img="+ $(this).parent().parent().children()[0].children[0].src+"&name="+$(this).children()[0].innerHTML.toLowerCase().replace(/ /g , "_")+"&channel="+$(this).children()[0].getAttribute("id").toLowerCase()+"&playlist="+$(this)[0].id, 2);
 });
