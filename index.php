@@ -11,20 +11,20 @@
 </style>
 
 <main>
-    <div class="logo">
-         <img src="img/logo/MonkeyPodcastLogo_vertical.png" id="logo">
-    </div>
     <div class="main-content">
+        <div class="logo">
+            <img src="img/logo/MonkeyPodcastLogo_vertical.png" id="logo">
+        </div>
          <h1>
              LISTEN TO THE BEST PODCASTS ON THE INTERNET.
         </h1>
         <div id="error-msg" <?php
-        if(isset($_GET['error'])){
-            echo "style=\"display: grid;\"";
-        } else {
-            echo "style=\"display: none\"";
-        }
-        ?>>
+            if(isset($_GET['error'])){
+                echo "style=\"display: grid;\"";
+            } else {
+                echo "style=\"display: none\"";
+            }
+            ?>>
             <div id="error-text-container">
                 <h4 id="error-text">
                 <?php
@@ -41,7 +41,9 @@
             </div>
         </div>
         <div id="center-buttons">
-            <a id="signup" href="signup.php">SIGN UP</a>
+            <form action="signup.php" method="post">
+                <button id="signup" type="submit" href="signup.php">SIGN UP</button>
+            </form>
             <button id="login-button" type="button">LOGIN</button>
         </div>
     </div>

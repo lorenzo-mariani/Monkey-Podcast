@@ -85,3 +85,8 @@
 .grid-element-mod h4, p{
     color: black
 }
+
+form #upload-submit-settings {
+    color: whitesmoke;
+    background-color: rgb(151, 0, 0);
+}
