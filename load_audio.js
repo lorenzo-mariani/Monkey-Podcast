@@ -11,6 +11,16 @@ $(document).ready(function(){
       setCookie("memaudio","audio="+$(this).children()[0].getAttribute("id")+"&timestamp="+00+"&img="+$(this).children()[0].children[0].getAttribute('src')+"&name="+$(this).children()[0].children[1].innerHTML.toLowerCase().replace(/ /g , "_")+"&channel="+$(this).children()[0].children[1].getAttribute("id").toLowerCase(), 2);
     });
 
+    $(".grid-element-btn-search").click(function(){
+      $("#audio").attr("src", $(this).children()[0].getAttribute("id"));
+      $("#thumbnail").attr("src", $(this).children()[0].children[0].getAttribute('src'));
+      $("#podcast-name").html($(this).children()[0].children[1].innerHTML);
+      $("#podcast-channel").html($(this).children()[0].children[1].getAttribute("id").toUpperCase());
+      $( "#play-icon-btn" ).trigger( "click" );
+      updatePodcastStreams($(this).children()[0].children[1].innerHTML.toLowerCase().replace(/ /g , "_"), $(this).children()[0].children[1].getAttribute("id"));
+      setCookie("memaudio","audio="+$(this).children()[0].getAttribute("id")+"&timestamp="+00+"&img="+$(this).children()[0].children[0].getAttribute('src')+"&name="+$(this).children()[0].children[1].innerHTML.toLowerCase().replace(/ /g , "_")+"&channel="+$(this).children()[0].children[1].getAttribute("id").toLowerCase(), 2);
+    });
+
     $("#upload-button").click(function() {
       setCookie("memaudio","audio="+$("#audio").attr("src")+"&timestamp="+getCurrentTime()+"&img="+$("#thumbnail").attr("src")+"&name="+$("#details-container").children()[0].innerHTML.toLowerCase().replace(/ /g , "_")+"&channel="+$("#details-container").children()[1].innerHTML.toLowerCase(), 2); 
     });
