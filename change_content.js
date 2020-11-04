@@ -62,12 +62,12 @@ $(document).ready(function(){
         }
     });
 
-    $(".grid-element-users").click(function() {
+    $(".grid-element-users-btn").click(function() {
         $("#search-content").hide();
         $("#help-content").hide();
         $("#podcastmod-content").hide();
         $("#home-content").hide();
-        getProfileContent($(this).children()[1].innerHTML.toLowerCase());
+        getProfileContent($(this).children().children()[1].innerHTML.toLowerCase());
         $("#content").attr("class", "profile");
         $("#profile-content").show();
     });

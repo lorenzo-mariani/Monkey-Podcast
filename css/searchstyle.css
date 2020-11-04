@@ -35,14 +35,30 @@
     color: whitesmoke;
     margin-left: 20px;
     font-family: 'caviar_dreamsbold';
-    font-size: 18px;
-    padding: 7px 10px;
+    font-size: 13px;
+    padding: 7px 8px;
     background-color: black;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 55px;
+}
+
+#playlist-search {
+    background-color: #3a3a3a;
+    color: whitesmoke;
+    font-family: 'caviar_dreamsbold';
+    font-size: 13px;
+    padding: 7px 8px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 55px;
 }
 
 .grid-element-btn-search {
     width: 30%;
-    margin: 0px 1%;
+    margin: 7px 0px;
 }
 
 .grid-element-users {

@@ -33,18 +33,22 @@
                     while($stmt_users->fetch()){
                         if($ch_img != ''){
                             echo 
-                            "   <div class=\"grid-element-users\">
-                                <img src=".str_replace('../', './', $ch_img).">
-                                <h4>".strtoupper($name)."</h4>
-                                <p>".$views." STREAMS</p>
-                                </div>";
+                            "<button class=\"grid-element-users-btn\">   
+                                <div class=\"grid-element-users\">
+                                    <img src=".str_replace('../', './', $ch_img).">
+                                    <h4>".strtoupper($name)."</h4>
+                                    <p>".$views." STREAMS</p>
+                                </div>
+                            </button>";
                         } else {
                             echo 
-                            "   <div class=\"grid-element-users\">
+                            "<button class=\"grid-element-users-btn\">   
+                            <div class=\"grid-element-users\">
                                 <img>
                                 <h4>".strtoupper($name)."</h4>
                                 <p>".$views." STREAMS</p>
-                                </div>";
+                                </div>
+                            </button>";
                         }
                     }
                     echo "</div>";
@@ -84,6 +88,7 @@
                             <h4 id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
                             <p>".$streams." STREAMS</p>
                             <h3 id=\"channel-name-search\">".strtoupper($channel_name)."</h3>
+                            <h3 id=\"playlist-search\">".strtoupper(str_replace('_', ' ', $playlist))."</h3>
                         </div>
                         </button>";
                     }

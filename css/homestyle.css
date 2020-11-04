@@ -362,8 +362,8 @@ a:hover{
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     text-decoration: none;
     justify-content: center;
     align-items: center;
@@ -376,17 +376,25 @@ a:hover{
 }
 
 .grid-element img {
-    height: 30px;
+    height: 38px;
     width: 60px;
     object-fit: cover;
     justify-self: center;
     border-radius: 4px;
+    margin-right: 10px;
 }
 
 .grid-element h4 {
+    display: -webkit-box;
     font-family: caviar_dreamsregular;
     margin-left: 30px;
     font-size: 13px;
+    -webkit-line-clamp: 2;
+    line-height: 16px;
+    overflow: hidden;
+    max-height: 36px;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
 }
 
 .grid-element p {
