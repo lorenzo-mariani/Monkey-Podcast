@@ -32,23 +32,23 @@
     <header>
         <div id="header">
             <div id="logo-container">
-                <button id="logo-btn" tabindex="1">
+                <button id="logo-btn">
                     <img src='img/logo/MonkeyPodcastLogo_dark.png' id='logo' alt='Monkey Podcast'>
                 </button>
-                <button tabindex="1" id="display-more-btn">
+                <button id="display-more-btn">
                     <img src='./icon/arrow.png' id="display-more">
                 </button>
             </div>
             <div id="search-container">
-                <input id="search-bar" type="text" placeholder="Search.." tabindex="2">
+                <input id="search-bar" type="text" placeholder="Search..">
                 <div id="speech-container">
                     <input id="speech-check" type="checkbox" name="speech-rec-check" style="display: none;">
-                    <button tabindex="3" id="speech-icon-btn"> 
+                    <button id="speech-icon-btn"> 
                         <img src="./icon/voice.png" alt="Voice Commands Button" id="speech-icon">
                     </button>
                 </div>
                 <button id="search-icon-btn">
-                    <img src="icon/search.png" alt="Search Button" id="search-icon" tabindex="4">
+                    <img src="icon/search.png" alt="Search Button" id="search-icon">
                 </button>
             </div>
             <div id="icons-container">
@@ -60,27 +60,27 @@
                         } else if(this.getAttribute('value') == 'light'){
                             setCookie('mode', 'dark', 2);
                         }"
-                        checked tabindex="5">
+                        checked>
                     <span class="slider round" ></span>
                 </label>
                 <form action="./upload.php" method="post">
-                    <button id="upload-icon-btn" type="submit" name="logo-submit" tabindex="6">
+                    <button id="upload-icon-btn" type="submit" name="logo-submit">
                         <img src="./icon/microphone.png" alt="Upload Podcast" id="upload-icon">
                     </button>
                 </form>
-                <button id="profile-icon-btn" tabindex="7">
+                <button id="profile-icon-btn">
                     <img src="./icon/user.png" alt="User Profile" id="profile-icon">
                 </button>
             </div>
             <div id="profile-menu" style="display: none;">
-                <h4 id="profile-button" tabindex="7"><?php
+                <h4 id="profile-button"><?php
                     $string = $_SESSION["userUid"];
                     $uid = strtoupper($string);
                     echo $uid;
                 ?></h4>
-                <h4 id="help-button" tabindex="8">HELP</h4>
+                <h4 id="help-button">HELP</h4>
                 <form action="includes/logout.inc.php" method="post" onsubmit="return confirm('Are you shure you want to logout?');">
-                    <button id="logout-button" type="submit" name="logout-submit" tabindex="9">LOGOUT</button>
+                    <button id="logout-button" type="submit" name="logout-submit">LOGOUT</button>
                 </form>
             </div>
         </div>

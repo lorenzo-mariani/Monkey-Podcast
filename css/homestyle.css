@@ -352,6 +352,10 @@ a:hover{
     height: 27px;
     cursor: pointer;
 }
+
+.grid-element-btn {
+    width: 100%;
+}
   
 .grid-element {
     display: flex;
@@ -363,6 +367,7 @@ a:hover{
     text-decoration: none;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .grid-element:hover {

@@ -40,10 +40,10 @@
         }
         ?>
         <div class="tabs-container">
-            <button id="home-btn" tabindex="16">
+            <button id="home-btn">
                 <p id="home">HOME
             </button>
-            <button id="channels-btn" tabindex="17">
+            <button id="channels-btn">
                 <p id="channels">CHANNELS
             </button>
         </div>
@@ -98,14 +98,14 @@
                             if($resultCheck == 0) {
                                 echo
                                 "<form id=\"sub\" action=\"./includes/subscribe.inc.php\" method=\"post\">
-                                    <button id=\"subscribe-button\" name=\"subscribe-btn\" value=\"dark\" tabindex=\"18\">
+                                    <button id=\"subscribe-button\" name=\"subscribe-btn\" value=\"dark\">
                                         SUBSCRIBE
                                     </button>
                                 </form>";
                             } else if($resultCheck == 1){
                                 echo
                                 "<form id=\"sub\" action=\"./includes/unsubscribe.inc.php\" method=\"post\">
-                                    <button id=\"unsubscribe-button\" name=\"unsubscribe-btn\" tabindex=\"18\">
+                                    <button id=\"unsubscribe-button\" name=\"unsubscribe-btn\">
                                         UNSUBSCRIBE
                                     </button>
                                 </form>";
@@ -170,7 +170,6 @@
                     $stmt_pod->bind_result($genre, $title, $podcast_img, $streams, $podcast_file, $playlist);
                     $channel_name = $_SESSION['channelName'];
                     $playlist_tmp = NULL;
-                    $index = 19;
                     while($stmt_pod->fetch()){
                         if($playlist_tmp != $playlist) {
                             if($playlist_tmp != NULL){
@@ -183,25 +182,22 @@
                         }
                         echo
                         "<div class=\"grid-element-profile\">
-                            <button class=\"podcast-thumbnail-btn\" tabindex=\"".$index."\">
+                            <button class=\"podcast-thumbnail-btn\">
                                 <img id=".$podcast_file." class=\"podcast-thumbnail\" src=".$podcast_img.">
                             </button>
                             <div id=\"pod-info-container\">";
-                                $index += 1;
-                                echo "<button class=\"podcast-title-btn\" tabindex=\"".$index."\">
+                                echo "<button class=\"podcast-title-btn\">
                                     <h4 class=\"podcast-title\" id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
                                 </button>
                                 <p>".$streams." STREAMS</p>";
                                 if($_SESSION['userUid'] == $_SESSION['channelName']){
-                                    $index += 1;
                                     echo "<div class=\"mod-btns-container\">
                                     <form action=\"./includes/deletepod.inc.php\" method=\"post\" onsubmit=\"return confirm('Are you shure you want to delete this podcast?');\">
-                                            <button class=\"podcast-delete-btn\" type=\"submit\" name=\"pod-delete-submit\" value=\"".$title."\" tabindex=\"".$index."\">
+                                            <button class=\"podcast-delete-btn\" type=\"submit\" name=\"pod-delete-submit\" value=\"".$title."\">
                                                 <img class=\"delete-podcast\" src=\"./icon/trash.png\" alt=\"delete\">
                                             </button>
                                         </form>";
-                                        $index +=1;
-                                        echo "<button class=\"podcast-settings-btn\" tabindex=\"".$index."\">
+                                        echo "<button class=\"podcast-settings-btn\">
                                             <img class=\"podcast-settings\" src=\"./icon/settings-dark.png\" alt=\"podcast-settings\">
                                         </button>
                                         </div>";
@@ -209,7 +205,6 @@
                             echo "</div>
                             </div>";
                         $playlist_tmp = $playlist;
-                        $index += 1;
                     }
                 }
                 mysqli_stmt_close($stmt_pod);
@@ -238,11 +233,10 @@
                     $stmt_chann->bind_result($channel_name, $subs);
                     $result_check = mysqli_stmt_num_rows($stmt_chann);
                     if($result_check > 0) {
-                        $index = 19;
                         while($stmt_chann->fetch()){
                             echo
                             "
-                            <button class=\"channel-btn\" tabindex=\"".$index."\">
+                            <button class=\"channel-btn\">
                             <div class=\"channel\">
                             <img src=\"./icon/user.png\" alt=\"User Profile\" id=\"channel-img\">
                                 <ul class=\"channel-info\" id=".$channel_name.">
@@ -253,7 +247,6 @@
                             </div>
                             </button>
                             ";
-                            $index += 1;
                         }
                     }
                 }

@@ -24,6 +24,7 @@
             mysqli_stmt_execute($stmt);
             mysqli_stmt_store_result($stmt);
             $stmt->bind_result($genre, $title, $img, $channel_name, $streams, $file, $playlist);
+            $rows = $stmt->num_rows;
             if($stmt->num_rows > 0){
                 echo "
                 <div id=\"podcasts-container\">
@@ -34,31 +35,35 @@
                     ";
                 $count = 0;
                 while($stmt->fetch()){
-                    $count = $count + 1;
-                    if($count != 4 && $count < 7){
+                    $half = round($rows/2);
+                    if($count != $half){
                         echo 
-                        "<div class=\"grid-element\" id=".$file.">
-                            <img src=".str_replace('../', './', $img).">
-                            <h4 id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
-                            <p>".$streams." STREAMS</p>
-                            <h3 id=\"channel-name-search\">".strtoupper($channel_name)."</h3>
-                        </div>";
-                    } else if($count == 4){
-                        echo "</div>
-                        <div id=\"podcast-right-container-search\">
+                        "<button class=\"grid-element-btn\">
                         <div class=\"grid-element\" id=".$file.">
                             <img src=".str_replace('../', './', $img).">
                             <h4 id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
                             <p>".$streams." STREAMS</p>
                             <h3 id=\"channel-name-search\">".strtoupper($channel_name)."</h3>
-                        </div>";
-                    } else if($count > 7){
+                        </div>
+                        </button>";
+                    } else if($count == $half){
+                        echo "</div>
+                        <div id=\"podcast-right-container-search\">
+                        <button class=\"grid-element-btn\">
+                        <div class=\"grid-element\" id=".$file.">
+                            <img src=".str_replace('../', './', $img).">
+                            <h4 id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
+                            <p>".$streams." STREAMS</p>
+                            <h3 id=\"channel-name-search\">".strtoupper($channel_name)."</h3>
+                        </div>
+                        </button>";
+                    } else if($count > $half){
                         echo "</div>";
                     }
+                    $count += 1;
                 }
                 echo "</div>
-                </div>
-                <p id=\"show-more\">SHOW MORE";
+                </div>";
             } else {
                 echo "<div id=\"podcasts-container\">
                     <h4>PODCASTS</h4>
