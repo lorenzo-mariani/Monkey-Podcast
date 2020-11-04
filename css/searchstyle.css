@@ -5,6 +5,7 @@
     font-size: 30px;
     text-align: center;
     padding: 7px 0px;
+    margin-top: 20px;
 }
 
 #users-container{
@@ -23,15 +24,11 @@
     padding-bottom: 7px;
 }
 
-#podcast-left-container-search {
-    width: 50%;
-    margin-left: 20px;
-}
-
-#podcast-right-container-search {
-    width: 50%;
-    margin-left: 20px;
-    margin-right: 20px;
+#podcast-container-search {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 #channel-name-search {
@@ -41,6 +38,11 @@
     font-size: 18px;
     padding: 7px 10px;
     background-color: black;
+}
+
+.grid-element-btn-search {
+    width: 30%;
+    margin: 0px 1%;
 }
 
 .grid-element-users {
