@@ -43,11 +43,13 @@ window.addEventListener('resize', function() {
     displayMore.style.display = 'none';
   }
   if(window.innerWidth <= 700){
+    hideVolume();
     document.getElementById('speaker-icon').addEventListener('mouseover', showVolume);
     document.getElementById('slider').addEventListener('mouseout', hideVolume);
   } else {
     document.getElementById('speaker-icon').removeEventListener('mouseover', showVolume);
     document.getElementById('slider').removeEventListener('mouseout', hideVolume);
+    showVolume();
   }
 });
 
