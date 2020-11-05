@@ -38,14 +38,15 @@ html{
 #title {
     background-color: white;
     color: black;
+    border-bottom: 1px solid black;
 }
 
 #help-content {
-    background-color: #f6f6f6;
+    background-color: #f1f1f1;;
 }
 
 #help-content-container {
-    background-color: #f6f6f6;
+    background-color: #f1f1f1;;
 }
 
 #home-content {
@@ -55,10 +56,12 @@ html{
 #disability {
     background-color: rgb(64 0 0);
     color: whitesmoke;
+    border: 1px solid black;
 }
 
 #disability-subtitle {
     background-color: white;
+    border: 1px solid black;
 }
 
 #buttons-container button {

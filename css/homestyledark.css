@@ -140,15 +140,18 @@ html{
 #title {
     background-color: rgb(21 21 21);
     color: whitesmoke;
+    border-bottom: 1px solid #414141b5;
 }
 
 #disability {
     background-color: rgb(64 0 0);
     color: whitesmoke;
+    border: 1px solid #414141b5;
 }
 
 #disability-subtitle {
     color: whitesmoke;
+    border: 1px solid #414141b5;
 }
 
 #buttons-container button {
