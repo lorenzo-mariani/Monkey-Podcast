@@ -2,6 +2,13 @@
 <?php include 'css/signupstyle.css'; ?>
 </style>
 
+<?php
+    session_start();
+    if(isset($_SESSION['userId'])){
+        header("Location: ./home.php");
+    }
+?>
+
 <main>
     <div id="error-msg" <?php
         if(isset($_GET['error'])){

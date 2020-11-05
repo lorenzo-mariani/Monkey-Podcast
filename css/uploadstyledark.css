@@ -44,3 +44,7 @@ input {
     border: 1px solid whitesmoke;
     color: whitesmoke;
 }
+
+#warning {
+    color: whitesmoke;
+}

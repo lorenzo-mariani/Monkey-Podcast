@@ -59,6 +59,7 @@
                     <input name="audio-file" id="audio-file" type="file" accept="audio/*"/>
                     <label>Image File:</label>
                     <input name="img-file" id="img-file" type="file" accept="image/*"/>
+                    <h4 id="warning">Warning: max upload size 100MB.</h4>
                     <input id="podcast-title" type="text" name="podcast-title" placeholder="Choose the title">
                     <input id="podcast-playlist" type="text" name="podcast-playlist" placeholder="Type playlist name">
                     <select id="genre-menu" name="genre-value">  

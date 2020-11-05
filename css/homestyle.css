@@ -283,12 +283,12 @@ a:hover{
 }
 
 #left-arrow-hist {
-    height: 22px;
+    height: 17px;
     transform: rotate(90deg);
 }
 
 #right-arrow-hist {
-    height: 22px;
+    height: 17px;
     transform: rotate(-90deg);
 }
 
