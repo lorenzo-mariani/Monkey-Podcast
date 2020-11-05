@@ -257,23 +257,38 @@ a:hover{
 
 #history-btns-container {
     display: flex;
+    margin-left: 20px;
+    justify-content: center;
+    align-items: center;
 }
 
 #history-back-btn {
-    margin-left: 15px;
+    padding: 5px 10px;
+    background-color: #2a2a2a;
+    border: 1px solid #555555;
+}
+
+#history-back-btn:hover {
+    background-color: #444444;
 }
 
 #history-forw-btn {
-    margin-left: 15px;
+    padding: 5px 10px;
+    background-color: #2a2a2a;
+    border: 1px solid #555555;
+}
+
+#history-forw-btn:hover {
+    background-color: #444444;
 }
 
 #left-arrow-hist {
-    height: 20px;
+    height: 22px;
     transform: rotate(90deg);
 }
 
 #right-arrow-hist {
-    height: 20px;
+    height: 22px;
     transform: rotate(-90deg);
 }
 

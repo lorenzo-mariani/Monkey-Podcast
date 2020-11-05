@@ -241,7 +241,7 @@ window.onload = function() {
 $("#history-back-btn").click(function() {
   history.back();
   setTimeout(function() {
-      if(history.state.Url.split('?')[1] != undefined){
+      if(history.state.Url.split('?')[1] != undefined && history.state != null){
           if(history.state.Url.split('?')[1] != "login=success"){
             var view = history.state.Url.split('?')[1].split('&')[0];
             var content = history.state.Url.split('?')[1].split('&')[1];
