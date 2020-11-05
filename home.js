@@ -53,6 +53,7 @@ window.addEventListener('resize', function() {
   }
 });
 
+
 profileIcon.onclick = function () {
   if (profileMenu.style.display == "none") {
     profileMenu.style.display = "grid"
@@ -211,6 +212,82 @@ document.getElementById("speech-icon-btn").addEventListener('click', function(){
     searchbar.value = 'Listening...';
     document.getElementById("speech-check").checked = true;
   }
+});
+
+window.onload = function() {
+  if(getCookie('memaudio') != '' && getCookie('memaudio').split('&')[0].substring('audio='.length, getCookie('memaudio').split('&')[0].length)  != 'undefined'){
+    setAudio('memaudio');
+    } 
+    if(getCookie('mode') == 'light'){
+        document.getElementById('checkbox').click();
+    }
+  if(window.location.href.includes("view=")){
+    var string = window.location.href.substring(window.location.href.indexOf("view="), window.location.href.length);
+    var view = string.split('&')[0];
+    var viewValue = view.substring("view=".length, view.length);
+    var content = string.split('&')[1];
+    if(viewValue == "profile"){
+      var profile = content.substring("uid=".length, content.length);
+      getProfileContent(profile);
+    } else if(viewValue == "search"){
+      var search = content.substring("search=".length, content.length);
+      getSearchContent(search);
+    } else if(viewValue == "help"){
+      getHelpContent();
+    }
+  }
+}
+
+$("#history-back-btn").click(function() {
+  history.back();
+  setTimeout(function() {
+      if(history.state.Url.split('?')[1] != undefined){
+          if(history.state.Url.split('?')[1] != "login=success"){
+            var view = history.state.Url.split('?')[1].split('&')[0];
+            var content = history.state.Url.split('?')[1].split('&')[1];
+            var viewValue = view.substring("view=".length, view.length);
+            if(viewValue == "profile"){
+              var profile = content.substring("uid=".length, content.length);
+              getProfileContent(profile);
+            } else if(viewValue == "search"){
+              var search = content.substring("search=".length, content.length);
+              getSearchContent(search);
+            } else if(viewValue == "help"){
+              getHelpContent();
+            }
+          } else {
+            getHomeContent();
+          }
+      } else {
+        if(history.state.Url == "home.php"){
+          getHomeContent();
+        }
+      }
+  }, 100);
+});
+
+$("#history-forw-btn").click(function() {
+  history.forward();
+  setTimeout(function() {
+      if(history.state.Url.split('?')[1] != undefined && history.state != null){
+          var view = history.state.Url.split('?')[1].split('&')[0];
+          var content = history.state.Url.split('?')[1].split('&')[1];
+          var viewValue = view.substring("view=".length, view.length)
+          if(viewValue == "profile"){
+            var profile = content.substring("uid=".length, content.length);
+            getProfileContent(profile);
+          } else if(viewValue == "search"){
+            var search = content.substring("search=".length, content.length);
+            getSearchContent(search);
+          } else if(viewValue == "help"){
+            getHelpContent();
+          }
+      } else {
+        if(history.state.Url == "home.php"){
+          getHomeContent();
+        }
+      }
+  }, 100);
 });
 
 

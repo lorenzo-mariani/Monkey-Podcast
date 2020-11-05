@@ -28,7 +28,9 @@ $(".channel-btn").click(function(){
           $("#profile-content").show();
       }
   });
+  changeUrl("Profile", "home.php?view=profile&uid="+$(this).children().children()[1].id);
   $("#content").attr("class", "profile");
+
 });
 
 $(".podcast-settings-btn").click(function() {

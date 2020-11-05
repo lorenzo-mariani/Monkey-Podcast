@@ -23,15 +23,18 @@
     <link id="profile-style" rel="stylesheet" href="./css/profilestyledark.css" type="text/css">
     <title>Home</title>
 </head>
-<body onload="if(getCookie('memaudio') != '' && getCookie('memaudio').split('&')[0].substring('audio='.length, getCookie('memaudio').split('&')[0].length)  != 'undefined'){
-    setAudio('memaudio');
-    } 
-    if(getCookie('mode') == 'light'){
-        document.getElementById('checkbox').click();
-    }">
+<body>
     <header>
         <div id="header">
             <div id="logo-container">
+                <div id="history-btns-container">
+                    <button id="history-back-btn">
+                        <img src='icon/arrow.png' id='left-arrow-hist' alt='left-history-arrow'>
+                    </button>
+                    <button id="history-forw-btn">
+                        <img src='icon/arrow.png' id='right-arrow-hist' alt='right-history-arrow'>
+                    </button>
+                </div>
                 <button id="logo-btn">
                     <img src='img/logo/MonkeyPodcastLogo_dark.png' id='logo' alt='Monkey Podcast'>
                 </button>

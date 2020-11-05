@@ -1,89 +1,53 @@
 $(document).ready(function(){
     $("#logo-btn").click(function(){
-        $("#profile-content").hide();
-        $("#help-content").hide();
-        $("#podcastmod-content").hide();
-        $("#search-content").hide();
-        $("#home-content").show();
-        $("#content").attr("class", "home");
+        getHomeContent();
+        changeUrl("Home", "home.php");
     });
 
     $(".channel-name-btn").click(function(){
-        $("#home-content").hide();
-        $("#help-content").hide();
-        $("#podcastmod-content").hide();
-        $("#search-content").hide();
         getProfileContent($(this).children()[0].innerHTML.toLowerCase());
-        $("#content").attr("class", "profile");
-        $("#profile-content").show();
+        changeUrl("Profile", "home.php?view=profile&uid="+$(this).children()[0].innerHTML.toLowerCase());
     });
     
     $("#profile-btn").click(function(){
-        $("#home-content").hide();
-        $("#help-content").hide();
-        $("#podcastmod-content").hide();
-        $("#search-content").hide();
         getProfileContent($(this).children()[0].innerHTML.toLowerCase());
-        $("#content").attr("class", "profile");
-        $("#profile-content").show();
+        changeUrl("Profile", "home.php?view=profile&uid="+$(this).children()[0].innerHTML.toLowerCase());
     });
 
     $("#help-btn").click(function(){
-        $("#home-content").hide();
-        $("#podcastmod-content").hide();
-        $("#search-content").hide();
-        $("#profile-content").hide();
         getHelpContent($(this).children()[0].innerHTML.toLowerCase());
-        $("#content").attr("class", "help");
-        $("#help-content").show();
+        changeUrl("Help", "home.php?view=help");
     });
 
-    $("#podcast-channel").click(function() {
-        $("#search-content").hide();
-        $("#help-content").hide();
-        $("#podcastmod-content").hide();
-        $("#home-content").hide();
-        getProfileContent($(this).text().toLowerCase());
-        $("#content").attr("class", "profile");
-        $("#profile-content").show();
+    $("#podcast-channel-btn-player").click(function() {
+        getProfileContent($(this)[0].children[0].innerHTML.toLowerCase());
+        changeUrl("Profile", "home.php?view=profile&uid="+$(this)[0].children[0].innerHTML.toLowerCase());
     });
 
     $("#search-icon-btn").click(function() {
         if($("#search-bar").val() != ""){
-            $("#search-content").html("");
-            $("#help-content").hide();
-            $("#podcastmod-content").hide();
-            $("#home-content").hide();
-            $("#profile-content").hide();
+            changeUrl("Search", "home.php?view=search&search="+$("#search-bar").val());
             getSearchContent($("#search-bar").val());
-            $("#content").attr("class", "search");
-            $("#search-content").show();
-            $("#search-bar").val("");
         }
     });
 
     $(".grid-element-users-btn").click(function() {
-        $("#search-content").hide();
-        $("#help-content").hide();
-        $("#podcastmod-content").hide();
-        $("#home-content").hide();
         getProfileContent($(this).children().children()[1].innerHTML.toLowerCase());
-        $("#content").attr("class", "profile");
-        $("#profile-content").show();
+        changeUrl("Profile", "home.php?view=profile&uid="+$(this).children().children()[1].innerHTML.toLowerCase());
     });
 
     $(".show-more-btn").click(function() {
-        $("#search-content").hide();
-        $("#help-content").hide();
-        $("#podcastmod-content").hide();
-        $("#home-content").hide();
         getProfileContent($(this).children()[0].getAttribute("id"));
-        $("#content").attr("class", "profile");
-        $("#profile-content").show();
+        changeUrl("Profile", "home.php?view=profile&uid="+$(this).children()[0].getAttribute("id"));
     });
 });
 
 function getProfileContent(name) {
+    $("#home-content").hide();
+    $("#help-content").hide();
+    $("#podcastmod-content").hide();
+    $("#search-content").hide();
+    $("#content").attr("class", "profile");
     $.ajax({
         url : "./content/users/"+name+"/"+name+".php",
         dataType: "html",
@@ -91,9 +55,16 @@ function getProfileContent(name) {
             $("#profile-content").html(data);
         }
     });
+    $("#profile-content").show();
 }
 
 function getSearchContent(string){
+    $("#search-content").html("");
+    $("#help-content").hide();
+    $("#podcastmod-content").hide();
+    $("#home-content").hide();
+    $("#profile-content").hide();
+    $("#content").attr("class", "search");
     $.ajax({
         url : "./includes/search.inc.php?search="+string,
         dataType: "html",
@@ -101,9 +72,25 @@ function getSearchContent(string){
             $("#search-content").html(data);
         }
     });
+    $("#search-content").show();
+    $("#search-bar").val("");
+}
+
+function getHomeContent(){
+    $("#profile-content").hide();
+    $("#help-content").hide();
+    $("#podcastmod-content").hide();
+    $("#search-content").hide();
+    $("#home-content").show();
+    $("#content").attr("class", "home");
 }
 
 function getHelpContent(){
+    $("#home-content").hide();
+    $("#podcastmod-content").hide();
+    $("#search-content").hide();
+    $("#profile-content").hide();
+    $("#content").attr("class", "help");
     $.post("./help.php",
     {
         req : "help"
@@ -111,4 +98,14 @@ function getHelpContent(){
     function (data) {
         $("#help-content").html(data);
     });
+    $("#help-content").show();
+}
+
+function changeUrl(title, url) {
+    if (typeof (history.pushState) != "undefined") {
+        var obj = { Title: title, Url: url };
+        history.pushState(obj, obj.Title, obj.Url);
+    } else {
+        alert("Browser does not support HTML5.");
+    }
 }

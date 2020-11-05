@@ -25,6 +25,26 @@ if(isset($_POST["channel-img-submit"])) {
         $checkImg = 0;
     }
 
+    $query_retrieve = "SELECT channelImg FROM channels WHERE channelName = ?";
+    $stmt_retrieve = mysqli_stmt_init($conn);
+    if(!mysqli_stmt_prepare($stmt_retrieve, $query_retrieve)){
+        header("Location: ../home.php?error=sqlerror");
+        exit();
+    } else {
+        mysqli_stmt_bind_param($stmt_retrieve, "s", $_SESSION['userUid']);
+        mysqli_stmt_execute($stmt_retrieve);
+        $stmt_retrieve->bind_result($old_img);
+        while($stmt_retrieve->fetch()){
+            if($old_img == NULL){
+                echo "There was no image on this channel";
+            } else {
+                echo "There was an image on this channel, deliting it";
+                unlink(str_replace("./", $_SERVER['DOCUMENT_ROOT'].'/', $old_img));
+            }
+        }
+        mysqli_stmt_close($stmt_retrieve);
+    }
+
     if($checkImg == 1 || $checkImg == 2){
         if(!file_exists($_SERVER['DOCUMENT_ROOT'] . str_replace("./", "/", $target_dir))){
             mkdir($_SERVER['DOCUMENT_ROOT'] . str_replace("./", "/", $target_dir));

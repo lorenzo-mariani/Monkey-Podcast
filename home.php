@@ -2,8 +2,6 @@
     require "./header.php";
 ?>
 
-
-
 <div id="content" <?php
     if(isset($_GET['view'])) {
         if($_GET['view'] == "home"){
@@ -74,7 +72,7 @@
                             echo
                             "<div id=\"channel-name-container\" style=\"background: url('".$channel_img."') no-repeat center; background-size:cover\">
                                 <button class=\"channel-name-btn\">
-                                <h1 class=\"channel-name\">".strtoupper($channel_name)."</h1>
+                                    <h1 class=\"channel-name\">".strtoupper($channel_name)."</h1>
                                 </button>
                             </div>
                             <div class=\"channel-content\">";
@@ -97,7 +95,7 @@
                             echo
                             "<button class=\"grid-element-btn\" id=\"".$playlist."\">
                             <div class=\"grid-element\"  id=".$podcast_file.">
-                                <img src=".$podcast_img.">
+                                <img src=".$podcast_img." alt=\"podcast-image\">
                                 <h4 id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
                                 <p>".$streams." STREAMS</p>
                             </div>

@@ -51,9 +51,13 @@
             <input id="podcast-playlist-settings" type="text" name="podcast-playlist-mod" placeholder="Type playlist name">
             <select id="genre-menu-settings" name="genre-value-mod">  
                 <option value="Select Genre">Select genre</option>
-                <option value="Rock">Rock</option>  
-                <option value="Pop">Pop</option>  
-                <option value="Metal">Metal</option>
+                <option value="Cinema">Cinema</option>  
+                <option value="Culture">Culture</option>
+                <option value="Entertainment">Entertainment</option>   
+                <option value="Fashion">Fashion</option>
+                <option value="Music">Music</option>
+                <option value="Sport">Sport</option>
+                <option value="Technology">Technology</option>
             </select>
             <button id="upload-submit-settings" type="submit" name="upload-submit">Sumbit</button>
         </form>

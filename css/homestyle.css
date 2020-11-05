@@ -255,6 +255,28 @@ a:hover{
     z-index: 999;
 }
 
+#history-btns-container {
+    display: flex;
+}
+
+#history-back-btn {
+    margin-left: 15px;
+}
+
+#history-forw-btn {
+    margin-left: 15px;
+}
+
+#left-arrow-hist {
+    height: 20px;
+    transform: rotate(90deg);
+}
+
+#right-arrow-hist {
+    height: 20px;
+    transform: rotate(-90deg);
+}
+
 #logo-container,
 #search-container,
 #icons-container {

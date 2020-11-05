@@ -7,7 +7,9 @@
         <img id="thumbnail" src="./img/logo/MonkeyPodcastLogo_vertical.png">
         <div id="details-container">
             <h3 id="podcast-name"></h3>
-            <h4 id="podcast-channel"></h4>
+            <button id="podcast-channel-btn-player">
+                <h4 id="podcast-channel"></h4>
+            </button>
             <h4 id="podcast-playlist-player"></h4>
         </div>
     </div>
