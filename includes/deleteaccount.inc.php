@@ -5,10 +5,12 @@
     session_start();
 
     if(isset($_POST['account-delete-submit']) && $_SESSION['userUid'] == $_POST['account-delete-submit']){
+        
         $query_users = "DELETE FROM users WHERE uidUsers = ?";
         $query_podcasts = "DELETE FROM podcasts WHERE userUID = ?";
         $query_channels = "DELETE FROM channels WHERE channelName = ?";
-        $query_subscriptions = "DELETE FROM subscriptions WHERE subUid = ?";
+        $query_subscribed= "DELETE FROM subscriptions WHERE subUid = ?";
+        $query_subscriptions = "DELETE FROM subscriptions WHERE cannelName = ?";
         $stmt_users = mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt_users, $query_users)){
             header("Location: ../home.php?error=sqlerror");
@@ -41,40 +43,49 @@
                         mysqli_stmt_bind_param($stmt_subscriptions, "s", $_SESSION['userUid']);
                         mysqli_stmt_execute($stmt_subscriptions);
                         mysqli_stmt_close($stmt_subscriptions);
-                        $podcasts_dir = $_SERVER['DOCUMENT_ROOT'] . "/content/users/".$_SESSION['userUid']."/"."podcasts/";
-                        $chimg_dir = $_SERVER['DOCUMENT_ROOT'] . "/content/users/".$_SESSION['userUid']."/"."channel-img/";
-                        $basedir = $_SERVER['DOCUMENT_ROOT'] . "/content/users/".$_SESSION['userUid']."/";
+                        $stmt_subscribed = mysqli_stmt_init($conn);
+                        if(!mysqli_stmt_prepare($stmt_subscribed, $query_subscribed)){
+                            header("Location: ../home.php?error=sqlerror");
+                            exit();
+                        } else {
+                            mysqli_stmt_bind_param($stmt_subscribed, "s", $_SESSION['userUid']);
+                            mysqli_stmt_execute($stmt_subscribed);
+                            mysqli_stmt_close($stmt_subscribed);
+                            $podcasts_dir = $_SERVER['DOCUMENT_ROOT'] . "/content/users/".$_SESSION['userUid']."/"."podcasts/";
+                            $chimg_dir = $_SERVER['DOCUMENT_ROOT'] . "/content/users/".$_SESSION['userUid']."/"."channel-img/";
+                            $basedir = $_SERVER['DOCUMENT_ROOT'] . "/content/users/".$_SESSION['userUid']."/";
 
-                        $podcasts_subdirs = glob($podcasts_dir."*");
-                        foreach($podcasts_subdirs as $subdir){
-                            $files = glob($subdir."/"."*");
-                            foreach($files as $file){
+                            $podcasts_subdirs = glob($podcasts_dir."*");
+                            foreach($podcasts_subdirs as $subdir){
+                                $files = glob($subdir."/"."*");
+                                foreach($files as $file){
+                                    if(is_file($file)){
+                                        unlink($file);
+                                    }
+                                }
+                                rmdir($subdir);
+                            }
+                            rmdir($podcasts_dir);
+
+                            if(is_dir($chimg_dir)){
+                                $chimg_files = glob($chimg_dir."*");
+                                foreach($chimg_files as $file){
+                                    if(is_file($file)){
+                                        unlink($file);
+                                    }
+                                }
+                                rmdir($chimg_dir);
+                            }
+
+                            $basedir_files = glob($basedir."*");
+                            foreach($basedir_files as $file){
                                 if(is_file($file)){
                                     unlink($file);
                                 }
                             }
-                            rmdir($subdir);
+                            rmdir($basedir);
+                            mysqli_close($conn);
                         }
-                        rmdir($podcasts_dir);
-
-                        if(is_dir($chimg_dir)){
-                            $chimg_files = glob($chimg_dir."*");
-                            foreach($chimg_files as $file){
-                                if(is_file($file)){
-                                    unlink($file);
-                                }
-                            }
-                            rmdir($chimg_dir);
-                        }
-
-                        $basedir_files = glob($basedir."*");
-                        foreach($basedir_files as $file){
-                            if(is_file($file)){
-                                unlink($file);
-                            }
-                        }
-                        rmdir($basedir);
-                        mysqli_close($conn);
                     }
                 }
             }
