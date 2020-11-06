@@ -93,10 +93,10 @@
                         }
                         if($count < 3){
                             echo
-                            "<button class=\"grid-element-btn\" id=\"".$playlist."\">
-                            <div class=\"grid-element\"  id=".$podcast_file.">
+                            "<button class=\"grid-element-btn\" title=\"".$playlist."\">
+                            <div class=\"grid-element\"  title=".$podcast_file.">
                                 <img src=".$podcast_img." alt=\"podcast-image\">
-                                <h4 id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
+                                <h4 title=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
                                 <p>".$streams." STREAMS</p>
                             </div>
                             </button>";

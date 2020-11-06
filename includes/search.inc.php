@@ -83,9 +83,9 @@
                     while($stmt_podcasts->fetch()){
                         echo 
                         "<button class=\"grid-element-btn-search\">
-                        <div class=\"grid-element\" id=".$file.">
+                        <div class=\"grid-element\" title=".$file.">
                             <img src=".str_replace('../', './', $img).">
-                            <h4 id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
+                            <h4 title=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
                             <p>".$streams." STREAMS</p>
                             <h3 id=\"channel-name-search\">".strtoupper($channel_name)."</h3>
                             <h3 id=\"playlist-search\">".strtoupper(str_replace('_', ' ', $playlist))."</h3>

@@ -182,12 +182,12 @@
                         }
                         echo
                         "<div class=\"grid-element-profile\">
-                            <button class=\"podcast-thumbnail-btn\" id=\"".$playlist."\">
-                                <img id=".$podcast_file." class=\"podcast-thumbnail\" src=".$podcast_img.">
+                            <button class=\"podcast-thumbnail-btn\" title=\"".$playlist."\">
+                                <img title=".$podcast_file." class=\"podcast-thumbnail\" src=".$podcast_img.">
                             </button>
                             <div id=\"pod-info-container\">";
-                                echo "<button class=\"podcast-title-btn\" id=\"".$playlist."\">
-                                    <h4 class=\"podcast-title\" id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
+                                echo "<button class=\"podcast-title-btn\" title=\"".$playlist."\">
+                                    <h4 class=\"podcast-title\" title=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
                                 </button>
                                 <p>".$streams." STREAMS</p>";
                                 if($_SESSION['userUid'] == $_SESSION['channelName']){
@@ -239,7 +239,7 @@
                             <button class=\"channel-btn\">
                             <div class=\"channel\">
                             <img src=\"./icon/user.png\" alt=\"User Profile\" id=\"channel-img\">
-                                <ul class=\"channel-info\" id=".$channel_name.">
+                                <ul class=\"channel-info\" title=".$channel_name.">
                                     <li id=\"name\">".strtoupper($channel_name)."</li>
                                     <li id=\"channel-subs\">".$subs." SUBS</li>
                                 </ul>

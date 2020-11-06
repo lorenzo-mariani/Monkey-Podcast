@@ -21,14 +21,14 @@ document.getElementById('home-btn').addEventListener('click', function() {
 $(".channel-btn").click(function(){
   $("#home-content").hide();
   $.ajax({
-      url : "./content/users/"+$(this).children().children()[1].id+"/"+$(this).children().children()[1].id+".php",
+      url : "./content/users/"+$(this).children().children()[1].title+"/"+$(this).children().children()[1].title+".php",
       dataType: "html",
       success : function (data) {
           $("#profile-content").html(data);
           $("#profile-content").show();
       }
   });
-  changeUrl("Profile", "home.php?view=profile&uid="+$(this).children().children()[1].id);
+  changeUrl("Profile", "home.php?view=profile&uid="+$(this).children().children()[1].title);
   $("#content").attr("class", "profile");
 
 });
@@ -49,23 +49,23 @@ $(".podcast-settings-btn").click(function() {
 });
 
 $(".podcast-thumbnail-btn").click(function(){
-  $("#audio").attr("src", $(this).children()[0].getAttribute("id"));
+  $("#audio").attr("src", $(this).children()[0].getAttribute("title"));
   $("#thumbnail").attr("src", $(this).children()[0].getAttribute("src"));
   $("#podcast-name").html($(this).parent().find("h4").html());
-  $("#podcast-channel").html($(this).parent().find("h4").attr("id").toUpperCase());
-  $("#podcast-playlist-player").html($(this)[0].id.replace(/_/g, " ").toUpperCase());
+  $("#podcast-channel").html($(this).parent().find("h4").attr("title").toUpperCase());
+  $("#podcast-playlist-player").html($(this)[0].title.replace(/_/g, " ").toUpperCase());
   $( "#play-icon-btn" ).trigger( "click" );
-  updatePodcastStreams($(this).parent().find("h4").html().toLowerCase().replace(/ /g , "_"), $(this).parent().find("h4").attr("id"));
-  setCookie("memaudio","audio="+$(this).children()[0].getAttribute("id")+"&timestamp="+00+"&img="+ $(this).children()[0].getAttribute("src")+"&name="+$(this).parent().find("h4").html().toLowerCase().replace(/ /g , "_")+"&channel="+$(this).parent().find("h4").attr("id").toLowerCase()+"&playlist="+$(this)[0].id, 2);
+  updatePodcastStreams($(this).parent().find("h4").html().toLowerCase().replace(/ /g , "_"), $(this).parent().find("h4").attr("title"));
+  setCookie("memaudio","audio="+$(this).children()[0].getAttribute("title")+"&timestamp="+00+"&img="+ $(this).children()[0].getAttribute("src")+"&name="+$(this).parent().find("h4").html().toLowerCase().replace(/ /g , "_")+"&channel="+$(this).parent().find("h4").attr("title").toLowerCase()+"&playlist="+$(this)[0].title, 2);
 });
 
 $(".podcast-title-btn").click(function(){
-  $("#audio").attr("src", $(this).parent().parent().children()[0].children[0].id);
+  $("#audio").attr("src", $(this).parent().parent().children()[0].children[0].title);
   $("#thumbnail").attr("src", $(this).parent().parent().children()[0].children[0].src);
   $("#podcast-name").html($(this).children()[0].innerHTML);
-  $("#podcast-channel").html($(this).children()[0].getAttribute("id").toUpperCase());
-  $("#podcast-playlist-player").html($(this)[0].id.replace(/_/g, " ").toUpperCase());
+  $("#podcast-channel").html($(this).children()[0].getAttribute("title").toUpperCase());
+  $("#podcast-playlist-player").html($(this)[0].title.replace(/_/g, " ").toUpperCase());
   $( "#play-icon-btn" ).trigger( "click" );
-  updatePodcastStreams($(this).children()[0].innerHTML.toLowerCase().replace(/ /g , "_"), $(this).children()[0].getAttribute("id"));
-  setCookie("memaudio","audio="+$(this).parent().parent().children()[0].children[0].id+"&timestamp="+00+"&img="+ $(this).parent().parent().children()[0].children[0].src+"&name="+$(this).children()[0].innerHTML.toLowerCase().replace(/ /g , "_")+"&channel="+$(this).children()[0].getAttribute("id").toLowerCase()+"&playlist="+$(this)[0].id, 2);
+  updatePodcastStreams($(this).children()[0].innerHTML.toLowerCase().replace(/ /g , "_"), $(this).children()[0].getAttribute("title"));
+  setCookie("memaudio","audio="+$(this).parent().parent().children()[0].children[0].title+"&timestamp="+00+"&img="+ $(this).parent().parent().children()[0].children[0].src+"&name="+$(this).children()[0].innerHTML.toLowerCase().replace(/ /g , "_")+"&channel="+$(this).children()[0].getAttribute("title").toLowerCase()+"&playlist="+$(this)[0].title, 2);
 });

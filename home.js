@@ -54,13 +54,13 @@ window.addEventListener('resize', function() {
 });
 
 
-profileIcon.onclick = function () {
+$("#profile-icon-btn").click(function () {
   if (profileMenu.style.display == "none") {
     profileMenu.style.display = "grid"
   } else {
     profileMenu.style.display = "none";
   }
-};
+});
 
 profileButton.onclick = function () {
   profileMenu.style.display = "none";
@@ -241,7 +241,7 @@ window.onload = function() {
 $("#history-back-btn").click(function() {
   history.back();
   setTimeout(function() {
-      if(history.state.Url.split('?')[1] != undefined && history.state != null){
+      if(window.location.href.includes("view=")){
           if(history.state.Url.split('?')[1] != "login=success"){
             var view = history.state.Url.split('?')[1].split('&')[0];
             var content = history.state.Url.split('?')[1].split('&')[1];
@@ -259,7 +259,9 @@ $("#history-back-btn").click(function() {
             getHomeContent();
           }
       } else {
-        if(history.state.Url == "home.php"){
+        if(history.state == null){
+          getHomeContent();
+        } else if(history.state.Url == "home.php"){
           getHomeContent();
         }
       }
@@ -269,7 +271,7 @@ $("#history-back-btn").click(function() {
 $("#history-forw-btn").click(function() {
   history.forward();
   setTimeout(function() {
-      if(history.state.Url.split('?')[1] != undefined && history.state != null){
+      if(window.location.href.includes("view=")){
           var view = history.state.Url.split('?')[1].split('&')[0];
           var content = history.state.Url.split('?')[1].split('&')[1];
           var viewValue = view.substring("view=".length, view.length)
@@ -283,7 +285,7 @@ $("#history-forw-btn").click(function() {
             getHelpContent();
           }
       } else {
-        if(history.state.Url == "home.php"){
+        if(history.state.Url == "home.php" || history.state.Url == null){
           getHomeContent();
         }
       }
