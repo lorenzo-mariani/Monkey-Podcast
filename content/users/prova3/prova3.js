@@ -69,3 +69,19 @@ $(".podcast-title-btn").click(function(){
   updatePodcastStreams($(this).children()[0].innerHTML.toLowerCase().replace(/ /g , "_"), $(this).children()[0].getAttribute("title"));
   setCookie("memaudio","audio="+$(this).parent().parent().children()[0].children[0].title+"&timestamp="+00+"&img="+ $(this).parent().parent().children()[0].children[0].src+"&name="+$(this).children()[0].innerHTML.toLowerCase().replace(/ /g , "_")+"&channel="+$(this).children()[0].getAttribute("title").toLowerCase()+"&playlist="+$(this)[0].title, 2);
 });
+
+$("#unsubscribe-button").click(function() {
+  setCookie("memaudio","audio="+$("#audio").attr("src")+"&timestamp="+getCurrentTime()+"&img="+$("#thumbnail").attr("src")+"&name="+$("#details-container").children()[0].innerHTML.toLowerCase().replace(/ /g , "_")+"&channel="+$("#details-container").children()[1].children[0].innerHTML.toLowerCase()+"&playlist="+$("#podcast-playlist-player")[0].innerHTML.toLowerCase().replace(/ /g, "_"), 2);     
+});
+
+$("#subscribe-button").click(function() {
+  setCookie("memaudio","audio="+$("#audio").attr("src")+"&timestamp="+getCurrentTime()+"&img="+$("#thumbnail").attr("src")+"&name="+$("#details-container").children()[0].innerHTML.toLowerCase().replace(/ /g , "_")+"&channel="+$("#details-container").children()[1].children[0].innerHTML.toLowerCase()+"&playlist="+$("#podcast-playlist-player")[0].innerHTML.toLowerCase().replace(/ /g, "_"), 2);
+});
+
+$("#upload-img-btn").click(function() {
+  setCookie("memaudio","audio="+$("#audio").attr("src")+"&timestamp="+getCurrentTime()+"&img="+$("#thumbnail").attr("src")+"&name="+$("#details-container").children()[0].innerHTML.toLowerCase().replace(/ /g , "_")+"&channel="+$("#details-container").children()[1].children[0].innerHTML.toLowerCase()+"&playlist="+$("#podcast-playlist-player")[0].innerHTML.toLowerCase().replace(/ /g, "_"), 2);
+});
+
+$("#upload-submit-settings").click(function() {
+  setCookie("memaudio","audio="+$("#audio").attr("src")+"&timestamp="+getCurrentTime()+"&img="+$("#thumbnail").attr("src")+"&name="+$("#details-container").children()[0].innerHTML.toLowerCase().replace(/ /g , "_")+"&channel="+$("#details-container").children()[1].children[0].innerHTML.toLowerCase()+"&playlist="+$("#podcast-playlist-player")[0].innerHTML.toLowerCase().replace(/ /g, "_"), 2);
+});
