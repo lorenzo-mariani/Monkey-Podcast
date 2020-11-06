@@ -6,12 +6,12 @@
 
     if(isset($_POST['account-delete-submit']) && $_SESSION['userUid'] == $_POST['account-delete-submit']){
         $query_sub_delete = "UPDATE users
-        SET subs = subs + 1
+        SET subs = subs - 1
         WHERE
-        uidUsers = (SELECT uidUsers as uid FROM (SELECT channelName FROM subscriptions WHERE subUid = ?) as t1
-                INNER JOIN
-                users
-                ON t1.channelName = users.uidUsers)";
+        users.uidUsers IN (SELECT uidUsers FROM ((SELECT channelName FROM subscriptions WHERE subUid = ?) as t1
+                        INNER JOIN
+                        users
+                        ON t1.channelName = users.uidUsers))";
         $query_users = "DELETE FROM users WHERE uidUsers = ?";
         $query_podcasts = "DELETE FROM podcasts WHERE userUID = ?";
         $query_channels = "DELETE FROM channels WHERE channelName = ?";
