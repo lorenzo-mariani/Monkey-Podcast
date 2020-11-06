@@ -111,8 +111,8 @@ slider.oninput = function() {
 
 $("#next-icon-btn").click(function() {
     var btn = "next";
-    var podcast_title = $(this).parents()[3].children[0].children[1].children[0].innerHTML.replace(/ /g, "_").toLowerCase();
-    var podcast_channel = $(this).parents()[3].children[0].children[1].children[1].children[0].innerHTML.replace(/ /g, "_").toLowerCase();
+    var podcast_title = $("#podcast-name")[0].innerHTML.replace(/ /g, "_").toLowerCase();
+    var podcast_channel = $("#podcast-channel")[0].innerHTML.replace(/ /g, "_").toLowerCase();
     $.ajax({
       url : "./includes/retrievepodcast.inc.php?title="+podcast_title+"&button="+btn+"&channel="+podcast_channel,
       dataType: "html",
@@ -134,8 +134,8 @@ $("#next-icon-btn").click(function() {
 
   $("#previous-icon-btn").click(function() {
     var btn = "previous";
-    var podcast_title = $(this).parents()[3].children[0].children[1].children[0].innerHTML.replace(/ /g, "_").toLowerCase();
-    var podcast_channel = $(this).parents()[3].children[0].children[1].children[1].children[0].innerHTML.replace(/ /g, "_").toLowerCase();
+    var podcast_title = $("#podcast-name")[0].innerHTML.replace(/ /g, "_").toLowerCase();
+    var podcast_channel = $("#podcast-channel")[0].innerHTML.replace(/ /g, "_").toLowerCase();
     $.ajax({
       url : "./includes/retrievepodcast.inc.php?title="+podcast_title+"&button="+btn+"&channel="+podcast_channel,
       dataType: "html",

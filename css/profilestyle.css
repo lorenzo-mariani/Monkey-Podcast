@@ -388,6 +388,24 @@ button:hover {
     border: none;
 }
 
+.account-delete-btn {
+    margin-left: 40px;
+}
+
+.delete-account {
+    height: 30px;
+}
+
+#delete-account-text {
+    font-family: 'caviar_dreamsbold';
+    color: whitesmoke;
+    background-color: #530000;
+    padding: 5px 10px;
+    margin-left: 5px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
 #pod-info-container img {
     height: 30px;
     width: 30px;

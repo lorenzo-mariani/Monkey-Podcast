@@ -264,22 +264,11 @@ a:hover{
 
 #history-back-btn {
     padding: 5px 10px;
-    background-color: #2a2a2a;
-    border: 1px solid #555555;
-}
-
-#history-back-btn:hover {
-    background-color: #444444;
 }
 
 #history-forw-btn {
     padding: 5px 10px;
-    background-color: #2a2a2a;
-    border: 1px solid #555555;
-}
-
-#history-forw-btn:hover {
-    background-color: #444444;
+    margin-left: 5px;
 }
 
 #left-arrow-hist {

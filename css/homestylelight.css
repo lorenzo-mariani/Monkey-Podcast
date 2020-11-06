@@ -66,6 +66,7 @@ html{
 
 #buttons-container button {
     background-color: white;
+    border: 2px solid black;
 }
 
 #header {
@@ -106,6 +107,24 @@ html{
     color: black;
 }
 
+#history-back-btn {
+    background-color: #747474d4;
+    border: 1px solid #555555;
+}
+
+#history-back-btn:hover {
+    background-color: #444444;
+}
+
+#history-forw-btn {
+    background-color: #747474d4;
+    border: 1px solid #555555;
+}
+
+#history-forw-btn:hover {
+    background-color: #444444;
+}
+
 #channel-content {
     background-color: #dfdfdf;
 }
@@ -130,7 +149,7 @@ html{
 
 #playlist-home {
     color: white;
-    background-color: rgb(64, 0, 0);
+    background-color: rgb(48 48 48);
 }
 
 .grid-element {

@@ -2,25 +2,31 @@ var audio = document.getElementById('audio');
 
 $(document).ready(function(){
     $(".grid-element-btn").click(function(){
-      $("#audio").attr("src", $(this).children()[0].getAttribute("title"));
-      $("#thumbnail").attr("src", $(this).children()[0].children[0].getAttribute('src'));
-      $("#podcast-name").html($(this).children()[0].children[1].innerHTML);
-      $("#podcast-channel").html($(this).children()[0].children[1].getAttribute("title").toUpperCase());
-      $("#podcast-playlist-player").html($(this)[0].title.replace(/_/g, " ").toUpperCase());
+      $("#audio").attr("src", $(this)[0].dataset.file);
+      $("#thumbnail").attr("src", $(this)[0].dataset.img);
+      $("#podcast-name").html($(this)[0].dataset.title.replace(/_/g, " ").toUpperCase());
+      $("#podcast-name").attr("title", $(this)[0].dataset.title.replace(/_/g, " "));
+      $("#podcast-channel").html($(this)[0].dataset.chname.toUpperCase());
+      $("#podcast-channel").attr("title", $(this)[0].dataset.chname.replace(/_/g, " "));
+      $("#podcast-playlist-player").html($(this)[0].dataset.playlist.replace(/_/g, " ").toUpperCase());
+      $("#podcast-playlist-player").attr("title", $(this)[0].dataset.playlist.replace(/_/g, " "));
       $( "#play-icon-btn" ).trigger( "click" );
-      updatePodcastStreams($(this).children()[0].children[1].innerHTML.toLowerCase().replace(/ /g , "_"), $(this).children()[0].children[1].getAttribute("title"));
-      setCookie("memaudio","audio="+$(this).children()[0].getAttribute("title")+"&timestamp="+00+"&img="+$(this).children()[0].children[0].getAttribute('src')+"&name="+$(this).children()[0].children[1].innerHTML.toLowerCase().replace(/ /g , "_")+"&channel="+$(this).children()[0].children[1].getAttribute("title").toLowerCase()+"&playlist="+$(this)[0].title, 2);
+      updatePodcastStreams($(this)[0].dataset.title, $(this)[0].dataset.chname);
+      setCookie("memaudio","audio="+$(this)[0].dataset.file+"&timestamp="+00+"&img="+$(this)[0].dataset.img+"&name="+$(this)[0].dataset.title+"&channel="+$(this)[0].dataset.chname.toLowerCase()+"&playlist="+$(this)[0].dataset.playlist, 2);
     });
 
     $(".grid-element-btn-search").click(function(){
-      $("#audio").attr("src", $(this).children()[0].getAttribute("title"));
-      $("#thumbnail").attr("src", $(this).children()[0].children[0].getAttribute('src'));
-      $("#podcast-name").html($(this).children()[0].children[1].innerHTML);
-      $("#podcast-channel").html($(this).children()[0].children[1].getAttribute("title").toUpperCase());
-      $("#podcast-playlist-player").html($(this)[0].children[0].children[4].innerHTML)
+      $("#audio").attr("src", $(this)[0].dataset.file);
+      $("#thumbnail").attr("src", $(this)[0].dataset.img);
+      $("#podcast-name").html($(this)[0].dataset.title.replace(/_/g, " ").toUpperCase());
+      $("#podcast-name").attr("title", $(this)[0].dataset.title.replace(/_/g, " "));
+      $("#podcast-channel").html($(this)[0].dataset.chname.toUpperCase());
+      $("#podcast-channel").attr("title", $(this)[0].dataset.chname.replace(/_/g, " "));
+      $("#podcast-playlist-player").html($(this)[0].dataset.playlist.replace(/_/g, " ").toUpperCase());
+      $("#podcast-playlist-player").attr("title", $(this)[0].dataset.playlist.replace(/_/g, " "));
       $( "#play-icon-btn" ).trigger( "click" );
-      updatePodcastStreams($(this).children()[0].children[1].innerHTML.toLowerCase().replace(/ /g , "_"), $(this).children()[0].children[1].getAttribute("title"));
-      setCookie("memaudio","audio="+$(this).children()[0].getAttribute("title")+"&timestamp="+00+"&img="+$(this).children()[0].children[0].getAttribute('src')+"&name="+$(this).children()[0].children[1].innerHTML.toLowerCase().replace(/ /g , "_")+"&channel="+$(this).children()[0].children[1].getAttribute("title").toLowerCase()+"&playlist="+$(this)[0].children[0].children[4].innerHTML.replace(/ /g, "_").toLowerCase(), 2);
+      updatePodcastStreams($(this)[0].dataset.title, $(this)[0].dataset.chname);
+      setCookie("memaudio","audio="+$(this)[0].dataset.file+"&timestamp="+00+"&img="+$(this)[0].dataset.img+"&name="+$(this)[0].dataset.title+"&channel="+$(this)[0].dataset.chname.toLowerCase()+"&playlist="+$(this)[0].dataset.playlist, 2);
     });
 
     $("#upload-icon-btn").click(function() {

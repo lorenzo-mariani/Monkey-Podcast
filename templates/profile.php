@@ -80,6 +80,16 @@
                         ?>
                         SUBS
                     </h4>
+                    <?php
+                        if($_SESSION['userUid'] == basename(__FILE__, '.php')){
+                            echo "<form action=\"./includes/deleteaccount.inc.php\" method=\"post\" onsubmit=\"return confirm('Are you shure you want to delete your account?\nWARNING: THIS OPERATION IS IRREVERSIBLE');\">
+                                    <button class=\"account-delete-btn\" type=\"submit\" name=\"account-delete-submit\" value=\"".$_SESSION['userUid']."\">
+                                        <img class=\"delete-account\" src=\"./icon/trash.png\" alt=\"delete-account\">
+                                    </button>
+                                </form>
+                                <h4 id=\"delete-account-text\">DELETE ACCOUNT</h4>";
+                        }
+                    ?>
             </div>
             <div id="subscribe-container">
                     <?php
@@ -182,12 +192,12 @@
                         }
                         echo
                         "<div class=\"grid-element-profile\">
-                            <button class=\"podcast-thumbnail-btn\" title=\"".$playlist."\">
-                                <img title=".$podcast_file." class=\"podcast-thumbnail\" src=".$podcast_img.">
+                            <button class=\"podcast-thumbnail-btn\" data-file=\"".$podcast_file."\" data-chname=\"".$channel_name."\" data-playlist=\"".$playlist."\" data-img=\"".$podcast_img."\" data-title=\"".$title."\">
+                                <img class=\"podcast-thumbnail\" src=".$podcast_img.">
                             </button>
                             <div id=\"pod-info-container\">";
-                                echo "<button class=\"podcast-title-btn\" title=\"".$playlist."\">
-                                    <h4 class=\"podcast-title\" title=".$channel_name.">".strtoupper(str_replace('_', ' ', $title))."</h4>
+                                echo "<button class=\"podcast-title-btn\" data-file=\"".$podcast_file."\" data-chname=\"".$channel_name."\" data-playlist=\"".$playlist."\" data-img=\"".$podcast_img."\" data-title=\"".$title."\">
+                                    <h4 class=\"podcast-title\" title=\"".ucwords(str_replace('_', ' ', $title))."\">".strtoupper(str_replace('_', ' ', $title))."</h4>
                                 </button>
                                 <p>".$streams." STREAMS</p>";
                                 if($_SESSION['userUid'] == $_SESSION['channelName']){
@@ -239,8 +249,8 @@
                             <button class=\"channel-btn\">
                             <div class=\"channel\">
                             <img src=\"./icon/user.png\" alt=\"User Profile\" id=\"channel-img\">
-                                <ul class=\"channel-info\" title=".$channel_name.">
-                                    <li id=\"name\">".strtoupper($channel_name)."</li>
+                                <ul class=\"channel-info\">
+                                    <li id=\"name\" title=\"".ucfirst($channel_name)."\">".strtoupper($channel_name)."</li>
                                     <li id=\"channel-subs\">".$subs." SUBS</li>
                                 </ul>
                                 </form>
