@@ -16,13 +16,15 @@ body {
     height: 100px;
 }
 
-.modal-content {
+#main-container {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+#form-container {
     width: 500px;
-    height: 450px;
     text-align: center;
-    padding: 20px;
-    margin-left: 50%;
-    transform: translate(-50%);
 }
 
 input {

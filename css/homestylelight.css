@@ -125,6 +125,15 @@ html{
     background-color: #444444;
 }
 
+#display-more-btn {
+    background-color: #747474d4;
+    border: 1px solid #555555;
+}
+
+#display-more-btn:hover {
+    background-color: #444444;
+}
+
 #channel-content {
     background-color: #dfdfdf;
 }

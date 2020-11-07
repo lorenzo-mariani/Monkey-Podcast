@@ -11,7 +11,7 @@
 </style>
 
 <main>
-    <div class="main-content">
+    <div id="main-content">
         <div class="logo">
             <img src="img/logo/MonkeyPodcastLogo_vertical.png" id="logo">
         </div>

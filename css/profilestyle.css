@@ -515,3 +515,43 @@ form #podcast-playlist-settings {
     margin-top: 20px;
     padding: 20px 0px;
 }
+
+@media screen and (max-width: 1250px) {
+    #profile-img {
+        height: 40px;
+        margin-left: 10px;
+    }
+
+    #username {
+        font-size: 23px;
+    }
+
+    #unsubscribe-button {
+        font-size: 14px;
+        width: 134px;
+    }
+
+    #subs {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #profile-img {
+        height: 40px;
+        margin-left: 10px;
+    }
+
+    #username {
+        font-size: 23px;
+    }
+
+    #unsubscribe-button {
+        font-size: 14px;
+        width: 134px;
+    }
+
+    #subs {
+        font-size: 13px;
+    }
+}

@@ -21,16 +21,17 @@ body {
 
 .footer {
     position: fixed;
-    height: 10vh;
+    height: 50px;
     left: 0;
     bottom: 0;
     width: 100%;
     background-color: rgba(14, 14, 14, 0.76);
     color: white;
     text-align: center;
+    display: flex;
+    align-items: center;
 }
 .footer p {
-    margin-top: 25px;
     width: 100%;
     font-family: robotothin;
     text-align: center;

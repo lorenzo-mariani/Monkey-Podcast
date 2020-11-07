@@ -81,6 +81,15 @@ html{
     background-color: #444444;
 }
 
+#display-more-btn {
+    background-color: #2a2a2a;
+    border: 1px solid #555555;
+}
+
+#display-more-btn:hover {
+    background-color: #444444;
+}
+
 #search-icon {
     background-color: rgb(36, 36, 36);
     border: 1px solid rgb(68, 0, 0);

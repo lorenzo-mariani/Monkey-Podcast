@@ -36,29 +36,33 @@
             <button id="ok-button" type="button" onclick="document.getElementById('error-msg').style.display = 'none'">OK</button>
         </div>
     </div>
-    <div class="modal-content">
-        <img id="form-logo" src="img/logo/MonkeyPodcastLogo_vertical.png">
-        <form action="includes/signup.inc.php" method="post">
-            <input id="username" type="text" name="uid" placeholder="Username" <?php
-            if(isset($_GET['uid']) && isset($_GET['error'])){
-                if($_GET['error'] == "emptyfields" || $_GET['error'] == "passwordcheck"){
-                    echo "value=\"".$_GET['uid']."\"";
+    <div id="main-container">
+        <div id="form-container">
+            <img id="form-logo" src="img/logo/MonkeyPodcastLogo_vertical.png">
+            <form action="includes/signup.inc.php" method="post">
+                <input id="username" type="text" name="uid" placeholder="Username" <?php
+                if(isset($_GET['uid']) && isset($_GET['error'])){
+                    if($_GET['error'] == "emptyfields" || $_GET['error'] == "passwordcheck"){
+                        echo "value=\"".$_GET['uid']."\"";
+                    }
                 }
-            }
-        ?>>
-            <input id="email" type="text" name="mail" placeholder="E-mail" <?php
-            if(isset($_GET['uid']) && isset($_GET['error'])){
-                if($_GET['error'] == "emptyfields" || $_GET['error'] == "passwordcheck"){
-                    echo "value=\"".$_GET['mail']."\"";
+            ?>>
+                <input id="email" type="text" name="mail" placeholder="E-mail" <?php
+                if(isset($_GET['uid']) && isset($_GET['error'])){
+                    if($_GET['error'] == "emptyfields" || $_GET['error'] == "passwordcheck"){
+                        echo "value=\"".$_GET['mail']."\"";
+                    }
                 }
-            }
-        ?>>
-            <input id="pwd" type="password" name="pwd" placeholder="Password">
-            <input id="pwd" type="password" name="pwd-repeat" placeholder="Repeat password">
-            <a id="back" href="index.php">BACK</a>
-            <button id="signup-submit" type="submit" name="signup-submit">SIGN UP</button>
-        </form>
-    </div>
+            ?>>
+                <input id="pwd" type="password" name="pwd" placeholder="Password">
+                <input id="pwd" type="password" name="pwd-repeat" placeholder="Repeat password">
+                <div id="buttons-container">
+                    <a id="back" href="index.php">BACK</a>
+                    <button id="signup-submit" type="submit" name="signup-submit">SIGN UP</button>
+                </div>
+            </form>
+        </div>
+            </div>
 </main>
 
 <?php
