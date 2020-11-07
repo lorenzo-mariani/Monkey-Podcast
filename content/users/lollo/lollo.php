@@ -82,7 +82,7 @@
                     </h4>
                     <?php
                         if($_SESSION['userUid'] == basename(__FILE__, '.php')){
-                            echo "<form action=\"./includes/deleteaccount.inc.php\" method=\"post\" onsubmit=\"return confirm('Are you shure you want to delete your account?\nWARNING: THIS OPERATION IS IRREVERSIBLE');\">
+                            echo "<form action=\"./includes/deleteaccount.inc.php\" method=\"post\" onsubmit=\"return confirm('Are you shure you want to delete your account? WARNING: THIS OPERATION IS IRREVERSIBLE');\">
                                     <button class=\"account-delete-btn\" type=\"submit\" name=\"account-delete-submit\" value=\"".$_SESSION['userUid']."\">
                                         <img class=\"delete-account\" src=\"./icon/trash.png\" alt=\"delete-account\">
                                     </button>
