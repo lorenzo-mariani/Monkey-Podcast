@@ -120,9 +120,10 @@ button:hover {
 
 #upload-img-container {
     align-self: center;
-    width: 200px;
     margin-left: 20px;
     margin-right: 50px;
+    display: flex;
+    justify-content: center;
 }
 
 #subscribed {
@@ -534,6 +535,26 @@ form #podcast-playlist-settings {
     #subs {
         font-size: 13px;
     }
+
+    #upload-img-btn {
+        width: 120px;
+    }
+
+    #upload-img-label {
+        font-size: 9px;
+    }
+
+    .delete-account {
+        height: 25px;
+    }
+
+    .account-delete-btn {
+        margin-left: 10px;
+    }
+
+    #delete-account-text {
+        font-size: 11px;
+    }
 }
 
 @media screen and (max-width: 700px) {
@@ -553,5 +574,25 @@ form #podcast-playlist-settings {
 
     #subs {
         font-size: 13px;
+    }
+
+    #upload-img-btn {
+        width: 120px;
+    }
+
+    #upload-img-label {
+        font-size: 9px;
+    }
+
+    .delete-account {
+        height: 25px;
+    }
+
+    .account-delete-btn {
+        margin-left: 10px;
+    }
+
+    #delete-account-text {
+        font-size: 11px;
     }
 }
