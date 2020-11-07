@@ -60,7 +60,6 @@ if(isset($_POST["channel-img-submit"])) {
     } else {
         if($checkImg != 2){
             if (move_uploaded_file($_FILES["img-file"]["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . str_replace("./", "/", $target_file_img))) {
-                echo "The file ". htmlspecialchars( basename( $_FILES["img-file"]["name"])). " has been uploaded.";
             } else {
                 echo "Sorry, there was an error uploading your image file.";
                 exit();

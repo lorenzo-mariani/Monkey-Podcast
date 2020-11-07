@@ -25,6 +25,10 @@
                         echo "Please, fill up the form and retry.";
                     } else if($_GET['error'] == "passwordcheck"){
                         echo "Passwords don't match.";
+                    } else if($_GET['error'] == "usertaken"){
+                        echo "This username is already taken.";
+                    } else if($_GET['error'] == "mailtaken"){
+                        echo "This email is already taken.";
                     }
                 }
             ?>

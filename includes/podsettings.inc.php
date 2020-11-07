@@ -105,7 +105,6 @@ if(empty($new_title) && empty($playlist) && $genre == "select genre" && $_FILES[
                                 unlink(str_replace("./", $_SERVER['DOCUMENT_ROOT'].'/', $old_img));
                                 rename(str_replace("./", $_SERVER['DOCUMENT_ROOT'].'/', $old_dir), str_replace("./", $_SERVER['DOCUMENT_ROOT'].'/', $target_dir));
                                 if (move_uploaded_file($_FILES["img-file-mod"]["tmp_name"], str_replace("./", $_SERVER['DOCUMENT_ROOT'].'/', $target_file_img))) {
-                                    echo "The file ". htmlspecialchars( basename( $_FILES["img-file-mod"]["name"])). " has been uploaded.";
                                 } else {
                                     echo "Sorry, there was an error uploading your image file.";
                                     exit();
@@ -170,7 +169,6 @@ if(empty($new_title) && empty($playlist) && $genre == "select genre" && $_FILES[
                                 unlink(str_replace("./", $_SERVER['DOCUMENT_ROOT'].'/', $old_img));
                                 $newimage_path = $old_dir . str_replace(' ','_',basename($_FILES["img-file-mod"]["name"]));
                                 if (move_uploaded_file($_FILES["img-file-mod"]["tmp_name"], str_replace("./", $_SERVER['DOCUMENT_ROOT'].'/', $newimage_path))) {
-                                    echo "The file ". htmlspecialchars( basename( $_FILES["img-file-mod"]["name"])). " has been uploaded.\n";
                                     $stmt_img = mysqli_stmt_init($conn);
                                     if (!mysqli_stmt_prepare($stmt_img, $update_img)) {
                                         header("Location: ./podcast_settings?error=sqlerror");
