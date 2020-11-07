@@ -21,14 +21,14 @@ document.getElementById('home-btn').addEventListener('click', function() {
 $(".channel-btn").click(function(){
   $("#home-content").hide();
   $.ajax({
-      url : "./content/users/"+$(this).children().children()[1].title+"/"+$(this).children().children()[1].title+".php",
+      url : "./content/users/"+$(this).children().children()[1].children[0].innerHTML.toLowerCase()+"/"+$(this).children().children()[1].children[0].innerHTML.toLowerCase()+".php",
       dataType: "html",
       success : function (data) {
           $("#profile-content").html(data);
           $("#profile-content").show();
       }
   });
-  changeUrl("Profile", "home.php?view=profile&uid="+$(this).children().children()[1].title);
+  changeUrl("Profile", "home.php?view=profile&uid="+$(this).children().children()[1].children[0].innerHTML.toLowerCase());
   $("#content").attr("class", "profile");
 
 });
