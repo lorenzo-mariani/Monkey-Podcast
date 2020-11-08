@@ -50,11 +50,17 @@ body {
     margin-top: 55px;
 }
 
-#main-content {
+#main-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100%;
+}
+
+#main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding-bottom: 50px;
 }
 
