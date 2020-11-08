@@ -58,6 +58,19 @@ function getProfileContent(name) {
     $("#profile-content").show();
 }
 
+function getPodMod(name, title) {
+    getProfileContent(name);
+    $("#profile-content").hide();
+    $.ajax({
+        url : "./podcast_settings.php?title="+title,
+        dataType: "html",
+        success : function (data) {
+            $("#podcastmod-content").html(data);
+        }
+      });
+    $("#podcastmod-content").show();
+}
+
 function getSearchContent(string){
     $("#search-content").html("");
     $("#help-content").hide();

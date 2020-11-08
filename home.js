@@ -227,8 +227,15 @@ window.onload = function() {
     var viewValue = view.substring("view=".length, view.length);
     var content = string.split('&')[1];
     if(viewValue == "profile"){
-      var profile = content.substring("uid=".length, content.length);
-      getProfileContent(profile);
+      if(history.state.Url.split('?')[1].split('&')[2] != undefined && history.state.Url.split('?')[1].split('&')[2] == "podmod=true"){
+        var profile = content.substring("uid=".length, content.length);
+        var settings = history.state.Url.split('?')[1].split('&')[3];
+        var podcast = settings.substring("settings=".length, settings.length);
+        getPodMod(profile, podcast);
+      } else {
+        var profile = content.substring("uid=".length, content.length);
+        getProfileContent(profile);
+      }
     } else if(viewValue == "search"){
       var search = content.substring("search=".length, content.length);
       getSearchContent(search);
@@ -247,8 +254,15 @@ $("#history-back-btn").click(function() {
             var content = history.state.Url.split('?')[1].split('&')[1];
             var viewValue = view.substring("view=".length, view.length);
             if(viewValue == "profile"){
-              var profile = content.substring("uid=".length, content.length);
-              getProfileContent(profile);
+              if(history.state.Url.split('?')[1].split('&')[2] != undefined && history.state.Url.split('?')[1].split('&')[2] == "podmod=true"){
+                var profile = content.substring("uid=".length, content.length);
+                var settings = history.state.Url.split('?')[1].split('&')[3];
+                var podcast = settings.substring("settings=".length, settings.length);
+                getPodMod(profile, podcast);
+              } else {
+                var profile = content.substring("uid=".length, content.length);
+                getProfileContent(profile);
+              }
             } else if(viewValue == "search"){
               var search = content.substring("search=".length, content.length);
               getSearchContent(search);
@@ -271,25 +285,38 @@ $("#history-back-btn").click(function() {
 $("#history-forw-btn").click(function() {
   history.forward();
   setTimeout(function() {
-      if(window.location.href.includes("view=")){
+    if(window.location.href.includes("view=")){
+        if(history.state.Url.split('?')[1] != "login=success"){
           var view = history.state.Url.split('?')[1].split('&')[0];
           var content = history.state.Url.split('?')[1].split('&')[1];
-          var viewValue = view.substring("view=".length, view.length)
+          var viewValue = view.substring("view=".length, view.length);
           if(viewValue == "profile"){
-            var profile = content.substring("uid=".length, content.length);
-            getProfileContent(profile);
+            if(history.state.Url.split('?')[1].split('&')[2] != undefined && history.state.Url.split('?')[1].split('&')[2] == "podmod=true"){
+              var profile = content.substring("uid=".length, content.length);
+              var settings = history.state.Url.split('?')[1].split('&')[3];
+              var podcast = settings.substring("settings=".length, settings.length);
+              getPodMod(profile, podcast);
+            } else {
+              var profile = content.substring("uid=".length, content.length);
+              getProfileContent(profile);
+            }
           } else if(viewValue == "search"){
             var search = content.substring("search=".length, content.length);
             getSearchContent(search);
           } else if(viewValue == "help"){
             getHelpContent();
           }
-      } else {
-        if(history.state.Url == "home.php" || history.state.Url == null){
+        } else {
           getHomeContent();
         }
+    } else {
+      if(history.state == null){
+        getHomeContent();
+      } else if(history.state.Url == "home.php"){
+        getHomeContent();
       }
-  }, 100);
+    }
+}, 100);
 });
 
 

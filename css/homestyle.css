@@ -651,7 +651,7 @@ a:hover{
     }
 
     #mode-text {
-        font-size: 9px;
+        font-size: 13px;
     }
 
     .slider.round {
@@ -681,20 +681,12 @@ a:hover{
         font-size: 12px;
     }
 
-    #upload-icon {
-        height: 20px
-    }
-
     #profile-menu {
         position: absolute;
         right: 0;
         top: 142px;
         width: 211px;
         display: none;
-    }
-
-    #profile-icon {
-        height: 20px
     }
 
     #search-icon {
@@ -710,6 +702,7 @@ a:hover{
     #search-bar {
         font-size: 12px;
         min-width: 100px;
+        margin-left: 0px;
     }
 
     .grid-element img {
@@ -767,7 +760,7 @@ a:hover{
     }
 
     #mode-text {
-        font-size: 9px;
+        font-size: 13px;
     }
 
     .slider.round {
@@ -793,14 +786,6 @@ a:hover{
         font-size: 12px;
     }
 
-    #upload-icon {
-        height: 20px
-    }
-
-    #profile-icon {
-        height: 20px
-    }
-
     #search-icon {
         height: 20px;
         padding: 4px 20px;
@@ -809,5 +794,6 @@ a:hover{
     #search-bar {
         font-size: 12px;
         min-width: 100px;
+        margin-left: 0px;
     }
 }
