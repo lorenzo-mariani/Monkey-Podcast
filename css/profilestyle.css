@@ -510,6 +510,16 @@ form #podcast-playlist-settings {
     border-radius: 4px;
 }
 
+#warning {
+    font-family: robotothin;
+    text-align: center;
+}
+
+#warning2 {
+    font-family: robotothin;
+    text-align: center;
+}
+
 #img-upload-container {
     display: flex;
     justify-content: center;

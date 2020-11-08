@@ -60,8 +60,9 @@
                     <label>Image File:</label>
                     <input name="img-file" id="img-file" type="file" accept="image/*"/>
                     <h4 id="warning">Warning: max upload size 100MB.</h4>
-                    <input id="podcast-title" type="text" name="podcast-title" placeholder="Choose the title">
-                    <input id="podcast-playlist" type="text" name="podcast-playlist" placeholder="Type playlist name">
+                    <input id="podcast-title" type="text" name="podcast-title" placeholder="Choose the title" required>
+                    <input id="podcast-playlist" type="text" name="podcast-playlist" placeholder="Type playlist name" required>
+                    <h4 id="warning2">Warning: special characters like "\/:*?"<>|" are not valid.</h4>
                     <select id="genre-menu" name="genre-value">  
                         <option value="Select Genre">Select genre</option>
                         <option value="Cinema">Cinema</option>  
@@ -74,6 +75,41 @@
                     </select>
                     <button id="upload-submit" type="submit" name="upload-submit">Upload</button>
                 </form>
+            </div>
+
+            <div id="error-msg" <?php
+                if(isset($_GET['error'])){
+                    echo "style=\"display: grid;\"";
+                } else {
+                    echo "style=\"display: none\"";
+                }
+                ?>>
+                <div id="error-text-container">
+                    <h4 id="error-text">
+                    <?php
+                        if(isset($_GET['error'])){
+                            if($_GET['error'] == "invalidtitle"){
+                                echo "Sorry, the title you have typed is not valid.";
+                            } else if($_GET['error'] == "podcastexists"){
+                                echo "The title you have typed is not valid.";
+                            } else if($_GET['error'] == "sqlerror"){
+                                echo "There was an error on the backend side.";
+                            } else if($_GET['error'] == "emptytitle"){
+                                echo "Please, choose a title.";
+                            } else if($_GET['error'] == "emptygenre"){
+                                echo "Please, select a genre.";
+                            } else if($_GET['error'] == "emptyplaylist"){
+                                echo "Please, choose a playlist.";
+                            } else if($_GET['error'] == "audioerror"){
+                                echo "There was an error while uploading your audio file.";
+                            } else if($_GET['error'] == "imgerror"){
+                                echo "There was an error while uploading your image file.";
+                            }
+                        }
+                    ?>
+                    </h4>
+                    <button id="ok-button" type="button" onclick="document.getElementById('error-msg').style.display = 'none'">OK</button>
+                </div>
             </div>
         </div>
     </body>

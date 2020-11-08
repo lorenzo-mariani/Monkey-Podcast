@@ -133,6 +133,14 @@ form #genre-menu-settings {
     color: whitesmoke;
 }
 
+#warning {
+    color: #a3a3a3;
+}
+
+#warning2 {
+    color: #a3a3a3;
+}
+
 #profile-home-container {
     background-color: rgb(15 15 15);
 }

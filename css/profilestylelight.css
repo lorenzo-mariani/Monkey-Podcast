@@ -100,3 +100,11 @@ form #podcast-playlist-settings {
     box-shadow: inset 0 0 3px rgb(39, 39, 39);
     border: 1px solid whitesmoke;
 }
+
+#warning {
+    color: #d90000;
+}
+
+#warning2 {
+    color: #d90000;
+}

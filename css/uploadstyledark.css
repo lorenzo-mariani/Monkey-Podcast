@@ -46,5 +46,31 @@ input {
 }
 
 #warning {
+    color: #a3a3a3;
+}
+
+#warning2 {
+    color: #a3a3a3;
+}
+
+#error-msg {
+    background-color: rgba(17, 17 ,17, 0.71);
+}
+
+#error-text {
     color: whitesmoke;
+}
+
+#error-text-container {
+    background-color: rgb(15, 15, 15);
+    border: 1px solid rgba(56, 2, 2, 0.719);
+}
+
+#ok-button {
+    color: whitesmoke;
+    background-color: rgb(91 15 15);
+}
+
+#ok-button:hover {
+    background-color: rgb(140 30 30);
 }

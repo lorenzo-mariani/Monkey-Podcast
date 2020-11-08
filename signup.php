@@ -54,8 +54,8 @@
                     }
                 }
             ?>>
-                <input id="pwd" type="password" name="pwd" placeholder="Password">
-                <input id="pwd" type="password" name="pwd-repeat" placeholder="Repeat password">
+                <input id="pwd" type="password" name="pwd" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                <input id="pwd" type="password" name="pwd-repeat" placeholder="Repeat password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
                 <div id="buttons-container">
                     <a id="back" href="index.php">BACK</a>
                     <button id="signup-submit" type="submit" name="signup-submit">SIGN UP</button>
