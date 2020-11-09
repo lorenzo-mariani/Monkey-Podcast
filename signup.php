@@ -29,6 +29,8 @@
                         echo "This username is already taken.";
                     } else if($_GET['error'] == "mailtaken"){
                         echo "This email is already taken.";
+                    } else if($_GET['error'] == "invalidmail"){
+                        echo "The email insterted is invalid.";
                     }
                 }
             ?>
@@ -54,8 +56,9 @@
                     }
                 }
             ?>>
-                <input id="pwd" type="password" name="pwd" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
-                <input id="pwd" type="password" name="pwd-repeat" placeholder="Repeat password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                <input id="pwd" type="password" name="pwd" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[%\$#\*_]+).{8,}">
+                <h3 id="warning-pwd">Warning: password must be at least 8 character long, with at least one capital letter, one lower case letter, one special character and one number.</h3>
+                <input id="pwd-repeat" type="password" name="pwd-repeat" placeholder="Repeat password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[%\$#\*_]+).{8,}">
                 <div id="buttons-container">
                     <a id="back" href="index.php">BACK</a>
                     <button id="signup-submit" type="submit" name="signup-submit">SIGN UP</button>

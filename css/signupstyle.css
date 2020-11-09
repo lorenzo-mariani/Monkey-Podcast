@@ -123,3 +123,20 @@ input {
 #ok-button:hover {
     background-color: rgb(140 30 30);
 }
+
+#warning-pwd {
+    font-family: robotothin;
+    text-align: center;
+    color: #ffffff;
+    background: #4f0000;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#pwd {
+    margin-bottom: 10px;
+}
+
+#pwd-repeat {
+    margin-top: 10px;
+}
