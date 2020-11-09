@@ -170,6 +170,17 @@ html{
     border-bottom: 1px solid #414141b5;
 }
 
+#tutorial {
+    background-color: rgb(64 0 0);
+    color: whitesmoke;
+    border: 1px solid #414141b5;
+}
+
+#tutorial-subtitle {
+    color: whitesmoke;
+    border: 1px solid #414141b5;
+}
+
 #disability {
     background-color: rgb(64 0 0);
     color: whitesmoke;
@@ -209,4 +220,13 @@ html{
 
 .issue {
     color: black;
+}
+
+.tutorial-title {
+    color: whitesmoke;
+    background-color: #3c0000;
+}
+
+.tut-description {
+    background-color: #262626;
 }

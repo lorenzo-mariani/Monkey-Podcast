@@ -48,8 +48,8 @@
             </div>
             <h4 id="warning">Warning: max upload size 100MB.</h4>
             <input type="text" name="podcast-old-title"<?php echo "value=".$_GET['title'].""?> style="display: none;">
-            <input id="podcast-title-settings" type="text" name="podcast-title-mod" placeholder="Choose the title" required>
-            <input id="podcast-playlist-settings" type="text" name="podcast-playlist-mod" placeholder="Type playlist name" required>
+            <input id="podcast-title-settings" type="text" name="podcast-title-mod" placeholder="Choose the title">
+            <input id="podcast-playlist-settings" type="text" name="podcast-playlist-mod" placeholder="Type playlist name">
             <h4 id="warning2">Warning: special characters like "\/:*?"<>|" are not valid.</h4>
             <select id="genre-menu-settings" name="genre-value-mod">  
                 <option value="Select Genre">Select genre</option>

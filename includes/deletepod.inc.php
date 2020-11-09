@@ -68,8 +68,10 @@
         mysqli_close($conn);
     
         echo "<script type=\"text/javascript\">
-            if(getCookieSubstring('memaudio', 'name=').toLowerCase() == '".strtolower( $title)."' && getCookieSubstring('memaudio', 'channel=').toLowerCase() == '".strtolower($_SESSION['userUid'])."'){
-                setCookie('memaudio', '', -1);
+            if(getCookieSubstring('memaudio', 'name=') != undefined){
+                if(getCookieSubstring('memaudio', 'name=').toLowerCase() == '".strtolower( $title)."' && getCookieSubstring('memaudio', 'channel=').toLowerCase() == '".strtolower($_SESSION['userUid'])."'){
+                    setCookie('memaudio', '', -1);
+                }
             }
         </script>";
     
