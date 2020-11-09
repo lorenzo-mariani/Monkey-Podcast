@@ -220,6 +220,10 @@ html{
     color: whitesmoke;
 }
 
+#description {
+    color: black;
+}
+
 .issue {
     color: black;
 }

@@ -133,6 +133,7 @@ arrowDisab.addEventListener("click", function() {
         disabContainer.scrollIntoView();
     } else if(disabContainer.style.display == "flex"){
         disabContainer.style.display = "none";
+        explanationContainer.style.display = "none";
     }
 });
 

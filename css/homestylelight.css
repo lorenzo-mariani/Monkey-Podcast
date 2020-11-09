@@ -64,6 +64,15 @@ html{
     border: 1px solid black;
 }
 
+.title-container {
+    background-color: rgb(48, 48, 48);
+}
+
+.tutorial-title {
+    color: whitesmoke;
+    background-color: rgb(48, 48, 48);
+}
+
 #disability {
     background-color: rgb(64 0 0);
     color: whitesmoke;
