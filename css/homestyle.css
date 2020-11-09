@@ -97,7 +97,7 @@ a:hover{
 }
 
 #explanation-container {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     width: 80%;
@@ -125,20 +125,63 @@ a:hover{
     font-family: caviar_dreamsbold;
 }
 
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#show-tutorial-btn {
+    margin-right: 30px;
+}
+
+#show-disability-btn {
+    margin-right: 30px;
+}
+
+.show-tutorial-arrow {
+    height: 20px;
+    padding: 5px;
+    border-radius: 100%;
+    background-color: black;
+}
+
+#arrow-top {
+    height: 30px;
+    padding: 10px;
+    border-radius: 100%;
+    background-color: #640000;
+    position: fixed;
+    bottom: 110px;
+    right: 40px;
+    transform: rotate(180deg);
+}
+
 #tutorial {
     font-family: caviar_dreamsbold;
     font-size: 29px;
     padding: 10px 40px;
-    margin-top: 20px;
+    flex: 1;
 }
 
-#tutorial-subtitle {
+.show-tutorial {
+    height: 30px;
+    background-color: black;
+    padding: 5px;
+    border-radius: 100%;
+    margin-right: 20px;
+    border: 1px solid #414141b5;
+}
+
+.tutorial-subtitle {
     font-family: caviar_dreamsregular;
-    padding: 5px 40px;
+    padding: 10px 40px;
+    font-size: 17px;
+    overflow: auto;
 }
 
 #tutorial-list-container {
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     margin: auto;
     justify-content: center;
@@ -157,7 +200,7 @@ a:hover{
 }
 
 #buttons-container {
-    display: flex;
+    display: none;
     width: 80%;
     margin: auto;
     margin-top: 20px;
@@ -214,18 +257,13 @@ a:hover{
     width: -webkit-fill-available;
 }
 
-.tutorial-subtitle {
-    font-family: 'caviar_dreamsregular';
-    padding: 10px 15px;
-    font-size: 17px;
-}
-
 .tut-description {
     width: 54%;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 20px 0px;
+    height: 200px;
 }
 
 .gif-container {
@@ -240,6 +278,36 @@ a:hover{
     height: 200px;
     width: 500px;
     object-fit: cover;
+}
+
+
+#gif-big-container {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    top: 0;
+    left: 0;
+    background-color: #000000a6;
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+}
+
+#gif-big {
+    height: 720px;
+    width: 1280px;
+    object-fit: cover;
+    background-color: black;
+}
+
+
+#close-gif-btn {
+    position: fixed;
+    color: whitesmoke;
+    right: 50px;
+    top: 40px;
+    font-size: 30px;
 }
 
 #welcome-to {

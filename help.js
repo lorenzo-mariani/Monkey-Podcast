@@ -7,6 +7,134 @@ var move = document.getElementById("move");
 var blind = document.getElementById("blind");
 var icon = document.getElementById("focused-icon");
 var description = document.getElementById("description");
+var arrowTut = document.getElementById("show-tutorial-btn");
+var arrowDisab = document.getElementById("show-disability-btn");
+var arrowTop = document.getElementById("arrow-top-btn");
+var searchPodGif = document.getElementById("podcast-gif-btn");
+var searchChanGif = document.getElementById("channel-gif-btn");
+var subscribeGif = document.getElementById("subscribe-gif-btn");
+var unsubscribeGif = document.getElementById("unsubscribe-gif-btn");
+var uploadGif = document.getElementById("upload-gif-btn");
+var modifyGif = document.getElementById("modify-gif-btn");
+var deletePodGif = document.getElementById("delete-podcast-gif-btn");
+var playerGif = document.getElementById("player-gif-btn");
+var deleteAccGif = document.getElementById("delete-account-gif-btn");
+var closeGif = document.getElementById("close-gif-btn");
+var gif = document.getElementById("gif-big");
+var gifContainer = document.getElementById("gif-big-container");
+
+closeGif.addEventListener("click", function() {
+    if(gifContainer.style.display == "flex"){
+        gifContainer.style.display = "none";
+    }
+});
+
+searchPodGif.addEventListener("click", function() {
+    if(gifContainer.style.display == "none") {
+        gifContainer.style.display = "flex";
+        gif.setAttribute("src", this.children[0].getAttribute("src"));
+    }
+});
+
+searchChanGif.addEventListener("click", function() {
+    if(gifContainer.style.display == "none") {
+        gifContainer.style.display = "flex";
+        gif.setAttribute("src", this.children[0].getAttribute("src"));
+    }
+});
+
+subscribeGif.addEventListener("click", function() {
+    if(gifContainer.style.display == "none") {
+        gifContainer.style.display = "flex";
+        gif.setAttribute("src", this.children[0].getAttribute("src"));
+    }
+});
+
+unsubscribeGif.addEventListener("click", function() {
+    if(gifContainer.style.display == "none") {
+        gifContainer.style.display = "flex";
+        gif.setAttribute("src", this.children[0].getAttribute("src"));
+    }
+});
+
+uploadGif.addEventListener("click", function() {
+    if(gifContainer.style.display == "none") {
+        gifContainer.style.display = "flex";
+        gif.setAttribute("src", this.children[0].getAttribute("src"));
+    }
+});
+
+modifyGif.addEventListener("click", function() {
+    if(gifContainer.style.display == "none") {
+        gifContainer.style.display = "flex";
+        gif.setAttribute("src", this.children[0].getAttribute("src"));
+    }
+});
+
+deletePodGif.addEventListener("click", function() {
+    if(gifContainer.style.display == "none") {
+        gifContainer.style.display = "flex";
+        gif.setAttribute("src", this.children[0].getAttribute("src"));
+    }
+});
+
+playerGif.addEventListener("click", function() {
+    if(gifContainer.style.display == "none") {
+        gifContainer.style.display = "flex";
+        gif.setAttribute("src", this.children[0].getAttribute("src"));
+    }
+});
+
+deleteAccGif.addEventListener("click", function() {
+    if(gifContainer.style.display == "none") {
+        gifContainer.style.display = "flex";
+        gif.setAttribute("src", this.children[0].getAttribute("src"));
+    }
+});
+
+window.onscroll = function() {
+    scrollCheck()
+};
+
+function scrollCheck() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    arrowTop.style.display = "block";
+  } else {
+    arrowTop.style.display = "none";
+  }
+}
+
+function goToTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+arrowTop.addEventListener("click", function() {
+    goToTop();
+});
+
+arrowTut.addEventListener("click", function() {
+    var tutContainer = document.getElementById("tutorial-list-container");
+    if(tutContainer.style.display == "none"){
+        tutContainer.style.display = "flex";
+        tutContainer.scrollIntoView();
+        setTimeout(function() {
+            window.scrollBy(0, -30);
+        }, 300);
+    } else if(tutContainer.style.display == "flex"){
+        tutContainer.style.display = "none";
+    }
+});
+
+arrowDisab.addEventListener("click", function() {
+    var disabContainer = document.getElementById("buttons-container");
+    if(disabContainer.style.display == "none"){
+        disabContainer.style.display = "flex";
+        disabContainer.scrollIntoView();
+    } else if(disabContainer.style.display == "flex"){
+        disabContainer.style.display = "none";
+    }
+});
 
 sight.addEventListener("click", function() {
     if(explanationContainer.style.display == "none"){
@@ -110,3 +238,4 @@ blind.addEventListener("click", function() {
         explanationContainer.scrollIntoView();
     }
 });
+
