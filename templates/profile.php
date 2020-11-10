@@ -48,7 +48,7 @@
                 <img src="./icon/user.png" alt="User Profile" id="profile-img">
                     <h4 id="username">
                         <?php
-                            echo strtoupper($profile);
+                            echo strtoupper(str_replace("_", " ", $profile));
                         ?>
                     </h4>
                     <h4 id="subs">

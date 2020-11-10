@@ -30,7 +30,9 @@
                     } else if($_GET['error'] == "mailtaken"){
                         echo "This email is already taken.";
                     } else if($_GET['error'] == "invalidmail"){
-                        echo "The email insterted is invalid.";
+                        echo "The email insterted is not valid.";
+                    } else if($_GET['error'] == "invaliduid"){
+                        echo "The username insterted is not valid.";
                     }
                 }
             ?>
@@ -49,6 +51,7 @@
                     }
                 }
             ?>>
+            <h3 id="warning-pwd">Warning: username must contain only letters, numbers and whitespaces.</h3>
                 <input id="email" type="text" name="mail" placeholder="E-mail" <?php
                 if(isset($_GET['uid']) && isset($_GET['error'])){
                     if($_GET['error'] == "emptyfields" || $_GET['error'] == "passwordcheck"){

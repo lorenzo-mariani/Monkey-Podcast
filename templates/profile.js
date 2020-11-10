@@ -54,7 +54,7 @@ $(".podcast-thumbnail-btn").click(function(){
   $("#thumbnail").attr("src", $(this)[0].dataset.img);
   $("#podcast-name").html($(this)[0].dataset.title.replace(/_/g, " ").toUpperCase());
   $("#podcast-name").attr("title", $(this)[0].dataset.title.replace(/_/g, " "));
-  $("#podcast-channel").html($(this)[0].dataset.chname.toUpperCase());
+  $("#podcast-channel").html($(this)[0].dataset.chname.toUpperCase().replace(/_/g, " "));
   $("#podcast-channel").attr("title", $(this)[0].dataset.chname.replace(/_/g, " "));
   $("#podcast-playlist-player").html($(this)[0].dataset.playlist.replace(/_/g, " ").toUpperCase());
   $("#podcast-playlist-player").attr("title", $(this)[0].dataset.playlist.replace(/_/g, " "));
@@ -68,7 +68,7 @@ $(".podcast-title-btn").click(function(){
   $("#thumbnail").attr("src", $(this)[0].dataset.img);
   $("#podcast-name").html($(this)[0].dataset.title.replace(/_/g, " ").toUpperCase());
   $("#podcast-name").attr("title", $(this)[0].dataset.title.replace(/_/g, " "));
-  $("#podcast-channel").html($(this)[0].dataset.chname.toUpperCase());
+  $("#podcast-channel").html($(this)[0].dataset.chname.toUpperCase().replace(/_/g, " "));
   $("#podcast-channel").attr("title", $(this)[0].dataset.chname.replace(/_/g, " "));
   $("#podcast-playlist-player").html($(this)[0].dataset.playlist.replace(/_/g, " ").toUpperCase());
   $("#podcast-playlist-player").attr("title", $(this)[0].dataset.playlist.replace(/_/g, " "));

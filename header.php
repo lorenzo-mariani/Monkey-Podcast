@@ -72,14 +72,14 @@
                     </button>
                 </form>
                 <button id="profile-icon-btn">
-                    <h4 id="profile-uid"><?php echo strtoupper($_SESSION['userUid']); ?></h4>
+                    <h4 id="profile-uid"><?php echo strtoupper(str_replace("_", " ", $_SESSION['userUid'])); ?></h4>
                     <img src="./icon/user.png" alt="User Profile" id="profile-icon">
                 </button>
             </div>
             <div id="profile-menu" style="display: none;">
                 <button id="profile-btn">
                     <h4 id="profile-button"><?php
-                        $string = $_SESSION["userUid"];
+                        $string = str_replace("_", " ", $_SESSION['userUid']);
                         $uid = strtoupper($string);
                         echo $uid;
                     ?></h4>

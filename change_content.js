@@ -48,8 +48,9 @@ function getProfileContent(name) {
     $("#podcastmod-content").hide();
     $("#search-content").hide();
     $("#content").attr("class", "profile");
+    var string = name.replace(/ /g, "_");
     $.ajax({
-        url : "./content/users/"+name+"/"+name+".php",
+        url : "./content/users/"+string+"/"+string+".php",
         dataType: "html",
         success : function (data) {
             $("#profile-content").html(data);
@@ -115,8 +116,9 @@ function getHelpContent(){
 }
 
 function changeUrl(title, url) {
+    var string = url.replace(/ /g, "_");
     if (typeof (history.pushState) != "undefined") {
-        var obj = { Title: title, Url: url };
+        var obj = { Title: title, Url: string };
         history.pushState(obj, obj.Title, obj.Url);
     } else {
         alert("Your browser does not support HTML5.");

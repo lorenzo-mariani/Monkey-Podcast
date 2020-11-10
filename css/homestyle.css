@@ -364,7 +364,6 @@ a:hover{
     font-size: 24px;
     text-align: center;
     margin: 60px 0px;
-    background-color: #323232;
     padding: 10px 0px;
 }
 
@@ -492,7 +491,10 @@ a:hover{
     font-family: 'caviar_dreamsbold';
     color: whitesmoke;
     margin-right: 10px;
-    font-size: 20px;
+    font-size: 16px;
+    max-width: 145px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #profile-icon-btn{

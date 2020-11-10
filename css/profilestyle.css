@@ -553,6 +553,7 @@ form #podcast-playlist-settings {
 #warning {
     font-family: robotothin;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 #warning2 {
