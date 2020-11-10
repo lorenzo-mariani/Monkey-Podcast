@@ -55,7 +55,6 @@ window.addEventListener('resize', function() {
 
 
 profileIcon.addEventListener("click", function () {
-  console.log(profileMenu.style.display);
   if (profileMenu.style.display == "none") {
     profileMenu.style.display = "grid"
   } else {
@@ -166,7 +165,7 @@ for(var i = 0; i < channels.length; i++) {
 }
 
 $('body').click(function(event) {
-  if (profileMenu.style.display == "grid" && event.target.id != "profile-icon-btn") {
+  if (profileMenu.style.display == "grid" && event.target.id != "profile-icon-btn" && event.target.id != "profile-uid" && event.target.id != "profile-icon") {
     profileMenu.style.display = "none"
   }
 })

@@ -498,10 +498,10 @@ a:hover{
 #profile-icon-btn{
     margin-left: 27px;
     margin-right: 27px;
-    padding: 7px 15px;
+    padding: 4px 15px;
     background-color: rgb(64 0 0);
     border: 1px solid rgb(48 48 48);
-    border-radius: 10px;
+    border-radius: 7px;
 }
 
 #profile-icon-btn:hover {
