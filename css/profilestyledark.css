@@ -144,3 +144,9 @@ form #genre-menu-settings {
 #profile-home-container {
     background-color: rgb(15 15 15);
 }
+
+.playlist-newname {
+    background-color: black;
+    border: 1px solid rgb(48 48 48);
+    color: whitesmoke;
+}

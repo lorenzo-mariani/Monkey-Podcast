@@ -59,6 +59,10 @@ html{
     border: 1px solid black;
 }
 
+.tut-subtitle {
+    border: 1px solid black
+}
+
 .tutorial-subtitle {
     background-color: white;
     border: 1px solid black;

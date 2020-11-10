@@ -173,6 +173,12 @@ a:hover{
     border: 1px solid #414141b5;
 }
 
+.tut-subtitle {
+    font-family: caviar_dreamsregular;
+    padding: 10px 40px;
+    font-size: 17px;
+}
+
 .tutorial-subtitle {
     font-family: caviar_dreamsregular;
     padding: 10px 40px;
@@ -482,19 +488,34 @@ a:hover{
     transform: scaleX(-1);
 }
 
+#profile-uid {
+    font-family: 'caviar_dreamsbold';
+    color: whitesmoke;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
 #profile-icon-btn{
-    margin-right: 27px;
     margin-left: 27px;
+    margin-right: 27px;
+    padding: 7px 15px;
+    background-color: rgb(64 0 0);
+    border: 1px solid rgb(48 48 48);
+    border-radius: 10px;
+}
+
+#profile-icon-btn:hover {
+    background-color: rgb(124 10 10);
 }
 
 #profile-icon {
     height: 30px;
-    cursor: pointer;
+    background-color: black;
+    border-radius: 100%;
 }
 
 #upload-icon {
     height: 27px;
-    cursor: pointer;
 }
 
 .grid-element-btn {

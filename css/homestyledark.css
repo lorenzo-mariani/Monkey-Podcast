@@ -179,6 +179,11 @@ html{
     color: whitesmoke;
 }
 
+.tut-subtitle {
+    color: whitesmoke;
+    border: 1px solid #414141b5
+}
+
 .tutorial-subtitle {
     color: whitesmoke;
 }

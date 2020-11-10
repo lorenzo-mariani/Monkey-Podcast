@@ -16,7 +16,7 @@
                         <img class=\"show-tutorial-arrow\" src=\"./icon/arrow.png\" alt=\"show-tutorial\">
                     </button>
                 </div>
-                <h3 class=\"tutorial-subtitle\">Below are some useful GIFs that will make your experience flawlessly smooth.</h3>
+                <h3 class=\"tut-subtitle\">Below are some useful GIFs that will make your experience flawlessly smooth.</h3>
                 <div id=\"tutorial-list-container\" style=\"display: none\">
                     <div class=\"tut-description\">
                         <h4 class=\"tutorial-title\">SEARCH A PODCAST</h4>
@@ -148,7 +148,7 @@
                         <img class=\"show-tutorial-arrow\" src=\"./icon/arrow.png\" alt=\"show-tutorial\">
                     </button>
                 </div>
-                <h3 class=\"tutorial-subtitle\">We're here to give you the best experience!</h3>
+                <h3 class=\"tut-subtitle\">We're here to give you the best experience!</h3>
                 <div id=\"buttons-container\" style=\"display: none;\">
                     <button class=\"button\" id=\"sight\">
                         <div class=\"issue-container\">

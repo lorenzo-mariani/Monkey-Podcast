@@ -54,7 +54,8 @@ window.addEventListener('resize', function() {
 });
 
 
-$("#profile-icon-btn").click(function () {
+profileIcon.addEventListener("click", function () {
+  console.log(profileMenu.style.display);
   if (profileMenu.style.display == "none") {
     profileMenu.style.display = "grid"
   } else {
@@ -165,7 +166,7 @@ for(var i = 0; i < channels.length; i++) {
 }
 
 $('body').click(function(event) {
-  if (profileMenu.style.display == "grid" && event.target.id != "profile-icon") {
+  if (profileMenu.style.display == "grid" && event.target.id != "profile-icon-btn") {
     profileMenu.style.display = "none"
   }
 })
@@ -227,7 +228,7 @@ window.onload = function() {
     var viewValue = view.substring("view=".length, view.length);
     var content = string.split('&')[1];
     if(viewValue == "profile"){
-      if(history.state.Url.split('?')[1].split('&')[2] != undefined && history.state.Url.split('?')[1].split('&')[2] == "podmod=true"){
+      if(string.split('&')[2] != undefined && string.split('&')[2] == "podmod=true"){
         var profile = content.substring("uid=".length, content.length);
         var settings = history.state.Url.split('?')[1].split('&')[3];
         var podcast = settings.substring("settings=".length, settings.length);
@@ -249,12 +250,12 @@ $("#history-back-btn").click(function() {
   history.back();
   setTimeout(function() {
       if(window.location.href.includes("view=")){
-          if(history.state.Url.split('?')[1] != "login=success"){
+          if(window.location.href.includes("view=")){
             var view = history.state.Url.split('?')[1].split('&')[0];
             var content = history.state.Url.split('?')[1].split('&')[1];
             var viewValue = view.substring("view=".length, view.length);
             if(viewValue == "profile"){
-              if(history.state.Url.split('?')[1].split('&')[2] != undefined && history.state.Url.split('?')[1].split('&')[2] == "podmod=true"){
+              if(string.split('&')[2] != undefined && string.split('&')[2] == "podmod=true"){
                 var profile = content.substring("uid=".length, content.length);
                 var settings = history.state.Url.split('?')[1].split('&')[3];
                 var podcast = settings.substring("settings=".length, settings.length);
@@ -286,7 +287,7 @@ $("#history-forw-btn").click(function() {
   history.forward();
   setTimeout(function() {
     if(window.location.href.includes("view=")){
-        if(history.state.Url.split('?')[1] != "login=success"){
+        if(history.state.Url.split('?')[1] != "login=success" || history.state.Url.split('?')[1] != "subscribe=success" || history.state.Url.split('?')[1] != "unsubscribe=success"){
           var view = history.state.Url.split('?')[1].split('&')[0];
           var content = history.state.Url.split('?')[1].split('&')[1];
           var viewValue = view.substring("view=".length, view.length);

@@ -4,7 +4,7 @@
 
     session_start();
     
-    $nameChannel = $_SESSION['channelName'];
+    $nameChannel = $_POST['unsubscribe-btn'];
     $uidSub = $_SESSION['userUid'];
 
     if (empty($nameChannel) || empty($uidSub)) {
@@ -32,7 +32,7 @@
                     }
                     mysqli_stmt_close($stmt);
                     mysqli_close($conn);
-                    header("Location: ../home.php?unsubscribe=success&view=home");
+                    header("Location: ../home.php");
                 }
             }
     }

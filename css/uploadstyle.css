@@ -7,6 +7,23 @@
 
 }
 
+@font-face {
+    font-family: 'caviar_dreamsregular';
+    src: url('../fonts/caviardreams-webfont.woff2') format('woff2'),
+         url('../fonts/caviardreams-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'caviar_dreamsbold';
+    src: url('../fonts/caviardreams_bold-webfont.woff2') format('woff2'),
+         url('../fonts/caviardreams_bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     margin: 0;
 }
@@ -81,26 +98,23 @@ input {
 }
 
 #upload-submit {
-    border: none;
-    width: 100px;
+    font-family: 'caviar_dreamsbold';
     padding: 10px 20px;
-    border-radius: 4px;
-    font-family: robotothin;
-    font-weight: bolder;
-    font-size: 17px;
+    margin-left: 10px;
+    border-radius: 5px;
+    font-size: 19px;
     cursor: pointer;
+    border: none;
 }
 
 #upload-submit-ch {
-    border: none;
-    width: 100px;
+    font-family: 'caviar_dreamsbold';
     padding: 10px 20px;
-    border-radius: 4px;
-    font-family: robotothin;
-    font-weight: bolder;
-    font-size: 17px;
+    margin-left: 10px;
+    border-radius: 5px;
+    font-size: 19px;
     cursor: pointer;
-    margin-top: 50px;
+    border: none;
 }
 
 #audio-file, #img-file {

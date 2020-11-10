@@ -73,7 +73,7 @@
                         <option value="Sport">Sport</option>
                         <option value="Technology">Technology</option>
                     </select>
-                    <button id="upload-submit" type="submit" name="upload-submit">Upload</button>
+                    <button id="upload-submit" type="submit" name="upload-submit">UPLOAD</button>
                 </form>
             </div>
 

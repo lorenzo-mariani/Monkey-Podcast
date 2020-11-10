@@ -3,13 +3,9 @@
     if(!isset($_SESSION['userId'])){
         header("Location: ./index.php");
     }
-    if(!isset($_SESSION['channelName'])){
-        $_SESSION['channelName'] = basename(__FILE__, '.php');
-    } else if($_SESSION['channelName'] != basename(__FILE__, '.php')){
-        $_SESSION['channelName'] = basename(__FILE__, '.php');
-    }
     
     require "../../../includes/dbh.inc.php";
+    $profile = basename(__FILE__, '.php');
 ?>
 <body>
     <div class="profile-cnt">
@@ -20,7 +16,7 @@
             header("Location: ./home.php?error=profilesqlerror");
             exit();
         } else {
-            mysqli_stmt_bind_param($stmt_img, "s", $_SESSION['channelName']);
+            mysqli_stmt_bind_param($stmt_img, "s", $profile);
             mysqli_stmt_execute($stmt_img);
             mysqli_stmt_store_result($stmt_img);
             $stmt_img->bind_result($podcast_img);
@@ -52,7 +48,7 @@
                 <img src="./icon/user.png" alt="User Profile" id="profile-img">
                     <h4 id="username">
                         <?php
-                            echo strtoupper(basename(__FILE__, '.php'));
+                            echo strtoupper($profile);
                         ?>
                     </h4>
                     <h4 id="subs">
@@ -63,7 +59,7 @@
                                 header("Location: ./home.php?error=profilesqlerror");
                                 exit();
                             } else {
-                                mysqli_stmt_bind_param($stmt_subs, "s", $_SESSION['channelName']);
+                                mysqli_stmt_bind_param($stmt_subs, "s", $profile);
                                 mysqli_stmt_execute($stmt_subs);
                                 mysqli_stmt_store_result($stmt_subs);
                                 $stmt_subs->bind_result($subs);
@@ -81,7 +77,7 @@
                         SUBS
                     </h4>
                     <?php
-                        if($_SESSION['userUid'] == basename(__FILE__, '.php')){
+                        if($_SESSION['userUid'] == $profile){
                             echo "<form action=\"./includes/deleteaccount.inc.php\" method=\"post\" onsubmit=\"return confirm('Are you shure you want to delete your account? WARNING: THIS OPERATION IS IRREVERSIBLE');\">
                                     <button class=\"account-delete-btn\" type=\"submit\" name=\"account-delete-submit\" value=\"".$_SESSION['userUid']."\">
                                         <img class=\"delete-account\" src=\"./icon/trash.png\" alt=\"delete-account\">
@@ -93,7 +89,7 @@
             </div>
             <div id="subscribe-container">
                     <?php
-                    if($_SESSION['userUid'] != basename(__FILE__, '.php')){
+                    if($_SESSION['userUid'] != $profile){
 
                         $query_name = "SELECT channelName FROM subscriptions WHERE subUid=? && channelName=?";
                         $stmt_name = mysqli_stmt_init($conn);
@@ -101,21 +97,21 @@
                             header("Location: ./home.php?error=profilesqlerror");
                             exit();
                         } else {
-                            mysqli_stmt_bind_param($stmt_name, "ss", $_SESSION['userUid'], $_SESSION['channelName']);
+                            mysqli_stmt_bind_param($stmt_name, "ss", $_SESSION['userUid'], $profile);
                             mysqli_stmt_execute($stmt_name);
                             mysqli_stmt_store_result($stmt_name);
                             $resultCheck = mysqli_stmt_num_rows($stmt_name);
                             if($resultCheck == 0) {
                                 echo
                                 "<form id=\"sub\" action=\"./includes/subscribe.inc.php\" method=\"post\">
-                                    <button id=\"subscribe-button\" name=\"subscribe-btn\" value=\"dark\">
+                                    <button id=\"subscribe-button\" name=\"subscribe-btn\" value=\"".$profile."\">
                                         SUBSCRIBE
                                     </button>
                                 </form>";
                             } else if($resultCheck == 1){
                                 echo
                                 "<form id=\"sub\" action=\"./includes/unsubscribe.inc.php\" method=\"post\">
-                                    <button id=\"unsubscribe-button\" name=\"unsubscribe-btn\">
+                                    <button id=\"unsubscribe-button\" name=\"unsubscribe-btn\" value=\"".$profile."\">
                                         UNSUBSCRIBE
                                     </button>
                                 </form>";
@@ -125,7 +121,7 @@
                     }
                 ?>
                 <?php
-                    if($_SESSION['channelName'] == $_SESSION['userUid']) {
+                    if($profile == $_SESSION['userUid']) {
                         echo "<div id=\"upload-img-container\">
                         <form action=\"./upload-channel-img.php\" method=\"post\">        
                             <button id=\"upload-img-btn\" type=\"submit\" name=\"upload-img-btn\">
@@ -148,7 +144,7 @@
                         header("Location: ./home.php?error=profilesqlerror");
                         exit();
                     } else {
-                        mysqli_stmt_bind_param($stmt_streams, "s", $_SESSION['channelName']);
+                        mysqli_stmt_bind_param($stmt_streams, "s", $profile);
                         mysqli_stmt_execute($stmt_streams);
                         mysqli_stmt_store_result($stmt_streams);
                         $stmt_streams->bind_result($ch_streams);
@@ -174,11 +170,11 @@
                     header("Location: ./home.php?error=profilesqlerror");
                     exit();
                 } else {
-                    mysqli_stmt_bind_param($stmt_pod, "s", $_SESSION['channelName']);
+                    mysqli_stmt_bind_param($stmt_pod, "s", $profile);
                     mysqli_stmt_execute($stmt_pod);
                     mysqli_stmt_store_result($stmt_pod);
                     $stmt_pod->bind_result($genre, $title, $podcast_img, $streams, $podcast_file, $playlist);
-                    $channel_name = $_SESSION['channelName'];
+                    $channel_name = $profile;
                     $playlist_tmp = NULL;
                     while($stmt_pod->fetch()){
                         if($playlist_tmp != $playlist) {
@@ -200,7 +196,7 @@
                                     <h4 class=\"podcast-title\" title=\"".ucwords(str_replace('_', ' ', $title))."\">".strtoupper(str_replace('_', ' ', $title))."</h4>
                                 </button>
                                 <p>".$streams." STREAMS</p>";
-                                if($_SESSION['userUid'] == $_SESSION['channelName']){
+                                if($_SESSION['userUid'] == $profile){
                                     echo "<div class=\"mod-btns-container\">
                                     <form action=\"./includes/deletepod.inc.php\" method=\"post\" onsubmit=\"return confirm('Are you shure you want to delete this podcast?');\">
                                             <button class=\"podcast-delete-btn\" type=\"submit\" name=\"pod-delete-submit\" value=\"".$title."\">
@@ -237,7 +233,7 @@
                     header("Location: ./home.php?error=profilesqlerror");
                     exit();
                 } else {
-                    mysqli_stmt_bind_param($stmt_chann, "s", $_SESSION['channelName']);
+                    mysqli_stmt_bind_param($stmt_chann, "s", $profile);
                     mysqli_stmt_execute($stmt_chann);
                     mysqli_stmt_store_result($stmt_chann);
                     $stmt_chann->bind_result($channel_name, $subs);
@@ -265,7 +261,7 @@
             ?>
         </div>
     </div>
-    <script src=<?php echo "'./content/users/".basename(__FILE__, '.php')."/".basename(__FILE__, '.php').".js'";?>>
+    <script src=<?php echo "'./content/users/".$profile."/".$profile.".js'";?>>
     </script>
 </body>
 </html>

@@ -72,6 +72,7 @@
                     </button>
                 </form>
                 <button id="profile-icon-btn">
+                    <h4 id="profile-uid"><?php echo strtoupper($_SESSION['userUid']); ?></h4>
                     <img src="./icon/user.png" alt="User Profile" id="profile-icon">
                 </button>
             </div>
