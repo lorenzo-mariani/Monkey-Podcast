@@ -108,3 +108,18 @@ form #podcast-playlist-settings {
 #warning2 {
     color: #d90000;
 }
+
+#channels-container {
+    background-color: rgb(233, 233, 233);
+}
+
+.channel-btn {
+    background-color: rgb(233 233 233 / 76%);
+    color: black;
+    border: 1px solid black;
+}
+
+.channel-btn:hover {
+    background-color: rgb(106 106 106 / 76%);
+    color: whitesmoke;
+}

@@ -174,7 +174,6 @@
                     mysqli_stmt_execute($stmt_pod);
                     mysqli_stmt_store_result($stmt_pod);
                     $stmt_pod->bind_result($genre, $title, $podcast_img, $streams, $podcast_file, $playlist);
-                    $channel_name = $profile;
                     $playlist_tmp = NULL;
                     while($stmt_pod->fetch()){
                         if($playlist_tmp != $playlist) {
@@ -182,17 +181,29 @@
                                 echo "</div>";
                             }
                             echo "<div class=\"playlist-container\">
-                                <h4 id=\"playlist-name\">".strtoupper(str_replace('_', ' ', $playlist))."</h4>
-                            </div>
+                                <h4 id=\"playlist-name\">".strtoupper(str_replace('_', ' ', $playlist))."</h4>";
+                                if($_SESSION['userUid'] == $profile){
+                                    echo "
+                                    <button class=\"playlist-settings-btn\" title=\"Change playlist name\">
+                                        <img class=\"playlist-settings\" src=\"./icon/settings-dark.png\">
+                                    </button>
+                                    <div class=\"form-playlist-container\" style=\"display: none\">
+                                        <form action=\"./includes/change_playlist_name.inc.php\" method=\"post\" onsubmit=\"return confirm('Are you shure you want to change this playlist's name?');\">
+                                            <input type=\"text\" class=\"playlist-newname\" name=\"playlist-newname\">
+                                            <button class=\"submit-playlist-name\" name=\"change-playlist-name-submit\" value=\"".$playlist."\">CHANGE PLAYLIST NAME</button>
+                                        </form>
+                                    </div>";
+                                }
+                            echo "</div>
                             <div class=\"playlist-podcasts-container\">";
                         }
                         echo
                         "<div class=\"grid-element-profile\">
-                            <button class=\"podcast-thumbnail-btn\" data-file=\"".$podcast_file."\" data-chname=\"".$channel_name."\" data-playlist=\"".$playlist."\" data-img=\"".$podcast_img."\" data-title=\"".$title."\">
+                            <button class=\"podcast-thumbnail-btn\" data-file=\"".$podcast_file."\" data-chname=\"".$profile."\" data-playlist=\"".$playlist."\" data-img=\"".$podcast_img."\" data-title=\"".$title."\">
                                 <img class=\"podcast-thumbnail\" src=".$podcast_img.">
                             </button>
                             <div id=\"pod-info-container\">";
-                                echo "<button class=\"podcast-title-btn\" data-file=\"".$podcast_file."\" data-chname=\"".$channel_name."\" data-playlist=\"".$playlist."\" data-img=\"".$podcast_img."\" data-title=\"".$title."\">
+                                echo "<button class=\"podcast-title-btn\" data-file=\"".$podcast_file."\" data-chname=\"".$profile."\" data-playlist=\"".$playlist."\" data-img=\"".$podcast_img."\" data-title=\"".$title."\">
                                     <h4 class=\"podcast-title\" title=\"".ucwords(str_replace('_', ' ', $title))."\">".strtoupper(str_replace('_', ' ', $title))."</h4>
                                 </button>
                                 <p>".$streams." STREAMS</p>";
@@ -236,7 +247,7 @@
                     mysqli_stmt_bind_param($stmt_chann, "s", $profile);
                     mysqli_stmt_execute($stmt_chann);
                     mysqli_stmt_store_result($stmt_chann);
-                    $stmt_chann->bind_result($channel_name, $subs);
+                    $stmt_chann->bind_result($channel, $subs);
                     $result_check = mysqli_stmt_num_rows($stmt_chann);
                     if($result_check > 0) {
                         while($stmt_chann->fetch()){
@@ -246,7 +257,7 @@
                             <div class=\"channel\">
                             <img src=\"./icon/user.png\" alt=\"User Profile\" id=\"channel-img\">
                                 <ul class=\"channel-info\">
-                                    <li id=\"name\" title=\"".ucfirst($channel_name)."\">".strtoupper($channel_name)."</li>
+                                    <li id=\"name\" title=\"".ucfirst(str_replace("_", " ", $channel))."\">".strtoupper(str_replace("_", " ", $channel))."</li>
                                     <li id=\"channel-subs\">".$subs." SUBS</li>
                                 </ul>
                                 </form>

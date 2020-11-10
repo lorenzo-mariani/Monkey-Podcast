@@ -54,8 +54,8 @@
                 <div class="close">+</div>
                 <img id="form-logo" src="img/logo/MonkeyPodcastLogo_vertical.png">
                 <form action="includes/login.inc.php" method="post">
-                    <input id="mailuid" type="text" name="mailuid" placeholder="Username/E-mail">
-                    <input id="pwd" type="password" name="pwd" placeholder="Password">
+                    <input id="mailuid" type="text" name="mailuid" placeholder="Username/E-mail" required>
+                    <input id="pwd" type="password" name="pwd" placeholder="Password" required>
                     <button id="login-submit" type="submit" name="login-submit">LOGIN</button>
                 </form>
             </div>

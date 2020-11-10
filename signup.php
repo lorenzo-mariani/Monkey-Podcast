@@ -51,7 +51,7 @@
                     }
                 }
             ?>>
-            <h3 id="warning-pwd">Warning: username must contain only letters, numbers and whitespaces.</h3>
+            <h3 id="warning-user">Warning: username must contain only letters, numbers and whitespaces.</h3>
                 <input id="email" type="text" name="mail" placeholder="E-mail" <?php
                 if(isset($_GET['uid']) && isset($_GET['error'])){
                     if($_GET['error'] == "emptyfields" || $_GET['error'] == "passwordcheck"){

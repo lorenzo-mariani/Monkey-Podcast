@@ -140,3 +140,19 @@ input {
 #pwd-repeat {
     margin-top: 10px;
 }
+
+#username {
+    margin-bottom: 10px;
+}
+
+#email {
+    margin-top: 20px;
+}
+
+#warning-user {
+    font-family: robotothin;
+    text-align: center;
+    color: rgb(202, 202, 202);
+    padding: 10px;
+    border-radius: 10px;
+}

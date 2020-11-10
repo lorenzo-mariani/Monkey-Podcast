@@ -150,3 +150,16 @@ form #genre-menu-settings {
     border: 1px solid rgb(48 48 48);
     color: whitesmoke;
 }
+
+#channels-container {
+    background-color: rgb(15 15 15);
+}
+
+.channel-btn {
+    background-color: rgb(26 26 26 / 76%);
+    border: 1px solid rgb(48 48 48);
+}
+
+.channel-btn:hover {
+    background-color: rgb(67 67 67 / 76%);
+}

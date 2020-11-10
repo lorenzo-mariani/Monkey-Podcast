@@ -49,6 +49,14 @@ $(".podcast-settings-btn").click(function() {
   $("#podcastmod-content").show();
 });
 
+$(".playlist-settings-btn").click(function() {
+  if($(this)[0].parentNode.children[2].style.display == "none"){
+    $(this)[0].parentNode.children[2].style.display = "flex";
+  } else if($(this)[0].parentNode.children[2].style.display == "flex"){
+    $(this)[0].parentNode.children[2].style.display = "none";
+  }
+});
+
 $(".podcast-thumbnail-btn").click(function(){
   $("#audio").attr("src", $(this)[0].dataset.file);
   $("#thumbnail").attr("src", $(this)[0].dataset.img);

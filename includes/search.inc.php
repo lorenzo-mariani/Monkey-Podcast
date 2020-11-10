@@ -36,7 +36,7 @@
                             "<button class=\"grid-element-users-btn\">   
                                 <div class=\"grid-element-users\">
                                     <img src=".str_replace('../', './', $ch_img).">
-                                    <h4>".strtoupper($name)."</h4>
+                                    <h4 title=\"".ucwords(str_replace('_', ' ', $name))."\">".strtoupper(str_replace("_", " ", $name))."</h4>
                                     <p>".$views." STREAMS</p>
                                 </div>
                             </button>";
@@ -45,7 +45,7 @@
                             "<button class=\"grid-element-users-btn\">   
                             <div class=\"grid-element-users\">
                                 <img>
-                                <h4>".strtoupper($name)."</h4>
+                                <h4 title=\"".ucwords(str_replace('_', ' ', $name))."\">".strtoupper(str_replace("_", " ", $name))."</h4>
                                 <p>".$views." STREAMS</p>
                                 </div>
                             </button>";
@@ -87,8 +87,8 @@
                             <img src=".$img.">
                             <h4 title=\"".ucwords(str_replace('_', ' ', $title))."\">".strtoupper(str_replace('_', ' ', $title))."</h4>
                             <p>".$streams." STREAMS</p>
-                            <h3 id=\"channel-name-search\">".strtoupper($channel_name)."</h3>
-                            <h3 id=\"playlist-search\">".strtoupper(str_replace('_', ' ', $playlist))."</h3>
+                            <h3 id=\"channel-name-search\" title=\"".ucwords(str_replace('_', ' ', $channel_name))."\">".strtoupper(str_replace('_', ' ',$channel_name))."</h3>
+                            <h3 id=\"playlist-search\" title=\"".ucwords(str_replace('_', ' ', $playlist))."\">".strtoupper(str_replace('_', ' ', $playlist))."</h3>
                         </div>
                         </button>";
                     }

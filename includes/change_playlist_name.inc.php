@@ -49,7 +49,7 @@
     session_start();
 
     if(isset($_POST['change-playlist-name-submit'])){
-        if($_POST['playlist-newname'] != "" && $_POST['playlist-newname'] != null && !empty($_POST['playlist-newname'])){
+        if($_POST['playlist-newname'] != "" && $_POST['playlist-newname'] != null && !empty($_POST['playlist-newname']) && !ctype_space($_POST['playlist-newname'])){
             $new_name = str_replace(" ", "_", $_POST['playlist-newname']);
             $old_name = $_POST['change-playlist-name-submit'];
             $query_update = "UPDATE podcasts SET playlist = ? WHERE userUID = ? AND playlist = ?";
@@ -84,6 +84,8 @@
                 mysqli_close($conn);
             }
         
+        } else {
+            header("Location: ../home.php?&error=newplaylistempty");
         }
     } else {
         header("Location: ../home.php?&error=playlistempty");
