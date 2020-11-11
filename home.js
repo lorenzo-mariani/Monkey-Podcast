@@ -215,12 +215,14 @@ document.getElementById("speech-icon-btn").addEventListener('click', function(){
 });
 
 window.onload = function() {
-  if(getCookie('memaudio') != '' && getCookie('memaudio').split('&')[0].substring('audio='.length, getCookie('memaudio').split('&')[0].length)  != 'undefined'){
+  if(getCookie('memaudio') != '' && getCookie('memaudio').split('&')[0].substring('audio='.length, getCookie('memaudio').split('&')[0].length)  != 'undefined' && (getCookie("PHPSESSID") == getCookie("memaudio").split('&')[6].substring('phpsessid='.length, getCookie("memaudio").split('&')[6].length)) ){
     setAudio('memaudio');
-    } 
-    if(getCookie('mode') == 'light'){
-        document.getElementById('checkbox').click();
-    }
+  } else {
+    setCookie('memaudio', '', -1);
+  }
+  if(getCookie('mode') == 'light'){
+      document.getElementById('checkbox').click();
+  }
   if(window.location.href.includes("view=")){
     var string = window.location.href.substring(window.location.href.indexOf("view="), window.location.href.length);
     var view = string.split('&')[0];
@@ -243,6 +245,10 @@ window.onload = function() {
       getHelpContent();
     }
   }
+}
+
+window.onbeforeunload = function() {
+  setCookie("memaudio","audio="+$("#audio").attr("src")+"&timestamp="+getCurrentTime()+"&img="+$("#thumbnail").attr("src")+"&name="+$("#details-container").children()[0].innerHTML.toLowerCase().replace(/ /g , "_")+"&channel="+$("#details-container").children()[1].children[0].innerHTML.toLowerCase()+"&playlist="+$("#podcast-playlist-player")[0].innerHTML.toLowerCase().replace(/ /g, "_")+"&phpsessid="+getCookie("PHPSESSID"), 2);
 }
 
 $("#history-back-btn").click(function() {
