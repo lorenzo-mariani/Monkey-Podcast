@@ -64,7 +64,12 @@ body {
 }
 
 .grid-element-profile {
-    color: black;
+    background-color: #00000096;
+    border: 1px solid rgb(48 48 48);
+}
+
+.grid-element-profile:hover {
+    background-color: #2e2e2e75;
 }
 
 .grid-element-profile h4 {
