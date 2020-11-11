@@ -95,6 +95,7 @@
 }
 
 #podcast-name {
+    display: -webkit-box;
     font-family: caviar_dreamsbold;
     font-size: 15px;
     max-width: 200px;
@@ -102,7 +103,7 @@
     -webkit-line-clamp: 2;
     line-height: 16px;
     overflow: hidden;
-    max-height: 30px;
+    max-height: 32px;
     text-overflow: ellipsis;
     -webkit-box-orient: vertical;
     cursor: default;
@@ -268,5 +269,17 @@
         background-color: rgb(63, 63, 63);
         border-radius: 100%;
         padding: 3px;
+    }
+
+    #play-icon{
+        margin: 0px 20px;
+    }
+
+    #duration {
+        margin-left: 15px;
+    }
+    
+    #current-time {
+        margin-right: 15px;
     }
 }

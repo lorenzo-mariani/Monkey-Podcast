@@ -102,7 +102,7 @@ if(!preg_match("/[\/:*?\"<>|]/", $title)){
                         mysqli_stmt_execute($stmt);
                     }
                 }
-                header("Location: ../home.php?view=home");
+                header("Location: ../home.php");
         } else {
             header("Location: ../upload.php?error=podcastexists");
         }

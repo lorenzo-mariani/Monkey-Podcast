@@ -41,6 +41,15 @@ html{
     border-bottom: 1px solid black;
 }
 
+.channel-content {
+    background-color: white;
+    border-bottom: 1px solid black;
+}
+
+.channel-name-btn {
+    border: 1px solid black;
+}
+
 #help-content {
     background-color: #f1f1f1;;
 }

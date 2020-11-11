@@ -65,7 +65,12 @@
     color: black;
 }
 
-.grid-element-profile p {
+.pod-genre {
+    color: white;
+    background-color: rgb(52 52 52 / 70%);
+}
+
+.pod-streams {
     color: black;
 }
 

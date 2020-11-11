@@ -83,5 +83,5 @@ if(isset($_POST["channel-img-submit"])) {
     }
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
-    header("Location: ../home.php?upload-img=success&view=home");
+    header("Location: ../home.php");
 ?>

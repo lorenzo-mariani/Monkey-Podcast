@@ -71,7 +71,12 @@ body {
     color: whitesmoke;
 }
 
-.grid-element-profile p {
+.pod-genre {
+    color: whitesmoke;
+    background-color: rgb(48 48 48 / 60%);
+}
+
+.pod-streams {
     color: whitesmoke;
 }
 

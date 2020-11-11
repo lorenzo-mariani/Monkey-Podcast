@@ -7,6 +7,9 @@
         $search_text = strtolower(str_replace(" ", "_", $_GET['search']));
 
         if($search_text != ''){
+            echo "<div id=\"search-word-container\">
+            <h3 id=\"search-word\">SEARCH RESULTS FOR: \"".strtoupper(str_replace("_", " ", $search_text))."\"</h3>
+        </div>";
             $query_users = "SELECT * FROM channels WHERE
                         channelName LIKE CONCAT('%', ?, '%')";
             $query_podcasts = "SELECT * from podcasts WHERE
@@ -83,12 +86,13 @@
                     while($stmt_podcasts->fetch()){
                         echo 
                         "<button class=\"grid-element-btn-search\" data-file=\"".$file."\" data-chname=\"".$channel_name."\" data-playlist=\"".$playlist."\" data-img=\"".$img."\" data-title=\"".$title."\">
-                        <div class=\"grid-element\">
-                            <img src=".$img.">
-                            <h4 title=\"".ucwords(str_replace('_', ' ', $title))."\">".strtoupper(str_replace('_', ' ', $title))."</h4>
-                            <p>".$streams." STREAMS</p>
-                            <h3 id=\"channel-name-search\" title=\"".ucwords(str_replace('_', ' ', $channel_name))."\">".strtoupper(str_replace('_', ' ',$channel_name))."</h3>
-                            <h3 id=\"playlist-search\" title=\"".ucwords(str_replace('_', ' ', $playlist))."\">".strtoupper(str_replace('_', ' ', $playlist))."</h3>
+                        <div class=\"grid-element-search\">
+                            <img class=\"podcast-img-search\" src=".$img.">
+                            <h4 class=\"podcast-title-search\" title=\"".ucwords(str_replace('_', ' ', $title))."\">".strtoupper(str_replace('_', ' ', $title))."</h4>
+                            <h3 class=\"channel-name-search\" title=\"".ucwords(str_replace('_', ' ', $channel_name))."\">".strtoupper(str_replace('_', ' ',$channel_name))."</h3>
+                            <h3 class=\"playlist-search\" title=\"".ucwords(str_replace('_', ' ', $playlist))."\">".strtoupper(str_replace('_', ' ', $playlist))."</h3>
+                            <h3 class=\"genre-search\" title=\"".ucwords(str_replace('_', ' ', $genre))."\">".strtoupper(str_replace('_', ' ', $genre))."</h3>
+                            <p class=\"podcast-streams-search\">".$streams." STREAMS</p>
                         </div>
                         </button>";
                     }

@@ -72,7 +72,7 @@
                             echo
                             "<div id=\"channel-name-container\" style=\"background: url('".$channel_img."') no-repeat center; background-size:cover\">
                                 <button class=\"channel-name-btn\">
-                                    <h1 class=\"channel-name\">".strtoupper($channel_name)."</h1>
+                                    <h1 class=\"channel-name\">".strtoupper(str_replace("_", " ", $channel_name))."</h1>
                                 </button>
                             </div>
                             <div class=\"channel-content\">";
@@ -84,24 +84,28 @@
                                     echo "</div>";
                                 }
                                 echo "<div class=\"playlist-container-home\">
-                                <h4 id=\"playlist-home\">".strtoupper(str_replace('_', ' ', $playlist))."</h4>";
+                                <h4 id=\"playlist-home\">".strtoupper(str_replace('_', ' ', $playlist))."</h4>
+                                <div class=\"playlist-content\">";
                             }
                         } else if($playlist == "none" && $check_plst != 1){
                             $check_plst = 1;
                             echo "<div class=\"playlist-container-home\">
                             <h4 id=\"some-podcasts-home\">SOME PODCASTS</h4>";
                         }
-                        if($count < 3){
+                        if($count < 4){
                             echo
                             "<button class=\"grid-element-btn\" data-file=\"".$podcast_file."\" data-chname=\"".$channel_name."\" data-playlist=\"".$playlist."\" data-img=\"".$podcast_img."\" data-title=\"".$title."\">
                             <div class=\"grid-element\">
                                 <img src=".$podcast_img." alt=\"podcast-image\">
-                                <h4 title=\"".ucwords(str_replace('_', ' ', $title))."\">".strtoupper(str_replace('_', ' ', $title))."</h4>
-                                <p>".$streams." STREAMS</p>
+                                <div class=\"pod-home-details-container\">
+                                    <h4 title=\"".ucwords(str_replace('_', ' ', $title))."\">".strtoupper(str_replace('_', ' ', $title))."</h4>
+                                    <p>".$streams." STREAMS</p>
+                                </div>
                             </div>
                             </button>";
-                        } else if ($count == 3) {
-                            echo "<button class=\"show-more-btn\">
+                        } else if ($count == 4) {
+                            echo "</div>
+                            <button class=\"show-more-btn\">
                             <p class=\"show-more\" id=".$channel_name.">SHOW MORE...
                             </button>";
                         }

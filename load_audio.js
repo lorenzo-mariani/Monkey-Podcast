@@ -109,8 +109,11 @@ function setAudio(cname) {
   $("#audio").attr("src", audio);
   $("#thumbnail").attr("src", img);
   $("#podcast-name").html(title.replace(/_/g , " ").toUpperCase());
+  $("#podcast-name").attr("title", title.replace(/_/g, " "));
   $("#podcast-channel").html(channel.replace(/_/g , " ").toUpperCase());
+  $("#podcast-channel").attr("title", channel.replace(/_/g, " "));
   $("#podcast-playlist-player").html(playlist.replace(/_/g, " ").toUpperCase());
+  $("#podcast-playlist-player").attr("title", playlist.replace(/_/g, " "));
   document.getElementById('audio').currentTime = timestamp;
   if(timestamp > 60){
     $("#current-time").html(Math.floor(audio.timestamp/60)+":"+Math.floor(audio.timestamp%60));

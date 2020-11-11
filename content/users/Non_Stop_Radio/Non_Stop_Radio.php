@@ -205,8 +205,9 @@
                             <div id=\"pod-info-container\">";
                                 echo "<button class=\"podcast-title-btn\" data-file=\"".$podcast_file."\" data-chname=\"".$profile."\" data-playlist=\"".$playlist."\" data-img=\"".$podcast_img."\" data-title=\"".$title."\">
                                     <h4 class=\"podcast-title\" title=\"".ucwords(str_replace('_', ' ', $title))."\">".strtoupper(str_replace('_', ' ', $title))."</h4>
-                                </button>
-                                <p>".$streams." STREAMS</p>";
+                                </button> 
+                                <p class=\"pod-genre\" title=\"".ucwords(str_replace('_', ' ', $genre))."\">".strtoupper(str_replace('_', ' ', $genre))."</p>
+                                <p class=\"pod-streams\">".$streams." STREAMS</p>";
                                 if($_SESSION['userUid'] == $profile){
                                     echo "<div class=\"mod-btns-container\">
                                     <form action=\"./includes/deletepod.inc.php\" method=\"post\" onsubmit=\"return confirm('Are you shure you want to delete this podcast?');\">

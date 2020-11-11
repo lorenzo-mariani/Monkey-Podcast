@@ -1,5 +1,6 @@
 #podcast-container-search {
-    border: 4px solid rgba(48, 48, 48, 0.57);
+    background-color: rgb(21 21 21);
+    border: 2px solid rgba(48, 48, 48, 0.57);
 }
 
 #podcasts-container {
@@ -15,8 +16,23 @@
     color: rgb(0, 127, 201);
 }
 
-.scrollchannel {
-    background-color: rgb(24, 24, 24);
+#scrollchannel {
+    background-color: rgb(21 21 21);
+    border: 2px solid rgba(48, 48, 48, 0.57);
+}
+
+.podcast-title-search {
+    color: whitesmoke;
+}
+
+.channel-name-search {
+    color: whitesmoke;
+    background-color: rgb(95 0 0 / 59%);
+}
+
+.playlist-search {
+    color: whitesmoke;
+    background-color: #3a3a3a5e;
 }
 
 .grid-element-users h4 {
@@ -25,4 +41,19 @@
 
 .grid-element-users p {
     color: gray;
+}
+
+.grid-element-btn-search {
+    border: 1px solid rgb(58 58 58);
+    background-color: rgba(0, 0, 0, 0.719);
+}
+
+.grid-element-btn-search:hover {
+    background-color: rgb(38 38 38);
+    border: 1px solid rgba(245, 245, 245, 0.685);
+}
+
+.podcast-title-search {
+    border-bottom: 1px solid rgb(48 48 48);
+    border-top: 1px solid rgb(48 48 48);
 }

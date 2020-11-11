@@ -8,6 +8,12 @@
     margin-top: 20px;
 }
 
+#search-word {
+    font-family: caviar_dreamsbold;
+    padding: 20px 40px;
+    font-size: 24px;
+}
+
 #users-container{
     position: relative;
     font-family: caviar_dreamsbold;
@@ -15,7 +21,6 @@
     font-size: 30px;
     text-align: center;
     padding: 7px 0px;
-    margin-top: 20px;
 }
 
 #podcast-search {
@@ -31,34 +36,72 @@
     justify-content: center;
 }
 
-#channel-name-search {
-    color: whitesmoke;
-    margin-left: 20px;
+.podcast-title-search {
+    display: -webkit-box;
     font-family: 'caviar_dreamsbold';
-    font-size: 13px;
-    padding: 7px 8px;
-    background-color: black;
+    height: 50px;
+    font-size: 18px;
+    -webkit-line-clamp: 2;
+    line-height: 23px;
+    overflow-y: hidden;
+    max-height: 36px;
     text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    width: 55px;
+    -webkit-box-orient: vertical;
+    width: 100%;
+    margin: 10px 0px;
+    padding: 10px 0px;
 }
 
-#playlist-search {
-    background-color: #3a3a3a;
+.channel-name-search {
     color: whitesmoke;
     font-family: 'caviar_dreamsbold';
-    font-size: 13px;
-    padding: 7px 8px;
+    font-size: 15px;
+    margin-top: 7px;
+    padding: 5px 0px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    width: 55px;
+    width: 100%;
+}
+
+.playlist-search {
+    font-family: 'caviar_dreamsbold';
+    font-size: 13px;
+    margin-bottom: 7px;
+    padding: 5px 0px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.genre-search {
+    font-family: 'caviar_dreamsbold';
+    font-size: 13px;
+    margin-bottom: 7px;
+    padding: 5px 0px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.podcast-img-search {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+}
+
+.podcast-streams-search {
+    font-family: 'caviar_dreamsregular';
+    font-size: 12px;
+    width: 100%;
 }
 
 .grid-element-btn-search {
-    width: 30%;
-    margin: 7px 0px;
+    width: 220px;
+    margin: 20px 30px;
+    padding: 10px;
 }
 
 .grid-element-users {
