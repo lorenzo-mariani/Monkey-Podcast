@@ -113,7 +113,11 @@
                         $playlist_tmp = $playlist;
                         $name_tmp = $channel_name;
                     }
-                    echo "</div>
+                    if($count < 4){
+                        echo "</div>";
+                    }
+                    echo "
+                    </div>
                     </div>";
                 }
                 mysqli_stmt_close($stmt);
