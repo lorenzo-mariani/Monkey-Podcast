@@ -254,37 +254,37 @@ window.onbeforeunload = function() {
 $("#history-back-btn").click(function() {
   history.back();
   setTimeout(function() {
-      if(window.location.href.includes("view=")){
-          if(window.location.href.includes("view=")){
-            var view = history.state.Url.split('?')[1].split('&')[0];
-            var content = history.state.Url.split('?')[1].split('&')[1];
-            var viewValue = view.substring("view=".length, view.length);
-            if(viewValue == "profile"){
-              if(string.split('&')[2] != undefined && string.split('&')[2] == "podmod=true"){
-                var profile = content.substring("uid=".length, content.length);
-                var settings = history.state.Url.split('?')[1].split('&')[3];
-                var podcast = settings.substring("settings=".length, settings.length);
-                getPodMod(profile, podcast);
-              } else {
-                var profile = content.substring("uid=".length, content.length);
-                getProfileContent(profile);
-              }
-            } else if(viewValue == "search"){
-              var search = content.substring("search=".length, content.length);
-              getSearchContent(search);
-            } else if(viewValue == "help"){
-              getHelpContent();
-            }
+    if(window.location.href.includes("view=")){
+      if(history.state.Url.split('?')[1] != "login=success" || history.state.Url.split('?')[1] != "subscribe=success" || history.state.Url.split('?')[1] != "unsubscribe=success"){
+        var view = history.state.Url.split('?')[1].split('&')[0];
+        var content = history.state.Url.split('?')[1].split('&')[1];
+        var viewValue = view.substring("view=".length, view.length);
+        if(viewValue == "profile"){
+          if(history.state.Url.split('?')[1].split('&')[2] != undefined && history.state.Url.split('?')[1].split('&')[2] == "podmod=true"){
+            var profile = content.substring("uid=".length, content.length);
+            var settings = history.state.Url.split('?')[1].split('&')[3];
+            var podcast = settings.substring("settings=".length, settings.length);
+            getPodMod(profile, podcast);
           } else {
-            getHomeContent();
+            var profile = content.substring("uid=".length, content.length);
+            getProfileContent(profile);
           }
-      } else {
-        if(history.state == null){
-          getHomeContent();
-        } else if(history.state.Url == "home.php"){
-          getHomeContent();
+        } else if(viewValue == "search"){
+          var search = content.substring("search=".length, content.length);
+          getSearchContent(search);
+        } else if(viewValue == "help"){
+          getHelpContent();
         }
+      } else {
+        getHomeContent();
       }
+  } else {
+    if(history.state == null){
+      getHomeContent();
+    } else if(history.state.Url == "home.php"){
+      getHomeContent();
+    }
+  }
   }, 100);
 });
 
