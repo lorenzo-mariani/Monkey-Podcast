@@ -282,7 +282,7 @@ a:hover{
 
 .tut-gif {
     height: 200px;
-    width: 100%;
+    width: 500px;
     object-fit: cover;
 }
 
@@ -887,7 +887,11 @@ a:hover{
     }
 
     .gif-container {
-        width: 87%;
+        width: 400px;
+    }
+
+    .tut-gif {
+        width: 400px;
     }
 
     #display-more-btn {
