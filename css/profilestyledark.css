@@ -106,8 +106,26 @@ body {
     color: white;
 }
 
+.grid-element-mod {
+    background-color: #00000054;
+    border: 1px solid rgb(48 48 48);
+}
+
 .grid-element-mod h4, p{
     color: whitesmoke;
+}
+
+#podcast-title-mod {
+    border-top: 1px solid rgb(48 48 48);
+    border-bottom: 1px solid rgb(48 48 48);
+}
+
+#podcast-playlist-mod {
+    background-color: rgb(64 0 0);
+}
+
+#podcast-genre-mod {
+    background-color: rgb(48 48 48);
 }
 
 form #label-settings {

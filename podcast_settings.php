@@ -27,8 +27,10 @@
                         echo 
                         "<div class=\"grid-element-mod\" id=".$file.">
                             <img src=".$img.">
-                            <h4 id=".$channel_name.">".strtoupper(str_replace('_', ' ', $title_res))."</h4>
-                            <p>".$streams." STREAMS</p>
+                            <h4 id=\"podcast-title-mod\">".strtoupper(str_replace('_', ' ', $title_res))."</h4>
+                            <h4 id=\"podcast-playlist-mod\">".strtoupper(str_replace('_', ' ', $playlist))."</h4>
+                            <h4 id=\"podcast-genre-mod\">".strtoupper(str_replace('_', ' ', $genre))."</h4>
+                            <p id=\"podcast-streams-mod\">".$streams." STREAMS</p>
                         </div>";
                     }
                 }

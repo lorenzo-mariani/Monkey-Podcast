@@ -458,14 +458,33 @@ button:hover {
 }
 
 .grid-element-mod img {
-    max-height: 200px;
-    max-width: 300px;
+    height: 200px;
+    width: 200px;
     object-fit: cover;
     margin-bottom: 20px;
 }
 
-.grid-element-mod h4, p{
+.grid-element-mod h4{
+    font-family: 'caviar_dreamsbold';
+}
+
+.grid-element-mod p{
     font-family: 'caviar_dreamsregular';
+}
+
+#podcast-title-mod {
+    font-size: 20px;
+    padding: 5px;
+}
+
+#podcast-playlist-mod {
+    margin-top: 7px;
+    padding: 5px;
+}
+
+#podcast-genre-mod {
+    margin: 5px 0px;
+    padding: 5px;
 }
 
 #profile-home-container {
@@ -525,7 +544,7 @@ form #podcast-playlist-settings {
     font-weight: bolder;
     font-size: 17px;
     cursor: pointer;
-    margin: 10px 0px;
+    margin: 0px auto;
 }
 
 #img-file-settings {
