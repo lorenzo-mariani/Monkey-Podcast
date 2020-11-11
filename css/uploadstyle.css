@@ -59,8 +59,7 @@ label {
     font-weight: bold;
     font-size: 18px;
     display: inline-block;
-    margin-top: 60px;
-    margin-left: 30px;
+    margin-top: 40px;
     text-align: left;
 }
 
@@ -110,7 +109,7 @@ input {
 #upload-submit-ch {
     font-family: 'caviar_dreamsbold';
     padding: 10px 20px;
-    margin-left: 10px;
+    margin-top: 40px;
     border-radius: 5px;
     font-size: 19px;
     cursor: pointer;

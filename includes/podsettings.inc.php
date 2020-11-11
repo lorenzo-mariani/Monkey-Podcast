@@ -86,6 +86,9 @@ if(empty($new_title) && empty($playlist) && $genre == "select genre" && $_FILES[
                                 mysqli_stmt_bind_param($stmt_playlist, "sss", $playlist, $old_title, $_SESSION['userUid']);
                                 mysqli_stmt_execute($stmt_playlist);
                                 mysqli_stmt_close($stmt_playlist);
+                                echo "<script type=\"text/javascript\">
+                                setCookieSubstring(\"memaudio\", \"playlist=\", \"".$playlist."\", 2)
+                                </script>";
                             }
                         }
                         if(!($genre == "select genre")){

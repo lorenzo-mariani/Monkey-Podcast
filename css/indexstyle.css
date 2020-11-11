@@ -17,6 +17,24 @@ body {
 
 }
 
+@font-face {
+    font-family: 'caviar_dreamsregular';
+    src: url('../fonts/caviardreams-webfont.woff2') format('woff2'),
+         url('../fonts/caviardreams-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'caviar_dreamsbold';
+    src: url('../fonts/caviardreams_bold-webfont.woff2') format('woff2'),
+         url('../fonts/caviardreams_bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 .logo {
     text-align: center;
 }
@@ -26,21 +44,20 @@ body {
 }
 
 #login-button {
-    color: whitesmoke;
-    background-color: rgb(91 15 15);
     border: 1px solid rgba(245, 245, 245, 0.5);
     width: 150px;
     height: 50px;
     padding: 10px 35px;
-    border-radius: 4px;
-    font-family: robotothin;
-    font-weight: bolder;
+    border-radius: 5px;
     font-size: 14px;
+    font-family: 'caviar_dreamsbold';
+    color: whitesmoke;
+    background-color: #530000;
     cursor: pointer;
 }
 
 #login-button:hover {
-    background-color: rgb(140 30 30);
+    background-color: rgb(130 0 0);
 }
 
 #center-buttons {
@@ -116,21 +133,21 @@ input {
 }
 
 #login-submit {
-    color: whitesmoke;
-    background-color: rgb(91 15 15);
     border: none;
     width: 140px;
     height: 50px;
     padding: 10px 20px;
-    border-radius: 4px;
-    font-family: robotothin;
-    font-weight: bolder;
     font-size: 17px;
+    border: 1px solid rgba(245, 245, 245, 0.5);
+    border-radius: 5px;
+    font-family: 'caviar_dreamsbold';
+    color: whitesmoke;
+    background-color: #530000;
     cursor: pointer;
 }
 
 #login-submit:hover {
-    background-color: rgb(140 30 30);
+    background-color: rgb(130 0 0);
 }
 
 .close {
@@ -146,17 +163,15 @@ input {
 #signup {
     color: black;
     background-color: whitesmoke;
+    margin-right: 40px;
     border: 1px solid rgba(245, 245, 245, 0.5);
-    padding: 10px 40px;
     width: 150px;
     height: 50px;
-    margin-right: 40px;
-    border-radius: 4px;
-    font-family: robotothin;
-    font-weight: bolder;
+    padding: 10px 35px;
+    border-radius: 5px;
     font-size: 14px;
+    font-family: 'caviar_dreamsbold';
     cursor: pointer;
-    text-decoration: none;
 }
 
 #signup:hover {
@@ -197,14 +212,17 @@ input {
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0);
-    bottom: 20%;
+    bottom: 12%;
     width: 80px;
-    padding: 5px 5px;
+    padding: 10px 9px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: 'caviar_dreamsbold';
     color: whitesmoke;
-    background-color: rgb(91 15 15);
-    border: none;
-    transform: translate(-50%);
+    background-color: #530000;
+    border: 1px solid rgba(245, 245, 245, 0.5);
     cursor: pointer;
+    transform: translate(-50%);
 }
 
 #ok-button:hover {
