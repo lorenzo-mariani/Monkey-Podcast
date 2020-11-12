@@ -71,25 +71,27 @@
                         <img src="./icon/microphone.png" alt="Upload Podcast" id="upload-icon">
                     </button>
                 </form>
-                <button id="profile-icon-btn">
-                    <h4 id="profile-uid"><?php echo strtoupper(str_replace("_", " ", $_SESSION['userUid'])); ?></h4>
-                    <img src="./icon/user.png" alt="User Profile" id="profile-icon">
-                </button>
-            </div>
-            <div id="profile-menu" style="display: none;">
-                <button id="profile-btn">
-                    <h4 id="profile-button"><?php
-                        $string = str_replace("_", " ", $_SESSION['userUid']);
-                        $uid = strtoupper($string);
-                        echo $uid;
-                    ?></h4>
-                </button>
-                <button id="help-btn">
-                    <h4 id="help-button">HELP</h4>
-                </button>
-                <form action="includes/logout.inc.php" method="post" onsubmit="return confirm('Are you shure you want to logout?');">
-                    <button id="logout-button" type="submit" name="logout-submit">LOGOUT</button>
-                </form>
+                <div id="profile-menu-container">
+                    <button id="profile-icon-btn">
+                        <h4 id="profile-uid"><?php echo strtoupper(str_replace("_", " ", $_SESSION['userUid'])); ?></h4>
+                        <img src="./icon/user.png" alt="User Profile" id="profile-icon">
+                    </button>
+                    <div id="profile-menu" style="display: none;">
+                        <button id="profile-btn">
+                            <h4 id="profile-button"><?php
+                                $string = str_replace("_", " ", $_SESSION['userUid']);
+                                $uid = strtoupper($string);
+                                echo $uid;
+                            ?></h4>
+                        </button>
+                        <button id="help-btn">
+                            <h4 id="help-button">HELP</h4>
+                        </button>
+                        <form action="includes/logout.inc.php" method="post" onsubmit="return confirm('Are you shure you want to logout?');">
+                            <button id="logout-button" type="submit" name="logout-submit">LOGOUT</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </header>

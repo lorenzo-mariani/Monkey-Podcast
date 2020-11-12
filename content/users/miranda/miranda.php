@@ -164,7 +164,7 @@
         <div id="profile-home-container">
             <?php
 
-                $query_pod = "SELECT genre, podcastTitle, podcastImg, podcastStreams, podcastFile, playlist FROM podcasts WHERE userUID=? ORDER BY playlist ASC, podcastTitle ASC";
+                $query_pod = "SELECT genre, podcastTitle, podcastImg, podcastStreams, podcastFile, playlist, uploadTime FROM podcasts WHERE userUID=? ORDER BY playlist ASC, uploadTime DESC";
                 $stmt_pod = mysqli_stmt_init($conn);
                 if (!mysqli_stmt_prepare($stmt_pod, $query_pod)) {
                     header("Location: ./home.php?error=profilesqlerror");
@@ -173,7 +173,7 @@
                     mysqli_stmt_bind_param($stmt_pod, "s", $profile);
                     mysqli_stmt_execute($stmt_pod);
                     mysqli_stmt_store_result($stmt_pod);
-                    $stmt_pod->bind_result($genre, $title, $podcast_img, $streams, $podcast_file, $playlist);
+                    $stmt_pod->bind_result($genre, $title, $podcast_img, $streams, $podcast_file, $playlist, $upload_time);
                     $playlist_tmp = NULL;
                     while($stmt_pod->fetch()){
                         if($playlist_tmp != $playlist) {
@@ -206,6 +206,7 @@
                                 echo "<button class=\"podcast-title-btn\" data-file=\"".$podcast_file."\" data-chname=\"".$profile."\" data-playlist=\"".$playlist."\" data-img=\"".$podcast_img."\" data-title=\"".$title."\">
                                     <h4 class=\"podcast-title\" title=\"".ucwords(str_replace('_', ' ', $title))."\">".strtoupper(str_replace('_', ' ', $title))."</h4>
                                 </button>
+                                <h4 class=\"pod-genre\" title=\"".ucwords(str_replace('_', ' ', $genre))."\">".strtoupper(str_replace('_', ' ', $genre))."</h4>                               
                                 <p>".$streams." STREAMS</p>";
                                 if($_SESSION['userUid'] == $profile){
                                     echo "<div class=\"mod-btns-container\">

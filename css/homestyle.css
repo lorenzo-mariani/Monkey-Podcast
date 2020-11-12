@@ -75,6 +75,7 @@ a:hover{
     margin-left: 20px;
     padding: 3px;
     display: none;
+    flex: 1;
 }
 
 #default-content, #profile-content, #search-content, #podcastmod-content, #help-content {
@@ -380,6 +381,7 @@ a:hover{
 
 #history-btns-container {
     display: flex;
+    flex: 1;
     margin-left: 20px;
     justify-content: center;
     align-items: center;
@@ -792,6 +794,10 @@ a:hover{
         margin: 10px 0px
     }
 
+    #logo-btn {
+        flex: 4;
+    }
+
     #search-container,
     #icons-container {
         display: none;
@@ -903,6 +909,10 @@ a:hover{
         align-items: center;
         justify-content: center;
         margin: 10px 0px
+    }
+
+    #logo-btn {
+        flex: 4;
     }
 
     #search-container,

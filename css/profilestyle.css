@@ -213,7 +213,7 @@ button:hover {
 
 .playlist-podcasts-container {
     width: 100%;
-    max-height: 320px;
+    max-height: 365px;
     overflow-x: auto;
     overflow-y: auto;
     display: flex;
@@ -243,9 +243,12 @@ button:hover {
 .podcast-title-btn {
     width: 100%;
     margin-top: 10px;
+    width: 100%;
+    margin-top: 10px;
+    padding: 3px 0px;
 }
 
-.grid-element-profile h4 {
+.podcast-title {
     display: -webkit-box;
     font-family: caviar_dreamsregular;
     font-size: 18px;

@@ -73,7 +73,7 @@
                 mysqli_stmt_bind_param($stmt_podcasts, "ssss", $search_text, $search_text, $search_text, $search_text);
                 mysqli_stmt_execute($stmt_podcasts);
                 mysqli_stmt_store_result($stmt_podcasts);
-                $stmt_podcasts->bind_result($genre, $title, $img, $channel_name, $streams, $file, $playlist);
+                $stmt_podcasts->bind_result($genre, $title, $img, $channel_name, $streams, $file, $playlist, $update_time);
                 $rows = $stmt_podcasts->num_rows;
                 if($stmt_podcasts->num_rows > 0){
                     echo "

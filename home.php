@@ -25,8 +25,8 @@
     ?>>
         <?php
 
-            $query = "SELECT userUID, podcastStreams, podcastTitle, podcastImg, channelImg, podcastFile, playlist FROM
-            (SELECT userUID, podcastStreams, podcastTitle, podcastImg, podcastFile, playlist FROM
+            $query = "SELECT userUID, podcastStreams, podcastTitle, podcastImg, channelImg, podcastFile, playlist, uploadTime FROM
+            (SELECT userUID, podcastStreams, podcastTitle, podcastImg, podcastFile, playlist, uploadTime FROM
             (SELECT channelName FROM
             subscriptions
             WHERE subUid = ?) as t1
@@ -36,7 +36,7 @@
             INNER JOIN
             channels
             ON t2.userUid = channels.channelName
-            ORDER BY userUID ASC, playlist ASC, podcastTitle ASC";
+            ORDER BY userUID ASC, playlist ASC, uploadTime DESC";
             $stmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($stmt, $query)) {
                 header("Location: ./home.php?error=sqlerror");
@@ -45,7 +45,7 @@
                 mysqli_stmt_bind_param($stmt, "s", $_SESSION['userUid']);
                 mysqli_stmt_execute($stmt);
                 mysqli_stmt_store_result($stmt);
-                $stmt->bind_result($channel_name, $streams, $title, $podcast_img, $channel_img, $podcast_file, $playlist);
+                $stmt->bind_result($channel_name, $streams, $title, $podcast_img, $channel_img, $podcast_file, $playlist, $upload_time);
                 if($stmt->num_rows == 0){
                     echo "<div id=\"default-content\">
                         <h1 id=\"welcome-to\">WELCOME TO</h1>

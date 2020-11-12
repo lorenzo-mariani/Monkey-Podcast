@@ -19,7 +19,7 @@
                 mysqli_stmt_bind_param($stmt, "ss", $_SESSION['userUid'], $title_mod);
                 mysqli_stmt_execute($stmt);
                 mysqli_stmt_store_result($stmt);
-                $stmt->bind_result($genre, $title_res, $img, $channel_name, $streams, $file, $playlist);
+                $stmt->bind_result($genre, $title_res, $img, $channel_name, $streams, $file, $playlist, $upload_time);
                 if($stmt->num_rows > 0){
                     echo "
                     <div id=\"podcast-container\">";

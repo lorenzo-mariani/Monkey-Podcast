@@ -111,6 +111,11 @@ body {
     border: 1px solid rgb(48 48 48);
 }
 
+.podcast-title-btn {
+    border-top: 1px solid rgb(48 48 48);
+    border-bottom: 1px solid rgb(48 48 48);
+}
+
 .grid-element-mod h4, p{
     color: whitesmoke;
 }

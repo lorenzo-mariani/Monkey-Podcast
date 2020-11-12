@@ -45,7 +45,7 @@ $(".podcast-settings-btn").click(function() {
         $("#podcastmod-content").html(data);
     }
   });
-  changeUrl("Profile", "home.php?view=profile&uid="+$("#username")[0].innerHTML.replace(/ /g, "").replace(/\n/g, "").toLowerCase()+"&podmod=true&settings="+title);
+  changeUrl("Profile", "home.php?view=profile&uid="+$("#username")[0].innerHTML.replace(/ /g, "_").replace(/\n/g, "_").toLowerCase()+"&podmod=true&settings="+title);
   $("#podcastmod-content").show();
 });
 
