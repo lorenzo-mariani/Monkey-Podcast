@@ -73,16 +73,6 @@ if (isset($_POST['signup-submit'])){
                             mkdir($basedirname);
                             $podcastsdirname = '../content/users/'.$username.'/'.'podcasts/';
                             mkdir($podcastsdirname);
-                            $file = '../templates/profile.php';            
-                            $newfile = '../content/users/'.$username.'/'.$username.'.php';
-                            if (!copy($file, $newfile)) {
-                                echo "failed to copy $file...\n";
-                            }
-                            $file = '../templates/profile.js';       
-                            $newfile = '../content/users/'.$username.'/'.$username.'.js';
-                            if (!copy($file, $newfile)) {
-                                echo "failed to copy $file...\n";
-                            }
                         }
 
                         mysqli_stmt_close($stmt);

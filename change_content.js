@@ -43,6 +43,7 @@ $(document).ready(function(){
 });
 
 function getProfileContent(name) {
+    $("#profile-content").html("");
     $("#home-content").hide();
     $("#help-content").hide();
     $("#podcastmod-content").hide();
@@ -50,7 +51,7 @@ function getProfileContent(name) {
     $("#content").attr("class", "profile");
     var string = name.replace(/ /g, "_");
     $.ajax({
-        url : "./content/users/"+string+"/"+string+".php",
+        url : "./profile.php?uid="+string,
         dataType: "html",
         success : function (data) {
             $("#profile-content").html(data);

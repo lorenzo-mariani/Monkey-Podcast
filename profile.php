@@ -3,10 +3,15 @@
     if(!isset($_SESSION['userId'])){
         header("Location: ./index.php");
     }
+
+    if(!isset($_GET['uid'])){
+        header("Location: ./home.php");
+    }
     
-    require "../../../includes/dbh.inc.php";
-    $profile = basename(__FILE__, '.php');
+    require "./includes/dbh.inc.php";
+    $profile = $_GET['uid'];
 ?>
+
 <body>
     <div class="profile-cnt">
         <?php
@@ -273,7 +278,7 @@
             ?>
         </div>
     </div>
-    <script src=<?php echo "'./content/users/".$profile."/".$profile.".js'";?>>
+    <script src="./profile.js">
     </script>
 </body>
 </html>

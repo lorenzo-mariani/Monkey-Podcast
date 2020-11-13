@@ -77,20 +77,14 @@
                             </div>
                             <div class=\"channel-content\">";
                         }
-                        if($playlist != "none") {
-                            if($playlist_tmp != $playlist){
-                                $count = 0;
-                                if($playlist_tmp != NULL){
-                                    echo "</div>";
-                                }
-                                echo "<div class=\"playlist-container-home\">
-                                <h4 id=\"playlist-home\">".strtoupper(str_replace('_', ' ', $playlist))."</h4>
-                                <div class=\"playlist-content\">";
+                        if($playlist_tmp != $playlist){
+                            $count = 0;
+                            if($playlist_tmp != NULL){
+                                echo "</div>";
                             }
-                        } else if($playlist == "none" && $check_plst != 1){
-                            $check_plst = 1;
                             echo "<div class=\"playlist-container-home\">
-                            <h4 id=\"some-podcasts-home\">SOME PODCASTS</h4>";
+                            <h4 id=\"playlist-home\">".strtoupper(str_replace('_', ' ', $playlist))."</h4>
+                            <div class=\"playlist-content\">";
                         }
                         if($count < 4){
                             echo

@@ -1,7 +1,4 @@
 document.getElementById('channels-btn').addEventListener('click', function() {
-  if(document.getElementById('chimg-container') != null){
-    document.getElementById('chimg-container').style.display = 'none';
-  }
   document.getElementById('info-container').style.display = 'none';
   document.getElementById('streams-container').style.display = 'none';
   document.getElementById('profile-home-container').style.display = 'none';
@@ -20,15 +17,16 @@ document.getElementById('home-btn').addEventListener('click', function() {
 
 $(".channel-btn").click(function(){
   $("#home-content").hide();
+  var chname = $(this).children().children()[1].children[0].innerHTML.toLowerCase().replace(/ /g, "_");
   $.ajax({
-      url : "./content/users/"+$(this).children().children()[1].children[0].innerHTML.toLowerCase()+"/"+$(this).children().children()[1].children[0].innerHTML.toLowerCase()+".php",
+      url : "./profile.php?uid="+chname,
       dataType: "html",
       success : function (data) {
           $("#profile-content").html(data);
           $("#profile-content").show();
       }
   });
-  changeUrl("Profile", "home.php?view=profile&uid="+$(this).children().children()[1].children[0].innerHTML.toLowerCase());
+  changeUrl("Profile", "home.php?view=profile&uid="+chname);
   $("#content").attr("class", "profile");
 
 });
@@ -38,6 +36,7 @@ $(".podcast-settings-btn").click(function() {
   $("#home-content").hide();
   $("#profile-content").hide();
   var title = $(this).parent().parent().parent()[0].children[1].children[0].children[0].innerHTML.toLowerCase().replace(/ /g, "_");
+  var profile = $("#username")[0].innerHTML.replace(/ /g, "").replace(/\n/g, "").toLowerCase();
   $.ajax({
     url : "./podcast_settings.php?title="+title,
     dataType: "html",
@@ -45,7 +44,7 @@ $(".podcast-settings-btn").click(function() {
         $("#podcastmod-content").html(data);
     }
   });
-  changeUrl("Profile", "home.php?view=profile&uid="+$("#username")[0].innerHTML.replace(/ /g, "_").replace(/\n/g, "_").toLowerCase()+"&podmod=true&settings="+title);
+  changeUrl("Profile", "home.php?view=profile&uid="+profile+"&podmod=true&settings="+title);
   $("#podcastmod-content").show();
 });
 

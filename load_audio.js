@@ -39,7 +39,11 @@ function getCurrentTime() {
 }
 
 audio.oncanplaythrough = function() {
-  $("#duration").html(Math.floor(audio.duration/60)+":"+Math.floor(audio.duration%60));
+  if(Math.floor(audio.duration%60) < 10){
+    $("#duration").html(Math.floor(audio.duration/60)+":0"+Math.floor(audio.duration%60));
+  } else {
+    $("#duration").html(Math.floor(audio.duration/60)+":"+Math.floor(audio.duration%60));
+  }
 };
 
 function setCookie(cname, cvalue, exdays) {
