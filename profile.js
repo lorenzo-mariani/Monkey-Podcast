@@ -2,7 +2,7 @@ document.getElementById('channels-btn').addEventListener('click', function() {
   document.getElementById('info-container').style.display = 'none';
   document.getElementById('streams-container').style.display = 'none';
   document.getElementById('profile-home-container').style.display = 'none';
-  document.getElementById('channels-container').style.display = 'inline-grid';
+  document.getElementById('channels-container').style.display = 'flex';
 });
 
 document.getElementById('home-btn').addEventListener('click', function() {
@@ -28,7 +28,6 @@ $(".channel-btn").click(function(){
   });
   changeUrl("Profile", "home.php?view=profile&uid="+chname);
   $("#content").attr("class", "profile");
-
 });
 
 $(".podcast-settings-btn").click(function() {
@@ -65,7 +64,7 @@ $(".podcast-thumbnail-btn").click(function(){
   $("#podcast-channel").attr("title", $(this)[0].dataset.chname.replace(/_/g, " "));
   $("#podcast-playlist-player").html($(this)[0].dataset.playlist.replace(/_/g, " ").toUpperCase());
   $("#podcast-playlist-player").attr("title", $(this)[0].dataset.playlist.replace(/_/g, " "));
-  $( "#play-icon-btn" ).trigger( "click" );
+  $("#play-icon-btn").trigger("click");
   updatePodcastStreams($(this)[0].dataset.title, $(this)[0].dataset.chname);
   setCookie("memaudio","audio="+$(this)[0].dataset.file+"&timestamp="+00+"&img="+$(this)[0].dataset.img+"&name="+$(this)[0].dataset.title+"&channel="+$(this)[0].dataset.chname.toLowerCase()+"&playlist="+$(this)[0].dataset.playlist, 2);
 });
@@ -79,7 +78,7 @@ $(".podcast-title-btn").click(function(){
   $("#podcast-channel").attr("title", $(this)[0].dataset.chname.replace(/_/g, " "));
   $("#podcast-playlist-player").html($(this)[0].dataset.playlist.replace(/_/g, " ").toUpperCase());
   $("#podcast-playlist-player").attr("title", $(this)[0].dataset.playlist.replace(/_/g, " "));
-  $( "#play-icon-btn" ).trigger( "click" );
+  $("#play-icon-btn").trigger("click");
   updatePodcastStreams($(this)[0].dataset.title, $(this)[0].dataset.chname);
   setCookie("memaudio","audio="+$(this)[0].dataset.file+"&timestamp="+00+"&img="+$(this)[0].dataset.img+"&name="+$(this)[0].dataset.title+"&channel="+$(this)[0].dataset.chname.toLowerCase()+"&playlist="+$(this)[0].dataset.playlist, 2);
 });

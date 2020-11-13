@@ -23,7 +23,7 @@
                         <p class=\"tutorial-subtitle\">You can search for anything you like or that you wish to listen to, anytime!
                         Results of the query will be display under the \"PODCASTS\" section that will appear after the search submission.
                         But, be careful: this search bar is under development, and it does no implement any AI; because of that, it searches for anything you type in its entirety. 
-                        Example: if i type \"charles dickens\", and click search, it will show podcasts like \"charles dickens audiobook\",
+                        Example: if you type \"charles dickens\", and click search, it will show podcasts like \"charles dickens audiobook\",
                         or \"live like charles dickens\", or again \"first charles dickens audiobook\" (and so on...), which contain the phrase \"charles dickens\", typed inside the searchbar, entirely.
                         So you have to keep one thing in mind: for more results type less words!
                     </div>
@@ -37,7 +37,7 @@
                         <p class=\"tutorial-subtitle\">The search principles extend to not only podcasts, but also channels!
                         Instead, results of the query will be display under the \"USERS\" section that will appear after the search submission.
                         But, be careful: this search bar is under development, and it does no implement any AI; because of that, it searches for anything you type in its entirety. 
-                        Example: if i type \"andrew huang\", and click search, it will show users like \"andrew huang\",
+                        Example: if you type \"andrew huang\", and click search, it will show users like \"andrew huang\",
                         or \"andrew huang second channel\", or again \"main andrew huang channel\" (and so on...), which contain the phrase \"andrew huang\", typed inside the searchbar, entirely.
                         So you have to keep one thing in mind: for more results type less words!
                     </div>
@@ -62,7 +62,7 @@
                         <h4 class=\"tutorial-title\">UNSUBSCRIBE FROM THE CHANNELS YOU'RE SUBSCRIBED TO</h4>
                         <p class=\"tutorial-subtitle\">The process of unsubscribing is the exact same as subscribing:
                         When the page of a channel is displayed, and you're already subscribed to it, a new button with the label \"UNSUBSCRIBE\" written on it will appear, substituting the \"SUBSCRIBE\" that was there before.
-                        By clicking it, you will automatically unsubscribe from that channel, and remove it from your home page ora \"channels\" tab, inside your profile.
+                        By clicking it, you will automatically unsubscribe from that channel, and remove it from your home page or \"channels\" tab, inside your profile.
                         You can always subscribe again, whenever you want!
                     </div>
                     <div class=\"gif-container\">

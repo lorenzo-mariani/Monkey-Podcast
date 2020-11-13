@@ -32,7 +32,7 @@ $(document).ready(function(){
     $("#upload-icon-btn").click(function() {
       setCookie("memaudio","audio="+$("#audio").attr("src")+"&timestamp="+getCurrentTime()+"&img="+$("#thumbnail").attr("src")+"&name="+$("#details-container").children()[0].innerHTML.toLowerCase().replace(/ /g , "_")+"&channel="+$("#details-container").children()[1].children[0].innerHTML.toLowerCase()+"&playlist="+$("#podcast-playlist-player")[0].innerHTML.toLowerCase().replace(/ /g, "_"), 2); 
     });
-}); 
+});
 
 function getCurrentTime() {
   return document.getElementById('audio').currentTime;

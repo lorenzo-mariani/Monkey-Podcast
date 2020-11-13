@@ -8,7 +8,7 @@
     $uidSub = $_SESSION['userUid'];
 
     if (empty($nameChannel) || empty($uidSub)) {
-        header("Location: ../content/users/".$nameChannel."/".$nameChannel.".php?error=emptyfields&channel".$nameChannel."&sub=".$userUid);
+        header("Location: ../home.php?error=emptyfields&channel".$nameChannel."&sub=".$userUid);
         exit();
     } else {
             $sql_insert = "INSERT INTO subscriptions (channelName, subUid) VALUES (?, ?)";

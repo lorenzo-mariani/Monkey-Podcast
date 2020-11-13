@@ -69,14 +69,14 @@ seekSlider.addEventListener('mouseup', function() {
 seekSlider.addEventListener('click', function() {
     var time = (this.value*audio.duration)/100;
     audio.currentTime = time;
-})
+});
 
 seekSlider.addEventListener('mousemove', function() {
     var time = (this.value*audio.duration)/100;
     if(isSeeking){
         audio.currentTime = time;
     }
-})
+});
 
 seekSlider.addEventListener('keydown', function(event) {
     if(event.key == "ArrowRight"){
@@ -87,7 +87,7 @@ seekSlider.addEventListener('keydown', function(event) {
     else if(event.keyCode == 32){
         playButton.click();
     }
-})
+});
 
 previousButton.onmouseover = function() {
     this.style.height = "17px";

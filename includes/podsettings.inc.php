@@ -63,11 +63,6 @@ if(empty($new_title) && empty($playlist) && $genre == "select genre" && $_FILES[
                 while($stmt_check->fetch()){
                     if ($_FILES["img-file-mod"]["size"] > 5000000000) {
                         echo "Sorry, your image file is too large.";
-                        $checkImg = 0;
-                    }
-                
-                    if ($checkImg == 0) {
-                        echo "Sorry, your img file was not uploaded.";
                         exit();
                     } else {
     

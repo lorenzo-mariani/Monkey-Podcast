@@ -259,16 +259,18 @@
                         while($stmt_chann->fetch()){
                             echo
                             "
-                            <button class=\"channel-btn\">
-                            <div class=\"channel\">
-                            <img src=\"./icon/user.png\" alt=\"User Profile\" id=\"channel-img\">
-                                <ul class=\"channel-info\">
-                                    <li id=\"name\" title=\"".ucfirst(str_replace("_", " ", $channel))."\">".strtoupper(str_replace("_", " ", $channel))."</li>
-                                    <li id=\"channel-subs\">".$subs." SUBS</li>
-                                </ul>
-                                </form>
+                            <div class=\"channel-btn-container\">
+                                <button class=\"channel-btn\">
+                                <div class=\"channel\">
+                                <img src=\"./icon/user.png\" alt=\"User Profile\" id=\"channel-img\">
+                                    <ul class=\"channel-info\">
+                                        <li id=\"name\" title=\"".ucfirst(str_replace("_", " ", $channel))."\">".strtoupper(str_replace("_", " ", $channel))."</li>
+                                        <li id=\"channel-subs\">".$subs." SUBS</li>
+                                    </ul>
+                                    </form>
+                                </div>
+                                </button>
                             </div>
-                            </button>
                             ";
                         }
                     }
