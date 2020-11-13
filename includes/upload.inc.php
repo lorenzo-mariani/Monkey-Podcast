@@ -9,6 +9,8 @@ $genre = strtolower($_POST["genre-value"]);
 $title = str_replace(' ', '_', strtolower($_POST["podcast-title"]));
 $playlist = str_replace(' ', '_', strtolower($_POST["podcast-playlist"]));
 $streams = 0;
+date_default_timezone_set("America/New_York");
+$upload_time = date("h:i:sa")." ".date("Y/m/d");
 
 $target_dir = "./content/users/".$_SESSION['userUid']."/"."podcasts/".$title."/";
 $target_file_audio = $target_dir . str_replace(' ','_',basename($_FILES["audio-file"]["name"]));
@@ -92,13 +94,13 @@ if(!preg_match("/[\/:*?\"<>|]/", $title)){
                             exit();
                         }
                     }
-                    $sql = "INSERT INTO podcasts (genre, podcastTitle, podcastImg, userUID, podcastStreams, podcastFile, playlist) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                    $sql = "INSERT INTO podcasts (genre, podcastTitle, podcastImg, userUID, podcastStreams, podcastFile, playlist, uploadTime) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
                     $stmt = mysqli_stmt_init($conn);
                     if (!mysqli_stmt_prepare($stmt, $sql)) {
                         header("Location: ../upload.php?error=sqlerror");
                             exit();
                     } else {
-                        mysqli_stmt_bind_param($stmt, "ssssiss", $genre, $title, $target_file_img, $_SESSION["userUid"], $streams, $target_file_audio, $playlist);
+                        mysqli_stmt_bind_param($stmt, "ssssisss", $genre, $title, $target_file_img, $_SESSION["userUid"], $streams, $target_file_audio, $playlist, $upload_time);
                         mysqli_stmt_execute($stmt);
                     }
                 }

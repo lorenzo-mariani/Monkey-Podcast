@@ -196,3 +196,8 @@ form #genre-menu-settings {
 .channel-btn:hover {
     background-color: rgb(67 67 67 / 76%);
 }
+
+.playlist-podcasts-container {
+    background-color: rgb(21 21 21);
+    border-bottom: 1px solid rgb(48 48 48);
+}

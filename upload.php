@@ -54,9 +54,9 @@
                         ?> id='logo' alt='Monkey Podcast' tabindex="1">
                     </button>
                 </form>
-                <form action="./includes/upload.inc.php" method="post" enctype="multipart/form-data">
+                <form action="./includes/upload.inc.php" method="post" enctype="multipart/form-data" onsubmit="return confirm('Are you shure you want to upload this podcast?')">
                     <label>Audio File:</label>
-                    <input name="audio-file" id="audio-file" type="file" accept="audio/*"/>
+                    <input name="audio-file" id="audio-file" type="file" accept="audio/mp3"/>
                     <label>Image File:</label>
                     <input name="img-file" id="img-file" type="file" accept="image/*"/>
                     <h4 id="warning">Warning: max upload size 100MB.</h4>
@@ -91,7 +91,7 @@
                             if($_GET['error'] == "invalidtitle"){
                                 echo "Sorry, the title you have typed is not valid.";
                             } else if($_GET['error'] == "podcastexists"){
-                                echo "The title you have typed is not valid.";
+                                echo "This podcast already exists.";
                             } else if($_GET['error'] == "sqlerror"){
                                 echo "There was an error on the backend side.";
                             } else if($_GET['error'] == "emptytitle"){

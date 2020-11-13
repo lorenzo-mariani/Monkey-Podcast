@@ -99,8 +99,8 @@
                             </button>";
                         } else if ($count == 4) {
                             echo "</div>
-                            <button class=\"show-more-btn\">
-                            <p class=\"show-more\" id=".$channel_name.">SHOW MORE...
+                            <button class=\"show-more-btn\" data-name=\"".$channel_name."\">
+                            <p class=\"show-more\">SHOW MORE...
                             </button>";
                         }
                         $count += 1;

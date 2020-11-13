@@ -194,7 +194,7 @@
                                     </button>
                                     <div class=\"form-playlist-container\" style=\"display: none\">
                                         <form action=\"./includes/change_playlist_name.inc.php\" method=\"post\" onsubmit=\"return confirm('Are you shure you want to change this playlist's name?');\">
-                                            <input type=\"text\" class=\"playlist-newname\" name=\"playlist-newname\">
+                                            <input type=\"text\" class=\"playlist-newname\" name=\"playlist-newname\" placeholder=\"New playlist name...\">
                                             <button class=\"submit-playlist-name\" name=\"change-playlist-name-submit\" value=\"".$playlist."\">CHANGE PLAYLIST NAME</button>
                                         </form>
                                     </div>";

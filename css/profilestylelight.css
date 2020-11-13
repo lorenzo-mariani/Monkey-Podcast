@@ -148,12 +148,18 @@ form #podcast-playlist-settings {
 }
 
 .playlist-podcasts-container {
-    background-color: rgb(154 154 154 / 59%);
+    background-color: rgb(186 186 186 / 59%);
+    border-bottom: 1px solid black;
 }
 
 .mod-btns-container {
     padding: 3px 0px;
     background: rgb(64 64 64);
+}
+
+.podcast-title-btn {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 .playlist-settings-btn {

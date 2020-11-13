@@ -6,12 +6,10 @@ $(document).ready(function(){
 
     $(".channel-name-btn").click(function(){
         getProfileContent($(this).children()[0].innerHTML.toLowerCase());
-        changeUrl("Profile", "home.php?view=profile&uid="+$(this).children()[0].innerHTML.toLowerCase());
     });
     
     $("#profile-btn").click(function(){
         getProfileContent($(this).children()[0].innerHTML.toLowerCase());
-        changeUrl("Profile", "home.php?view=profile&uid="+$(this).children()[0].innerHTML.toLowerCase());
     });
 
     $("#help-btn").click(function(){
@@ -21,7 +19,6 @@ $(document).ready(function(){
 
     $("#podcast-channel-btn-player").click(function() {
         getProfileContent($(this)[0].children[0].innerHTML.toLowerCase());
-        changeUrl("Profile", "home.php?view=profile&uid="+$(this)[0].children[0].innerHTML.toLowerCase());
     });
 
     $("#search-icon-btn").click(function() {
@@ -33,12 +30,10 @@ $(document).ready(function(){
 
     $(".grid-element-users-btn").click(function() {
         getProfileContent($(this).children().children()[1].innerHTML.toLowerCase());
-        changeUrl("Profile", "home.php?view=profile&uid="+$(this).children().children()[1].innerHTML.toLowerCase());
     });
 
     $(".show-more-btn").click(function() {
-        getProfileContent($(this).children()[0].getAttribute("id"));
-        changeUrl("Profile", "home.php?view=profile&uid="+$(this).children()[0].getAttribute("id"));
+        getProfileContent($(this)[0].dataset.name);
     });
 });
 
@@ -58,6 +53,7 @@ function getProfileContent(name) {
         }
     });
     $("#profile-content").show();
+    changeUrl("Profile", "home.php?view=profile&uid="+string);
 }
 
 function getPodMod(name, title) {

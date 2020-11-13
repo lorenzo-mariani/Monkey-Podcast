@@ -122,7 +122,7 @@ $("#next-icon-btn").click(function() {
           $("#audio").attr("src", res[3]);
           $("#thumbnail").attr("src", res[1]);
           $("#podcast-name").html(res[0].replace(/_/g, " ").toUpperCase());
-          $("#podcast-channel").html(res[2].toUpperCase());
+          $("#podcast-channel").html(res[2].toUpperCase().replace(/_/g, " "));
           $("#podcast-playlist-player").html(res[4].replace(/_/g, " ").toUpperCase());
           $( "#play-icon-btn" ).trigger( "click" );
           updatePodcastStreams(res[0], res[2]);
@@ -145,7 +145,7 @@ $("#next-icon-btn").click(function() {
           $("#audio").attr("src", res[3]);
           $("#thumbnail").attr("src", res[1]);
           $("#podcast-name").html(res[0].replace(/_/g, " ").toUpperCase());
-          $("#podcast-channel").html(res[2].toUpperCase());
+          $("#podcast-channel").html(res[2].toUpperCase().replace(/_/g, " "));
           $("#podcast-playlist-player").html(res[4].replace(/_/g, " ").toUpperCase());
           $( "#play-icon-btn" ).trigger( "click" );
           updatePodcastStreams(res[0], res[2]);
