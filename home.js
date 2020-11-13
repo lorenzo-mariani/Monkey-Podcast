@@ -107,13 +107,6 @@ checkbox.onchange = function () {
       if(document.getElementById('upload-img-btn') != null){
         document.getElementById('upload-img-btn').setAttribute("value", "light");
       }
-      if(document.getElementsByClassName('podcast-settings') != null){
-        var i = 0;
-        var settings = document.getElementsByClassName('podcast-settings');
-        for(i = 0; i < settings.length; i++){
-          settings[i].src = './icon/settings-light.png';
-        }
-      }
     }
     document.getElementById('search-style').href = "./css/searchstylelight.css";
     document.getElementById('profile-style').href = "css/profilestylelight.css";
@@ -168,11 +161,28 @@ $('body').click(function(event) {
   if (profileMenu.style.display == "grid" && event.target.id != "profile-icon-btn" && event.target.id != "profile-uid" && event.target.id != "profile-icon") {
     profileMenu.style.display = "none"
   }
+  if (iconsContainer.style.display == "flex" && searchContainer.style.display == "flex" && event.target.id != "display-more-btn" && event.target.id != "display-more") {
+    var check = 0;
+    console.log(event.target.classList[0]);
+
+    if(event.target.id == "mode-text" || event.target.classList[0] == "slider" || event.target.id =="profile-uid" || event.target.id =="profile-icon"|| event.target.id =="profile-icon-btn"){
+      check = 1;
+    }
+    
+    if(event.target.id == "speech-icon" || event.target.id =="search-icon"){
+      check = 1;
+    }
+
+    if(check == 0){
+      iconsContainer.style.display = "none";
+      searchContainer.style.display = "none";
+    }
+  }
 })
 
 searchbar.addEventListener('keypress', function (e) {
   if (e.key === 'Enter') {
-    document.getElementById('search-icon').click();
+    document.getElementById('search-icon-btn').click();
   }
 });
 
@@ -193,7 +203,7 @@ recognition.onresult = function(event) {
     var command = event.results[last][0].transcript;
     if(command.includes("search")){
       searchbar.value = command.replace("search ", '');
-      document.getElementById('search-icon').click();
+      document.getElementById('search-icon-btn').click();
     }
 };
 

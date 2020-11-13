@@ -57,21 +57,21 @@
     background-color: white;
 }
 
+.grid-element-profile:hover {
+    background-color: #b9b9b975;
+    border: 1px solid black;
+}
+
 .grid-element-profile {
+    background-color: #ffffff96;
+    border: 1px solid black;
+}
+
+.grid-element-profile p {
     color: black;
 }
 
-.grid-element-profile {
-    background-color: #00000096;
-    border: 1px solid rgb(48 48 48);
-}
-
-.grid-element-profile:hover {
-    background-color: #2e2e2e75;
-    border: 1px solid whitesmoke;
-}
-
-.grid-element-profile h4 {
+.podcast-title {
     color: black;
 }
 
@@ -98,7 +98,7 @@
 }
 
 .grid-element-mod h4, p{
-    color: black
+    color: whitesmoke
 }
 
 form #upload-submit-settings {
@@ -128,6 +128,14 @@ form #podcast-playlist-settings {
     background-color: rgb(233, 233, 233);
 }
 
+#channels {
+    color: black;
+}
+
+#home {
+    color: black;
+}
+
 .channel-btn {
     background-color: rgb(233 233 233 / 76%);
     color: black;
@@ -137,4 +145,17 @@ form #podcast-playlist-settings {
 .channel-btn:hover {
     background-color: rgb(106 106 106 / 76%);
     color: whitesmoke;
+}
+
+.playlist-podcasts-container {
+    background-color: rgb(154 154 154 / 59%);
+}
+
+.mod-btns-container {
+    padding: 3px 0px;
+    background: rgb(64 64 64);
+}
+
+.playlist-settings-btn {
+    background: #272727;
 }

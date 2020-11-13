@@ -14,10 +14,7 @@ if (isset($_POST['signup-submit'])){
         header("Location: ../signup.php?error=emptyfields&uid=".$username."&mail=".$mail);
         exit();
     } else if (!filter_var($mail, FILTER_VALIDATE_EMAIL) && !preg_match("/[a-zA-Z0-9]\s*/", $username)) {
-        header("Location: ../signup.php?error=invalidmailuid=");
-        exit();
-    } else if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-        header("Location: ../signup.php?error=invalidmail&uid=".$username);
+        header("Location: ../signup.php?error=invalidmailuid=".$username);
         exit();
     } else if (!preg_match("/[a-zA-Z0-9]\s*/", $username)) {
         header("Location: ../signup.php?error=invaliduid&mail=".$mail);
@@ -40,8 +37,7 @@ if (isset($_POST['signup-submit'])){
             if($resultCheck > 0) {
                 header("Location: ../signup.php?error=usertaken&mail=".$mail);
                 exit();
-            }
-            else {
+            }   else {
 
                 mysqli_stmt_close($stmt_user);
 
@@ -61,7 +57,7 @@ if (isset($_POST['signup-submit'])){
                     }
                     else {
 
-                        mysqli_stmt_close($stmt);
+                        mysqli_stmt_close($stmt_email);
 
                         $sql = "INSERT INTO users (uidUsers, emailUsers, pwdUsers, subs) VALUES (?, ?, ?, ?)";
                         $stmt = mysqli_stmt_init($conn);
@@ -82,7 +78,7 @@ if (isset($_POST['signup-submit'])){
                             if (!copy($file, $newfile)) {
                                 echo "failed to copy $file...\n";
                             }
-                            $file = '../templates/profile.js';            
+                            $file = '../templates/profile.js';       
                             $newfile = '../content/users/'.$username.'/'.$username.'.js';
                             if (!copy($file, $newfile)) {
                                 echo "failed to copy $file...\n";

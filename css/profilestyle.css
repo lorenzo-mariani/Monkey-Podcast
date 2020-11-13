@@ -588,17 +588,24 @@ form #podcast-playlist-settings {
 
 @media screen and (max-width: 1250px) {
     #profile-img {
-        height: 40px;
-        margin-left: 10px;
+        height: 32px;
+        margin-left: 5px;
     }
 
     #username {
-        font-size: 23px;
+        font-size: 25px;
+    }
+
+    #subscribe-button {
+        font-size: 14px;
+        width: 134px;
+        margin-right: 5px;
     }
 
     #unsubscribe-button {
         font-size: 14px;
         width: 134px;
+        margin-right: 5px;
     }
 
     #subs {
@@ -621,12 +628,16 @@ form #podcast-playlist-settings {
         margin-left: 10px;
     }
 
+    .grid-element-mod {
+        margin-left: 0px;
+    }
+
     #delete-account-text {
         font-size: 11px;
     }
 
     .grid-element-mod img {
-        max-height: 130px;
+        max-height: 200px;
         max-width: 200px;
     }
 
@@ -648,26 +659,51 @@ form #podcast-playlist-settings {
 
     #upload-submit-settings {
         margin: 10px auto;
+    }
+
+    .playlist-newname {
+        width: 140px;
+    }
+
+    .submit-playlist-name {
+        width: 62px;
+        font-size: 10px;
+    }
+
+    .playlist-container {
+        padding-left: 0px;
+        padding-right: 0px;
     }
 }
 
 @media screen and (max-width: 700px) {
     #profile-img {
-        height: 40px;
-        margin-left: 10px;
+        height: 32px;
+        margin-left: 5px;
     }
 
     #username {
-        font-size: 23px;
+        font-size: 16px;
+        max-width: 68px;
+        margin-right: 5px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    #subscribe-button {
+        font-size: 14px;
+        width: 134px;
+        margin-right: 5px;
     }
 
     #unsubscribe-button {
         font-size: 14px;
         width: 134px;
+        margin-right: 5px;
     }
 
     #subs {
-        font-size: 13px;
+        font-size: 11px;
     }
 
     #upload-img-btn {
@@ -690,8 +726,12 @@ form #podcast-playlist-settings {
         font-size: 11px;
     }
 
+    .grid-element-mod {
+        margin-left: 0px;
+    }
+
     .grid-element-mod img {
-        max-height: 130px;
+        max-height: 200px;
         max-width: 200px;
     }
 
@@ -713,5 +753,19 @@ form #podcast-playlist-settings {
 
     #upload-submit-settings {
         margin: 10px auto;
+    }
+
+    .playlist-newname {
+        width: 140px;
+    }
+
+    .submit-playlist-name {
+        width: 62px;
+        font-size: 10px;
+    }
+
+    .playlist-container {
+        padding-left: 0px;
+        padding-right: 0px;
     }
 }
