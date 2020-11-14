@@ -49,7 +49,12 @@
                 <input name="img-file-mod" id="img-file-settings" type="file" accept="image/*"/>
             </div>
             <h4 id="warning">Warning: max upload size 100MB.</h4>
-            <input type="text" name="podcast-old-title"<?php echo "value=".$_GET['title'].""?> style="display: none;">
+            <input type="text" name="podcast-old-title"<?php echo "value=\"".$_GET['title']."\""?> style="display: none;">
+            <?php
+                if(isset($_GET['player-channel']) && !empty($_GET['player-channel'])){
+                    echo "<input type=\"text\" name=\"player-channel\" value=\"".$_GET['player-channel']."\" style=\"display: none;\">";
+                }
+            ?>
             <input id="podcast-title-settings" type="text" name="podcast-title-mod" placeholder="Choose the title">
             <input id="podcast-playlist-settings" type="text" name="podcast-playlist-mod" placeholder="Type playlist name">
             <h4 id="warning2">Warning: special characters like "\/:*?"<>|" are not valid.</h4>

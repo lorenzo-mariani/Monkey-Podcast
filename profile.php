@@ -96,7 +96,7 @@
                     <?php
                     if($_SESSION['userUid'] != $profile){
 
-                        $query_name = "SELECT channelName FROM subscriptions WHERE subUid=? && channelName=?";
+                        $query_name = "SELECT channelName FROM subscriptions WHERE subUid=? AND channelName=?";
                         $stmt_name = mysqli_stmt_init($conn);
                         if (!mysqli_stmt_prepare($stmt_name, $query_name)) {
                             header("Location: ./home.php?error=profilesqlerror");

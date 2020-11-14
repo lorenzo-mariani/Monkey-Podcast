@@ -271,51 +271,16 @@ a:hover{
     flex-direction: column;
     align-items: center;
     margin: 20px 0px;
-    height: 200px;
+    height: 274px;
 }
 
-.gif-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.video-container {
+    margin: 15px 0px;
+}
+
+.video-tutorial {
     width: 500px;
-    margin: 20px 0px;
-}
-
-.tut-gif {
-    height: 200px;
-    width: 500px;
-    object-fit: cover;
-}
-
-
-#gif-big-container {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    top: 0;
-    left: 0;
-    background-color: #000000a6;
-    z-index: 999;
-    justify-content: center;
-    align-items: center;
-}
-
-#gif-big {
-    height: 720px;
-    width: 1280px;
-    object-fit: cover;
-    background-color: black;
-}
-
-
-#close-gif-btn {
-    position: fixed;
-    color: whitesmoke;
-    right: 50px;
-    top: 40px;
-    font-size: 30px;
+    height: 281px;
 }
 
 #welcome-to {
@@ -901,11 +866,7 @@ a:hover{
         width: 400px;
     }
 
-    .gif-container {
-        width: 400px;
-    }
-
-    .tut-gif {
+    .video-tutorial {
         width: 400px;
     }
 

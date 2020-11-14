@@ -40,6 +40,9 @@ $genre = strtolower($_POST["genre-value-mod"]);
 $new_title = str_replace(' ', '_', strtolower($_POST["podcast-title-mod"]));
 $playlist = str_replace(' ', '_', strtolower($_POST["podcast-playlist-mod"]));
 $old_title = $_POST["podcast-old-title"];
+if(isset($_POST["player-channel"])){
+    $player_channel = $_POST["player-channel"];
+}
 
 $old_dir = "./content/users/".$_SESSION['userUid']."/"."podcasts/".$old_title."/";
 $target_dir = "./content/users/".$_SESSION['userUid']."/"."podcasts/".$new_title."/";
@@ -81,9 +84,13 @@ if(empty($new_title) && empty($playlist) && $genre == "select genre" && $_FILES[
                                 mysqli_stmt_bind_param($stmt_playlist, "sss", $playlist, $old_title, $_SESSION['userUid']);
                                 mysqli_stmt_execute($stmt_playlist);
                                 mysqli_stmt_close($stmt_playlist);
-                                echo "<script type=\"text/javascript\">
-                                setCookieSubstring(\"memaudio\", \"playlist=\", \"".$playlist."\", 2)
-                                </script>";
+                                if(isset($player_channel)){
+                                    if($player_channel == $_SESSION['userUid']){
+                                        echo "<script type=\"text/javascript\">
+                                        setCookieSubstring(\"memaudio\", \"playlist=\", \"".$playlist."\", 2)
+                                        </script>";
+                                    }
+                                }
                             }
                         }
                         if(!($genre == "select genre")){
@@ -117,9 +124,13 @@ if(empty($new_title) && empty($playlist) && $genre == "select genre" && $_FILES[
                                     mysqli_stmt_bind_param($stmt_img, "sss", $target_file_img, $old_title, $_SESSION['userUid']);
                                     mysqli_stmt_execute($stmt_img);
                                     mysqli_stmt_close($stmt_img);
-                                    echo "<script type=\"text/javascript\">
-                                        setCookieSubstring(\"memaudio\", \"img=\", \"".$target_file_img."\", 2)
-                                        </script>";
+                                    if(isset($player_channel)){
+                                        if($player_channel == $_SESSION['userUid']){
+                                            echo "<script type=\"text/javascript\">
+                                            setCookieSubstring(\"memaudio\", \"img=\", \"".$target_file_img."\", 2)
+                                            </script>";
+                                        }
+                                    }
                                 }
                             } else {
                                 rename(str_replace("./", $_SERVER['DOCUMENT_ROOT'].'/', $old_dir), str_replace("./", $_SERVER['DOCUMENT_ROOT'].'/', $target_dir));
@@ -132,9 +143,13 @@ if(empty($new_title) && empty($playlist) && $genre == "select genre" && $_FILES[
                                     mysqli_stmt_bind_param($stmt_img, "sss", $newpath_img, $old_title, $_SESSION['userUid']);
                                     mysqli_stmt_execute($stmt_img);
                                     mysqli_stmt_close($stmt_img);
-                                    echo "<script type=\"text/javascript\">
-                                        setCookieSubstring(\"memaudio\", \"img=\", \"".$newpath_img."\", 2)
-                                        </script>";
+                                    if(isset($player_channel)){
+                                        if($player_channel == $_SESSION['userUid']){
+                                            echo "<script type=\"text/javascript\">
+                                            setCookieSubstring(\"memaudio\", \"img=\", \"".$newpath_img."\", 2)
+                                            </script>";
+                                        }
+                                    }
                                 }
                             }
                             $stmt_audio = mysqli_stmt_init($conn);
@@ -146,9 +161,13 @@ if(empty($new_title) && empty($playlist) && $genre == "select genre" && $_FILES[
                                 mysqli_stmt_bind_param($stmt_audio, "sss", $new_audiopath, $old_title, $_SESSION['userUid']);
                                 mysqli_stmt_execute($stmt_audio);
                                 mysqli_stmt_close($stmt_audio);
-                                echo "<script type=\"text/javascript\">
+                                if(isset($player_channel)){
+                                    if($player_channel == $_SESSION['userUid']){
+                                        echo "<script type=\"text/javascript\">
                                         setCookieSubstring(\"memaudio\", \"audio=\", \"".$new_audiopath."\" , 2)
                                         </script>";
+                                    }
+                                }
                             }
                             $stmt_title = mysqli_stmt_init($conn);
                             if (!mysqli_stmt_prepare($stmt_title, $update_title)) {
@@ -158,9 +177,13 @@ if(empty($new_title) && empty($playlist) && $genre == "select genre" && $_FILES[
                                 mysqli_stmt_bind_param($stmt_title, "sss", $new_title, $old_title, $_SESSION['userUid']);
                                 mysqli_stmt_execute($stmt_title);
                                 mysqli_stmt_close($stmt_title);
-                                echo "<script type=\"text/javascript\">
+                                if(isset($player_channel)){
+                                    if($player_channel == $_SESSION['userUid']){
+                                        echo "<script type=\"text/javascript\">
                                         setCookieSubstring(\"memaudio\", \"name=\", \"".$new_title."\" , 2)
                                         </script>";
+                                    }
+                                }
                             }
                         } else if($new_title != str_repeat("_", strlen($new_title)) || empty($new_title)) {
                             if($_FILES["img-file-mod"]["error"] != 4) {
@@ -176,9 +199,13 @@ if(empty($new_title) && empty($playlist) && $genre == "select genre" && $_FILES[
                                             mysqli_stmt_bind_param($stmt_img, "sss", $newimage_path, $old_title, $_SESSION['userUid']);
                                             mysqli_stmt_execute($stmt_img);
                                             mysqli_stmt_close($stmt_img);
-                                            echo "<script type=\"text/javascript\">
-                                                setCookieSubstring(\"memaudio\", \"img=\", \"".$newimage_path."\" , 2);
-                                            </script>";
+                                            if(isset($player_channel)){
+                                                if($player_channel == $_SESSION['userUid']){
+                                                    echo "<script type=\"text/javascript\">
+                                                    setCookieSubstring(\"memaudio\", \"img=\", \"".$newimage_path."\" , 2);
+                                                    </script>";
+                                                }
+                                            }
                                         }
                                     } else {
                                         echo "Sorry, there was an error uploading your image file.";

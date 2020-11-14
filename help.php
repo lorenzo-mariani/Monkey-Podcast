@@ -27,10 +27,11 @@
                         or \"live like charles dickens\", or again \"first charles dickens audiobook\" (and so on...), which contain the phrase \"charles dickens\", typed inside the searchbar, entirely.
                         So you have to keep one thing in mind: for more results type less words!
                     </div>
-                    <div class=\"gif-container\">\
-                        <button id=\"podcast-gif-btn\">
-                            <img class=\"tut-gif\" src=\"./img/gifs/1.gif\">
-                        </button>
+                    <div class=\"video-container\">
+                        <video class=\"video-tutorial\" controls>
+                            <source src=\"./img/videos/search-podcast-tut.mp4\" type=\"video/mp4\">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                     <div class=\"tut-description\">
                         <h4 class=\"tutorial-title\">SEARCH A CHANNEL</h4>
@@ -41,10 +42,11 @@
                         or \"andrew huang second channel\", or again \"main andrew huang channel\" (and so on...), which contain the phrase \"andrew huang\", typed inside the searchbar, entirely.
                         So you have to keep one thing in mind: for more results type less words!
                     </div>
-                    <div class=\"gif-container\">
-                        <button id=\"channel-gif-btn\">
-                            <img class=\"tut-gif\" src=\"./img/gifs/2.gif\">
-                        </button>
+                    <div class=\"video-container\">
+                        <video class=\"video-tutorial\" controls>
+                            <source src=\"./img/videos/search-channel-tut.mp4\" type=\"video/mp4\">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                     <div class=\"tut-description\">
                         <h4 class=\"tutorial-title\">SUBSCRIBE TO YOUR FAVORITE CHANNELS</h4>
@@ -53,10 +55,11 @@
                         If you click it, you will subscribe to that channel, and automatically display it inside your home page and \"channels\" tab of your own profile page.
                         So, by subscribing to channels, you don't have to visit their pages everytime you want to listen to the podcasts they've uploaded, you have all their playlist inside your home page!
                     </div>
-                    <div class=\"gif-container\">
-                        <button id=\"subscribe-gif-btn\">
-                        <img class=\"tut-gif\" src=\"./img/gifs/1.gif\">
-                        </button>
+                    <div class=\"video-container\">
+                        <video class=\"video-tutorial\" controls>
+                            <source src=\"./img/videos/subscribe-tut.mp4\" type=\"video/mp4\">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                     <div class=\"tut-description\">
                         <h4 class=\"tutorial-title\">UNSUBSCRIBE FROM THE CHANNELS YOU'RE SUBSCRIBED TO</h4>
@@ -65,10 +68,11 @@
                         By clicking it, you will automatically unsubscribe from that channel, and remove it from your home page or \"channels\" tab, inside your profile.
                         You can always subscribe again, whenever you want!
                     </div>
-                    <div class=\"gif-container\">
-                        <button id=\"unsubscribe-gif-btn\">
-                        <img class=\"tut-gif\" src=\"./img/gifs/2.gif\">
-                        </button>
+                    <div class=\"video-container\">
+                        <video class=\"video-tutorial\" controls>
+                            <source src=\"./img/videos/unsubscribe-tut.mp4\" type=\"video/mp4\">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                     <div class=\"tut-description\">
                         <h4 class=\"tutorial-title\">UPLOAD A PODCAST!</h4>
@@ -83,10 +87,11 @@
                         Last but not least, there's the upload button which, as the name suggests, lets you upload the podcast with the details that you've inserted above. A confirm will be asked before submission.
                         IMPORTANT: all the fields mentioned above are mandatory.
                     </div>
-                    <div class=\"gif-container\">
-                        <button id=\"upload-gif-btn\">
-                        <img class=\"tut-gif\" src=\"./img/gifs/1.gif\">
-                        </button>
+                    <div class=\"video-container\">
+                        <video class=\"video-tutorial\" controls>
+                        <source src=\"./img/videos/upload-podcast-tut.mp4\" type=\"video/mp4\">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                     <div class=\"tut-description\">
                         <h4 class=\"tutorial-title\">MODIFY A PODCAST YOU'VE UPLOADED</h4>
@@ -95,21 +100,53 @@
                         A new page will be displayed: on the left side there are the actual details of the podcast that you are trying to modify, and on the right side all the fields that you want to change.
                         THEY ARE NOT MANDATORY, so you can modify even just one of them.
                     </div>
-                    <div class=\"gif-container\">
-                        <button id=\"modify-gif-btn\">
-                        <img class=\"tut-gif\" src=\"./img/gifs/2.gif\">
-                        </button>
+                    <div class=\"video-container\">
+                        <video class=\"video-tutorial\" controls>
+                        <source src=\"./img/videos/podcast-mod-tut.mp4\" type=\"video/mp4\">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                     <div class=\"tut-description\">
                         <h4 class=\"tutorial-title\">DELETE A PODCAST YOU'VE UPLOADED</h4>
                         <p class=\"tutorial-subtitle\">If you want to delete a podcast PERMANENTLY, you have to go to your profile page, find the podcast that you want to delete
                         and click on the red \"trash\" icon right below it. You will be asked for a confirm.
                     </div>
-                    <div class=\"gif-container\">
-                        <button id=\"delete-podcast-gif-btn\">
-                        <img class=\"tut-gif\" src=\"./img/gifs/1.gif\">
-                        </button>
+                    <div class=\"video-container\">
+                        <video class=\"video-tutorial\" controls>
+                        <source src=\"./img/videos/podcast-delete-tut.mp4\" type=\"video/mp4\">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
+                    <div class=\"tut-description\">
+                    <h4 class=\"tutorial-title\">MODIFY A PLAYLIST NAME</h4>
+                    <p class=\"tutorial-subtitle\">Just like the podcast modification, you can always do it!
+                    Go to your profile page, and click on the little \"gear\" icon that you see right next to the name of the playlist you want to change.
+                    An input field will be displayed on right side of the button: you just have to type in the new playlist name, click submit button with the label \"CHANGE PLAYLIST NAME\" written on it. And you're done!
+                    You will be redirected to a new page which confirms the success of your changes.
+                    The playlist has now the new name you've typed.
+                </div>
+                <div class=\"video-container\">
+                    <video class=\"video-tutorial\" controls>
+                    <source src=\"./img/videos/playlist-name-tut.mp4\" type=\"video/mp4\">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                    <div class=\"tut-description\">
+                    <h4 class=\"tutorial-title\">UPLOAD AN IMAGE FOR YOUR CHANNEL</h4>
+                    <p class=\"tutorial-subtitle\">We give you the possibility to make your own channel page look much better, by uploading a background image!
+                    If you visit your page, there is a button on the right side of the screen, with the label \"upload-channel-image\" written on it.
+                    By clicking it, a little form will be displayed.
+                    Right below the Monkey Podcast logo there is only one button, which lets you choose the image to upload;
+                    There is a limitation on the size on every image file, which is 100MB.
+                    You can always go back every time you want and change the image you've uploaded!
+                    IMPORTANT: all the fields mentioned above are mandatory.
+                </div>
+                <div class=\"video-container\">
+                    <video class=\"video-tutorial\" controls>
+                    <source src=\"./img/videos/upload-ch-img-tut.mp4\" type=\"video/mp4\">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
                     <div class=\"tut-description\">
                         <h4 class=\"tutorial-title\">FIND OUT HOW THE PLAYER WORKS</h4>
                         <p class=\"tutorial-subtitle\">We can divide it in three main sections: left, center and right.
@@ -117,10 +154,11 @@
                         The center one, instead, contains the play/pause button, the previous and next buttons (the little arrows pointing in opposite directions), the seek slider (which lets you \"seek through\" the current podcast).
                         On the right side you have only the volume level slider.
                     </div>
-                    <div class=\"gif-container\">
-                        <button id=\"player-gif-btn\">
-                        <img class=\"tut-gif\" src=\"./img/gifs/2.gif\">
-                        </button>
+                    <div class=\"video-container\">
+                        <video class=\"video-tutorial\" controls>
+                        <source src=\"./img/videos/player-tut.mp4\" type=\"video/mp4\">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                     <div class=\"tut-description\">
                         <h4 class=\"tutorial-title\">DELETE YOUR ACCOUNT</h4>
@@ -128,17 +166,13 @@
                         Anyway, you can delete your account by going to your profile page, and click on the little red \"trash\" right next to the sub counter and the label \"DELETE ACCOUNT\".
                         You will be asked for a confirm.
                     </div>
-                    <div class=\"gif-container\">
-                        <button id=\"delete-account-gif-btn\">
-                        <img class=\"tut-gif\" src=\"./img/gifs/1.gif\">
-                        </button>
+                    <div class=\"video-container\">
+                        <video class=\"video-tutorial\" controls>
+                        <source src=\"./img/videos/podcast-delete-tut.mp4\" type=\"video/mp4\">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                 </div>
-            </div>
-
-            <div id=\"gif-big-container\" style=\"display: none;\">
-                <button id=\"close-gif-btn\">X</button>
-                <img id=\"gif-big\" alt=\"gif-big\">
             </div>
 
             <div id=\"disability-container\">
