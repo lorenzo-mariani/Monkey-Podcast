@@ -4,7 +4,7 @@ if (isset($_POST['login-submit'])) {
 
     require 'dbh.inc.php';
 
-    $mailuid = str_replace(" ", "_", $_POST['mailuid']);
+    $mailuid = strtolower(str_replace(" ", "_", $_POST['mailuid']));
     $password = $_POST['pwd'];
 
     if (empty($mailuid) || empty($password)) {

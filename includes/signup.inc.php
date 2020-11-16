@@ -3,8 +3,8 @@ if (isset($_POST['signup-submit'])){
 
     require 'dbh.inc.php';
 
-    $username = str_replace(" ", "_", $_POST['uid']);
-    $mail = $_POST['mail'];
+    $username = strtolower(str_replace(" ", "_", $_POST['uid']));
+    $mail = strtolower($_POST['mail']);
     $password = $_POST['pwd'];
     $passwordRepeat = $_POST['pwd-repeat'];
     $subs = 0;
