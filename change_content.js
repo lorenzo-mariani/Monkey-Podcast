@@ -5,20 +5,26 @@ $(document).ready(function(){
     });
 
     $(".channel-name-btn").click(function(){
-        getProfileContent($(this).children()[0].innerHTML.toLowerCase());
+        var channel = $(this).children()[0].innerHTML.toLowerCase();
+        getProfileContent(channel);
+        changeUrl("Profile", "home.php?view=profile&uid="+channel);
     });
     
     $("#profile-btn").click(function(){
-        getProfileContent($(this).children()[0].innerHTML.toLowerCase());
+        var channel = $(this).children()[0].innerHTML.toLowerCase();
+        getProfileContent(channel);
+        changeUrl("Profile", "home.php?view=profile&uid="+channel);
     });
 
     $("#help-btn").click(function(){
-        getHelpContent($(this).children()[0].innerHTML.toLowerCase());
+        getHelpContent();
         changeUrl("Help", "home.php?view=help");
     });
 
     $("#podcast-channel-btn-player").click(function() {
-        getProfileContent($(this)[0].children[0].innerHTML.toLowerCase());
+        var channel = $(this)[0].children[0].innerHTML.toLowerCase();
+        getProfileContent(channel);
+        changeUrl("Profile", "home.php?view=profile&uid="+channel);
     });
 
     $("#search-icon-btn").click(function() {
@@ -29,11 +35,15 @@ $(document).ready(function(){
     });
 
     $(".grid-element-users-btn").click(function() {
-        getProfileContent($(this).children().children()[1].innerHTML.toLowerCase());
+        var channel = $(this).children().children()[1].innerHTML.toLowerCase();
+        getProfileContent(channel);
+        changeUrl("Profile", "home.php?view=profile&uid="+channel);
     });
 
     $(".show-more-btn").click(function() {
-        getProfileContent($(this)[0].dataset.name);
+        var channel = $(this)[0].dataset.name;
+        getProfileContent(channel);
+        changeUrl("Profile", "home.php?view=profile&uid="+channel);
     });
 });
 
@@ -53,7 +63,6 @@ function getProfileContent(name) {
         }
     });
     $("#profile-content").show();
-    changeUrl("Profile", "home.php?view=profile&uid="+string);
 }
 
 function getPodMod(name, title) {

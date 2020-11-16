@@ -196,8 +196,7 @@ html{
 
 .grid-element {
     background-color: white;
-    border-top: 1px solid rgb(64, 0, 0);
-    border-bottom: 1px solid rgb(64, 0, 0);
+    border: 1px solid rgb(64, 0, 0);
 }
 
 .grid-element h4 {

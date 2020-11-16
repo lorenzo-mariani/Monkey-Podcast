@@ -213,6 +213,7 @@ window.onbeforeunload = function() {
 
 $("#history-back-btn").click(function() {
   history.back();
+  console.log(history.state);
   setTimeout(function() {
     if(window.location.href.includes("view=")){
       if(history.state.Url.split('?')[1] != "login=success" || history.state.Url.split('?')[1] != "subscribe=success" || history.state.Url.split('?')[1] != "unsubscribe=success"){
@@ -239,13 +240,15 @@ $("#history-back-btn").click(function() {
         getHomeContent();
       }
     } else {
-      if(history.state == null){
+      if(window.location.href.includes("home.php")){
+        getHomeContent();
+      } else if(history.state == null){
         getHomeContent();
       } else if(history.state.Url == "home.php"){
         getHomeContent();
       }
     }
-  }, 100);
+  }, 200);
 });
 
 $("#history-forw-btn").click(function() {
@@ -276,11 +279,13 @@ $("#history-forw-btn").click(function() {
           getHomeContent();
         }
     } else {
-      if(history.state == null){
+      if(window.location.href.includes("home.php")){
+        getHomeContent();
+      } else if(history.state == null){
         getHomeContent();
       } else if(history.state.Url == "home.php"){
         getHomeContent();
       }
     }
-}, 100);
+  }, 200);
 });
