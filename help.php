@@ -168,7 +168,7 @@
                     </div>
                     <div class=\"video-container\">
                         <video class=\"video-tutorial\" controls>
-                        <source src=\"./img/videos/podcast-delete-tut.mp4\" type=\"video/mp4\">
+                        <source src=\"./img/videos/delete-channel-tut.mp4\" type=\"video/mp4\">
                             Your browser does not support the video tag.
                         </video>
                     </div>
