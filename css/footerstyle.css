@@ -19,7 +19,7 @@ body {
 
 }
 
-.footer {
+#footer {
     position: fixed;
     height: 50px;
     left: 0;
@@ -31,7 +31,7 @@ body {
     display: flex;
     align-items: center;
 }
-.footer p {
+#footer p {
     width: 100%;
     font-family: robotothin;
     text-align: center;

@@ -83,6 +83,58 @@ a:hover{
     padding-bottom: 30px;
 }
 
+#error-container {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(17, 17 ,17, 0.71);
+    
+}
+
+#error-label {
+    font-family: robotothin;
+    color: whitesmoke;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#error-msg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100px;
+    width: 400px;
+    padding: 20px 20px;
+    background-color: rgb(15, 15, 15);
+    border: 1px solid rgba(56, 2, 2, 0.719);
+}
+
+#ok-button {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom: 12%;
+    width: 80px;
+    padding: 10px 9px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: 'caviar_dreamsbold';
+    color: whitesmoke;
+    background-color: #530000;
+    border: 1px solid rgba(245, 245, 245, 0.5);
+    cursor: pointer;
+    transform: translate(-50%);
+}
+
+#ok-button:hover {
+    background-color: rgb(140 30 30);
+}
+
 #help-container h1 {
     text-align: center;
     font-family: caviar_dreamsbold;

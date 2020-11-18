@@ -213,32 +213,32 @@ window.onbeforeunload = function() {
 
 $("#history-back-btn").click(function() {
   history.back();
-  console.log(history.state);
   setTimeout(function() {
     if(window.location.href.includes("view=")){
-      if(history.state.Url.split('?')[1] != "login=success" || history.state.Url.split('?')[1] != "subscribe=success" || history.state.Url.split('?')[1] != "unsubscribe=success"){
-        var view = history.state.Url.split('?')[1].split('&')[0];
-        var content = history.state.Url.split('?')[1].split('&')[1];
-        var viewValue = view.substring("view=".length, view.length);
-        if(viewValue == "profile"){
-          if(history.state.Url.split('?')[1].split('&')[2] != undefined && history.state.Url.split('?')[1].split('&')[2] == "podmod=true"){
-            var profile = content.substring("uid=".length, content.length);
-            var settings = history.state.Url.split('?')[1].split('&')[3];
-            var podcast = settings.substring("settings=".length, settings.length);
-            getPodMod(profile, podcast);
-          } else {
-            var profile = content.substring("uid=".length, content.length);
-            getProfileContent(profile);
+        if(window.location.href.split('?')[1] != "login=success" || window.location.href.split('?')[1] != "subscribe=success" || window.location.href.split('?')[1] != "unsubscribe=success"){
+          var view = window.location.href.split('?')[1].split('&')[0];
+          var content = window.location.href.split('?')[1].split('&')[1];
+          var viewValue = view.substring("view=".length, view.length);
+          if(viewValue == "profile"){
+            if(window.location.href.split('?')[1].split('&')[2] != undefined && window.location.href.split('?')[1].split('&')[2] == "podmod=true"){
+              document.getElementById("error-container").style.display = "none";
+              var profile = content.substring("uid=".length, content.length);
+              var settings = window.location.href.split('?')[1].split('&')[3];
+              var podcast = settings.substring("settings=".length, settings.length);
+              getPodMod(profile, podcast);
+            } else {
+              var profile = content.substring("uid=".length, content.length);
+              getProfileContent(profile);
+            }
+          } else if(viewValue == "search"){
+            var search = content.substring("search=".length, content.length);
+            getSearchContent(search);
+          } else if(viewValue == "help"){
+            getHelpContent();
           }
-        } else if(viewValue == "search"){
-          var search = content.substring("search=".length, content.length);
-          getSearchContent(search);
-        } else if(viewValue == "help"){
-          getHelpContent();
+        } else {
+          getHomeContent();
         }
-      } else {
-        getHomeContent();
-      }
     } else {
       if(window.location.href.includes("home.php")){
         getHomeContent();
@@ -255,14 +255,15 @@ $("#history-forw-btn").click(function() {
   history.forward();
   setTimeout(function() {
     if(window.location.href.includes("view=")){
-        if(history.state.Url.split('?')[1] != "login=success" || history.state.Url.split('?')[1] != "subscribe=success" || history.state.Url.split('?')[1] != "unsubscribe=success"){
-          var view = history.state.Url.split('?')[1].split('&')[0];
-          var content = history.state.Url.split('?')[1].split('&')[1];
+        if(window.location.href.split('?')[1] != "login=success" || window.location.href.split('?')[1] != "subscribe=success" || window.location.href.split('?')[1] != "unsubscribe=success"){
+          var view = window.location.href.split('?')[1].split('&')[0];
+          var content = window.location.href.split('?')[1].split('&')[1];
           var viewValue = view.substring("view=".length, view.length);
           if(viewValue == "profile"){
-            if(history.state.Url.split('?')[1].split('&')[2] != undefined && history.state.Url.split('?')[1].split('&')[2] == "podmod=true"){
+            if(window.location.href.split('?')[1].split('&')[2] != undefined && window.location.href.split('?')[1].split('&')[2] == "podmod=true"){
+              document.getElementById("error-container").style.display = "none";
               var profile = content.substring("uid=".length, content.length);
-              var settings = history.state.Url.split('?')[1].split('&')[3];
+              var settings = window.location.href.split('?')[1].split('&')[3];
               var podcast = settings.substring("settings=".length, settings.length);
               getPodMod(profile, podcast);
             } else {

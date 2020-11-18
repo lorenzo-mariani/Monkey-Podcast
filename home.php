@@ -142,6 +142,38 @@
 
     <div id="help-content" style="display: none;">
     </div>
+    <div id="error-container"
+        <?php
+            if(isset($_GET['error'])){
+                echo "style=\"display: grid\"";
+            } else if(isset($_GET['warning'])){
+                echo "style=\"display: grid\"";
+            } else {
+                echo "style=\"display: none\"";
+            }
+        ?>
+    >
+        <div id="error-msg">
+        <?php
+            if(isset($_GET['error'])){
+                if($_GET['error'] == "exists"){
+                    echo "<h4 id=\"error-label\">ERROR: this title already exists.</h4>";
+                } else if($_GET['error'] == "sqlerror"){
+                    echo "<h4 id=\"error-label\">ERROR: there was an error.</h4>";
+                } else if($_GET['error'] == "notfound"){
+                    echo "<h4 id=\"error-label\">ERROR: this podcast was not found.</h4>";
+                } else if($_GET['error'] == "invalidtitle"){
+                    echo "<h4 id=\"error-label\">ERROR: the title is not valid.</h4>";
+                }
+            } else if(isset($_GET['warning'])){
+                if($_GET['warning'] == "emptyfields"){
+                    echo "<h4 id=\"error-label\">WARNING: all fields were left empty.</h4>";
+                }
+            }
+        ?>
+        <button id="ok-button" type="button" onclick="document.getElementById('error-container').style.display = 'none'">OK</button>
+        </div>
+    </div>
 </div>
     <?php require "./player.php"; ?>
 </body>
