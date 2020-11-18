@@ -51,8 +51,8 @@
             <h4 id="warning">Warning: max upload size 100MB.</h4>
             <input type="text" name="podcast-old-title"<?php echo "value=\"".$_GET['title']."\""?> style="display: none;">
             <?php
-                if(isset($_GET['player-channel']) && !empty($_GET['player-channel'])){
-                    echo "<input type=\"text\" name=\"player-channel\" value=\"".$_GET['player-channel']."\" style=\"display: none;\">";
+                if(isset($_GET['player-title']) && !empty($_GET['player-title'])){
+                    echo "<input type=\"text\" name=\"player-title\" value=\"".$_GET['player-title']."\" style=\"display: none;\">";
                 }
             ?>
             <input id="podcast-title-settings" type="text" name="podcast-title-mod" placeholder="Choose the title">

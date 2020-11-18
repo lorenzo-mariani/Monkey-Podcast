@@ -40,8 +40,8 @@ $genre = strtolower($_POST["genre-value-mod"]);
 $new_title = str_replace(' ', '_', strtolower($_POST["podcast-title-mod"]));
 $playlist = str_replace(' ', '_', strtolower($_POST["podcast-playlist-mod"]));
 $old_title = $_POST["podcast-old-title"];
-if(isset($_POST["player-channel"])){
-    $player_channel = $_POST["player-channel"];
+if(isset($_POST["player-title"])){
+    $player_title = $_POST["player-title"];
 }
 
 $old_dir = "./content/users/".$_SESSION['userUid']."/"."podcasts/".$old_title."/";
@@ -84,8 +84,8 @@ if(empty($new_title) && empty($playlist) && $genre == "select genre" && $_FILES[
                                 mysqli_stmt_bind_param($stmt_playlist, "sss", $playlist, $old_title, $_SESSION['userUid']);
                                 mysqli_stmt_execute($stmt_playlist);
                                 mysqli_stmt_close($stmt_playlist);
-                                if(isset($player_channel)){
-                                    if($player_channel == $_SESSION['userUid']){
+                                if(isset($player_title)){
+                                    if($player_title == $old_title){
                                         echo "<script type=\"text/javascript\">
                                         setCookieSubstring(\"memaudio\", \"playlist=\", \"".$playlist."\", 2)
                                         </script>";
@@ -124,8 +124,8 @@ if(empty($new_title) && empty($playlist) && $genre == "select genre" && $_FILES[
                                     mysqli_stmt_bind_param($stmt_img, "sss", $target_file_img, $old_title, $_SESSION['userUid']);
                                     mysqli_stmt_execute($stmt_img);
                                     mysqli_stmt_close($stmt_img);
-                                    if(isset($player_channel)){
-                                        if($player_channel == $_SESSION['userUid']){
+                                    if(isset($player_title)){
+                                        if($player_title == $old_title){
                                             echo "<script type=\"text/javascript\">
                                             setCookieSubstring(\"memaudio\", \"img=\", \"".$target_file_img."\", 2)
                                             </script>";
@@ -143,8 +143,8 @@ if(empty($new_title) && empty($playlist) && $genre == "select genre" && $_FILES[
                                     mysqli_stmt_bind_param($stmt_img, "sss", $newpath_img, $old_title, $_SESSION['userUid']);
                                     mysqli_stmt_execute($stmt_img);
                                     mysqli_stmt_close($stmt_img);
-                                    if(isset($player_channel)){
-                                        if($player_channel == $_SESSION['userUid']){
+                                    if(isset($player_title)){
+                                        if($player_title == $old_title){
                                             echo "<script type=\"text/javascript\">
                                             setCookieSubstring(\"memaudio\", \"img=\", \"".$newpath_img."\", 2)
                                             </script>";
@@ -161,8 +161,8 @@ if(empty($new_title) && empty($playlist) && $genre == "select genre" && $_FILES[
                                 mysqli_stmt_bind_param($stmt_audio, "sss", $new_audiopath, $old_title, $_SESSION['userUid']);
                                 mysqli_stmt_execute($stmt_audio);
                                 mysqli_stmt_close($stmt_audio);
-                                if(isset($player_channel)){
-                                    if($player_channel == $_SESSION['userUid']){
+                                if(isset($player_title)){
+                                    if($player_title == $old_title){
                                         echo "<script type=\"text/javascript\">
                                         setCookieSubstring(\"memaudio\", \"audio=\", \"".$new_audiopath."\" , 2)
                                         </script>";
@@ -177,8 +177,8 @@ if(empty($new_title) && empty($playlist) && $genre == "select genre" && $_FILES[
                                 mysqli_stmt_bind_param($stmt_title, "sss", $new_title, $old_title, $_SESSION['userUid']);
                                 mysqli_stmt_execute($stmt_title);
                                 mysqli_stmt_close($stmt_title);
-                                if(isset($player_channel)){
-                                    if($player_channel == $_SESSION['userUid']){
+                                if(isset($player_title)){
+                                    if($player_title == $old_title){
                                         echo "<script type=\"text/javascript\">
                                         setCookieSubstring(\"memaudio\", \"name=\", \"".$new_title."\" , 2)
                                         </script>";
@@ -199,8 +199,8 @@ if(empty($new_title) && empty($playlist) && $genre == "select genre" && $_FILES[
                                             mysqli_stmt_bind_param($stmt_img, "sss", $newimage_path, $old_title, $_SESSION['userUid']);
                                             mysqli_stmt_execute($stmt_img);
                                             mysqli_stmt_close($stmt_img);
-                                            if(isset($player_channel)){
-                                                if($player_channel == $_SESSION['userUid']){
+                                            if(isset($player_title)){
+                                                if($player_title == $old_title){
                                                     echo "<script type=\"text/javascript\">
                                                     setCookieSubstring(\"memaudio\", \"img=\", \"".$newimage_path."\" , 2);
                                                     </script>";

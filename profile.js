@@ -36,9 +36,9 @@ $(".podcast-settings-btn").click(function() {
   $("#profile-content").hide();
   var title = $(this).parent().parent().parent()[0].children[1].children[0].children[0].innerHTML.toLowerCase().replace(/ /g, "_");
   var profile = $("#username")[0].innerHTML.replace(/ /g, "").replace(/\n/g, "").toLowerCase();
-  var currentChannel = $("#podcast-channel")[0].innerHTML.toLowerCase().replace(/ /g, "_");
+  var currentTitle = $("#podcast-name")[0].innerHTML.toLowerCase().replace(/ /g, "_");
   $.ajax({
-    url : "./podcast_settings.php?title="+title+"&player-channel="+currentChannel,
+    url : "./podcast_settings.php?title="+title+"&player-title="+currentTitle,
     dataType: "html",
     success : function (data) {
         $("#podcastmod-content").html(data);
